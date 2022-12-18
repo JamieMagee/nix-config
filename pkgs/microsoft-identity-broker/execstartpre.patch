@@ -1,0 +1,30 @@
+diff --git a/lib/systemd/system/microsoft-identity-device-broker.service b/lib/systemd/system/microsoft-identity-device-broker.service
+index 02e725f..019474f 100644
+--- a/usr/lib/systemd/system/microsoft-identity-device-broker.service
++++ b/usr/lib/systemd/system/microsoft-identity-device-broker.service
+@@ -15,10 +15,6 @@ RuntimeDirectoryMode=700
+ StateDirectoryMode=700
+ LogsDirectoryMode=700
+ 
+-# Migrate user data from legacy directory. Can be removed once all users have upgraded.
+-ExecStartPre=!sh -c "if [ -d %S/msft-identity-device-broker/ ]; then mv %S/msft-identity-device-broker/* %S/microsoft-identity-device-broker/; rmdir %S/msft-identity-device-broker/; fi"
+-ExecStartPre=!sh -c "if [ -d %L/msft-identity-device-broker/ ]; then mv %L/msft-identity-device-broker/* %L/microsoft-identity-device-broker/; rmdir %L/msft-identity-device-broker/; fi"
+-
+ # Point to JDK 11 until the Linux Broker is upgraded to JDK 17.
+ Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"
+ 
+diff --git a/lib/systemd/user/microsoft-identity-broker.service b/lib/systemd/user/microsoft-identity-broker.service
+index 9ce2dea..1e312f7 100644
+--- a/usr/lib/systemd/user/microsoft-identity-broker.service
++++ b/usr/lib/systemd/user/microsoft-identity-broker.service
+@@ -13,10 +13,6 @@ RuntimeDirectoryMode=700
+ StateDirectoryMode=700
+ LogsDirectoryMode=700
+ 
+-# Migrate user data from legacy directory. Can be removed once all users have upgraded.
+-ExecStartPre=sh -c "if [ -d %S/msft-identity-broker/ ]; then mv %S/msft-identity-broker/* %S/microsoft-identity-broker/; rmdir %S/msft-identity-broker/; fi"
+-ExecStartPre=sh -c "if [ -d %L/msft-identity-broker/ ]; then mv %L/msft-identity-broker/* %L/microsoft-identity-broker/; rmdir %L/msft-identity-broker/; fi"
+-
+ # Point to JDK 11 until the Linux Broker is upgraded to JDK 17.
+ Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"
+ 

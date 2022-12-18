@@ -1,2 +1,3 @@
 {
+  intune = import ./intune.nix;
 }
