@@ -15,6 +15,7 @@
     ../common/users/jamie.nix
 
     ../common/optional/dev.nix
+    ../common/optional/docker.nix
     ../common/optional/gnome.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
