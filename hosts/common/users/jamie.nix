@@ -10,7 +10,6 @@
       "wheel"
       "networkmanager"
       "video"
-      "docker"
     ];
   };
 }
