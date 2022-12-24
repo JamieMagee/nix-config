@@ -12,10 +12,10 @@
     bottom
     exa
     fd
-    gh
     jq
     p7zip
     ripgrep
+    skopeo
     zoxide
   ];
 }
