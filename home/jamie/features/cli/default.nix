@@ -13,6 +13,7 @@
     exa
     fd
     jq
+    nixpkgs-review
     p7zip
     ripgrep
     skopeo
