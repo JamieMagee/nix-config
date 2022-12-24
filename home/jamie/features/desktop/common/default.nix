@@ -14,5 +14,6 @@
     bitwarden
     signal-desktop
     slack
+    zoom-us
   ];
 }
