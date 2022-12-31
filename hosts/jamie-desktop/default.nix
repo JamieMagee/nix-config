@@ -17,6 +17,7 @@
     ../common/optional/dev.nix
     ../common/optional/docker.nix
     ../common/optional/gnome.nix
+    ../common/optional/openrgb.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
     ../common/optional/systemd-boot.nix
