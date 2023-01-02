@@ -12,6 +12,7 @@
 
   home.packages = with pkgs; [
     bitwarden
+    libreoffice-fresh
     signal-desktop
     slack
     zoom-us
