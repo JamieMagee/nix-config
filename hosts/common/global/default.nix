@@ -5,7 +5,7 @@
 }: {
   imports =
     [
-      # ./binfmt.nix
+      ./binfmt.nix
       ./fish.nix
       ./fwupd.nix
       ./locale.nix
