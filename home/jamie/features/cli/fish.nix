@@ -18,6 +18,12 @@
       snrs = "sudo nixos-rebuild --flake . switch";
       hm = "home-manager --flake .";
       hms = "home-manager --flake . switch";
+
+      g = "git";
+      gco = "git checkout";
+      gcob = "git checkout -b";
+      gf = "git fetch";
+      gp = "git pull";
     };
 
     functions = {
