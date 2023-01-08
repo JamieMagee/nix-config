@@ -22,5 +22,5 @@
   hardware.enableRedistributableFirmware = true;
   networking.networkmanager.enable = true;
 
-  security.sudo.enable = true;
+  environment.enableAllTerminfo = true;
 }
