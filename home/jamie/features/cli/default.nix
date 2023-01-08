@@ -34,6 +34,9 @@
     jq = {
       enable = true;
     };
+    zellij = {
+      enable = true;
+    };
     zoxide = {
       enable = true;
     };
