@@ -9,15 +9,33 @@
   home.packages = with pkgs; [
     alejandra
     bitwarden-cli
-    bottom
     deploy-rs
-    exa
     fd
-    jq
     nixpkgs-review
     p7zip
     ripgrep
     skopeo
-    zoxide
   ];
+
+  programs = {
+    bat = {
+      enable = true;
+    };
+    bottom = {
+      enable = true;
+    };
+    exa = {
+      enable = true;
+      enableAliases = true;
+    };
+    fzf = {
+      enable = true;
+    };
+    jq = {
+      enable = true;
+    };
+    zoxide = {
+      enable = true;
+    };
+  };
 }

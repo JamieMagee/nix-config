@@ -2,6 +2,7 @@
   programs.fish = {
     enable = true;
     shellAbbrs = {
+      cat = "bat";
       ls = "exa";
 
       n = "nix";
