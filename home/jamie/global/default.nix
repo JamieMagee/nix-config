@@ -16,7 +16,10 @@ in {
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
   };
 
   colorscheme = lib.mkDefault colorSchemes.nord;
