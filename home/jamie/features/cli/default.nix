@@ -10,6 +10,7 @@
     alejandra
     bitwarden-cli
     bottom
+    deploy-rs
     exa
     fd
     jq

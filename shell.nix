@@ -18,6 +18,8 @@ pkgs.mkShell {
     nix
     home-manager
     git
+
+    deploy-rs
     sops
     gnupg
     age

@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,64 +28,44 @@
     self,
     nixpkgs,
     home-manager,
+    deploy-rs,
     alejandra,
     ...
   } @ inputs: let
-    inherit (nixpkgs.lib) filterAttrs traceVal;
-    inherit (builtins) mapAttrs elem;
+    inherit (builtins) mapAttrs;
     inherit (self) outputs;
-    notBroken = x: !(x.meta.broken or false);
     supportedSystems = ["x86_64-linux" "aarch64-linux"];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
   in rec {
-    templates = import ./templates;
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
     overlays = import ./overlays;
 
-    legacyPackages = forAllSystems (
-      system:
-        import nixpkgs {
-          inherit system;
-          overlays = with overlays; [additions];
-          config.allowUnfree = true;
-        }
-    );
-
     packages = forAllSystems (
       system:
-        import ./pkgs {pkgs = legacyPackages.${system};}
+        import ./pkgs {pkgs = nixpkgs.legacyPackages.${system};}
     );
     devShells = forAllSystems (system: {
-      default = import ./shell.nix {pkgs = legacyPackages.${system};};
+      default = nixpkgs.legacyPackages.${system}.callPackage ./shell.nix {};
     });
-
-    hydraJobs = rec {
-      packages = mapAttrs (sys: filterAttrs (_: pkg: (elem sys pkg.meta.platforms && notBroken pkg))) packages;
-      nixos = mapAttrs (_: cfg: cfg.config.system.build.toplevel) nixosConfigurations;
-      home = mapAttrs (_: cfg: cfg.activationPackage) homeConfigurations;
-    };
 
     formatter = builtins.mapAttrs (system: pkgs: pkgs.default) alejandra.packages;
 
     nixosConfigurations = {
       # Desktop
       jamie-desktop = nixpkgs.lib.nixosSystem {
-        pkgs = legacyPackages."x86_64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/jamie-desktop];
       };
 
       # Raspberry Pi 4
       rpi = nixpkgs.lib.nixosSystem {
-        pkgs = legacyPackages."aarch64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/rpi];
       };
 
       # Hyper-V
       jamie-hyperv = nixpkgs.lib.nixosSystem {
-        pkgs = legacyPackages."x86_64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/jamie-hyperv];
       };
@@ -89,24 +74,49 @@
     homeConfigurations = {
       # Desktop
       "jamie@jamie-desktop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = legacyPackages."x86_64-linux";
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/jamie/jamie-desktop.nix];
       };
 
       # Raspberry Pi 4
       "jamie@rpi" = home-manager.lib.homeManagerConfiguration {
-        pkgs = legacyPackages."aarch64-linux";
+        pkgs = nixpkgs.legacyPackages."aarch64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/jamie/rpi.nix];
       };
 
       # Hyper-V
       "jamie@jamie-hyperv" = home-manager.lib.homeManagerConfiguration {
-        pkgs = legacyPackages."x86_64-linux";
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/jamie/jamie-hyperv.nix];
       };
     };
+
+    deploy = {
+      fastConnection = true;
+      magicRollback = false;
+      sshOpts = ["-t"];
+      nodes = {
+        rpi = {
+          hostname = "rpi.tailnet-0b15.ts.net";
+          sshOpts = ["-p" "2222"];
+
+          profiles = {
+            system = {
+              user = "root";
+              path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.rpi;
+            };
+            home = {
+              user = "jamie";
+              path = deploy-rs.lib.aarch64-linux.activate.home-manager self.homeConfigurations."jamie@rpi";
+            };
+          };
+        };
+      };
+    };
+
+    deployChecks = {};
   };
 }
