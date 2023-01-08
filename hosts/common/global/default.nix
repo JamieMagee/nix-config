@@ -5,7 +5,6 @@
 }: {
   imports =
     [
-      # ./binfmt.nix
       ./fish.nix
       ./fwupd.nix
       ./locale.nix
@@ -22,4 +21,6 @@
 
   hardware.enableRedistributableFirmware = true;
   networking.networkmanager.enable = true;
+
+  security.sudo.enable = true;
 }
