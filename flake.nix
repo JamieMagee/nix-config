@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hardware.url = "github:nixos/nixos-hardware";
+    sops-nix.url = "github:mic92/sops-nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -91,6 +92,13 @@
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/jamie/jamie-hyperv.nix];
+      };
+
+      # Portable minimum configuration
+      "jamie@generic" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/jamie/generic.nix];
       };
     };
 
