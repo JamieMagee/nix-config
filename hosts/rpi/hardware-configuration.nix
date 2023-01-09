@@ -3,7 +3,9 @@
     initrd = {
       availableKernelModules = ["xhci_pci"];
     };
-    loader.timeout = 5;
+    loader = {
+      timeout = 5;
+    };
   };
 
   fileSystems."/" = {
@@ -17,4 +19,6 @@
   };
 
   nixpkgs.hostPlatform.system = "aarch64-linux";
+
+  hardware.raspberry-pi."4".poe-hat.enable = true;
 }
