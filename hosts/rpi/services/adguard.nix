@@ -14,7 +14,14 @@
 
   services.caddy.virtualHosts."rpi.tailnet-0b15.ts.net" = {
     extraConfig = ''
-      reverse_proxy http://localhost:3000
+      handle_path /dns* {
+        reverse_proxy http://[::1]:3000
+      }
+
+      @dns {
+        header Referer https://rpi.tailnet-0b15.ts.net/dns
+      }
+      reverse_proxy @dns http://[::1]:3000
     '';
   };
 }
