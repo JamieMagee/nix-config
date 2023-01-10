@@ -12,6 +12,7 @@
       ./openssh.nix
       ./tailscale.nix
       # ./work.nix
+      ./yubikey.nix
     ]
     ++ (builtins.attrValues outputs.nixosModules);
 
