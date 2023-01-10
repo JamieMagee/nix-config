@@ -1,0 +1,43 @@
+name: Build configuration
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: 'jamie-desktop'
+            path: 'nixosConfigurations."jamie-desktop".config.system.build.toplevel'
+          - name: 'rpi'
+            path: 'nixosConfigurations."rpi".config.system.build.toplevel'
+          - name: 'jamie-hyperv'
+            path: 'nixosConfigurations."jamie-hyperv".config.system.build.toplevel'
+          - name: 'jamie@jamie-desktop'
+            path: 'homeConfigurations."jamie@jamie-desktop".activationPackage'
+          - name: 'jamie@rpi'
+            path: 'homeConfigurations."jamie@rpi".activationPackage'
+          - name: 'jamie@jamie-hyperv'
+            path: 'homeConfigurations."jamie@jamie-hyperv".activationPackage'
+          - name: 'jamie@generic'
+            path: 'homeConfigurations."jamie@generic".activationPackage'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v18
+        with:
+          extra_nix_config: |
+            extra-platforms = aarch64-linux i686-linux
+
+      - name: Build ${{ matrix.name }}
+        run: nix -Lv build ".#"${{ matrix.path }}

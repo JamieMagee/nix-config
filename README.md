@@ -1,0 +1,2 @@
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/JamieMagee/nix-config/build.yml?branch=main&style=for-the-badge)](https://github.com/JamieMagee/nix-config/actions/workflows/build.yml?query=branch%3Amain)
+[![Built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a&style=for-the-badge)](https://builtwithnix.org/)
