@@ -4,4 +4,8 @@
     # https://upgrade.yubico.com/getapikey/
     id = "83324";
   };
+
+  services.pcscd = {
+    enable = true;
+  };
 }
