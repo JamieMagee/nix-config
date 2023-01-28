@@ -3,8 +3,10 @@
     openssh = {
       enable = true;
       ports = [2222];
-      permitRootLogin = "no";
-      passwordAuthentication = false;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
     };
   };
   programs.ssh.startAgent = true;
