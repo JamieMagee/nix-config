@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     bitwarden
     libreoffice-fresh
+    masterpdfeditor4
     signal-desktop
     slack
     zoom-us
