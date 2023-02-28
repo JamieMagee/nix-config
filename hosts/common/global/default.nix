@@ -23,6 +23,8 @@
 
   hardware.enableRedistributableFirmware = true;
   networking.networkmanager.enable = true;
+  # https://github.com/NixOS/nixpkgs/issues/180175
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   environment.enableAllTerminfo = true;
 }
