@@ -10,5 +10,5 @@
         ])
       nodejs-19_x
     ]
-    ++ (with nodePackages; [yarn]);
+    ++ (with nodePackages_latest; [npm pnpm yarn]);
 }
