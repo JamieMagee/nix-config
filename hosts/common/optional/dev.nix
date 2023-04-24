@@ -7,7 +7,7 @@
           sdk_7_0
           sdk_8_0
         ])
-      nodejs-19_x
+      nodejs_20
     ]
     ++ (with nodePackages_latest; [npm pnpm yarn]);
 }
