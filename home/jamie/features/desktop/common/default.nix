@@ -16,6 +16,7 @@
     masterpdfeditor4
     signal-desktop
     slack
+    vlc
     zoom-us
   ];
 }
