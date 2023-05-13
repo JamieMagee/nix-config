@@ -23,6 +23,7 @@
     ../common/optional/systemd-boot.nix
     ../common/optional/quietboot.nix
     ../common/optional/virtualisation.nix
+    ../common/optional/vpn.nix
   ];
 
   networking = {
