@@ -2,7 +2,7 @@
   fontProfiles = {
     enable = true;
     monospace = {
-      family = "FiraCode Nerd Font";
+      family = "Cascadia Code";
       package = pkgs.nerdfonts.override {fonts = ["CascadiaCode"];};
     };
     regular = {
