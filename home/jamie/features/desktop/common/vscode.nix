@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
+    package = pkgs.vscode-fhs;
     extensions = with pkgs.vscode-extensions; [
       arcticicestudio.nord-visual-studio-code
       pkief.material-icon-theme
