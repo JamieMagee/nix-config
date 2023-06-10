@@ -30,6 +30,11 @@
       "files.autoSave" = "afterDelay";
 
       "breadcrumbs.enabled" = true;
+
+      "github.copilot.enable" = {
+        "*" = true;
+        "markdown" = true;
+      };
     };
   };
 }
