@@ -24,6 +24,7 @@ in {
     settings = {
       hide_window_decorations = true;
       window_padding_width = 15;
+      scrollback_lines = 100000;
       foreground = "#${colors.base05}";
       background = "#${colors.base00}";
       selection_background = "#${colors.base05}";
