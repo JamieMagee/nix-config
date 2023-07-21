@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +35,7 @@
     nixpkgs,
     home-manager,
     deploy-rs,
+    disko,
     alejandra,
     ...
   } @ inputs: let
@@ -62,7 +68,7 @@
       # Raspberry Pi 4
       rpi = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/rpi];
+        modules = [./hosts/rpi disko.nixosModules.disko];
       };
 
       # Hyper-V
