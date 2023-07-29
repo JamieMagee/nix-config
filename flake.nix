@@ -76,6 +76,11 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/jamie-hyperv];
       };
+
+      alfred = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/alfred];
+      };
     };
 
     homeConfigurations = {
@@ -98,6 +103,12 @@
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/jamie/jamie-hyperv.nix];
+      };
+
+      "jamie@alfred" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/jamie/alfred.nix];
       };
 
       # Portable minimum configuration
