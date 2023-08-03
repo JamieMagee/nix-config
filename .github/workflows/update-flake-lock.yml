@@ -31,6 +31,7 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@dec3bc3c9b11c3b9d547f47dfb579b91a6051603 # v19
 
       - name: Enable automerge
+        if: ${{ steps.update.outputs.pull-request-number != '' }}
         run: gh pr merge --merge --auto ${{ steps.update.outputs.pull-request-number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
