@@ -34,10 +34,13 @@ jobs:
         uses: docker/setup-qemu-action@2b82ce82d56a2a04d2637cd93a637ae1b359c0a7 # v2
 
       - name: Install nix
-        uses: cachix/install-nix-action@daddc62a2e67d1decb56e028c9fa68344b9b7c2a # v18
+        uses: DeterminateSystems/nix-installer-action@65d7c888b2778e8cf30a07a88422ccb23499bfb8 # v4
         with:
-          extra_nix_config: |
+          extra-conf: |
             extra-platforms = aarch64-linux i686-linux
+
+      - name: Use cache
+        uses: DeterminateSystems/magic-nix-cache-action@8a218f9e264e9c3803c9a1ee1c30d8e4ab55be63 # v2
 
       - name: Build ${{ matrix.name }}
         run: nix -Lv build ".#"${{ matrix.path }}
