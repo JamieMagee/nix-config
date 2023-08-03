@@ -43,4 +43,4 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@8a218f9e264e9c3803c9a1ee1c30d8e4ab55be63 # v2
 
       - name: Build ${{ matrix.name }}
-        run: nix -Lv build ".#"${{ matrix.path }}
+        run: nix build ".#"${{ matrix.path }}
