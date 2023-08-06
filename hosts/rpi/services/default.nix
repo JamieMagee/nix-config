@@ -2,6 +2,6 @@
   imports = [
     ./adguard.nix
     ./caddy.nix
-    ./home-assistant.nix
+    ./vscode-server.nix
   ];
 }

@@ -28,6 +28,7 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs = {
@@ -37,6 +38,7 @@
     deploy-rs,
     disko,
     alejandra,
+    vscode-server,
     ...
   } @ inputs: let
     inherit (builtins) mapAttrs;
