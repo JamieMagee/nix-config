@@ -1,6 +1,10 @@
 {
   description = "My NixOS configuration";
 
+  nixConfig = {
+    extra-experimental-features = "nix-command flakes";
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hardware.url = "github:nixos/nixos-hardware";
