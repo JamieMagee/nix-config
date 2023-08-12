@@ -1,21 +1,21 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
+
   boot = {
     initrd = {
-      availableKernelModules = ["xhci_pci"];
+      availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
     };
     loader = {
-      timeout = 5;
+      generic-extlinux-compatible.enable = true;
+      grub.enable = false;
     };
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
-    fsType = "ext4";
-  };
-
-  fileSystems."/mnt" = {
-    device = "/dev/disk/by-uuid/2178-694E";
-    fsType = "vfat";
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/NIXOS_SD";
+      fsType = "ext4";
+      options = [ "noatime" ];
+    };
   };
 
   nixpkgs.hostPlatform.system = "aarch64-linux";

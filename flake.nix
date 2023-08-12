@@ -74,7 +74,7 @@
       # Raspberry Pi 4
       rpi = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/rpi disko.nixosModules.disko];
+        modules = [./hosts/rpi];
       };
 
       # Hyper-V
