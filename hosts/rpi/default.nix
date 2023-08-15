@@ -11,6 +11,8 @@
     ../common/global
     ../common/users/jamie.nix
 
+    ../common/optional/earlyoom.nix
+
     ./services
   ];
 
