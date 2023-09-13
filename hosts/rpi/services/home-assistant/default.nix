@@ -1,14 +1,15 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   imports = [
     ./cloud.nix
     ./esphome.nix
-    ./influxdb.nix
+    # ./influxdb.nix
     ./mqtt.nix
     ./sonos.nix
   ];
 
   services.home-assistant = {
     enable = true;
+    openFirewall = true;
     extraComponents = [
       "abode"
       "esphome"
@@ -25,6 +26,12 @@
       "aladdin_connect"
       "otp"
       "notify"
+      "zha"
+      "unifiprotect"
+      "adguard"
+      "sonarr"
+      "radarr"
+      "sabnzbd"
     ];
     config = {
       default_config = {};
@@ -45,6 +52,10 @@
           }
         ];
       };
+      "automation manual" = [];
+      "automation ui" = "!include automations.yaml";
+      "scene manual" = [];
+      "scene ui" = "!include scenes.yaml";
     };
   };
 
@@ -53,4 +64,9 @@
       reverse_proxy http://[::1]:8123
     '';
   };
+
+  systemd.tmpfiles.rules = [
+    "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
+    "f ${config.services.home-assistant.configDir}/scenes.yaml 0755 hass hass"
+  ];
 }
