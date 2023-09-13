@@ -2,6 +2,7 @@
   home.packages = with pkgs;
   with jetbrains; [
     # IDE
+    gateway
     idea-ultimate
     rider
     webstorm
