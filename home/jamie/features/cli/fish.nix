@@ -3,7 +3,7 @@
     enable = true;
     shellAbbrs = {
       cat = "bat";
-      ls = "exa";
+      ls = "eza";
 
       n = "nix";
       nd = "nix develop -c $SHELL";
