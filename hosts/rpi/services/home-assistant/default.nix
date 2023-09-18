@@ -32,6 +32,7 @@
       "sonarr"
       "radarr"
       "sabnzbd"
+      "august"
     ];
     config = {
       default_config = {};
