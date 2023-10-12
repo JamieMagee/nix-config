@@ -1,6 +1,7 @@
 {
   lib,
   outputs,
+  pkgs,
   ...
 }: {
   imports =
@@ -26,5 +27,6 @@
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  environment.enableAllTerminfo = true;
+  # https://github.com/NixOS/nixpkgs/issues/258515
+  environment.enableAllTerminfo = !pkgs.stdenv.targetPlatform.isAarch64;
 }
