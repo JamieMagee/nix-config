@@ -1,7 +1,6 @@
 {inputs, modulesPath, pkgs, ...}: {
 
   imports = [
-    "${modulesPath}/profiles/qemu-guest.nix"
     inputs.disko.nixosModules.disko
     ./disko.nix
   ];
@@ -13,7 +12,7 @@
       };
     };
     initrd = {
-      availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+      availableKernelModules = [ "vmd" "ahci" "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
       kernelModules = ["kvm-intel"];
     };
     kernelPackages = pkgs.linuxPackages_latest;
