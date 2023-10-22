@@ -12,6 +12,7 @@
     ../common/users/jamie.nix
 
     ../common/optional/earlyoom.nix
+    ../common/optional/vscode-server.nix
 
     ./services
   ];

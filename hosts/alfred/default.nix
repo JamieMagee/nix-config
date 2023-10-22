@@ -14,6 +14,7 @@
     ../common/users/jamie.nix
 
     ../common/optional/systemd-boot.nix
+    ../common/optional/vscode-server.nix
   ];
 
   networking = {
