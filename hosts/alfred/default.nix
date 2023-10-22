@@ -14,11 +14,11 @@
     ../common/users/jamie.nix
 
     ../common/optional/systemd-boot.nix
-    ../common/optional/quietboot.nix
   ];
 
   networking = {
     hostName = "alfred";
+    hostId = "a1b2c3d4";
   };
 
   system.stateVersion = "23.05";
