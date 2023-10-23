@@ -12,6 +12,7 @@
     bitwarden-cli
     deploy-rs
     fd
+    neofetch
     nixpkgs-review
     p7zip
     ripgrep
