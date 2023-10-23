@@ -1,7 +1,6 @@
 { config, ... }: {
   services.caddy = {
     enable = true;
-    email = "jamie.magee@gmail.com";
   };
 
   networking.firewall.allowedTCPPorts = [
