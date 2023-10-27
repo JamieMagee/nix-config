@@ -15,6 +15,7 @@
 
     ../common/optional/systemd-boot.nix
     ../common/optional/vscode-server.nix
+    # ../common/optional/vpn.nix
     ../common/optional/zfs.nix
 
     ./services

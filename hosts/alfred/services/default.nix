@@ -4,9 +4,10 @@
     ./hd-idle.nix
     ./plex.nix
     ./prowlarr.nix
+    ./radarr.nix
     ./sabnzbd.nix
     ./sonarr.nix
-    ./radarr.nix
+    ./transmission.nix
   ];
 
   users.groups.services.members = with config.services; [
