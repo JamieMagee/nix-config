@@ -11,10 +11,11 @@
   ];
 
   users.groups.services.members = with config.services; [
+    plex.user
+    radarr.user
     sabnzbd.user
     sonarr.user
-    radarr.user
-    plex.user
+    transmission.user
   ];
 
   systemd.tmpfiles.rules = [

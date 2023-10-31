@@ -3,6 +3,9 @@
     enable = true;
     settings = {
       rpc-host-whitelist = "alfred.tailnet-0b15.ts.net";
+      rpc-bind-address = "::";
+      incomplete-dir = "/mnt/downloads/incomplete";
+      download-dir = "/mnt/downloads/complete";
     };
   };
 
