@@ -1,4 +1,4 @@
-{inputs, modulesPath, pkgs, ...}: {
+{inputs, modulesPath, pkgs, config,...}: {
 
   imports = [
     inputs.disko.nixosModules.disko
@@ -15,8 +15,10 @@
       availableKernelModules = [ "vmd" "ahci" "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
       kernelModules = ["kvm-intel"];
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   };
+
+  powerManagement.cpuFreqGovernor = "powersave";
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = true;
