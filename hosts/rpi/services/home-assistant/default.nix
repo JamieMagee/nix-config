@@ -3,7 +3,7 @@
     ./cloud.nix
     ./esphome.nix
     # ./influxdb.nix
-    ./mqtt.nix
+    # ./mqtt.nix
     ./sonos.nix
   ];
 
@@ -32,6 +32,9 @@
       "radarr"
       "sabnzbd"
       "august"
+      "homekit_controller"
+      "google_translate"
+      "zeroconf"
     ];
     config = {
       default_config = {};
@@ -63,6 +66,15 @@
     extraConfig = ''
       reverse_proxy http://[::1]:8123
     '';
+  };
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      20163
+    ];
+    allowedUDPPorts = [
+      5353
+    ];
   };
 
   systemd.tmpfiles.rules = [
