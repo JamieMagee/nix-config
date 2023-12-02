@@ -35,6 +35,7 @@
       "homekit_controller"
       "google_translate"
       "zeroconf"
+      "roborock"
     ];
     config = {
       default_config = {};
