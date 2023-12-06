@@ -7,11 +7,7 @@
 
   services.esphome = {
     enable = true;
-  };
-
-  services.caddy.virtualHosts."rpi.tailnet-0b15.ts.net" = {
-    extraConfig = ''
-      reverse_proxy /esphome* http://[::1]:6052
-    '';
+    openFirewall = true;
+    address = "0.0.0.0";
   };
 }
