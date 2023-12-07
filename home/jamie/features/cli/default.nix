@@ -2,6 +2,7 @@
   imports = [
     ./fish.nix
     ./git.nix
+    ./micro.nix
     ./ssh.nix
     ./starship.nix
     ./yubikey.nix
