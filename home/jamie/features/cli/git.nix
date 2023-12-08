@@ -46,6 +46,9 @@
       gpg = {
         format = "ssh";
       };
+      help = {
+      	autocorrect = 1;
+      };
       init = {
         defaultBranch = "main";
       };
