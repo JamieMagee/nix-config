@@ -1,4 +1,8 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./cloud.nix
     ./esphome.nix
@@ -36,6 +40,9 @@
       "google_translate"
       "zeroconf"
       "roborock"
+    ];
+    customComponents = with pkgs.home-assistant-custom-components; [
+      miele
     ];
     config = {
       default_config = {};
