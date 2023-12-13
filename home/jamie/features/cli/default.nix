@@ -15,9 +15,11 @@
     fd
     neofetch
     nixpkgs-review
+    nixpkgs-hammering
     p7zip
     ripgrep
     skopeo
+    statix
   ];
 
   programs = {
