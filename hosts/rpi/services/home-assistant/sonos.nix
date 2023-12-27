@@ -16,5 +16,6 @@
 
   networking.firewall.allowedTCPPorts = [
     1400
+    8123
   ];
 }

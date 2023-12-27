@@ -4,46 +4,51 @@
   ...
 }: {
   imports = [
+    ./abode.nix
+    ./backup.nix
+    ./blinds.nix
     ./cloud.nix
     ./esphome.nix
-    # ./influxdb.nix
-    # ./mqtt.nix
+    ./hvac.nix
+    ./lights.nix
+    ./miele.nix
+    ./mqtt.nix
+    ./notify.nix
+    ./people.nix
     ./sonos.nix
+    ./unifi.nix
+    ./waste-collection.nix
   ];
 
   services.home-assistant = {
     enable = true;
     extraComponents = [
-      "abode"
-      "esphome"
-      "econet"
-      "met"
-      "radio_browser"
-      "roomba"
-      "yalexs_ble"
-      "elgato"
-      "plex"
-      "unifi"
-      "nanoleaf"
-      "spotify"
-      "aladdin_connect"
-      "otp"
-      "notify"
-      "zha"
-      "unifiprotect"
       "adguard"
-      "sonarr"
-      "radarr"
-      "sabnzbd"
+      "aladdin_connect"
+      "androidtv_remote"
       "august"
-      "homekit_controller"
+      "cast"
+      "econet"
       "google_translate"
-      "zeroconf"
+      "homekit_controller"
+      "met"
+      "mqtt"
+      "notify"
+      "opower"
+      "otp"
+      "plex"
+      "radarr"
+      "radio_browser"
       "roborock"
+      "roomba"
+      "sabnzbd"
+      "sonarr"
+      "spotify"
+      "yalexs_ble"
+      "zeroconf"
     ];
     customComponents = with pkgs.home-assistant-custom-components; [
       adaptive_lighting
-      miele
       waste_collection_schedule
     ];
     config = {
@@ -90,6 +95,7 @@
   systemd.tmpfiles.rules = [
     "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
     "f ${config.services.home-assistant.configDir}/scenes.yaml 0755 hass hass"
+    "f ${config.services.home-assistant.configDir}/secrets.yaml 0755 hass hass"
   ];
 
   # Temporary workaround
