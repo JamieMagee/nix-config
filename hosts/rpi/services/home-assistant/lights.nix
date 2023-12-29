@@ -17,8 +17,8 @@
             "light.homelab_zone_garage_light_4"
             "light.homelab_zone_garage_light_5"
             "light.homelab_zone_garage_light_6"
-            "light.elgato_dw33j1a09337"
-            "light.kat_ring_light"
+            "light.jamie_ring_light"
+            "light.shapes_acf4"
           ];
         }
         {
@@ -37,8 +37,8 @@
           platform = "group";
           name = "Garage desk lights";
           entities = [
-            "light.elgato_dw33j1a09337"
-            "light.kat_ring_light"
+            "light.shapes_acf4"
+            "light.jamie_ring_light"
           ];
         }
       ];
@@ -51,7 +51,7 @@
             input = {
               motion_entity = "binary_sensor.homelab_zone_garage_motion_occupancy";
               light_target = {
-                area_id = "garage";
+                entity_id = "light.garage_lights";
               };
               no_motion_wait = 1800;
             };
