@@ -104,7 +104,7 @@
             current_position = 100;
             state = "open";
           };
-          "cover.homelab_zone_bathroom_small" = {
+          "cover.homelab_zone_bathroom_small_shade" = {
             current_position = 100;
             state = "open";
           };
