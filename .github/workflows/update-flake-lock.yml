@@ -28,7 +28,7 @@ jobs:
 
       - name: Update flake.lock
         id: update
-        uses: DeterminateSystems/update-flake-lock@dec3bc3c9b11c3b9d547f47dfb579b91a6051603 # v19
+        uses: DeterminateSystems/update-flake-lock@da2fd6f2563fe3e4f2af8be73b864088564e263d # v20
 
       - name: Enable automerge
         if: ${{ steps.update.outputs.pull-request-number != '' }}
