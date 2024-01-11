@@ -41,7 +41,7 @@
           {
             platform = "zone";
             entity_id = "person.kat";
-            zone = "zome.home";
+            zone = "zone.home";
             event = "leave";
           }
           {
