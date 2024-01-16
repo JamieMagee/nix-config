@@ -11,14 +11,8 @@
           platform = "group";
           name = "Garage lights";
           entities = [
-            "light.homelab_zone_garage_light_1"
-            "light.homelab_zone_garage_light_2"
-            "light.homelab_zone_garage_light_3"
-            "light.homelab_zone_garage_light_4"
-            "light.homelab_zone_garage_light_5"
-            "light.homelab_zone_garage_light_6"
-            "light.jamie_ring_light"
-            "light.shapes_acf4"
+            "light.garage_ceiling_lights"
+            "light.garage_desk_lights"
           ];
         }
         {
@@ -39,6 +33,36 @@
           entities = [
             "light.shapes_acf4"
             "light.jamie_ring_light"
+          ];
+        }
+        {
+          platform = "group";
+          name = "Kitchen lights";
+          entities = [
+            "light.homelab_zone_kitchen_light_stairs"
+            "light.homelab_zone_kitchen_light_1"
+            "light.homelab_zone_kitchen_light_2"
+            "light.homelab_zone_kitchen_light_3"
+            "light.homelab_zone_kitchen_light_4"
+          ];
+        }
+        {
+          platform = "group";
+          name = "Living room lights";
+          entities = [
+            "light.homelab_zone_living_room_light_stairs"
+            "light.homelab_zone_living_room_light_1"
+            "light.homelab_zone_living_room_light_2"
+            "light.homelab_zone_living_room_light_3"
+            "light.homelab_zone_living_room_light_4"
+          ];
+        }
+        {
+          platform = "group";
+          name = "Downstairs lights";
+          entities = [
+            "light.kitchen_lights"
+            "light.living_room_lights"
           ];
         }
       ];
@@ -64,6 +88,8 @@
           name = "Garage ceiling lights";
           lights = [
             "light.garage_ceiling_lights"
+            "light.homelab_zone_garage_light_stairs"
+            "light.downstairs_lights"
           ];
           min_brightness = 100;
           min_color_temp = 2000;
@@ -76,6 +102,17 @@
             "light.garage_desk_lights"
           ];
           min_color_temp = 2000;
+          max_color_temp = 5500;
+          interval = 30;
+        }
+        {
+          name = "Downstairs lights";
+          lights = [
+            "light.downstairs_lights"
+          ];
+          min_brightness = 50;
+          max_brightness = 100;
+          min_color_temp = 3000;
           max_color_temp = 5500;
           interval = 30;
         }

@@ -38,6 +38,9 @@
           "0x54ef441000899496" = {
             friendly_name = "homelab/zone/garage/motion";
           };
+          "0x001788010de59fb4" = {
+            friendly_name = "homelab/zone/garage/light-stairs";
+          };
 
           # Downstairs
           "0x3425b4fffe49ed85" = {
@@ -48,6 +51,36 @@
           };
           "0x3425b4fffe4f134a" = {
             friendly_name = "homelab/zone/kitchen/shade";
+          };
+          "0x001788010de59f87" = {
+            friendly_name = "homelab/zone/kitchen/light-stairs";
+          };
+          "0x001788010de588ef" = {
+            friendly_name = "homelab/zone/kitchen/light-1";
+          };
+          "0x001788010de58f56" = {
+            friendly_name = "homelab/zone/kitchen/light-2";
+          };
+          "0x001788010de59fff" = {
+            friendly_name = "homelab/zone/kitchen/light-3";
+          };
+          "0x001788010de59fdc" = {
+            friendly_name = "homelab/zone/kitchen/light-4";
+          };
+          "0x001788010de59294" = {
+            friendly_name = "homelab/zone/living-room/light-1";
+          };
+          "0x001788010de58f44" = {
+            friendly_name = "homelab/zone/living-room/light-2";
+          };
+          "0x001788010de58f50" = {
+            friendly_name = "homelab/zone/living-room/light-3";
+          };
+          "0x001788010de59d73" = {
+            friendly_name = "homelab/zone/living-room/light-4";
+          };
+          "0x001788010de59ed5" = {
+            friendly_name = "homelab/zone/living-room/light-stairs";
           };
 
           # Upstairs
