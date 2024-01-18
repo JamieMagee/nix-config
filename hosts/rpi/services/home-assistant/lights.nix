@@ -87,9 +87,13 @@
         {
           name = "Garage ceiling lights";
           lights = [
-            "light.garage_ceiling_lights"
+            "light.homelab_zone_garage_light_1"
+            "light.homelab_zone_garage_light_2"
+            "light.homelab_zone_garage_light_3"
+            "light.homelab_zone_garage_light_4"
+            "light.homelab_zone_garage_light_5"
+            "light.homelab_zone_garage_light_6"
             "light.homelab_zone_garage_light_stairs"
-            "light.downstairs_lights"
           ];
           min_brightness = 100;
           min_color_temp = 2000;
@@ -99,7 +103,8 @@
         {
           name = "Garage desk lights";
           lights = [
-            "light.garage_desk_lights"
+            "light.shapes_acf4"
+            "light.jamie_ring_light"
           ];
           min_color_temp = 2000;
           max_color_temp = 5500;
@@ -108,7 +113,16 @@
         {
           name = "Downstairs lights";
           lights = [
-            "light.downstairs_lights"
+            "light.homelab_zone_kitchen_light_stairs"
+            "light.homelab_zone_kitchen_light_1"
+            "light.homelab_zone_kitchen_light_2"
+            "light.homelab_zone_kitchen_light_3"
+            "light.homelab_zone_kitchen_light_4"
+            "light.homelab_zone_living_room_light_stairs"
+            "light.homelab_zone_living_room_light_1"
+            "light.homelab_zone_living_room_light_2"
+            "light.homelab_zone_living_room_light_3"
+            "light.homelab_zone_living_room_light_4"
           ];
           min_brightness = 50;
           max_brightness = 100;
