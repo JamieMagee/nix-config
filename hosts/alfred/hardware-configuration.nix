@@ -1,5 +1,10 @@
-{inputs, modulesPath, pkgs, config,...}: {
-
+{
+  inputs,
+  modulesPath,
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     inputs.disko.nixosModules.disko
     ./disko.nix
@@ -12,10 +17,13 @@
       };
     };
     initrd = {
-      availableKernelModules = [ "vmd" "ahci" "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = ["vmd" "ahci" "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod"];
       kernelModules = ["kvm-intel"];
     };
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    extraModprobeConfig = ''
+      options zfs zfs_arc_max=${toString (72 * 1024 * 1024 * 1024)}
+    '';
   };
 
   powerManagement.cpuFreqGovernor = "powersave";
