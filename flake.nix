@@ -90,6 +90,12 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/alfred];
       };
+
+      # OCI VM
+      oci-vm = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/oci-vm];
+      };
     };
 
     homeConfigurations = {
@@ -116,6 +122,12 @@
 
       "jamie@alfred" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/jamie/alfred.nix];
+      };
+
+      "jamie@oci-vm" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."aarch64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/jamie/alfred.nix];
       };
