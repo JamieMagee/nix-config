@@ -41,8 +41,6 @@
     };
     zellij = {
       enable = true;
-      enableBashIntegration = true;
-      enableFishIntegration = true;
       settings = {
         theme = "nord";
         themes.nord = {
