@@ -126,6 +126,18 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/jamie/generic.nix];
       };
+
+      "jamie@jamagee-desktop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/jamie/wsl.nix];
+      };
+
+      "jamie@jamagee-surface" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/jamie/wsl.nix];
+      };
     };
 
     deploy = {
