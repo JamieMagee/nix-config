@@ -1,5 +1,8 @@
-{pkgs, inputs, ...}: {
-
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   boot = {
     initrd = {
       availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
@@ -14,7 +17,7 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = [ "noatime" ];
+      options = ["noatime"];
     };
   };
 
