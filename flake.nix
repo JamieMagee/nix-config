@@ -97,7 +97,7 @@
       "jamie@jamie-desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/jamie/jamie-desktop.nix];
+        modules = [./home/jamie/wsl.nix];
       };
 
       # Raspberry Pi 4
