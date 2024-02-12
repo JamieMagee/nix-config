@@ -7,7 +7,7 @@
           sdk_7_0
           sdk_8_0
         ])
-      nodejs_20
+      nodejs_21
       nix-ld
     ]
     ++ (with nodePackages_latest; [npm pnpm yarn]);
