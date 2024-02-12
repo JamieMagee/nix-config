@@ -11,6 +11,8 @@
   ];
 
   home.packages = with pkgs; [
+    nodejs_21
     wslu
-  ];
+  ]
+  ++ (with nodePackages_latest; [pnpm yarn]);
 }
