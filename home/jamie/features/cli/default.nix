@@ -8,19 +8,25 @@
     ./yubikey.nix
   ];
 
-  home.packages = with pkgs; [
-    alejandra
-    bitwarden-cli
-    deploy-rs
-    fd
-    neofetch
-    nixpkgs-review
-    nixpkgs-hammering
-    p7zip
-    ripgrep
-    skopeo
-    statix
-  ];
+  home = {
+    packages = with pkgs; [
+      alejandra
+      bitwarden-cli
+      deploy-rs
+      fd
+      neofetch
+      nixpkgs-review
+      nixpkgs-hammering
+      p7zip
+      ripgrep
+      skopeo
+      statix
+    ];
+    sessionVariables = {
+      "ZELLIJ_AUTO_ATTACH" = "true";
+      "ZELLIJ_AUTO_EXIT" = "true";
+    };
+  };
 
   programs = {
     bat = {
@@ -41,6 +47,7 @@
     };
     zellij = {
       enable = true;
+      enableFishIntegration = true;
       settings = {
         theme = "nord";
         themes.nord = {
