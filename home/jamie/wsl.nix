@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -10,12 +11,18 @@
     ./features/cli/ruby.nix
   ];
 
-  home.packages = with pkgs;
-    [
-      nodejs_21
-      wslu
-    ]
-    ++ (with nodePackages_latest; [pnpm yarn]);
+  home = {
+    packages = with pkgs;
+      [
+        nodejs_21
+        wslu
+      ]
+      ++ (with nodePackages_latest; [pnpm yarn]);
+    sessionVariables = {
+      "ZELLIJ_AUTO_ATTACH" = lib.mkForce "false";
+      "ZELLIJ_AUTO_EXIT" = lib.mkForce "false";
+    };
+  };
 
   programs.git.extraConfig = {
     credential = {
