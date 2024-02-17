@@ -28,6 +28,7 @@
     extraConfig = {
       branch = {
         autosetuprebase = "always";
+        sort = "-committerdate";
       };
       core = {
         autocrlf = "input";
@@ -47,7 +48,7 @@
         format = "ssh";
       };
       help = {
-        autocorrect = 1;
+        autocorrect = 10;
       };
       init = {
         defaultBranch = "main";
@@ -56,6 +57,32 @@
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefaultgit
         default = "current";
         gpgSign = "if-asked";
+      };
+      pull = {
+        rebase = true;
+      };
+      merge = {
+        conflictStyle = "zdiff3";
+      };
+      rebase = {
+        autosquash = true;
+        autostash = true;
+      };
+      commit = {
+        verbose = true;
+      };
+      rerere = {
+        enabled = true;
+      };
+      diff = {
+        algorithm = "histogram";
+        submodule = "log";
+      };
+      status = {
+        submoduleSummary = true;
+      };
+      submodule = {
+        recurse = true;
       };
     };
     lfs = {
