@@ -84,6 +84,9 @@
       submodule = {
         recurse = true;
       };
+      log = {
+        date = "iso-local";
+      };
     };
     lfs = {
       enable = true;
