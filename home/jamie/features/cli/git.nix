@@ -20,7 +20,7 @@
     };
     signing = {
       key = "key::sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEfboykpOQU4syTfATJPL+CICYyZdVXOROU2O4iLmmA9AAAABHNzaDo= ";
-      signByDefault = true;
+      signByDefault = false;
     };
     difftastic = {
       enable = true;
