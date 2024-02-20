@@ -19,7 +19,7 @@
             {
               service = "notify.everyone";
               data = {
-                title = "Tumblr dryer";
+                title = "Tumble dryer";
                 message = "The tumble dryer is done";
               };
             }
