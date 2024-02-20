@@ -31,6 +31,7 @@
               service = "elgato.identify";
               target = {
                 entity_id = [
+                  "light.jamie_ring_light"
                   "light.kat_ring_light"
                 ];
               };
