@@ -63,6 +63,8 @@
           white = "#E5E9F0";
           orange = "#D08770";
         };
+        default_layout = "compact";
+        pane_frames = false;
       };
     };
     zoxide = {
