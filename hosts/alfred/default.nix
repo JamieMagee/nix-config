@@ -26,5 +26,7 @@
     hostId = "a1b2c3d4";
   };
 
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+
   system.stateVersion = "23.05";
 }
