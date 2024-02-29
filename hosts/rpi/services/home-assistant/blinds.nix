@@ -9,7 +9,7 @@
           "cover.homelab_zone_living_room_small_shade"
           "cover.homelab_zone_kitchen_shade"
           # "cover.homelab_zone_bedroom_big_shade"
-          "cover.homelab_zone_bedroom_small_shade"
+          # "cover.homelab_zone_bedroom_small_shade"
           "cover.homelab_zone_office_shade"
           "cover.homelab_zone_bathroom_big_shade"
           "cover.homelab_zone_bathroom_small_shade"
@@ -30,7 +30,7 @@
         name = "Upstairs blinds";
         entities = [
           # "cover.homelab_zone_bedroom_big_shade"
-          "cover.homelab_zone_bedroom_small_shade"
+          # "cover.homelab_zone_bedroom_small_shade"
           "cover.homelab_zone_office_shade"
           "cover.homelab_zone_bathroom_big_shade"
           "cover.homelab_zone_bathroom_small_shade"
@@ -42,7 +42,7 @@
         name = "Bedroom blinds";
         entities = [
           # "cover.homelab_zone_bedroom_big_shade"
-          "cover.homelab_zone_bedroom_small_shade"
+          # "cover.homelab_zone_bedroom_small_shade"
         ];
       }
       {
