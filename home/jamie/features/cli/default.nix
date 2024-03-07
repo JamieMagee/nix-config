@@ -29,6 +29,9 @@
   };
 
   programs = {
+    atuin = {
+      enable = true;
+    };
     bat = {
       enable = true;
     };
