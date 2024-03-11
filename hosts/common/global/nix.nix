@@ -16,6 +16,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
+      options = "--delete-older-than 30d";
     };
 
     # Add each flake input as a registry
