@@ -39,7 +39,7 @@
       };
       feature = {
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-featuremanyFiles
-        manyFiles = true;
+        # manyFiles = true;
       };
       format = {
         signOff = true;
