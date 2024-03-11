@@ -133,7 +133,7 @@
         modules = [./home/jamie/wsl.nix];
       };
 
-      "jamie@jamagee-surface" = home-manager.lib.homeManagerConfiguration {
+      "jamie@JAMAGEE-SURFACE" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/jamie/wsl.nix];
