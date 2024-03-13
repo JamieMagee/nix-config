@@ -41,7 +41,6 @@
     };
     eza = {
       enable = true;
-      enableAliases = true;
     };
     fzf = {
       enable = true;
