@@ -35,7 +35,7 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
+    vscode-server.url = "github:Ten0/nixos-vscode-server/support_new_vscode_versions";
   };
 
   outputs = {
