@@ -41,6 +41,15 @@
           "0x001788010de59fb4" = {
             friendly_name = "homelab/zone/garage/light-stairs";
           };
+          "0xb43a31fffe380054" = {
+            friendly_name = "homelab/zone/garage-bathroom/switch-light";
+          };
+          "0x048727fffe19208b" = {
+            friendly_name = "homelab/zone/garage-bathroom/switch-fan";
+          };
+          "0xb43a31fffe38d5b8" = {
+            friendly_name = "homelab/zone/garage-hallway/switch-stairs";
+          };
 
           # Downstairs
           "0x3425b4fffe49ed85" = {
@@ -66,6 +75,15 @@
           };
           "0x001788010de59fdc" = {
             friendly_name = "homelab/zone/kitchen/light-4";
+          };
+          "0xb43a31fffe396ae0" = {
+            friendly_name = "homelab/zone/kitchen/switch-stairs-light";
+          };
+          "0xb43a31fffe270352" = {
+            friendly_name = "homelab/zone/kitchen/switch-kitchen-light";
+          };
+          "0xb43a31fffe308aa9" = {
+            friendly_name = "homelab/zone/kitchen/switch-living-room-light";
           };
           "0x001788010de59294" = {
             friendly_name = "homelab/zone/living-room/light-1";
@@ -101,6 +119,20 @@
           };
           "0xbc026efffe3a9626" = {
             friendly_name = "homelab/zone/upstairs/hallway-shade";
+          };
+        };
+
+        groups = {
+          "1" = {
+            friendly_name = "homelab/group/kitchen-garage-stairs";
+            devices = [
+              "0x001788010de59fb4/11"
+              "0x001788010de59f87/11"
+              "0xb43a31fffe396ae0/2"
+              "0xb43a31fffe38d5b8/2"
+              "0xb43a31fffe38d5b8/1"
+              "0xb43a31fffe396ae0/1"
+            ];
           };
         };
       };
