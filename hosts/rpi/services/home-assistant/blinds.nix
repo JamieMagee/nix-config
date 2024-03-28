@@ -125,6 +125,10 @@
             platform = "sun";
             event = "sunset";
           }
+          {
+            platform = "time";
+            at = "18:00";
+          }
         ];
         action = [
           {
