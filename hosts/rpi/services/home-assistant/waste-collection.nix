@@ -17,5 +17,29 @@
         name = "Seattle garbage collection";
       }
     ];
+
+    automation = [
+      {
+        alias = "Notify garbage collection";
+        id = "notify_garbage_schedule";
+        trigger = [
+          {
+            platform = "calendar";
+            event = "start";
+            offset = "-6:00:00";
+            entity_id = "calendar.seattle_public_utilities";
+          }
+        ];
+        action = [
+          {
+            service = "notify.everyone";
+            data = {
+              title = "Garbage collection";
+              message = "{{ states(\"sensor.seattle_garbage_collection\") }}";
+            };
+          }
+        ];
+      }
+    ];
   };
 }
