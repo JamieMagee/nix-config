@@ -28,11 +28,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-colors.url = "github:misterio77/nix-colors";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     vscode-server.url = "github:Ten0/nixos-vscode-server/support_new_vscode_versions";
@@ -44,7 +39,6 @@
     home-manager,
     deploy-rs,
     disko,
-    alejandra,
     vscode-server,
     ...
   } @ inputs: let
@@ -65,7 +59,7 @@
       default = nixpkgs.legacyPackages.${system}.callPackage ./shell.nix {};
     });
 
-    formatter = builtins.mapAttrs (system: pkgs: pkgs.default) alejandra.packages;
+    formatter = builtins.mapAttrs (system: pkgs: pkgs.default) nixpkgs.nixfmt-rfc-style;
 
     nixosConfigurations = {
       # Desktop

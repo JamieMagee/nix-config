@@ -10,11 +10,11 @@
 
   home = {
     packages = with pkgs; [
-      alejandra
       bitwarden-cli
       deploy-rs
       fd
       neofetch
+      nixfmt-rfc-style
       nixpkgs-review
       nixpkgs-hammering
       p7zip
