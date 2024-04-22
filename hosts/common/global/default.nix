@@ -3,19 +3,18 @@
   outputs,
   pkgs,
   ...
-}: {
-  imports =
-    [
-      ./fish.nix
-      ./fwupd.nix
-      ./locale.nix
-      ./nix.nix
-      ./openssh.nix
-      ./tailscale.nix
-      # ./work.nix
-      ./yubikey.nix
-    ]
-    ++ (builtins.attrValues outputs.nixosModules);
+}:
+{
+  imports = [
+    ./fish.nix
+    ./fwupd.nix
+    ./locale.nix
+    ./nix.nix
+    ./openssh.nix
+    ./tailscale.nix
+    # ./work.nix
+    ./yubikey.nix
+  ] ++ (builtins.attrValues outputs.nixosModules);
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;

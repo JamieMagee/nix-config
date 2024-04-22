@@ -1,10 +1,5 @@
+{ inputs, pkgs, ... }:
 {
-  inputs,
-  pkgs,
-  ...
-}: {
-  imports = [
-    inputs.vscode-server.nixosModules.default
-  ];
+  imports = [ inputs.vscode-server.nixosModules.default ];
   services.vscode-server.enable = true;
 }

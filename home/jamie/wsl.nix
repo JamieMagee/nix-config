@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     ./global
 
@@ -12,18 +13,24 @@
   ];
 
   home = {
-    packages = with pkgs;
+    packages =
+      with pkgs;
       [
         nodejs_21
         wslu
-        (with dotnetCorePackages;
+        (
+          with dotnetCorePackages;
           combinePackages [
             sdk_6_0
             sdk_7_0
             sdk_8_0
-          ])
+          ]
+        )
       ]
-      ++ (with nodePackages_latest; [pnpm yarn]);
+      ++ (with nodePackages_latest; [
+        pnpm
+        yarn
+      ]);
     sessionVariables = {
       "ZELLIJ_AUTO_ATTACH" = lib.mkForce "false";
       "ZELLIJ_AUTO_EXIT" = lib.mkForce "false";

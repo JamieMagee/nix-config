@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services.intune = {
     enable = true;
   };

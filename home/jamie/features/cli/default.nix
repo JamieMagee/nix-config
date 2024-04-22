@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./fish.nix
     ./git.nix
@@ -31,7 +32,7 @@
   programs = {
     atuin = {
       enable = true;
-      flags = ["--disable-up-arrow"];
+      flags = [ "--disable-up-arrow" ];
     };
     bat = {
       enable = true;

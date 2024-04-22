@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   disko.devices = {
     disk = {
       nvme = {

@@ -1,8 +1,5 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   imports = [
     ./abode.nix
     ./backup.nix
@@ -52,7 +49,7 @@
       waste_collection_schedule
     ];
     config = {
-      default_config = {};
+      default_config = { };
       http = {
         trusted_proxies = [
           "127.0.0.1"
@@ -62,17 +59,13 @@
       };
       homeassistant = {
         auth_mfa_modules = [
-          {
-            type = "totp";
-          }
-          {
-            type = "notify";
-          }
+          { type = "totp"; }
+          { type = "notify"; }
         ];
       };
-      "automation manual" = [];
+      "automation manual" = [ ];
       "automation ui" = "!include automations.yaml";
-      "scene manual" = [];
+      "scene manual" = [ ];
       "scene ui" = "!include scenes.yaml";
     };
   };
@@ -84,12 +77,8 @@
   };
 
   networking.firewall = {
-    allowedTCPPorts = [
-      20163
-    ];
-    allowedUDPPorts = [
-      5353
-    ];
+    allowedTCPPorts = [ 20163 ];
+    allowedUDPPorts = [ 5353 ];
   };
 
   systemd.tmpfiles.rules = [
@@ -99,7 +88,5 @@
   ];
 
   # Temporary workaround
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 }

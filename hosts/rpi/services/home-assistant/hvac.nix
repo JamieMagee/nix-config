@@ -15,17 +15,13 @@
             service = "scene.create";
             data = {
               scene_id = "garage_climate_before";
-              snapshot_entities = [
-                "climate.mysa_89501c_thermostat"
-              ];
+              snapshot_entities = [ "climate.mysa_89501c_thermostat" ];
             };
           }
           {
             service = "climate.set_hvac_mode";
             target = {
-              entity_id = [
-                "climate.mysa_89501c_thermostat"
-              ];
+              entity_id = [ "climate.mysa_89501c_thermostat" ];
             };
             data = {
               hvac_mode = "off";
@@ -72,17 +68,13 @@
             service = "scene.create";
             data = {
               scene_id = "heat_pump_climate_before";
-              snapshot_entities = [
-                "climate.esphome_web_e35511_office_ac"
-              ];
+              snapshot_entities = [ "climate.esphome_web_e35511_office_ac" ];
             };
           }
           {
             service = "climate.set_hvac_mode";
             target = {
-              entity_id = [
-                "climate.esphome_web_e35511_office_ac"
-              ];
+              entity_id = [ "climate.esphome_web_e35511_office_ac" ];
             };
             data = {
               hvac_mode = "off";

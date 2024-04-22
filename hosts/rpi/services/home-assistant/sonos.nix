@@ -1,14 +1,10 @@
 {
   services.home-assistant = {
-    extraComponents = [
-      "sonos"
-    ];
+    extraComponents = [ "sonos" ];
     config = {
       sonos = {
         media_player = {
-          hosts = [
-            "192.168.1.246"
-          ];
+          hosts = [ "192.168.1.246" ];
         };
       };
     };

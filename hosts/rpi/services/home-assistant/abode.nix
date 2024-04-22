@@ -1,8 +1,6 @@
 {
   services.home-assistant = {
-    extraComponents = [
-      "abode"
-    ];
+    extraComponents = [ "abode" ];
 
     config = {
       binary_sensor = [
@@ -18,9 +16,7 @@
         {
           platform = "group";
           name = "Windows";
-          entities = [
-            "binary_sensor.front_window"
-          ];
+          entities = [ "binary_sensor.front_window" ];
         }
       ];
 

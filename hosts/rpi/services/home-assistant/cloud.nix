@@ -1,10 +1,8 @@
 {
   services.home-assistant = {
-    extraComponents = [
-      "cloud"
-    ];
+    extraComponents = [ "cloud" ];
     config = {
-      cloud = {};
+      cloud = { };
     };
   };
 }

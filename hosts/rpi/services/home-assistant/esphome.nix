@@ -1,9 +1,7 @@
 {
   services = {
     home-assistant = {
-      extraComponents = [
-        "esphome"
-      ];
+      extraComponents = [ "esphome" ];
     };
     esphome = {
       enable = true;

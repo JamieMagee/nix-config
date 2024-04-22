@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   boot = {
     loader = {
       efi = {
@@ -6,10 +7,17 @@
       };
     };
     initrd = {
-      availableKernelModules = ["sd_mod" "sr_mod" "hv_vmbus" "hv_storvsc" "hyperv_fb" "hyperv_keyboard"];
+      availableKernelModules = [
+        "sd_mod"
+        "sr_mod"
+        "hv_vmbus"
+        "hv_storvsc"
+        "hyperv_fb"
+        "hyperv_keyboard"
+      ];
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["video=hyperv_fb:1920x1080"];
+    kernelParams = [ "video=hyperv_fb:1920x1080" ];
   };
 
   fileSystems."/" = {

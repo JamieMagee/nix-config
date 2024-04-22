@@ -145,13 +145,13 @@
             allow_anonymous = true;
           };
           omitPasswordAuth = true;
-          acl = ["topic readwrite #"];
+          acl = [ "topic readwrite #" ];
           users = {
             zigbee2mqtt = {
-              acl = ["readwrite #"];
+              acl = [ "readwrite #" ];
             };
             home-assistant = {
-              acl = ["readwrite #"];
+              acl = [ "readwrite #" ];
             };
           };
         }

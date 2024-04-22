@@ -1,3 +1,1 @@
-{
-  fonts = import ./fonts.nix;
-}
+{ fonts = import ./fonts.nix; }

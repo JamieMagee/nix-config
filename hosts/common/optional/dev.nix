@@ -1,14 +1,22 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs;
+{ pkgs, ... }:
+{
+  environment.systemPackages =
+    with pkgs;
     [
-      (with dotnetCorePackages;
+      (
+        with dotnetCorePackages;
         combinePackages [
           sdk_6_0
           sdk_7_0
           sdk_8_0
-        ])
+        ]
+      )
       nodejs_21
       nix-ld
     ]
-    ++ (with nodePackages_latest; [npm pnpm yarn]);
+    ++ (with nodePackages_latest; [
+      npm
+      pnpm
+      yarn
+    ]);
 }

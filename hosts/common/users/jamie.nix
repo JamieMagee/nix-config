@@ -1,8 +1,5 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   users.users.jamie = {
     isNormalUser = true;
     shell = pkgs.fish;

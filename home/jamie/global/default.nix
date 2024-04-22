@@ -5,11 +5,17 @@
   pkgs,
   outputs,
   ...
-}: let
+}:
+let
   inherit (inputs.nix-colors) colorSchemes;
-  inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) colorschemeFromPicture nixWallpaperFromScheme;
-in {
-  imports = with inputs;
+  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; })
+    colorschemeFromPicture
+    nixWallpaperFromScheme
+    ;
+in
+{
+  imports =
+    with inputs;
     [
       nix-colors.homeManagerModule
       spicetify-nix.homeManagerModule
@@ -37,7 +43,11 @@ in {
   nix = {
     package = pkgs.nix;
     settings = {
-      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "repl-flake"
+      ];
       warn-dirty = false;
     };
   };

@@ -1,8 +1,5 @@
+{ lib, pkgs, ... }:
 {
-  lib,
-  pkgs,
-  ...
-}: {
   services = {
     xserver = {
       enable = true;
@@ -17,7 +14,5 @@
 
   hardware.bluetooth.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    ark
-  ];
+  environment.systemPackages = with pkgs; [ ark ];
 }

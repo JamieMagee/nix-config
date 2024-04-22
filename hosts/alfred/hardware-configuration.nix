@@ -4,7 +4,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     inputs.disko.nixosModules.disko
     ./disko.nix
@@ -17,8 +18,16 @@
       };
     };
     initrd = {
-      availableKernelModules = ["vmd" "ahci" "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod"];
-      kernelModules = ["kvm-intel"];
+      availableKernelModules = [
+        "vmd"
+        "ahci"
+        "xhci_pci"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
+      kernelModules = [ "kvm-intel" ];
     };
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     extraModprobeConfig = ''

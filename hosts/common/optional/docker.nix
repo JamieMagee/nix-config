@@ -3,5 +3,5 @@
     enable = true;
   };
 
-  users.users.jamie.extraGroups = ["docker"];
+  users.users.jamie.extraGroups = [ "docker" ];
 }

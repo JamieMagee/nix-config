@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   boot = {
     loader = {
       efi = {
@@ -6,8 +7,16 @@
       };
     };
     initrd = {
-      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "thunderbolt"];
-      kernelModules = ["amdgpu"];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+        "thunderbolt"
+      ];
+      kernelModules = [ "amdgpu" ];
     };
     kernelPackages = pkgs.linuxPackages_latest;
   };
@@ -22,11 +31,7 @@
     fsType = "vfat";
   };
 
-  swapDevices = [
-    {
-      device = "/dev/disk/by-uuid/60fcabd5-b1a4-4d80-8f4a-83b41fc5617e";
-    }
-  ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/60fcabd5-b1a4-4d80-8f4a-83b41fc5617e"; } ];
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = true;

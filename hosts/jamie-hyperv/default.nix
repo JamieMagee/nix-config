@@ -1,8 +1,5 @@
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -19,8 +16,8 @@
   };
 
   services.xserver = {
-    modules = [pkgs.xorg.xf86videofbdev];
-    videoDrivers = ["hyperv_fb"];
+    modules = [ pkgs.xorg.xf86videofbdev ];
+    videoDrivers = [ "hyperv_fb" ];
   };
 
   system.stateVersion = "22.05";

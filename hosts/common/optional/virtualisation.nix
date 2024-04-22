@@ -1,22 +1,22 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
       runAsRoot = false;
       ovmf = {
         enable = true;
-        packages = with pkgs; [OVMFFull.fd];
+        packages = with pkgs; [ OVMFFull.fd ];
       };
       swtpm.enable = true;
     };
   };
 
   environment = {
-    systemPackages = with pkgs; [swtpm virt-manager];
+    systemPackages = with pkgs; [
+      swtpm
+      virt-manager
+    ];
     etc = {
       "ovmf/edk2-x86_64-secure-code.fd" = {
         source = "${config.virtualisation.libvirtd.qemu.package}/share/qemu/edk2-x86_64-secure-code.fd";
@@ -31,5 +31,5 @@
   };
 
   programs.dconf.enable = true;
-  users.users.jamie.extraGroups = ["libvirtd"];
+  users.users.jamie.extraGroups = [ "libvirtd" ];
 }

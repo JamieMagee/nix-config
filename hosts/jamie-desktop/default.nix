@@ -1,9 +1,6 @@
 # System configuration for my main desktop PC
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   imports = [
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-gpu-amd
@@ -30,7 +27,7 @@
     hostName = "jamie-desktop";
   };
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   programs = {
     gamemode = {
@@ -43,7 +40,7 @@
     };
   };
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   system.stateVersion = "22.05";
 }
