@@ -16,7 +16,7 @@
     packages =
       with pkgs;
       [
-        nodejs_21
+        nodejs_22
         wslu
         (
           with dotnetCorePackages;

@@ -11,7 +11,7 @@
           sdk_8_0
         ]
       )
-      nodejs_21
+      nodejs_22
       nix-ld
     ]
     ++ (with nodePackages_latest; [
