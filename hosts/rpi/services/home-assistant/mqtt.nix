@@ -100,6 +100,18 @@
           "0x001788010de59ed5" = {
             friendly_name = "homelab/zone/living-room/light-stairs";
           };
+          "0xb43a31fffe307d4a" = {
+            friendly_name = "homelab/zone/living-room/switch-living-room-light";
+          };
+          "0xb43a31fffe30b619" = {
+            friendly_name = "homelab/zone/living-room/switch-kitchen-light";
+          };
+          "0xb43a31fffe34dcd3" = {
+            friendly_name = "homelab/zone/living-room/switch-stairs-light";
+          };
+          "0xb43a31fffe38377e" = {
+            friendly_name = "homelab/zone/living-room/switch-front-porch";
+          };
 
           # Upstairs
           "0x3425b4fffe415425" = {
@@ -128,11 +140,42 @@
             devices = [
               "0x001788010de59fb4/11"
               "0x001788010de59f87/11"
-              "0xb43a31fffe396ae0/2"
-              "0xb43a31fffe38d5b8/2"
               "0xb43a31fffe38d5b8/1"
               "0xb43a31fffe396ae0/1"
             ];
+          };
+          "2" = {
+            friendly_name = "homelab/group/living-room-lights";
+            devices = [
+              "0xb43a31fffe307d4a/1"
+              "0xb43a31fffe308aa9/1"
+              "0x001788010de59294/11"
+              "0x001788010de58f44/11"
+              "0x001788010de58f50/11"
+              "0x001788010de59d73/11"
+            ];
+          };
+          "3" = {
+            friendly_name = "homelab/group/kitchen-lights";
+            devices = [
+              "0xb43a31fffe30b619/1"
+              "0xb43a31fffe270352/1"
+              "0x001788010de588ef/11"
+              "0x001788010de58f56/11"
+              "0x001788010de59fff/11"
+              "0x001788010de59fdc/11"
+            ];
+          };
+          "4" = {
+            friendly_name = "homelab/group/living-room-stairs";
+            devices = [
+              "0xb43a31fffe34dcd3/1"
+              "0x001788010de59ed5/11"
+            ];
+          };
+          "5" = {
+            friendly_name = "homelab/group/front-porch-lights";
+            devices = [ "0xb43a31fffe38377e/1" ];
           };
         };
       };
