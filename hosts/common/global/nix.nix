@@ -19,7 +19,7 @@
       ];
       warn-dirty = false;
     };
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.latest;
     gc = {
       automatic = true;
       dates = "weekly";
