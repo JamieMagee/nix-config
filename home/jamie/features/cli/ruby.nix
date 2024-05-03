@@ -7,7 +7,7 @@
       enable = true;
       globalConfig = {
         tools = {
-          ruby = "3.1.4";
+          ruby = "3.3.1";
         };
       };
     };
