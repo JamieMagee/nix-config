@@ -99,6 +99,7 @@
           min_color_temp = 2000;
           max_color_temp = 5500;
           interval = 30;
+          detect_non_ha_changes = true;
         }
         {
           name = "Garage desk lights";
@@ -109,6 +110,7 @@
           min_color_temp = 2000;
           max_color_temp = 5500;
           interval = 30;
+          detect_non_ha_changes = true;
         }
         {
           name = "Downstairs lights";
@@ -129,6 +131,7 @@
           min_color_temp = 3000;
           max_color_temp = 5500;
           interval = 30;
+          detect_non_ha_changes = true;
         }
       ];
     };
