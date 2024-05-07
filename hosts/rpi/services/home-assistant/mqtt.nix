@@ -10,6 +10,7 @@
         };
         serial = {
           port = "/dev/ttyUSB0";
+          adapter = "ember";
         };
         advanced = {
           log_level = "debug";
