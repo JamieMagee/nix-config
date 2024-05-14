@@ -55,8 +55,8 @@
         ];
       }
       {
-        alias = "Turn off heat pump overnight";
-        id = "heat_pump_overnight";
+        alias = "Turn off mini split overnight";
+        id = "mini_split_overnight";
         trigger = [
           {
             platform = "time";
@@ -67,14 +67,14 @@
           {
             service = "scene.create";
             data = {
-              scene_id = "heat_pump_climate_before";
-              snapshot_entities = [ "climate.esphome_web_e35511_office_ac" ];
+              scene_id = "mini_split_climate_before";
+              snapshot_entities = [ "climate.esphome_web_e35511_office_mini_split" ];
             };
           }
           {
             service = "climate.set_hvac_mode";
             target = {
-              entity_id = [ "climate.esphome_web_e35511_office_ac" ];
+              entity_id = [ "climate.esphome_web_e35511_office_mini_split" ];
             };
             data = {
               hvac_mode = "off";
@@ -83,8 +83,8 @@
         ];
       }
       {
-        alias = "Turn on heat pump in the morning";
-        id = "heat_pump_morning";
+        alias = "Turn on mini split in the morning";
+        id = "mini_split_morning";
         trigger = [
           {
             platform = "time";
@@ -102,9 +102,20 @@
           {
             service = "scene.turn_on";
             target = {
-              entity_id = "scene.heat_pump_climate_before";
+              entity_id = "scene.mini_split_climate_before";
             };
           }
+        ];
+      }
+    ];
+
+    climate = [
+      {
+        platform = "group";
+        name = "Mini splits";
+        entities = [
+          "climate.esphome_web_6c37b0_downstairs_mini_split"
+          "climate.esphome_web_e35511_office_mini_split"
         ];
       }
     ];
