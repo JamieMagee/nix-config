@@ -16,6 +16,10 @@
 
   networking = {
     hostName = "rpi";
+    defaultGateway = {
+      address = "192.168.1.1";
+      interface = "eth0";
+    };
     interfaces.eth0 = {
       wakeOnLan.enable = true;
       ipv4.addresses = [
