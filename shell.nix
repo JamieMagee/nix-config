@@ -20,7 +20,6 @@ pkgs.mkShell {
     git
 
     deploy-rs
-    sops
     gnupg
     age
   ];

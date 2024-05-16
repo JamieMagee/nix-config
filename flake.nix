@@ -6,15 +6,11 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    hardware.url = "github:nixos/nixos-hardware";
-    sops-nix = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
+    hardware.url = "https://flakehub.com/f/NixOS/nixos-hardware/*.tar.gz";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "https://flakehub.com/f/nix-community/home-manager/0.1.*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -24,7 +20,7 @@
     };
 
     disko = {
-      url = "github:nix-community/disko";
+      url = "https://flakehub.com/f/nix-community/disko/*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -40,7 +36,7 @@
       home-manager,
       deploy-rs,
       disko,
-      vscode-server,
+      vscode-server, nixos-hardware,
       ...
     }@inputs:
     let
