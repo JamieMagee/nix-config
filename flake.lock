@@ -130,16 +130,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1715381426,
-        "narHash": "sha256-wPuqrAQGdv3ISs74nJfGb+Yprm23U/rFpcHFFNWgM94=",
-        "rev": "ab5542e9dbd13d0100f8baae2bc2d68af901f4b4",
-        "revCount": 3183,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/nix-community/home-manager/0.2311.3183%2Brev-ab5542e9dbd13d0100f8baae2bc2d68af901f4b4/018f64c4-5566-7253-a31b-bc15ac2103f0/source.tar.gz"
+        "lastModified": 1715486357,
+        "narHash": "sha256-4pRuzsHZOW5W4CsXI9uhKtiJeQSUoe1d2M9mWU98HC4=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "44677a1c96810a8e8c4ffaeaad10c842402647c1",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/nix-community/home-manager/%2A.tar.gz"
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
       }
     },
     "nix-colors": {
@@ -165,9 +166,10 @@
       "locked": {
         "lastModified": 1715881912,
         "narHash": "sha256-e4LJk5uV1wvrRkffGFZekPWvFUx29NnnOahBlLaq8Ek=",
-        "path": "/nix/store/9v3llmdigkiz6650dmzfkps3ig3sx2im-source",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
         "rev": "ff1be1e3cdf884df0935ab28745ab13c3c26d828",
-        "type": "path"
+        "type": "github"
       },
       "original": {
         "id": "nixos-hardware",

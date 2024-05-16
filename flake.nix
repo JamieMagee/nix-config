@@ -10,7 +10,7 @@
     hardware.url = "https://flakehub.com/f/NixOS/nixos-hardware/*.tar.gz";
 
     home-manager = {
-      url = "https://flakehub.com/f/nix-community/home-manager/*.tar.gz";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
