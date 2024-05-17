@@ -19,6 +19,7 @@ in
     [
       nix-colors.homeManagerModule
       spicetify-nix.homeManagerModule
+      nixvim.homeManagerModules.nixvim
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
   nixpkgs = {

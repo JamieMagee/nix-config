@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-colors.url = "github:misterio77/nix-colors";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
@@ -36,7 +41,9 @@
       home-manager,
       deploy-rs,
       disko,
-      vscode-server, nixos-hardware,
+      vscode-server,
+      nixos-hardware,
+      nixvim,
       ...
     }@inputs:
     let
