@@ -15,6 +15,7 @@
       bitwarden-cli
       deploy-rs
       fd
+      lazygit
       neofetch
       nixfmt-rfc-style
       nixpkgs-review
