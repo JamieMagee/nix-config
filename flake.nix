@@ -65,7 +65,7 @@
         default = nixpkgs.legacyPackages.${system}.callPackage ./shell.nix { };
       });
 
-      formatter = builtins.mapAttrs (system: pkgs: pkgs.default) nixpkgs.nixfmt-rfc-style;
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       nixosConfigurations = {
         # Desktop
