@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.hardware.nixosModules.raspberry-pi-4
@@ -8,6 +8,7 @@
     ../common/global
     ../common/users/jamie.nix
 
+    ../common/optional/audit.nix
     ../common/optional/earlyoom.nix
     ../common/optional/vscode-server.nix
 

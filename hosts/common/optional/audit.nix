@@ -1,0 +1,3 @@
+{
+  security.auditd.enable = true;
+}
