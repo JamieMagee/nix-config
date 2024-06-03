@@ -6,8 +6,8 @@
   };
 
   inputs = {
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
-    hardware.url = "https://flakehub.com/f/NixOS/nixos-hardware/*.tar.gz";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    hardware.url = "github:NixOS/nixos-hardware";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -20,7 +20,7 @@
     };
 
     disko = {
-      url = "https://flakehub.com/f/nix-community/disko/*.tar.gz";
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

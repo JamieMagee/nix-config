@@ -67,16 +67,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1715070411,
-        "narHash": "sha256-5CNvkH0Nf7yMwgKhjUNg/lUK40C7DXB4zKOuA2jVO90=",
-        "rev": "4677f6c53482a8b01ee93957e3bdd569d51261d6",
-        "revCount": 852,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/nix-community/disko/1.6.1/018f541f-b4b9-7cfd-af90-db24c6681f31/source.tar.gz"
+        "lastModified": 1717378144,
+        "narHash": "sha256-gwx3rVXnt2jNxl8L2DybYv41fA8QhWVGebe932pa2nw=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "39cd5a1fcd6d7a476eac2894b09122ead99f6efc",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/nix-community/disko/%2A.tar.gz"
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
       }
     },
     "flake-compat": {
@@ -268,14 +269,15 @@
       "locked": {
         "lastModified": 1717248095,
         "narHash": "sha256-e8X2eWjAHJQT82AAN+mCI0B68cIDBJpqJ156+VRrFO0=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
         "rev": "7b49d3967613d9aacac5b340ef158d493906ba79",
-        "revCount": 1699,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/NixOS/nixos-hardware/0.1.1699%2Brev-7b49d3967613d9aacac5b340ef158d493906ba79/018fd77f-e976-79a1-9674-fc5054af5524/source.tar.gz"
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/NixOS/nixos-hardware/%2A.tar.gz"
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
       }
     },
     "home-manager": {
@@ -363,10 +365,9 @@
       "locked": {
         "lastModified": 1717248095,
         "narHash": "sha256-e8X2eWjAHJQT82AAN+mCI0B68cIDBJpqJ156+VRrFO0=",
-        "owner": "NixOS",
-        "repo": "nixos-hardware",
+        "path": "/nix/store/2il8pi5s2ppvg5m33x6dcg9g0wwzw6w7-source",
         "rev": "7b49d3967613d9aacac5b340ef158d493906ba79",
-        "type": "github"
+        "type": "path"
       },
       "original": {
         "id": "nixos-hardware",
@@ -375,16 +376,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716509168,
-        "narHash": "sha256-4zSIhSRRIoEBwjbPm3YiGtbd8HDWzFxJjw5DYSDy1n8=",
-        "rev": "bfb7a882678e518398ce9a31a881538679f6f092",
-        "revCount": 630835,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/NixOS/nixpkgs/0.1.630835%2Brev-bfb7a882678e518398ce9a31a881538679f6f092/018fafb0-ec0d-7254-8082-b09ecc86e5fc/source.tar.gz"
+        "lastModified": 1716948383,
+        "narHash": "sha256-SzDKxseEcHR5KzPXLwsemyTR/kaM9whxeiJohbL04rs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ad57eef4ef0659193044870c731987a6df5cf56b",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/NixOS/nixpkgs/0.1.%2A.tar.gz"
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-lib": {
