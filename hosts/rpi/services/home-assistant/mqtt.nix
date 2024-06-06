@@ -13,7 +13,7 @@
           adapter = "ember";
         };
         advanced = {
-          log_level = "debug";
+          log_level = "info";
         };
 
         devices = {
