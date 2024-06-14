@@ -16,6 +16,7 @@
     packages =
       with pkgs;
       [
+        go
         nodejs_22
         wslu
         (
