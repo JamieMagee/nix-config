@@ -27,7 +27,7 @@
             };
           }
           {
-            service = "notify.mobile_app_pixel_5";
+            service = "notify.mobile_app_kat_s_pixel";
             data = {
               message = "{{ person + ' ' + event + ' ' + zone }}";
             };
@@ -60,7 +60,7 @@
             };
           }
           {
-            service = "notify.mobile_app_pixel_6";
+            service = "notify.mobile_app_jamie_pixel_8a";
             data = {
               message = "{{ person + ' ' + event + ' ' + zone }}";
             };

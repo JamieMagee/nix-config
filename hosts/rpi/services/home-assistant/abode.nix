@@ -115,11 +115,11 @@
           trigger = [
             {
               platform = "time";
-              at = "sensor.pixel_5_next_alarm";
+              at = "sensor.kat_s_pixel_next_alarm";
             }
             {
               platform = "time";
-              at = "sensor.pixel_6_next_alarm";
+              at = "sensor.jamie_pixel_8a_next_alarm";
             }
           ];
           condition = [
