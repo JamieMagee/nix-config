@@ -27,7 +27,6 @@
       "cast"
       "econet"
       "google_translate"
-      "homeassistant_sky_connect"
       "homekit_controller"
       "met"
       "mqtt"
