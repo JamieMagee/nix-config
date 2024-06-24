@@ -57,4 +57,7 @@ in
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "22.05";
   };
+
+  # https://github.com/nix-community/home-manager/issues/5552
+  xdg.configFile."systemd/user/.hm-keep".text = "";
 }
