@@ -18,7 +18,7 @@
           adapter = "ember";
         };
         advanced = {
-          log_level = "info";
+          log_level = "warning";
         };
 
         devices = {
