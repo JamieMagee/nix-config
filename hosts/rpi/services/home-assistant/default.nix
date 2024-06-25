@@ -49,9 +49,7 @@
       waste_collection_schedule
     ];
     config = {
-      default_config = {
-        exclude = [ "usb" ];
-      };
+      default_config = { };
       http = {
         trusted_proxies = [
           "127.0.0.1"
