@@ -4,6 +4,7 @@
     ./abode.nix
     ./backup.nix
     ./blinds.nix
+    ./bluetooth.nix
     ./cloud.nix
     ./esphome.nix
     ./hvac.nix
