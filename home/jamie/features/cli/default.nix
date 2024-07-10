@@ -17,7 +17,6 @@
       fastfetch
       fd
       lazygit
-      neofetch
       nixfmt-rfc-style
       nixpkgs-review
       nixpkgs-hammering
@@ -25,6 +24,7 @@
       ripgrep
       skopeo
       statix
+      trippy
     ];
     sessionVariables = {
       "ZELLIJ_AUTO_EXIT" = "true";
