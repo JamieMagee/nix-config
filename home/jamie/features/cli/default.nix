@@ -14,6 +14,7 @@
     packages = with pkgs; [
       bitwarden-cli
       deploy-rs
+      fastfetch
       fd
       lazygit
       neofetch
