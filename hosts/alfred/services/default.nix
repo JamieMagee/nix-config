@@ -8,7 +8,7 @@
     ./radarr.nix
     ./sabnzbd.nix
     ./sonarr.nix
-    ./transmission.nix
+    ./deluge.nix
   ];
 
   users.groups.services.members = with config.services; [
@@ -16,7 +16,7 @@
     radarr.user
     sabnzbd.user
     sonarr.user
-    transmission.user
+    deluge.user
   ];
 
   systemd.tmpfiles.rules = [
