@@ -29,7 +29,6 @@
       ];
       kernelModules = [ "kvm-intel" ];
     };
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     extraModprobeConfig = ''
       options zfs zfs_arc_max=${toString (72 * 1024 * 1024 * 1024)}
     '';
