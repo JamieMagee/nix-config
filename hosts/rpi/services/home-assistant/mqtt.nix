@@ -56,6 +56,12 @@
           "0xb43a31fffe38d5b8" = {
             friendly_name = "homelab/zone/garage-hallway/switch-stairs";
           };
+          "0x00158d000af0cf12" = {
+          	friendly_name = "homelab/zone/garage-bathroom/sink-leak";
+          };
+          "0x00158d000af41202" = {
+          	friendly_name = "homelab/zone/garage-bathroom/toilet-leak";
+          };
 
           # Downstairs
           "0x3425b4fffe49ed85" = {
@@ -118,6 +124,9 @@
           "0xb43a31fffe38377e" = {
             friendly_name = "homelab/zone/living-room/switch-front-porch";
           };
+          "0x00158d000af41336" = {
+          	friendly_name = "homelab/zone/kitchen/sink-leak";
+          };
 
           # Upstairs
           "0x3425b4fffe415425" = {
@@ -137,6 +146,15 @@
           };
           "0xbc026efffe3a9626" = {
             friendly_name = "homelab/zone/upstairs/hallway-shade";
+          };
+          "0x00158d000af0b008" = {
+          	friendly_name = "homelab/zone/bathroom/toilet-leak";
+          };
+          "0x00158d000af0b938" = {
+          	friendly_name = "homelab/zone/bathroom/sink-right-leak";
+          };
+          "0x00158d000af3faeb" = {
+          	friendly_name = "homelab/zone/bathroom/sink-left-leak";
           };
         };
 
