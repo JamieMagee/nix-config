@@ -30,7 +30,10 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
