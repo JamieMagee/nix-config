@@ -98,7 +98,7 @@
           min_brightness = 100;
           min_color_temp = 2000;
           max_color_temp = 5500;
-          interval = 30;
+          interval = 300;
           detect_non_ha_changes = true;
         }
         {
@@ -109,7 +109,7 @@
           ];
           min_color_temp = 2000;
           max_color_temp = 5500;
-          interval = 30;
+          interval = 300;
           detect_non_ha_changes = true;
         }
         {
@@ -130,7 +130,7 @@
           max_brightness = 100;
           min_color_temp = 3000;
           max_color_temp = 5500;
-          interval = 30;
+          interval = 300;
           detect_non_ha_changes = true;
         }
       ];
