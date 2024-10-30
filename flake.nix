@@ -37,28 +37,29 @@
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      deploy-rs,
-      disko,
-      vscode-server,
-      nixos-hardware,
-      nixvim,
-      ...
-    }@inputs:
+  outputs = { self, nixpkgs, home-manager, deploy-rs, ... }@inputs:
     let
-      inherit (builtins) mapAttrs;
       inherit (self) outputs;
-      supportedSystems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+
+      # Helper functions
+      mkSystem = hostname: system: modules: nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs outputs; };
+        modules = modules ++ [ ./hosts/${hostname} ];
+      };
+
+      mkHome = username: hostname: system: extraModules: home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [ ./home/${username}/${hostname}.nix ] ++ extraModules;
+      };
+
+      # Common configurations
+      wslConfig = [ ./home/jamie/wsl.nix ];
     in
-    rec {
+    {
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
       overlays = import ./overlays;
@@ -71,98 +72,20 @@
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       nixosConfigurations = {
-        # Desktop
-        jamie-desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/jamie-desktop ];
-        };
-
-        # Raspberry Pi 4
-        rpi = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/rpi ];
-        };
-
-        # Hyper-V
-        jamie-hyperv = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/jamie-hyperv ];
-        };
-
-        alfred = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/alfred ];
-        };
+        jamie-desktop = mkSystem "jamie-desktop" "x86_64-linux" [];
+        rpi = mkSystem "rpi" "aarch64-linux" [];
+        jamie-hyperv = mkSystem "jamie-hyperv" "x86_64-linux" [];
+        alfred = mkSystem "alfred" "x86_64-linux" [];
       };
 
       homeConfigurations = {
-        # Desktop
-        "jamie@jamie-desktop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home/jamie/wsl.nix ];
-        };
-
-        # Raspberry Pi 4
-        "jamie@rpi" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."aarch64-linux";
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home/jamie/rpi.nix ];
-        };
-
-        # Hyper-V
-        "jamie@jamie-hyperv" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home/jamie/jamie-hyperv.nix ];
-        };
-
-        "jamie@alfred" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home/jamie/alfred.nix ];
-        };
-
-        # Portable minimum configuration
-        "jamie@generic" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home/jamie/generic.nix ];
-        };
-
-        "jamie@jamagee-desktop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home/jamie/wsl.nix ];
-        };
-
-        "jamie@JAMAGEE-SURFACE" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home/jamie/wsl.nix ];
-        };
+        "jamie@jamie-desktop" = mkHome "jamie" "wsl" "x86_64-linux" [];
+        "jamie@rpi" = mkHome "jamie" "rpi" "aarch64-linux" [];
+        "jamie@jamie-hyperv" = mkHome "jamie" "jamie-hyperv" "x86_64-linux" [];
+        "jamie@alfred" = mkHome "jamie" "alfred" "x86_64-linux" [];
+        "jamie@generic" = mkHome "jamie" "generic" "x86_64-linux" [];
+        "jamie@jamagee-desktop" = mkHome "jamie" "wsl" "x86_64-linux" [];
+        "jamie@JAMAGEE-SURFACE" = mkHome "jamie" "wsl" "x86_64-linux" [];
       };
 
       deploy = {
@@ -172,11 +95,7 @@
         nodes = {
           rpi = {
             hostname = "rpi.tailnet-0b15.ts.net";
-            sshOpts = [
-              "-p"
-              "2222"
-            ];
-
+            sshOpts = [ "-p" "2222" ];
             profiles = {
               system = {
                 user = "root";
@@ -191,6 +110,7 @@
         };
       };
 
-      deployChecks = { };
+      # Add basic checks
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }
