@@ -1,4 +1,21 @@
-{ ... }:
+let
+  makeRaidDisk = diskId: {
+    type = "disk";
+    device = "/dev/disk/by-id/${diskId}";
+    content = {
+      type = "gpt";
+      partitions = {
+        zfs = {
+          size = "100%";
+          content = {
+            type = "zfs";
+            pool = "tank";
+          };
+        };
+      };
+    };
+  };
+in
 {
   disko.devices = {
     disk = {
@@ -28,90 +45,12 @@
         };
       };
 
-      raid-disk-1 = {
-        type = "disk";
-        device = "/dev/disk/by-id/ata-ST22000NM001E-3HM103_ZX20FEG2";
-        content = {
-          type = "gpt";
-          partitions = {
-            zfs = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "tank";
-              };
-            };
-          };
-        };
-      };
+      raid-disk-1 = makeRaidDisk "ata-ST22000NM001E-3HM103_ZX20FEG2";
+      raid-disk-2 = makeRaidDisk "ata-ST22000NM001E-3HM103_ZX20FENF";
+      raid-disk-3 = makeRaidDisk "ata-ST22000NM001E-3HM103_ZX20LCF6";
+      raid-disk-4 = makeRaidDisk "ata-ST22000NM001E-3HM103_ZX20LCFJ";
+      raid-disk-5 = makeRaidDisk "ata-ST22000NM001E-3HM103_ZX20LRWJ";
 
-      raid-disk-2 = {
-        type = "disk";
-        device = "/dev/disk/by-id/ata-ST22000NM001E-3HM103_ZX20FENF";
-        content = {
-          type = "gpt";
-          partitions = {
-            zfs = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "tank";
-              };
-            };
-          };
-        };
-      };
-
-      raid-disk-3 = {
-        type = "disk";
-        device = "/dev/disk/by-id/ata-ST22000NM001E-3HM103_ZX20LCF6";
-        content = {
-          type = "gpt";
-          partitions = {
-            zfs = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "tank";
-              };
-            };
-          };
-        };
-      };
-
-      raid-disk-4 = {
-        type = "disk";
-        device = "/dev/disk/by-id/ata-ST22000NM001E-3HM103_ZX20LCFJ";
-        content = {
-          type = "gpt";
-          partitions = {
-            zfs = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "tank";
-              };
-            };
-          };
-        };
-      };
-
-      raid-disk-5 = {
-        type = "disk";
-        device = "/dev/disk/by-id/ata-ST22000NM001E-3HM103_ZX20LRWJ";
-        content = {
-          type = "gpt";
-          partitions = {
-            zfs = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "tank";
-              };
-            };
-          };
-        };
-      };
     };
     zpool = {
       zroot = {
