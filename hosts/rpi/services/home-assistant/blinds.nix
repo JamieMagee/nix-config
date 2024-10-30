@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   services.home-assistant.config = {
     cover = [
@@ -77,41 +78,34 @@
       {
         name = "Upstairs blinds daytime";
         icon = "mdi:blinds";
-        entities = {
-          "cover.homelab_zone_office_shade" = {
-            current_position = 100;
-            state = "open";
-          };
-          "cover.homelab_zone_bathroom_big_shade" = {
-            current_position = 100;
-            state = "open";
-          };
-          "cover.homelab_zone_bathroom_small_shade" = {
-            current_position = 100;
-            state = "open";
-          };
-          "cover.homelab_zone_upstairs_hallway_shade" = {
-            current_position = 100;
-            state = "open";
-          };
-        };
+        entities =
+          lib.genAttrs
+            [
+              "cover.homelab_zone_office_shade"
+              "cover.homelab_zone_bathroom_big_shade"
+              "cover.homelab_zone_bathroom_small_shade"
+              "cover.homelab_zone_upstairs_hallway_shade"
+            ]
+            (_: {
+              current_position = 100;
+              state = "open";
+            });
       }
       {
         name = "Morning blinds";
         icon = "mdi:blinds";
         entities = {
-          "cover.homelab_zone_bathroom_big_shade" = {
-            current_position = 100;
-            state = "open";
-          };
-          "cover.homelab_zone_bathroom_small_shade" = {
-            current_position = 100;
-            state = "open";
-          };
-          "cover.homelab_zone_upstairs_hallway_shade" = {
-            current_position = 100;
-            state = "open";
-          };
+          entities =
+            lib.genAttrs
+              [
+                "cover.homelab_zone_bathroom_big_shade"
+                "cover.homelab_zone_bathroom_small_shade"
+                "cover.homelab_zone_upstairs_hallway_shade"
+              ]
+              (_: {
+                current_position = 100;
+                state = "open";
+              });
         };
       }
     ];
