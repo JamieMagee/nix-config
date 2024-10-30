@@ -4,10 +4,10 @@
     ./abode.nix
     ./backup.nix
     ./blinds.nix
-        ./cloud.nix
+    ./cloud.nix
     ./esphome.nix
     ./hvac.nix
-./leak.nix
+    ./leak.nix
     ./lights.nix
     ./miele.nix
     ./mqtt.nix
