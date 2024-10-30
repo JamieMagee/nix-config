@@ -15,13 +15,19 @@
             service = "scene.create";
             data = {
               scene_id = "garage_climate_before";
-              snapshot_entities = [ "climate.mysa_89501c_thermostat" ];
+              snapshot_entities = [
+                "climate.mysa_89501c_thermostat"
+                "climate.mysa_2bbd00_thermostat"
+              ];
             };
           }
           {
             service = "climate.set_hvac_mode";
             target = {
-              entity_id = [ "climate.mysa_89501c_thermostat" ];
+              entity_id = [
+                "climate.mysa_89501c_thermostat"
+                "climate.mysa_2bbd00_thermostat"
+              ];
             };
             data = {
               hvac_mode = "off";
