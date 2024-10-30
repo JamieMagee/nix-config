@@ -16,6 +16,7 @@
     ./sonos.nix
     ./unifi.nix
     ./waste-collection.nix
+    ./weather.nix
   ];
 
   services.home-assistant = {
