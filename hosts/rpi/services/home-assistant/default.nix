@@ -7,6 +7,7 @@
         ./cloud.nix
     ./esphome.nix
     ./hvac.nix
+./leak.nix
     ./lights.nix
     ./miele.nix
     ./mqtt.nix
