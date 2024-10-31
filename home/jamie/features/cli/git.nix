@@ -38,6 +38,9 @@
         safecrlf = false;
         untrackedCache = true;
       };
+      fetch = {
+        prune = true;
+      };
       feature = {
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-featuremanyFiles
         # manyFiles = true;
