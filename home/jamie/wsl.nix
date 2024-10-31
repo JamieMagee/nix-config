@@ -13,26 +13,24 @@
   ];
 
   home = {
-    packages =
-      with pkgs;
-      [
-        go_1_23
-        nodejs_22
-        wslu
-        (
-          with dotnetCorePackages;
-          combinePackages [
-            sdk_6_0
-            sdk_7_0
-            sdk_8_0
-            sdk_9_0
-          ]
-        )
-      ]
-      ++ (with nodePackages_latest; [
-        pnpm
-        yarn
-      ]);
+    packages = with pkgs; [
+      # .NET SDKs
+      dotnetCorePackages.sdk_6_0
+      dotnetCorePackages.sdk_8_0
+      dotnetCorePackages.sdk_9_0
+
+      # Node.js and package managers
+      nodejs_22
+      nodePackages_latest.npm
+      nodePackages_latest.pnpm
+      nodePackages_latest.yarn
+
+      # Go
+      go_1_23
+
+      # System tools
+      wslu
+    ];
     sessionVariables = {
       "ZELLIJ_AUTO_ATTACH" = lib.mkForce "false";
       "ZELLIJ_AUTO_EXIT" = lib.mkForce "false";
