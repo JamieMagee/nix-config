@@ -2,9 +2,14 @@
 {
   environment.systemPackages = with pkgs; [
     # .NET SDKs
-    dotnetCorePackages.sdk_6_0
-    dotnetCorePackages.sdk_8_0
-    dotnetCorePackages.sdk_9_0
+    (
+      with dotnetCorePackages;
+      combinePackages [
+        sdk_6_0
+        sdk_8_0
+        sdk_9_0
+      ]
+    )
 
     # Node.js and package managers
     nodejs_22
