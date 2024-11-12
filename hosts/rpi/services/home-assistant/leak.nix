@@ -4,8 +4,8 @@
       {
         alias = "Notify on leak detected";
         id = "leak_detected";
-        trigger = {
-          platform = "state";
+        triggers = {
+          trigger = "state";
           entity_id = [
             "binary_sensor.bathroom_sink_left_water_leak"
             "binary_sensor.bathroom_sink_right_water_leak"
@@ -16,9 +16,9 @@
           ];
           to = "on";
         };
-        action = [
+        actions = [
           {
-            service = "notify.everyone";
+            action = "notify.everyone";
             data = {
               title = "Leak detected!";
               message = "A leak has been detected in the {{ trigger.to_state.attributes.friendly_name | lower }}";

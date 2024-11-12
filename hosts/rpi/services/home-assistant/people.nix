@@ -4,21 +4,21 @@
       {
         alias = "Notify when Jamie leaves home/work";
         id = "notify_jamie_leave_home_work";
-        trigger = [
+        triggers = [
           {
-            platform = "zone";
+            trigger = "zone";
             entity_id = "person.jamie";
             zone = "zone.home";
             event = "leave";
           }
           {
-            platform = "zone";
+            trigger = "zone";
             entity_id = "person.jamie";
             zone = "zone.jamie_work";
             event = "leave";
           }
         ];
-        action = [
+        actions = [
           {
             variables = {
               event = "{{ 'left' if trigger.event == 'leave' else 'arrived at' }}";
@@ -27,7 +27,7 @@
             };
           }
           {
-            service = "notify.mobile_app_kat_s_pixel";
+            action = "notify.mobile_app_kat_s_pixel";
             data = {
               message = "{{ person + ' ' + event + ' ' + zone }}";
             };
@@ -37,21 +37,21 @@
       {
         alias = "Notify when Kat leaves home/work";
         id = "notify_kat_leave_home_work";
-        trigger = [
+        triggers = [
           {
-            platform = "zone";
+            trigger = "zone";
             entity_id = "person.kat";
             zone = "zone.home";
             event = "leave";
           }
           {
-            platform = "zone";
+            trigger = "zone";
             entity_id = "person.kat";
             zone = "zone.kat_work";
             event = "leave";
           }
         ];
-        action = [
+        actions = [
           {
             variables = {
               event = "{{ 'left' if trigger.event == 'leave' else 'arrived at' }}";
@@ -60,7 +60,7 @@
             };
           }
           {
-            service = "notify.mobile_app_jamie_pixel_8a";
+            action = "notify.mobile_app_jamie_pixel_8a";
             data = {
               message = "{{ person + ' ' + event + ' ' + zone }}";
             };

@@ -24,9 +24,9 @@
         {
           alias = "Notify on alarm change";
           id = "alarm_state_change";
-          trigger = [
+          triggers = [
             {
-              platform = "state";
+              trigger = "state";
               entity_id = "alarm_control_panel.abode_alarm";
               not_from = [
                 "unknown"
@@ -45,9 +45,9 @@
             ];
           };
 
-          action = [
+          actions = [
             {
-              service = "notify.everyone";
+              action = "notify.everyone";
               data = {
                 title = "Alarm";
                 message = ''
@@ -66,13 +66,13 @@
         {
           alias = "Arm alarm at night";
           id = "arm_alarm_night";
-          trigger = [
+          triggers = [
             {
-              platform = "time";
+              trigger = "time";
               at = "22:00:00";
             }
           ];
-          condition = [
+          conditions = [
             {
               condition = "state";
               entity_id = [
@@ -82,9 +82,9 @@
               state = "home";
             }
           ];
-          action = [
+          actions = [
             {
-              service = "alarm_control_panel.alarm_arm_home";
+              action = "alarm_control_panel.alarm_arm_home";
               entity_id = "alarm_control_panel.abode_alarm";
             }
           ];
@@ -92,9 +92,9 @@
         {
           alias = "Arm alarm when no-one home";
           id = "arm_alarm_no_one_home";
-          trigger = [
+          triggers = [
             {
-              platform = "state";
+              trigger = "state";
               entity_id = "zone.home";
               to = "0";
               for = {
@@ -102,9 +102,9 @@
               };
             }
           ];
-          action = [
+          actions = [
             {
-              service = "alarm_control_panel.alarm_arm_away";
+              action = "alarm_control_panel.alarm_arm_away";
               entity_id = "alarm_control_panel.abode_alarm";
             }
           ];
@@ -112,17 +112,17 @@
         {
           alias = "Disarm alarm in the morning";
           id = "disarm_alarm_morning";
-          trigger = [
+          triggers = [
             {
-              platform = "time";
+              trigger = "time";
               at = "sensor.kat_s_pixel_next_alarm";
             }
             {
-              platform = "time";
+              trigger = "time";
               at = "sensor.jamie_pixel_8a_next_alarm";
             }
           ];
-          condition = [
+          conditions = [
             {
               condition = "zone";
               entity_id = [
@@ -132,9 +132,9 @@
               zone = "zone.home";
             }
           ];
-          action = [
+          actions = [
             {
-              service = "alarm_control_panel.alarm_disarm";
+              action = "alarm_control_panel.alarm_disarm";
               entity_id = "alarm_control_panel.abode_alarm";
             }
           ];

@@ -4,15 +4,15 @@
       {
         alias = "Turn off garage heat overnight";
         id = "garage_heat_overnight";
-        trigger = [
+        triggers = [
           {
-            platform = "time";
+            trigger = "time";
             at = "22:00:00";
           }
         ];
-        action = [
+        actions = [
           {
-            service = "scene.create";
+            action = "scene.create";
             data = {
               scene_id = "garage_climate_before";
               snapshot_entities = [
@@ -22,7 +22,7 @@
             };
           }
           {
-            service = "climate.set_hvac_mode";
+            action = "climate.set_hvac_mode";
             target = {
               entity_id = [
                 "climate.mysa_89501c_thermostat"
@@ -38,22 +38,22 @@
       {
         alias = "Turn on garage heat in the morning";
         id = "garage_heat_morning";
-        trigger = [
+        triggers = [
           {
-            platform = "time";
+            trigger = "time";
             at = "06:00:00";
           }
         ];
-        condition = [
+        conditions = [
           {
             condition = "numeric_state";
             entity_id = "zone.home";
             above = 0;
           }
         ];
-        action = [
+        actions = [
           {
-            service = "scene.turn_on";
+            action = "scene.turn_on";
             target = {
               entity_id = "scene.garage_climate_before";
             };

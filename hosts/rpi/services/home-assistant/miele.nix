@@ -7,16 +7,16 @@
       automation = [
         {
           alias = "Notify when tumble dryer finished";
-          trigger = [
+          triggers = [
             {
-              platform = "state";
+              trigger = "state";
               entity_id = "sensor.tumble_dryer_status";
               to = "program_ended";
             }
           ];
-          action = [
+          actions = [
             {
-              service = "notify.everyone";
+              action = "notify.everyone";
               data = {
                 title = "Tumble dryer";
                 message = "The tumble dryer is done";
@@ -26,16 +26,16 @@
         }
         {
           alias = "Notify when washing machine finished";
-          trigger = [
+          triggers = [
             {
-              platform = "state";
+              trigger = "state";
               entity_id = "sensor.washing_machine_status";
               to = "program_ended";
             }
           ];
-          action = [
+          actions = [
             {
-              service = "notify.everyone";
+              action = "notify.everyone";
               data = {
                 title = "Washing machine";
                 message = "The washing machine is done";

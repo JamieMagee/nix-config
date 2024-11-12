@@ -94,19 +94,17 @@
       {
         name = "Morning blinds";
         icon = "mdi:blinds";
-        entities = {
-          entities =
-            lib.genAttrs
-              [
-                "cover.homelab_zone_bathroom_big_shade"
-                "cover.homelab_zone_bathroom_small_shade"
-                "cover.homelab_zone_upstairs_hallway_shade"
-              ]
-              (_: {
-                current_position = 100;
-                state = "open";
-              });
-        };
+        entities =
+          lib.genAttrs
+            [
+              "cover.homelab_zone_bathroom_big_shade"
+              "cover.homelab_zone_bathroom_small_shade"
+              "cover.homelab_zone_upstairs_hallway_shade"
+            ]
+            (_: {
+              current_position = 100;
+              state = "open";
+            });
       }
     ];
 
@@ -114,19 +112,19 @@
       {
         alias = "Close blinds at sunset";
         id = "close_blinds_sunset";
-        trigger = [
+        triggers = [
           {
-            platform = "sun";
+            trigger = "sun";
             event = "sunset";
           }
           {
-            platform = "time";
-            at = "18:00";
+            trigger = "time";
+            at = "18:00:00";
           }
         ];
-        action = [
+        actions = [
           {
-            service = "cover.close_cover";
+            action = "cover.close_cover";
             entity_id = "cover.all_blinds";
           }
         ];
@@ -134,9 +132,9 @@
       {
         alias = "Close blinds when no-one home";
         id = "close_blinds_no_one_home";
-        trigger = [
+        triggers = [
           {
-            platform = "state";
+            trigger = "state";
             entity_id = "zone.home";
             to = "0";
             for = {
@@ -144,9 +142,9 @@
             };
           }
         ];
-        action = [
+        actions = [
           {
-            service = "cover.close_cover";
+            action = "cover.close_cover";
             entity_id = "cover.all_blinds";
           }
         ];
@@ -154,17 +152,17 @@
       {
         alias = "Open blinds in the morning";
         id = "open_blinds_morning";
-        trigger = [
+        triggers = [
           {
-            platform = "time";
+            trigger = "time";
             at = "sensor.kat_s_pixel_next_alarm";
           }
           {
-            platform = "time";
+            trigger = "time";
             at = "sensor.jamie_pixel_8a_next_alarm";
           }
         ];
-        condition = [
+        conditions = [
           {
             condition = "zone";
             entity_id = [
@@ -174,9 +172,9 @@
             zone = "zone.home";
           }
         ];
-        action = [
+        actions = [
           {
-            service = "scene.turn_on";
+            action = "scene.turn_on";
             target = {
               entity_id = "scene.morning_blinds";
             };

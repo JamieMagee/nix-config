@@ -9,16 +9,16 @@
         {
           alias = "Doorbell";
           id = "doorbell";
-          trigger = [
+          triggers = [
             {
-              platform = "state";
+              trigger = "state";
               entity_id = "binary_sensor.g4_doorbell_pro_doorbell";
               to = "on";
             }
           ];
-          action = [
+          actions = [
             {
-              service = "notify.everyone";
+              action = "notify.everyone";
               data = {
                 title = "Doorbell";
                 message = "There's someone at the door";
@@ -28,7 +28,7 @@
               };
             }
             {
-              service = "elgato.identify";
+              action = "elgato.identify";
               target = {
                 entity_id = [
                   "light.jamie_ring_light"
