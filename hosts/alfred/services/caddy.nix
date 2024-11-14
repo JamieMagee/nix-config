@@ -2,6 +2,11 @@
 {
   services.caddy = {
     enable = true;
+    virtualHosts."alfred.tailnet-0b15.ts.net".extraConfig = ''
+      header X-Content-Type-Options nosniff
+      header X-Frame-Options SAMEORIGIN
+      header -Server
+    '';
   };
 
   networking.firewall.interfaces.tailscale0 = {
