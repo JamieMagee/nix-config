@@ -7,7 +7,7 @@
         description = "Notify when UV index is high";
         triggers = [
           {
-            triggers = "numeric_state";
+            trigger = "numeric_state";
             entity_id = [
               "weather.forecast_home"
             ];
