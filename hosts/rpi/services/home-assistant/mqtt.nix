@@ -179,6 +179,10 @@
             "0x00158d000af3faeb" = {
               friendly_name = "homelab/zone/bathroom/sink-left-leak";
             };
+
+            "0x00158d000ad7f4eb" = {
+              friendly_name = "homelab/zone/rooftop/temperature-sensor";
+            };
           };
 
         groups = {
