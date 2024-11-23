@@ -81,6 +81,48 @@
             };
           };
         }
+        {
+          alias = "Turn on outside lights at sunset";
+          id = "turn_on_outside_lights";
+          triggers = [
+            {
+              trigger = "sun";
+              event = "sunset";
+            }
+          ];
+          actions = [
+            {
+              action = "light.turn_on";
+              target = {
+                entity_id = [
+                  "light.homelab_group_garage_outdoor_lights"
+                  "light.homelab_group_front_porch_lights"
+                ];
+              };
+            }
+          ];
+        }
+        {
+          alias = "Turn off outside lights at sunrise";
+          id = "turn_off_outside_lights";
+          triggers = [
+            {
+              trigger = "sun";
+              event = "sunrise";
+            }
+          ];
+          actions = [
+            {
+              action = "light.turn_off";
+              target = {
+                entity_id = [
+                  "light.homelab_group_garage_outdoor_lights"
+                  "light.homelab_group_front_porch_lights"
+                ];
+              };
+            }
+          ];
+        }
       ];
 
       adaptive_lighting = [
@@ -96,10 +138,6 @@
             "light.homelab_zone_garage_light_stairs"
           ];
           min_brightness = 100;
-          min_color_temp = 2000;
-          max_color_temp = 5500;
-          interval = 300;
-          detect_non_ha_changes = true;
         }
         {
           name = "Garage desk lights";
@@ -107,10 +145,6 @@
             "light.shapes_acf4"
             "light.jamie_ring_light"
           ];
-          min_color_temp = 2000;
-          max_color_temp = 5500;
-          interval = 300;
-          detect_non_ha_changes = true;
         }
         {
           name = "Downstairs lights";
@@ -127,11 +161,15 @@
             "light.homelab_zone_living_room_light_4"
           ];
           min_brightness = 50;
-          max_brightness = 100;
           min_color_temp = 3000;
-          max_color_temp = 5500;
-          interval = 300;
-          detect_non_ha_changes = true;
+        }
+        {
+          name = "Outside lights";
+          lights = [
+            "light.homelab_group_garage_outdoor_lights"
+            "light.homelab_group_front_porch_lights"
+          ];
+          min_brightness = 100;
         }
       ];
     };
