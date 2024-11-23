@@ -145,7 +145,6 @@
             };
             "0xb43a31fffe38377e" = defaultSwitch // {
               friendly_name = "homelab/zone/living-room/switch-front-porch";
-              smartBulbMode = "Disabled";
             };
             "0x00158d000af41336" = {
               friendly_name = "homelab/zone/kitchen/sink-leak";
@@ -180,8 +179,26 @@
               friendly_name = "homelab/zone/bathroom/sink-left-leak";
             };
 
+            # Roof
             "0x00158d000ad7f4eb" = {
               friendly_name = "homelab/zone/rooftop/temperature-sensor";
+            };
+
+            # Outdoors
+            "0x001788010dabd66b" = defaultLight // {
+              friendly_name = "homelab/zone/outdoors/porch-light";
+            };
+            "0x001788010daba6e8" = defaultLight // {
+              friendly_name = "homelab/zone/outdoors/garage-light-1";
+            };
+            "0x001788010db42d9c" = defaultLight // {
+              friendly_name = "homelab/zone/outdoors/garage-light-";
+            };
+            "0x001788010db3bab6" = defaultLight // {
+              friendly_name = "homelab/zone/outdoors/garage-light-3";
+            };
+            "0x001788010dabc8e4" = defaultLight // {
+              friendly_name = "homelab/zone/outdoors/garage-light-4";
             };
           };
 
@@ -228,6 +245,7 @@
             friendly_name = "homelab/group/front-porch-lights";
             devices = [
               "0xb43a31fffe38377e/1"
+              "0x001788010dabd66b/11"
             ];
           };
           "6" = {
@@ -246,7 +264,19 @@
             friendly_name = "homelab/group/garage-outdoor-lights";
             devices = [
               "0xb43a31fffe34b129/1"
+              "0x001788010daba6e8/11"
+              "0x001788010db42d9c/11"
+              "0x001788010db3bab6/11"
+              "0x001788010dabc8e4/11"
             ];
+          };
+          "8" = {
+            friendly_name = "homelab/group/balcony-lights";
+            devices = [ ];
+          };
+          "9" = {
+            friendly_name = "homelab/group/rooftop-lights";
+            devices = [ ];
           };
         };
       };
