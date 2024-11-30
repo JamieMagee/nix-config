@@ -138,6 +138,7 @@
             "light.homelab_zone_garage_light_stairs"
           ];
           min_brightness = 100;
+          detect_non_ha_changes = true;
         }
         {
           name = "Garage desk lights";
@@ -145,6 +146,7 @@
             "light.shapes_acf4"
             "light.jamie_ring_light"
           ];
+          detect_non_ha_changes = true;
         }
         {
           name = "Downstairs lights";
@@ -162,6 +164,7 @@
           ];
           min_brightness = 50;
           min_color_temp = 3000;
+          detect_non_ha_changes = true;
         }
         {
           name = "Outside lights";
@@ -170,6 +173,7 @@
             "light.homelab_group_front_porch_lights"
           ];
           min_brightness = 100;
+          detect_non_ha_changes = true;
         }
       ];
     };
