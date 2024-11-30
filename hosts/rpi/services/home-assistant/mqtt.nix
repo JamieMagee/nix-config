@@ -141,7 +141,6 @@
             };
             "0xb43a31fffe34dcd3" = defaultSwitch // {
               friendly_name = "homelab/zone/living-room/switch-stairs-light";
-              smartBulbMode = "Disabled";
             };
             "0xb43a31fffe38377e" = defaultSwitch // {
               friendly_name = "homelab/zone/living-room/switch-front-porch";
@@ -178,10 +177,76 @@
             "0x00158d000af3faeb" = {
               friendly_name = "homelab/zone/bathroom/sink-left-leak";
             };
+            "0xe0798dfffeaa77b1" = defaultSwitch // {
+              friendly_name = "homelab/zone/upstairs/switch-hallway-light-2";
+              smartBulbMode = "Disabled";
+            };
+            "0xb43a31fffe3babd1" = defaultSwitch // {
+              friendly_name = "homelab/zone/upstairs/switch-stairs-light";
+            };
+            "0xe0798dfffeaa78c9" = defaultSwitch // {
+              friendly_name = "homelab/zone/bedroom/switch-closet";
+              smartBulbMode = "Disabled";
+            };
+            "0xe0798dfffeaa77e9" = defaultSwitch // {
+              friendly_name = "homelab/zone/upstairs/switch-rooftop";
+            };
+            "0xe0798dfffeb36d7a" = defaultSwitch // {
+              friendly_name = "homelab/zone/bedroom/switch";
+              smartBulbMode = "Disabled";
+            };
+            "0xe0798dfffeb3662c" = defaultSwitch // {
+              friendly_name = "homelab/zone/office/switch";
+            };
+            "0x001788010de5c649" = defaultLight // {
+              friendly_name = "homelab/zone/office/light";
+            };
+            "0xb43a31fffe34c1cf" = defaultSwitch // {
+              friendly_name = "homelab/zone/upstairs/switch-hallway-light-1";
+              smartBulbMode = "Disabled";
+            };
+            "0x001788010de5c725" = defaultLight // {
+              friendly_name = "homelab/zone/upstairs/light-stairs";
+            };
+            "0x001788010de5c6e8" = defaultLight // {
+              friendly_name = "homelab/zone/upstairs/light-hallway-1";
+            };
+            "0x001788010de5c44d" = defaultLight // {
+              friendly_name = "homelab/zone/upstairs/light-hallway-2";
+            };
+            "0x001788010de5c72d" = defaultLight // {
+              friendly_name = "homelab/zone/bedroom/light-1";
+            };
+            "0x001788010de5c4a6" = defaultLight // {
+              friendly_name = "homelab/zone/bedroom/light-2";
+            };
+            "0x70ac08fffe6c8e2c" = defaultSwitch // {
+              friendly_name = "homelab/zone/bathroom/switch-overhead-1";
+            };
+            "0xe0798dfffeb368c0" = defaultSwitch // {
+              friendly_name = "homelab/zone/bathroom/switch-overhead-2";
+            };
+            "0xe0798dfffeaa7745" = defaultSwitch // {
+              friendly_name = "homelab/zone/bathroom/switch-vanity-1";
+              smartBulbMode = "Disabled";
+            };
+            "0x9035eafffec6e806" = defaultSwitch // {
+              friendly_name = "homelab/zone/bathroom/switch-vanity-2";
+              smartBulbMode = "Disabled";
+            };
+            "0x001788010de5c4a4" = defaultLight // {
+              friendly_name = "homelab/zone/bathroom/light-1";
+            };
 
             # Roof
             "0x00158d000ad7f4eb" = {
               friendly_name = "homelab/zone/rooftop/temperature-sensor";
+            };
+            "0x001788010db42ff9" = defaultLight // {
+              friendly_name = "homelab/zone/rooftop/light-1";
+            };
+            "0x001788010ce32dd5" = defaultLight // {
+              friendly_name = "homelab/zone/rooftop/light-2";
             };
 
             # Outdoors
@@ -199,6 +264,15 @@
             };
             "0x001788010dabc8e4" = defaultLight // {
               friendly_name = "homelab/zone/outdoors/garage-light-4";
+            };
+            "0xe0798dfffeb367b4" = defaultSwitch // {
+              friendly_name = "homelab/zone/kitchen/switch-balcony";
+            };
+            "0x001788010daba3ee" = defaultLight // {
+              friendly_name = "homelab/zone/outdoors/balcony-light-1";
+            };
+            "0x001788010ce618a9" = defaultLight // {
+              friendly_name = "homelab/zone/outdoors/balcony-light-2";
             };
           };
 
@@ -238,7 +312,9 @@
             friendly_name = "homelab/group/living-room-stairs";
             devices = [
               "0xb43a31fffe34dcd3/1"
+              "0xb43a31fffe3babd1/1"
               "0x001788010de59ed5/11"
+              "0x001788010de5c725/11"
             ];
           };
           "5" = {
@@ -272,11 +348,68 @@
           };
           "8" = {
             friendly_name = "homelab/group/balcony-lights";
-            devices = [ ];
+            devices = [
+              "0xe0798dfffeb367b4/1"
+              "0x001788010daba3ee/11"
+              "0x001788010ce618a9/11"
+            ];
           };
           "9" = {
             friendly_name = "homelab/group/rooftop-lights";
-            devices = [ ];
+            devices = [
+              "0xe0798dfffeaa77e9/1"
+              "0x001788010db42ff9/11"
+              "0x001788010ce32dd5/11"
+            ];
+          };
+          "10" = {
+            friendly_name = "homelab/group/office";
+            devices = [
+              "0xe0798dfffeb3662c/1"
+              "0x001788010de5c649/11"
+            ];
+          };
+          "11" = {
+            friendly_name = "homelab/group/upstairs-hallway";
+            devices = [
+              "0xe0798dfffeaa77b1/1"
+              "0xb43a31fffe34c1cf/1"
+              "0x001788010de5c6e8/11"
+              "0x001788010de5c44d/11"
+              # TODO: add 3rd light
+            ];
+          };
+          "12" = {
+            friendly_name = "homelab/group/bedroom";
+            devices = [
+              "0xe0798dfffeb36d7a/1"
+              "0x001788010de5c72d/11"
+              "0x001788010de5c4a6/11"
+              # TODO: add 3rd light
+              # TODO: add 4th light
+            ];
+          };
+          "13" = {
+            friendly_name = "homelab/group/bedroom-closet";
+            devices = [
+              "0xe0798dfffeaa78c9/1"
+              # TODO: add light
+            ];
+          };
+          "14" = {
+            friendly_name = "homelab/group/bathroom-overhead";
+            devices = [
+              "0x70ac08fffe6c8e2c/1"
+              "0xe0798dfffeb368c0/1"
+              "0x001788010de5c4a4/11"
+            ];
+          };
+          "15" = {
+            friendly_name = "homelab/group/bathroom-vanity";
+            devices = [
+              "0xe0798dfffeaa7745/1"
+              "0x9035eafffec6e806/1"
+            ];
           };
         };
       };
