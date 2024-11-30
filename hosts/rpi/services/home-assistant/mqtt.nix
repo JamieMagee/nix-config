@@ -64,7 +64,7 @@
             "0xb43a31fffe30b639" = defaultSwitch // {
               friendly_name = "homelab/zone/garage/switch-indoors";
             };
-            "0x001788010de59fb4" = {
+            "0x001788010de59fb4" = defaultLight // {
               friendly_name = "homelab/zone/garage/light-stairs";
             };
             "0xb43a31fffe380054" = defaultSwitch // {
@@ -235,7 +235,7 @@
               smartBulbMode = "Disabled";
             };
             "0x001788010de5c4a4" = defaultLight // {
-              friendly_name = "homelab/zone/bathroom/light-1";
+              friendly_name = "homelab/zone/bathroom/light";
             };
 
             # Roof
@@ -325,7 +325,7 @@
             ];
           };
           "6" = {
-            friendly_name = "homelab/group/garage-indoor-lights";
+            friendly_name = "homelab/group/garage-indoors";
             devices = [
               "0xb43a31fffe30b639/1"
               "0x001788010db5e5e0/11"
@@ -409,6 +409,91 @@
             devices = [
               "0xe0798dfffeaa7745/1"
               "0x9035eafffec6e806/1"
+            ];
+          };
+          "16" = {
+            friendly_name = "homelab/group/indoor-lights";
+            devices = [
+              "0x001788010db5e5e0/11"
+              "0x001788010d6cef1e/11"
+              "0x001788010db5e90e/11"
+              "0x001788010d6cc048/11"
+              "0x001788010cfc498d/11"
+              "0x001788010bc2476c/11"
+              "0x001788010de59fb4/11"
+              "0x001788010de59f87/11"
+              "0x001788010de588ef/11"
+              "0x001788010de58f56/11"
+              "0x001788010de59fff/11"
+              "0x001788010de59fdc/11"
+              "0x001788010de59294/11"
+              "0x001788010de58f44/11"
+              "0x001788010de58f50/11"
+              "0x001788010de59d73/11"
+              "0x001788010de59ed5/11"
+              "0x001788010de5c725/11"
+              "0x001788010de5c649/11"
+              "0x001788010de5c6e8/11"
+              "0x001788010de5c44d/11"
+              # TODO: upstairs hallway light 3
+              "0x001788010de5c72d/11"
+              "0x001788010de5c4a6/11"
+              # TODO: bedroom light 3
+              # TODO: bedroom light 4
+              # TODO: bedroom closet light
+              "0x001788010de5c4a4/11"
+            ];
+          };
+          "17" = {
+            friendly_name = "homelab/group/upstairs-lights";
+            devices = [
+              "0x001788010de59fb4/11"
+              "0x001788010de59f87/11"
+              "0x001788010de588ef/11"
+              "0x001788010de58f56/11"
+              "0x001788010de59fff/11"
+              "0x001788010de59fdc/11"
+              "0x001788010de59294/11"
+              "0x001788010de58f44/11"
+              "0x001788010de58f50/11"
+              "0x001788010de59d73/11"
+              "0x001788010de59ed5/11"
+              "0x001788010de5c725/11"
+              "0x001788010de5c649/11"
+              "0x001788010de5c6e8/11"
+              "0x001788010de5c44d/11"
+              # TODO: upstairs hallway light 3
+              "0x001788010de5c72d/11"
+              "0x001788010de5c4a6/11"
+              # TODO: bedroom light 3
+              # TODO: bedroom light 4
+              # TODO: bedroom closet light
+              "0x001788010de5c4a4/11"
+            ];
+          };
+          "18" = {
+            friendly_name = "homelab/group/garage-indoors-lights";
+            devices = [
+              "0x001788010db5e5e0/11"
+              "0x001788010d6cef1e/11"
+              "0x001788010db5e90e/11"
+              "0x001788010d6cc048/11"
+              "0x001788010cfc498d/11"
+              "0x001788010bc2476c/11"
+            ];
+          };
+          "19" = {
+            friendly_name = "homelab/group/outdoors-lights";
+            devices = [
+              "0x001788010dabd66b/11"
+              "0x001788010daba3ee/11"
+              "0x001788010ce618a9/11"
+              "0x001788010db42ff9/11"
+              "0x001788010ce32dd5/11"
+              "0x001788010daba6e8/11"
+              "0x001788010db42d9c/11"
+              "0x001788010db3bab6/11"
+              "0x001788010dabc8e4/11"
             ];
           };
         };
