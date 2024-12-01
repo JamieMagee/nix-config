@@ -97,7 +97,14 @@
         {
           name = "Indoor lights";
           lights = [
-            "light.homelab_group_upstairs_lights"
+            "light.homelab_group_garage_stairs"
+            "light.homelab_group_kitchen"
+            "light.homelab_group_living_room"
+            "light.homelab_group_living_room_stairs_lights"
+            "light.homelab_group_office_lights"
+            "light.homelab_group_upstairs_hallway_lights"
+            "light.homelab_group_bedroom_lights"
+            "light.homelab_group_bathroom_overhead_lights"
           ];
           min_brightness = 50;
           min_color_temp = 3000;
@@ -106,7 +113,10 @@
         {
           name = "Outside lights";
           lights = [
-            "light.homelab_group_outdoor_lights"
+            "light.homelab_group_balcony"
+            "light.homelab_group_rooftop"
+            "light.homelab_group_front_porch"
+            "light.homelab_group_garage_outdoor"
           ];
           min_brightness = 100;
           detect_non_ha_changes = true;

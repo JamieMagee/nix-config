@@ -483,13 +483,89 @@
             ];
           };
           "19" = {
-            friendly_name = "homelab/group/outdoors-lights";
+            friendly_name = "homelab/group/garage-stairs";
+            devices = [
+              "0x001788010de59fb4/11"
+              "0x001788010de59f87/11"
+            ];
+          };
+          "20" = {
+            friendly_name = "homelab/group/kitchen";
+            devices = [
+              "0x001788010de588ef/11"
+              "0x001788010de58f56/11"
+              "0x001788010de59fff/11"
+              "0x001788010de59fdc/11"
+            ];
+          };
+          "21" = {
+            friendly_name = "homelab/group/living-room";
+            devices = [
+              "0x001788010de59294/11"
+              "0x001788010de58f44/11"
+              "0x001788010de58f50/11"
+              "0x001788010de59d73/11"
+            ];
+          };
+          "22" = {
+            friendly_name = "homelab/group/living-room-stairs-lights";
+            devices = [
+              "0x001788010de59ed5/11"
+              "0x001788010de5c725/11"
+            ];
+          };
+          "23" = {
+            friendly_name = "homelab/group/front-porch";
             devices = [
               "0x001788010dabd66b/11"
+            ];
+          };
+          "24" = {
+            friendly_name = "homelab/group/balcony";
+            devices = [
               "0x001788010daba3ee/11"
               "0x001788010ce618a9/11"
+            ];
+          };
+          "25" = {
+            friendly_name = "homelab/group/rooftop";
+            devices = [
               "0x001788010db42ff9/11"
               "0x001788010ce32dd5/11"
+            ];
+          };
+          "26" = {
+            friendly_name = "homelab/group/office-lights";
+            devices = [
+              "0x001788010de5c649/11"
+            ];
+          };
+          "27" = {
+            friendly_name = "homelab/group/upstairs-hallway-lights";
+            devices = [
+              "0x001788010de5c6e8/11"
+              "0x001788010de5c44d/11"
+              # TODO: add 3rd light
+            ];
+          };
+          "28" = {
+            friendly_name = "homelab/group/bedroom-lights";
+            devices = [
+              "0x001788010de5c72d/11"
+              "0x001788010de5c4a6/11"
+              # TODO: add 3rd light
+              # TODO: add 4th light
+            ];
+          };
+          "29" = {
+            friendly_name = "homelab/group/bathroom-overhead-lights";
+            devices = [
+              "0x001788010de5c4a4/11"
+            ];
+          };
+          "30" = {
+            friendly_name = "homelab/group/garage-outdoor";
+            devices = [
               "0x001788010daba6e8/11"
               "0x001788010db42d9c/11"
               "0x001788010db3bab6/11"
