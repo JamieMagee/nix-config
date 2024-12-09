@@ -186,14 +186,15 @@
             };
             "0xe0798dfffeaa78c9" = defaultSwitch // {
               friendly_name = "homelab/zone/bedroom/switch-closet";
-              smartBulbMode = "Disabled";
+            };
+            "0x001788010de5c71f" = defaultLight // {
+              friendly_name = "homelab/zone/bedroom/light-closet";
             };
             "0xe0798dfffeaa77e9" = defaultSwitch // {
               friendly_name = "homelab/zone/upstairs/switch-rooftop";
             };
             "0xe0798dfffeb36d7a" = defaultSwitch // {
               friendly_name = "homelab/zone/bedroom/switch";
-              smartBulbMode = "Disabled";
             };
             "0xe0798dfffeb3662c" = defaultSwitch // {
               friendly_name = "homelab/zone/office/switch";
@@ -210,15 +211,23 @@
             };
             "0x001788010de5c6e8" = defaultLight // {
               friendly_name = "homelab/zone/upstairs/light-hallway-1";
+              disabled = true;
             };
             "0x001788010de5c44d" = defaultLight // {
               friendly_name = "homelab/zone/upstairs/light-hallway-2";
+              disabled = true;
             };
             "0x001788010de5c72d" = defaultLight // {
               friendly_name = "homelab/zone/bedroom/light-1";
             };
             "0x001788010de5c4a6" = defaultLight // {
               friendly_name = "homelab/zone/bedroom/light-2";
+            };
+            "0x001788010de5c49a" = defaultLight // {
+              friendly_name = "homelab/zone/bedroom/light-3";
+            };
+            "0x001788010de5cfd3" = {
+              friendly_name = "homelab/zone/bedroom/light-4";
             };
             "0x70ac08fffe6c8e2c" = defaultSwitch // {
               friendly_name = "homelab/zone/bathroom/switch-overhead-1";
@@ -385,15 +394,15 @@
               "0xe0798dfffeb36d7a/1"
               "0x001788010de5c72d/11"
               "0x001788010de5c4a6/11"
-              # TODO: add 3rd light
-              # TODO: add 4th light
+              "0x001788010de5c49a/11"
+              "0x001788010de5cfd3/11"
             ];
           };
           "13" = {
             friendly_name = "homelab/group/bedroom-closet";
             devices = [
               "0xe0798dfffeaa78c9/1"
-              # TODO: add light
+              "0x001788010de5c71f/11"
             ];
           };
           "14" = {
@@ -438,9 +447,9 @@
               # TODO: upstairs hallway light 3
               "0x001788010de5c72d/11"
               "0x001788010de5c4a6/11"
-              # TODO: bedroom light 3
-              # TODO: bedroom light 4
-              # TODO: bedroom closet light
+              "0x001788010de5c49a/11"
+              "0x001788010de5cfd3/11"
+              "0x001788010de5c71f/11"
               "0x001788010de5c4a4/11"
             ];
           };
@@ -465,9 +474,9 @@
               # TODO: upstairs hallway light 3
               "0x001788010de5c72d/11"
               "0x001788010de5c4a6/11"
-              # TODO: bedroom light 3
-              # TODO: bedroom light 4
-              # TODO: bedroom closet light
+              "0x001788010de5c49a/11"
+              "0x001788010de5cfd3/11"
+              "0x001788010de5c71f/11"
               "0x001788010de5c4a4/11"
             ];
           };
@@ -553,8 +562,8 @@
             devices = [
               "0x001788010de5c72d/11"
               "0x001788010de5c4a6/11"
-              # TODO: add 3rd light
-              # TODO: add 4th light
+              "0x001788010de5c49a/11"
+              "0x001788010de5cfd3/11"
             ];
           };
           "29" = {
