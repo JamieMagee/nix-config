@@ -13,6 +13,7 @@
     ./mqtt.nix
     ./notify.nix
     ./people.nix
+    ./recorder.nix
     ./sonos.nix
     ./unifi.nix
     ./waste-collection.nix
