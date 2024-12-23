@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    raspberry-pi-nix = {
+      url = "github:nix-community/raspberry-pi-nix/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -92,6 +97,7 @@
       nixosConfigurations = {
         jamie-desktop = mkSystem "jamie-desktop" "x86_64-linux" [ ];
         rpi = mkSystem "rpi" "aarch64-linux" [ ];
+        rpi5 = mkSystem "rpi5" "aarch64-linux" [ ];
         jamie-hyperv = mkSystem "jamie-hyperv" "x86_64-linux" [ ];
         alfred = mkSystem "alfred" "x86_64-linux" [ ];
       };
@@ -99,6 +105,7 @@
       homeConfigurations = {
         "jamie@jamie-desktop" = mkHome "jamie" "wsl" "x86_64-linux" [ ];
         "jamie@rpi" = mkHome "jamie" "rpi" "aarch64-linux" [ ];
+        "jamie@rpi5" = mkHome "jamie" "rpi5" "aarch64-linux" [ ];
         "jamie@jamie-hyperv" = mkHome "jamie" "jamie-hyperv" "x86_64-linux" [ ];
         "jamie@alfred" = mkHome "jamie" "alfred" "x86_64-linux" [ ];
         "jamie@generic" = mkHome "jamie" "generic" "x86_64-linux" [ ];
