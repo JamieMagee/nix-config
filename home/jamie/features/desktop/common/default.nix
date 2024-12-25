@@ -7,7 +7,6 @@
     ./gtk.nix
     ./jetbrains.nix
     ./kitty.nix
-    ./spotify.nix
     ./vscode.nix
   ];
 

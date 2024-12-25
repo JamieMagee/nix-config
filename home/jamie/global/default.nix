@@ -18,7 +18,6 @@ in
     with inputs;
     [
       nix-colors.homeManagerModule
-      spicetify-nix.homeManagerModules.default
       nixvim.homeManagerModules.nixvim
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
