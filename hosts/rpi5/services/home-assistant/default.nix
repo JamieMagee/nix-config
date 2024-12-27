@@ -1,7 +1,24 @@
 { pkgs, config, ... }:
 {
   imports = [
-
+    ./abode.nix
+    ./backup.nix
+    ./blinds.nix
+    ./cloud.nix
+    ./default-config.nix
+    ./esphome.nix
+    ./hvac.nix
+    ./leak.nix
+    ./lights.nix
+    ./miele.nix
+    ./mqtt.nix
+    ./notify.nix
+    ./people.nix
+    ./recorder.nix
+    ./sonos.nix
+    ./unifi.nix
+    ./waste-collection.nix
+    ./weather.nix
   ];
 
   services.home-assistant = {
@@ -15,6 +32,7 @@
       "econet"
       "google_translate"
       "homekit_controller"
+      "isal"
       "met"
       "mqtt"
       "notify"
@@ -37,7 +55,6 @@
       waste_collection_schedule
     ];
     config = {
-      default_config = { };
       http = {
         trusted_proxies = [
           "127.0.0.1"
