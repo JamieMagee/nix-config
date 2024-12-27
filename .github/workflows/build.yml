@@ -15,19 +15,15 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: 'jamie-desktop'
-            path: 'nixosConfigurations."jamie-desktop".config.system.build.toplevel'
-          - name: 'rpi'
-            path: 'nixosConfigurations."rpi".config.system.build.toplevel'
-          - name: 'jamie-hyperv'
-            path: 'nixosConfigurations."jamie-hyperv".config.system.build.toplevel'
           - name: 'alfred'
             path: 'nixosConfigurations."alfred".config.system.build.toplevel'
+          - name: 'rpi5'
+            path: 'nixosConfigurations."rpi5".config.system.build.toplevel'
           - name: 'jamie@alfred'
             path: 'homeConfigurations."jamie@alfred".activationPackage'
-          - name: 'jamie@rpi'
-            path: 'homeConfigurations."jamie@rpi".activationPackage'
-          - name: 'jamie@generic'
+          - name: 'jamie@rpi5'
+            path: 'homeConfigurations."jamie@rpi5".activationPackage'
+          - name: 'jamie@jamagee-desktop'
             path: 'homeConfigurations."jamie@generic".activationPackage'
 
     steps:
