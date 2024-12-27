@@ -54,7 +54,7 @@ in
   home = {
     username = lib.mkDefault "jamie";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    stateVersion = lib.mkDefault "22.05";
+    stateVersion = lib.mkDefault "24.05";
   };
 
   # https://github.com/nix-community/home-manager/issues/5552
