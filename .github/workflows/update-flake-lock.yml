@@ -30,6 +30,10 @@ jobs:
         id: update
         uses: DeterminateSystems/update-flake-lock@a2bbe0274e3a0c4194390a1e445f734c597ebc37 # v24
 
+      # Automerge sometimes fails. This is a workaround for the race condition.
+      - name: Sleep for 15 seconds
+        run: sleep 15
+
       - name: Enable automerge
         if: ${{ steps.update.outputs.pull-request-number != '' }}
         run: gh pr merge --squash --auto ${{ steps.update.outputs.pull-request-number }}
