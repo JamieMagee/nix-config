@@ -4,6 +4,7 @@
     Restart = lib.mkForce "always";
     RestartSec = "30";
   };
+
   services = {
     zigbee2mqtt = {
       enable = true;
@@ -605,4 +606,6 @@
       ];
     };
   };
+
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 8080 ];
 }
