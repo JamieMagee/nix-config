@@ -114,12 +114,12 @@
               };
             }
             {
-              action = "media_player.volume_set";
+              action = "media_player.volume_mute";
               target = {
                 entity_id = "media_player.shield";
               };
               data = {
-                volume_level = 0.2;
+                is_volume_muted = true;
               };
             }
           ];
