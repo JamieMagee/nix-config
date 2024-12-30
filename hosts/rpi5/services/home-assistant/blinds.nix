@@ -70,7 +70,7 @@
             state = "open";
           };
           "cover.homelab_zone_kitchen_shade" = {
-            current_position = 4;
+            current_position = 100;
             state = "open";
           };
         };
