@@ -17,6 +17,7 @@
     ./recorder.nix
     ./sonos.nix
     ./unifi.nix
+    ./vacation.nix
     ./waste-collection.nix
     ./weather.nix
   ];
