@@ -10,34 +10,33 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         include:
           - name: 'alfred'
             path: 'nixosConfigurations."alfred".config.system.build.toplevel'
+            os: ubuntu-24.04
           - name: 'rpi5'
             path: 'nixosConfigurations."rpi5".config.system.build.toplevel'
+            os: ubuntu-24.04-arm
           - name: 'jamie@alfred'
             path: 'homeConfigurations."jamie@alfred".activationPackage'
+            os: ubuntu-24.04
           - name: 'jamie@rpi5'
             path: 'homeConfigurations."jamie@rpi5".activationPackage'
+            os: ubuntu-24.04-arm
           - name: 'jamie@jamagee-desktop'
             path: 'homeConfigurations."jamie@generic".activationPackage'
+            os: ubuntu-24.04
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - name: Setup QEMU
-        uses: docker/setup-qemu-action@53851d14592bedcffcf25ea515637cff71ef929a # v3
-
       - name: Install nix
         uses: DeterminateSystems/nix-installer-action@e50d5f73bfe71c2dd0aa4218de8f4afa59f8f81d # v16
-        with:
-          extra-conf: |
-            extra-platforms = aarch64-linux i686-linux
 
       - name: Use cache
         uses: DeterminateSystems/magic-nix-cache-action@6221693898146dc97e38ad0e013488a16477a4c4 # v9
