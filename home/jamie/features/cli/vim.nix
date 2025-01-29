@@ -4,6 +4,8 @@
     colorschemes = {
       nord.enable = true;
     };
+    # Nixvim has its own instance of nixpkgs
+    nixpkgs.config.allowUnfree = true;
     plugins = {
       copilot-vim.enable = true;
       neogit.enable = true;
