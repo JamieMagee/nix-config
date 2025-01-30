@@ -14,10 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    raspberry-pi-nix = {
-      url = "github:nix-community/raspberry-pi-nix/v0.4.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix/v0.4.1";
 
     deploy-rs = {
       url = "github:serokell/deploy-rs";
