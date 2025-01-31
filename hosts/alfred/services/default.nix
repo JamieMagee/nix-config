@@ -6,6 +6,7 @@
     ./plex.nix
     ./prowlarr.nix
     ./radarr.nix
+    ./recyclarr.nix
     ./sabnzbd.nix
     ./sonarr.nix
     ./deluge.nix
