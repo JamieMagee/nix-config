@@ -9,8 +9,8 @@
         forwardAgent = true;
         identitiesOnly = true;
       };
-      "rpi" = {
-        host = "rpi.tailnet-0b15.ts.net";
+      "rpi5" = {
+        host = "rpi5.tailnet-0b15.ts.net";
       };
       "alfred" = {
         host = "alfred.tailnet-0b15.ts.net";

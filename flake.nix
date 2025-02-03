@@ -93,7 +93,6 @@
 
       nixosConfigurations = {
         jamie-desktop = mkSystem "jamie-desktop" "x86_64-linux" [ ];
-        rpi = mkSystem "rpi" "aarch64-linux" [ ];
         rpi5 = mkSystem "rpi5" "aarch64-linux" [ ];
         jamie-hyperv = mkSystem "jamie-hyperv" "x86_64-linux" [ ];
         alfred = mkSystem "alfred" "x86_64-linux" [ ];
@@ -101,7 +100,6 @@
 
       homeConfigurations = {
         "jamie@jamie-desktop" = mkHome "jamie" "wsl" "x86_64-linux" [ ];
-        "jamie@rpi" = mkHome "jamie" "rpi" "aarch64-linux" [ ];
         "jamie@rpi5" = mkHome "jamie" "rpi5" "aarch64-linux" [ ];
         "jamie@jamie-hyperv" = mkHome "jamie" "jamie-hyperv" "x86_64-linux" [ ];
         "jamie@alfred" = mkHome "jamie" "alfred" "x86_64-linux" [ ];
@@ -115,8 +113,8 @@
         magicRollback = false;
         sshOpts = [ "-t" ];
         nodes = {
-          rpi = {
-            hostname = "rpi.tailnet-0b15.ts.net";
+          rpi5 = {
+            hostname = "rpi5.tailnet-0b15.ts.net";
             sshOpts = [
               "-p"
               "2222"
@@ -124,11 +122,11 @@
             profiles = {
               system = {
                 user = "root";
-                path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.rpi;
+                path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.rpi5;
               };
               home = {
                 user = "jamie";
-                path = deploy-rs.lib.aarch64-linux.activate.home-manager self.homeConfigurations."jamie@rpi";
+                path = deploy-rs.lib.aarch64-linux.activate.home-manager self.homeConfigurations."jamie@rpi5";
               };
             };
           };
