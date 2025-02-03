@@ -105,7 +105,7 @@
         "jamie@alfred" = mkHome "jamie" "alfred" "x86_64-linux" [ ];
         "jamie@generic" = mkHome "jamie" "generic" "x86_64-linux" [ ];
         "jamie@jamagee-desktop" = mkHome "jamie" "wsl" "x86_64-linux" [ ];
-        "jamie@JAMAGEE-SURFACE" = mkHome "jamie" "wsl" "x86_64-linux" [ ];
+        "jamie@jamagee-surface2" = mkHome "jamie" "wsl" "x86_64-linux" [ ];
       };
 
       deploy = {
