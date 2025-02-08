@@ -6,6 +6,7 @@
     ../common/global
     ../common/users/jamie.nix
 
+    ../common/optional/docker.nix
     ../common/optional/systemd-boot.nix
   ];
 
