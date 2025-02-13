@@ -29,4 +29,6 @@
 
   # https://github.com/NixOS/nixpkgs/issues/258515
   environment.enableAllTerminfo = !pkgs.stdenv.targetPlatform.isAarch64;
+
+  documentation.nixos.enable = false;
 }
