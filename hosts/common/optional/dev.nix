@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    bicep
+
     # .NET SDKs
     (
       with dotnetCorePackages;
