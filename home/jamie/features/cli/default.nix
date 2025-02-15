@@ -12,6 +12,7 @@
 
   home = {
     packages = with pkgs; [
+      bicep
       # bitwarden-cli
       deploy-rs
       fastfetch
