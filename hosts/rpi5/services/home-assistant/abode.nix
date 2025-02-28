@@ -72,23 +72,25 @@
               at = "22:00:00";
             }
           ];
-          condition = "or";
-          conditions = [
-            {
-              condition = "state";
-              entity_id = [
-                "person.jamie"
-              ];
-              state = "home";
-            }
-            {
-              condition = "state";
-              entity_id = [
-                "person.kat"
-              ];
-              state = "home";
-            }
-          ];
+          conditions = {
+            condition = "or";
+            conditions = [
+              {
+                condition = "state";
+                entity_id = [
+                  "person.jamie"
+                ];
+                state = "home";
+              }
+              {
+                condition = "state";
+                entity_id = [
+                  "person.kat"
+                ];
+                state = "home";
+              }
+            ];
+          };
           actions = [
             {
               action = "alarm_control_panel.alarm_arm_home";
