@@ -75,6 +75,30 @@
             }
           ];
         }
+        {
+          alias = "Turn off indoor lights when no-one is home";
+          id = "turn_off_indoor_lights";
+          triggers = [
+            {
+              trigger = "state";
+              entity_id = "zone.home";
+              to = "0";
+              for = {
+                minutes = 1;
+              };
+            }
+          ];
+          actions = [
+            {
+              action = "light.turn_off";
+              target = {
+                entity_id = [
+                  "light.homelab_group_indoor_lights"
+                ];
+              };
+            }
+          ];
+        }
       ];
 
       adaptive_lighting = [
