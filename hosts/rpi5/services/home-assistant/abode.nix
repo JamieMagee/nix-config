@@ -72,11 +72,18 @@
               at = "22:00:00";
             }
           ];
+          condition = "or";
           conditions = [
             {
               condition = "state";
               entity_id = [
                 "person.jamie"
+              ];
+              state = "home";
+            }
+            {
+              condition = "state";
+              entity_id = [
                 "person.kat"
               ];
               state = "home";
@@ -86,6 +93,34 @@
             {
               action = "alarm_control_panel.alarm_arm_home";
               entity_id = "alarm_control_panel.abode_alarm";
+            }
+          ];
+        }
+        {
+          alias = "Notify when alarm disarmed overnight";
+          id = "alarm_disarmed_overnight";
+          triggers = [
+            {
+              trigger = "state";
+              entity_id = "alarm_control_panel.abode_alarm";
+              from = "armed_away";
+              to = "disarmed";
+            }
+          ];
+          conditions = [
+            {
+              condition = "time";
+              after = "22:00:00";
+              before = "07:00:00";
+            }
+          ];
+          actions = [
+            {
+              action = "notify.everyone";
+              data = {
+                title = "Alarm";
+                message = "Don't forget to re-arm the alarm!";
+              };
             }
           ];
         }
