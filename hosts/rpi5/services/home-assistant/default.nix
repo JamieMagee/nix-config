@@ -2,7 +2,6 @@
 {
   imports = [
     ./abode.nix
-    ./backup.nix
     ./blinds.nix
     ./cloud.nix
     ./default-config.nix
