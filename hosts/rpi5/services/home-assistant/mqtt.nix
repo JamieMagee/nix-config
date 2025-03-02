@@ -35,6 +35,10 @@
             defaultLight = {
               color_temp_startup = 65535;
             };
+            defaultFan = defaultSwitch // {
+              outputMode = "Exhaust Fan (On/Off)";
+              smartBulbMode = "Disabled";
+            };
           in
           {
             # Garage
@@ -72,8 +76,9 @@
               friendly_name = "homelab/zone/garage-bathroom/switch-light";
               smartBulbMode = "Disabled";
             };
-            "0x048727fffe19208b" = defaultSwitch // {
+            "0x048727fffe19208b" = defaultFan // {
               friendly_name = "homelab/zone/garage-bathroom/switch-fan";
+              autoTimerOff = 3600;
             };
             "0xb43a31fffe38d5b8" = defaultSwitch // {
               friendly_name = "homelab/zone/garage-hallway/switch-stairs";
@@ -246,6 +251,14 @@
             };
             "0x001788010de5c4a4" = defaultLight // {
               friendly_name = "homelab/zone/bathroom/light";
+            };
+            "0x048727fffe1b2e4d" = defaultFan // {
+              friendly_name = "homelab/zone/bathroom/fan";
+              autoTimerOff = 3600;
+            };
+            "0xd44867fffe8bb773" = defaultFan // {
+              friendly_name = "homelab/zone/utility-closet/fan";
+              autoTimerOff = 3600;
             };
 
             # Roof

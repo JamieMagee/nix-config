@@ -43,6 +43,22 @@
             }
           ];
         }
+        {
+          alias = "Turn on fan when tumble dryer is running";
+          triggers = [
+            {
+              trigger = "state";
+              entity_id = "sensor.tumble_dryer_status";
+              to = "running";
+            }
+          ];
+          actions = [
+            {
+              action = "fan.turn_on";
+              entity_id = "fan.homelab_zone_utility_closet_fan";
+            }
+          ];
+        }
       ];
     };
   };
