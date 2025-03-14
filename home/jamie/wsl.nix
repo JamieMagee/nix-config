@@ -30,7 +30,7 @@
       nodePackages_latest.yarn
 
       # Go
-      go_1_23
+      go_1_24
 
       # System tools
       wslu
