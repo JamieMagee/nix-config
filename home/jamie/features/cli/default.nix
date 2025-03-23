@@ -68,8 +68,6 @@
         };
         default_layout = "compact";
         pane_frames = false;
-        # https://github.com/zellij-org/zellij/issues/4073
-        mouse_mode = false;
       };
     };
     zoxide = {
