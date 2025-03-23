@@ -68,6 +68,7 @@
         };
         default_layout = "compact";
         pane_frames = false;
+        show_startup_tips = false;
       };
     };
     zoxide = {
