@@ -35,17 +35,21 @@
       # System tools
       wslu
     ];
-    sessionVariables = {
-      "ZELLIJ_AUTO_ATTACH" = lib.mkForce "false";
-      "ZELLIJ_AUTO_EXIT" = lib.mkForce "false";
-    };
   };
 
-  programs.git.extraConfig = {
-    credential = {
-      "https://dev.azure.com" = {
-        helper = "/mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe";
-        useHttpPath = true;
+  programs = {
+    zellij = {
+      settings = {
+        attachExistingSession = lib.mkForce false;
+        exitShellOnExit = lib.mkForce false;
+      };
+    };
+    git.extraConfig = {
+      credential = {
+        "https://dev.azure.com" = {
+          helper = "/mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe";
+          useHttpPath = true;
+        };
       };
     };
   };
