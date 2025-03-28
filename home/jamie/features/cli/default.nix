@@ -56,6 +56,8 @@
     zellij = {
       enable = true;
       enableFishIntegration = true;
+      attachExistingSession = true;
+      exitShellOnExit = true;
       settings = {
         theme = "nord";
         themes.nord = {
@@ -74,8 +76,6 @@
         default_layout = "compact";
         pane_frames = false;
         show_startup_tips = false;
-        attachExistingSession = true;
-        exitShellOnExit = true;
       };
     };
     zoxide = {
