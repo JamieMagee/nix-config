@@ -39,10 +39,8 @@
 
   programs = {
     zellij = {
-      settings = {
-        attachExistingSession = lib.mkForce false;
-        exitShellOnExit = lib.mkForce false;
-      };
+      attachExistingSession = lib.mkForce false;
+      exitShellOnExit = lib.mkForce false;
     };
     git.extraConfig = {
       credential = {
