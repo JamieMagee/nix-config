@@ -33,6 +33,15 @@
   };
 
   programs = {
+    atuin = {
+      enable = true;
+      flags = [ "--disable-up-arrow" ];
+      settings = {
+        daemon = {
+          enabled = true;
+        };
+      };
+    };
     bat = {
       enable = true;
     };
