@@ -18,7 +18,6 @@ in
     with inputs;
     [
       nix-colors.homeManagerModule
-      nixvim.homeManagerModules.nixvim
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
   nixpkgs = {

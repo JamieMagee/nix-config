@@ -6,7 +6,6 @@
     ./micro.nix
     ./ssh.nix
     ./starship.nix
-    ./vim.nix
     ./yubikey.nix
   ];
 
