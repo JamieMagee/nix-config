@@ -256,15 +256,15 @@
               friendly_name = "homelab/zone/bathroom/fan";
               autoTimerOff = 3600;
             };
+            "0x00158d008b7ca529" = {
+              friendly_name = "homelab/zone/bathroom/humidity-sensor";
+            };
             "0xd44867fffe8bb773" = defaultFan // {
               friendly_name = "homelab/zone/utility-closet/fan";
               autoTimerOff = 3600;
             };
 
             # Roof
-            "0x00158d000ad7f4eb" = {
-              friendly_name = "homelab/zone/rooftop/temperature-sensor";
-            };
             "0x001788010db42ff9" = defaultLight // {
               friendly_name = "homelab/zone/rooftop/light-1";
             };
