@@ -60,6 +60,44 @@
           }
         ];
       }
+      {
+        alias = "Turn on bathroom fan when humidity is high";
+        id = "bathroom_fan_humidity";
+        triggers = [
+          {
+            trigger = "numeric_state";
+            entity_id = "sensor.0x00158d008b7ca529_humidity";
+            above = 60;
+          }
+        ];
+        actions = [
+          {
+            action = "fan.turn_on";
+            target = {
+              entity_id = "fan.0x048727fffe1b2e4d";
+            };
+          }
+        ];
+      }
+      {
+        alias = "Turn off bathroom fan when humidity is low";
+        id = "bathroom_fan_humidity_off";
+        triggers = [
+          {
+            trigger = "numeric_state";
+            entity_id = "sensor.0x00158d008b7ca529_humidity";
+            below = 55;
+          }
+        ];
+        actions = [
+          {
+            action = "fan.turn_off";
+            target = {
+              entity_id = "fan.0x048727fffe1b2e4d";
+            };
+          }
+        ];
+      }
     ];
   };
 }

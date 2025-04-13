@@ -59,6 +59,22 @@
             }
           ];
         }
+        {
+          alias = "Turn off fan when tumble dryer is not running";
+          triggers = [
+            {
+              trigger = "state";
+              entity_id = "sensor.tumble_dryer_status";
+              to = "program_ended";
+            }
+          ];
+          actions = [
+            {
+              action = "fan.turn_off";
+              entity_id = "fan.homelab_zone_utility_closet_fan";
+            }
+          ];
+        }
       ];
     };
   };
