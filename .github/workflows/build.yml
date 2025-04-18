@@ -38,8 +38,5 @@ jobs:
       - name: Install nix
         uses: DeterminateSystems/nix-installer-action@e50d5f73bfe71c2dd0aa4218de8f4afa59f8f81d # v16
 
-      - name: Use cache
-        uses: DeterminateSystems/magic-nix-cache-action@6221693898146dc97e38ad0e013488a16477a4c4 # v9
-
       - name: Build ${{ matrix.name }}
         run: nix build ".#"${{ matrix.path }}
