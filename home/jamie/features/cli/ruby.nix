@@ -9,6 +9,9 @@
         tools = {
           ruby = "3.4.2";
         };
+        settings = {
+          idiomatic_version_file_enable_tools = [];
+        };
       };
     };
     fish = {
