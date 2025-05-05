@@ -93,7 +93,7 @@
               action = "light.turn_off";
               target = {
                 entity_id = [
-                  "light.homelab_group_indoor_lights"
+                  "light.homelab_group_indoor_light_switches"
                 ];
               };
             }

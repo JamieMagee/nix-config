@@ -595,6 +595,30 @@
               "0x001788010dabc8e4/11"
             ];
           };
+          "31" = {
+            friendly_name = "homelab/group/indoor-light-switches";
+            devices = [
+              "0xb43a31fffe380054/1"
+              "0xb43a31fffe38d5b8/1"
+              "0xb43a31fffe396ae0/1"
+              "0xb43a31fffe270352/1"
+              "0xb43a31fffe308aa9/1"
+              "0xb43a31fffe307d4a/1"
+              "0xb43a31fffe30b619/1"
+              "0xb43a31fffe34dcd3/1"
+              "0xb43a31fffe30b639/1"
+              "0xe0798dfffeaa77b1/1"
+              "0xb43a31fffe3babd1/1"
+              "0xe0798dfffeaa78c9/1"
+              "0xe0798dfffeb36d7a/1"
+              "0xe0798dfffeb3662c/1"
+              "0xb43a31fffe34c1cf/1"
+              "0x70ac08fffe6c8e2c/1"
+              "0x9035eafffec6e806/1"
+              "0xe0798dfffeb368c0/1"
+              "0xe0798dfffeaa7745/1"
+            ];
+          }
         };
       };
     };
