@@ -218,33 +218,6 @@
           }
         ];
       }
-      {
-        alias = "Mini Split - Mode Coordinator";
-        id = "hvac_mode_coordinator";
-        triggers = [
-          {
-            trigger = "time_pattern";
-            minutes = "/10";
-          }
-        ];
-        conditions = [
-          {
-            condition = "numeric_state";
-            entity_id = "zone.home";
-            above = 0;
-          }
-          {
-            condition = "time";
-            after = "06:00:00";
-            before = "22:00:00";
-          }
-        ];
-        actions = [
-          {
-            action = "script.determine_hvac_mode";
-          }
-        ];
-      }
     ];
   };
 }
