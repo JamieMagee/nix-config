@@ -7,7 +7,10 @@
       enable = true;
       globalConfig = {
         tools = {
-          ruby = "3.4.2";
+          ruby = [
+            "3.3.6"
+            "3.4.3"
+          ];
         };
         settings = {
           idiomatic_version_file_enable_tools = [];
