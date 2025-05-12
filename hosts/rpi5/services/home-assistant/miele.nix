@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   services.home-assistant = {
-    customComponents = with pkgs.home-assistant-custom-components; [ miele ];
+    extraComponents = [ "miele" ];
 
     config = {
       automation = [
