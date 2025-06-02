@@ -25,7 +25,7 @@
       )
 
       # Node.js and package managers
-      nodejs_22
+      nodejs_24
       nodePackages_latest.pnpm
       nodePackages_latest.yarn
 
