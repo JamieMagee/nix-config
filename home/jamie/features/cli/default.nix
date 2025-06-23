@@ -25,6 +25,7 @@
       skopeo
       statix
       trippy
+      yq
     ];
   };
 
