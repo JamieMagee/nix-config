@@ -14,7 +14,7 @@
           ];
         };
         settings = {
-          idiomatic_version_file_enable_tools = [];
+          idiomatic_version_file_enable_tools = [ "ruby" ];
         };
       };
     };
