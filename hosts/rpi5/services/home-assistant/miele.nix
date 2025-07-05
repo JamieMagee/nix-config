@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   services.home-assistant = {
     extraComponents = [ "miele" ];
 

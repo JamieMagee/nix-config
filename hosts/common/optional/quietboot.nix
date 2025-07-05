@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   console = {
     useXkbConfig = true;
     earlySetup = false;

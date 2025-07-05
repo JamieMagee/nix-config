@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   services.sabnzbd = {
     enable = true;
   };
