@@ -38,5 +38,8 @@ jobs:
       - name: Install nix
         uses: DeterminateSystems/nix-installer-action@21a544727d0c62386e78b4befe52d19ad12692e3 # v17
 
+      - name: Check flake
+        run: nix flake check
+
       - name: Build ${{ matrix.name }}
-        run: nix build ".#"${{ matrix.path }}
+        run: nix build ".#${{ matrix.path }}"
