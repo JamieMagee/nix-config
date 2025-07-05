@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   services.sabnzbd = {
     enable = true;

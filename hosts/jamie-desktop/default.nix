@@ -1,5 +1,5 @@
 # System configuration for my main desktop PC
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.hardware.nixosModules.common-cpu-amd

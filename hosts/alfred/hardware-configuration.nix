@@ -1,8 +1,5 @@
 {
   inputs,
-  modulesPath,
-  pkgs,
-  config,
   ...
 }:
 {

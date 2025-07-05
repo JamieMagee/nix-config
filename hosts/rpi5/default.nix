@@ -1,4 +1,4 @@
-{ inputs, nixos-raspberrypi, ... }:
+{ nixos-raspberrypi, ... }:
 {
   imports = [
     ./hardware-configuration.nix

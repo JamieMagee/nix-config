@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   services.home-assistant = {
     extraComponents = [ "miele" ];

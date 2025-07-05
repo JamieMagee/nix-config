@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   services.recyclarr = {
     enable = true;
