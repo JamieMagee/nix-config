@@ -71,9 +71,6 @@
           };
           modules = [ ./home/${username}/${hostname}.nix ] ++ extraModules;
         };
-
-      # Common configurations
-      wslConfig = [ ./home/jamie/wsl.nix ];
     in
     {
       # Standard flake outputs
