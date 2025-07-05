@@ -1,18 +1,16 @@
 { lib, pkgs, ... }:
 {
   services = {
-    xserver = {
+    xserver.enable = true;
+    desktopManager.plasma6 = {
       enable = true;
-      desktopManager.plasma5 = {
-        enable = true;
-      };
-      displayManager.sddm = {
-        enable = true;
-      };
+    };
+    displayManager.sddm = {
+      enable = true;
     };
   };
 
   hardware.bluetooth.enable = true;
 
-  environment.systemPackages = with pkgs; [ ark ];
+  environment.systemPackages = with pkgs; [ kdePackages.ark ];
 }
