@@ -91,7 +91,6 @@
       nixosConfigurations = {
         alfred = mkSystem "alfred" "x86_64-linux" [ ];
         jamie-desktop = mkSystem "jamie-desktop" "x86_64-linux" [ ];
-        jamie-hyperv = mkSystem "jamie-hyperv" "x86_64-linux" [ ];
         oci-vm = mkSystem "oci-vm" "aarch64-linux" [ ];
         rpi5 = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = {
@@ -109,7 +108,6 @@
         "jamie@jamagee-desktop" = mkHome "jamie" "wsl" "x86_64-linux" [ ];
         "jamie@jamagee-surface2" = mkHome "jamie" "wsl" "x86_64-linux" [ ];
         "jamie@jamie-desktop" = mkHome "jamie" "wsl" "x86_64-linux" [ ];
-        "jamie@jamie-hyperv" = mkHome "jamie" "jamie-hyperv" "x86_64-linux" [ ];
         "jamie@oci-vm" = mkHome "jamie" "oci-vm" "aarch64-linux" [ ];
         "jamie@rpi5" = mkHome "jamie" "rpi5" "aarch64-linux" [ ];
       };
