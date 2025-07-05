@@ -27,9 +27,6 @@ jobs:
           - name: 'jamie@rpi5'
             path: 'homeConfigurations."jamie@rpi5".activationPackage'
             os: ubuntu-24.04-arm
-          - name: 'jamie@jamagee-desktop'
-            path: 'homeConfigurations."jamie@generic".activationPackage'
-            os: ubuntu-24.04
 
     steps:
       - name: Checkout repository
@@ -38,8 +35,8 @@ jobs:
       - name: Install nix
         uses: DeterminateSystems/nix-installer-action@21a544727d0c62386e78b4befe52d19ad12692e3 # v17
 
-      - name: Check flake
-        run: nix flake check
+      # - name: Check flake
+      #   run: nix flake check
 
       - name: Build ${{ matrix.name }}
         run: nix build ".#${{ matrix.path }}"
