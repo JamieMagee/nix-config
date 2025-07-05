@@ -40,7 +40,7 @@
 
     # Add each flake input as a registry
     # To make nix3 commands consistent with the flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mkForce (lib.mapAttrs (_: value: { flake = value; }) inputs);
 
     # Map registries to channels
     # Very useful when using legacy commands

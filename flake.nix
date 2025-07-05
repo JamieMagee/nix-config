@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix/v0.4.1";
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi";
 
     deploy-rs = {
       url = "github:serokell/deploy-rs";
@@ -40,6 +40,7 @@
       nixpkgs,
       home-manager,
       deploy-rs,
+      nixos-raspberrypi,
       ...
     }@inputs:
     let
@@ -56,7 +57,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs outputs;
+            inherit inputs outputs nixos-raspberrypi;
           };
           modules = modules ++ [ ./hosts/${hostname} ];
         };
@@ -75,6 +76,7 @@
       wslConfig = [ ./home/jamie/wsl.nix ];
     in
     {
+      # Standard flake outputs
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
       overlays = import ./overlays;
@@ -91,7 +93,14 @@
         jamie-desktop = mkSystem "jamie-desktop" "x86_64-linux" [ ];
         jamie-hyperv = mkSystem "jamie-hyperv" "x86_64-linux" [ ];
         oci-vm = mkSystem "oci-vm" "aarch64-linux" [ ];
-        rpi5 = mkSystem "rpi5" "aarch64-linux" [ ];
+        rpi5 = nixos-raspberrypi.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs nixos-raspberrypi;
+          };
+          modules = [
+            ./hosts/rpi5/default.nix
+          ];
+        };
       };
 
       homeConfigurations = {
@@ -105,6 +114,7 @@
         "jamie@rpi5" = mkHome "jamie" "rpi5" "aarch64-linux" [ ];
       };
 
+      # deploy-rs configuration (custom output for deploy-rs)
       deploy = {
         fastConnection = true;
         magicRollback = false;
@@ -130,7 +140,9 @@
         };
       };
 
-      # Add basic checks
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      # Add deploy-rs checks only for aarch64-linux system
+      checks = {
+        aarch64-linux = deploy-rs.lib.aarch64-linux.deployChecks self.deploy;
+      };
     };
 }

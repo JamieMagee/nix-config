@@ -1,9 +1,5 @@
-{ inputs, ... }:
+{ inputs, nixos-raspberrypi, ... }:
 {
-  imports = [
-    inputs.raspberry-pi-nix.nixosModules.raspberry-pi
-  ];
-
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
@@ -15,25 +11,20 @@
     };
   };
 
-  hardware = {
-    raspberry-pi = {
-      config = {
-        all = {
-          base-dt-params = {
-            usb_max_current_enable = {
-              enable = true;
-              value = 1;
-            };
-            pciex1_gen = {
-              value = 3;
-              enable = true;
-            };
-          };
+  hardware.raspberry-pi.config = {
+    all = {
+      base-dt-params = {
+        # Enable PCIe
+        pciex1 = {
+          enable = true;
+          value = "on";
+        };
+        # PCIe Gen 3.0 for better performance
+        pciex1_gen = {
+          enable = true;
+          value = 3;
         };
       };
     };
   };
-
-  raspberry-pi-nix.board = "bcm2712";
-  nixpkgs.hostPlatform.system = "aarch64-linux";
 }
