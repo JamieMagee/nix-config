@@ -1,4 +1,4 @@
-{ nixos-raspberrypi, ... }:
+{ inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -10,8 +10,6 @@
     ../common/optional/vscode-server.nix
 
     ./services
-
-    nixos-raspberrypi.nixosModules.raspberry-pi-5.base
   ];
 
   networking = {
@@ -30,6 +28,8 @@
       ];
     };
   };
+
+  raspberry-pi-nix.libcamera-overlay.enable = false;
 
   system.stateVersion = "24.05";
 }
