@@ -59,6 +59,7 @@
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefaultgit
         default = "current";
         gpgSign = "if-asked";
+        autoSetupRemote = true;
       };
       pull = {
         rebase = true;
@@ -69,6 +70,7 @@
       rebase = {
         autosquash = true;
         autostash = true;
+        updateRefs = true;
       };
       commit = {
         verbose = true;
