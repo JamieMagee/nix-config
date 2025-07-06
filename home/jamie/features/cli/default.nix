@@ -3,6 +3,7 @@
   imports = [
     ./fish.nix
     ./git.nix
+    ./jujutsu.nix
     ./micro.nix
     ./ssh.nix
     ./starship.nix
