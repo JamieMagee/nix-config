@@ -5,6 +5,7 @@
     ./git.nix
     ./jujutsu.nix
     ./micro.nix
+    ./nix.nix
     ./ssh.nix
     ./starship.nix
     ./yubikey.nix
@@ -18,9 +19,6 @@
       fastfetch
       fd
       lazygit
-      nixfmt-rfc-style
-      nixpkgs-review
-      nixpkgs-hammering
       p7zip
       ripgrep
       skopeo
