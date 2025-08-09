@@ -8,5 +8,6 @@
     nixpkgs-hammering
     nixpkgs-review
     statix
+    treefmt
   ];
 }
