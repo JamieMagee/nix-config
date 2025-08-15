@@ -10,7 +10,6 @@
       enable = true;
       settings = {
         availability = true;
-        homeassistant = true;
         frontend = {
           port = 8080;
         };
