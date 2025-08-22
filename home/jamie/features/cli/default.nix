@@ -58,7 +58,7 @@
     };
     zellij = {
       enable = true;
-      enableFishIntegration = true;
+      enableFishIntegration = false;
       attachExistingSession = true;
       exitShellOnExit = true;
       settings = {

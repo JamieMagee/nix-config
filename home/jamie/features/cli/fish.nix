@@ -1,3 +1,4 @@
+{ lib, config, ... }:
 {
   programs.fish = {
     enable = true;
@@ -31,6 +32,12 @@
     functions = {
       fish_greeting = "";
     };
+
+    interactiveShellInit = lib.mkIf config.programs.zellij.enable ''
+      if test "$TERM_PROGRAM" != "vscode"
+        eval (${lib.getExe config.programs.zellij.package} setup --generate-auto-start fish | string collect)
+      end
+    '';
 
     shellInit = ''
       if string match -q "$TERM_PROGRAM" "vscode"; and command -q code-insiders
