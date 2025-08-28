@@ -1,6 +1,7 @@
 {
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       "*-tailnet" = {
         host = "*.tailnet-0b15.ts.net";
