@@ -54,6 +54,7 @@
     ];
     customComponents = with pkgs.home-assistant-custom-components; [
       adaptive_lighting
+      fellow
       spook
       waste_collection_schedule
     ];
