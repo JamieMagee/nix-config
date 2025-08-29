@@ -23,6 +23,13 @@
 
   services.home-assistant = {
     enable = true;
+    package = pkgs.home-assistant.override {
+      packageOverrides =
+        self: super:
+        # Override all Python packages to use the latest versions from nixpkgs
+        # instead of the pinned versions in Home Assistant's component-packages.nix
+        builtins.mapAttrs (name: _: pkgs.python3Packages.${name} or super.${name}) super;
+    };
     extraComponents = [
       "adguard"
       "aladdin_connect"
