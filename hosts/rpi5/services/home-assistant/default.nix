@@ -59,7 +59,11 @@
     ];
     customComponents = with pkgs.home-assistant-custom-components; [
       adaptive_lighting
+      better_thermostat
+      climate_group
+      emporia_vue
       fellow
+      garmin_connect
       spook
       waste_collection_schedule
     ];
