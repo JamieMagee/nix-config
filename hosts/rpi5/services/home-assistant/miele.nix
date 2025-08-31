@@ -9,7 +9,7 @@ _: {
           triggers = [
             {
               trigger = "state";
-              entity_id = "sensor.tumble_dryer_status";
+              entity_id = "sensor.tumble_dryer";
               to = "program_ended";
             }
           ];
@@ -28,7 +28,7 @@ _: {
           triggers = [
             {
               trigger = "state";
-              entity_id = "sensor.washing_machine_status";
+              entity_id = "sensor.washing_machine";
               to = "program_ended";
             }
           ];
@@ -47,7 +47,7 @@ _: {
           triggers = [
             {
               trigger = "state";
-              entity_id = "sensor.tumble_dryer_status";
+              entity_id = "sensor.tumble_dryer";
               to = "running";
             }
           ];
@@ -63,7 +63,7 @@ _: {
           triggers = [
             {
               trigger = "state";
-              entity_id = "sensor.tumble_dryer_status";
+              entity_id = "sensor.tumble_dryer";
               to = "program_ended";
             }
           ];
