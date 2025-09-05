@@ -68,6 +68,9 @@
       spook
       waste_collection_schedule
     ];
+    customLovelaceModules = with pkgs.home-assistant-custom-lovelace-modules; [
+      bubble-card
+    ];
     config = {
       http = {
         trusted_proxies = [
