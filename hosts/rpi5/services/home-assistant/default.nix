@@ -41,6 +41,7 @@
       "homekit_controller"
       "isal"
       "kegtron" # To avoid "Component not found: kegtron"
+      "mcp_server"
       "met"
       "mqtt"
       "notify"
