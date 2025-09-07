@@ -14,140 +14,243 @@
         {
           title = "Home";
           cards = [
+            # Header Section
             {
-              show_current = true;
-              show_forecast = true;
-              type = "weather-forecast";
-              entity = "weather.forecast_home";
-              forecast_type = "daily";
+              type = "custom:mushroom-title-card";
+              title = "Welcome Home";
+              subtitle = "{{ now().strftime('%A, %B %d') }}";
             }
+
+            # Weather & Quick Status
             {
               type = "horizontal-stack";
               cards = [
                 {
-                  type = "tile";
-                  entity = "person.jamie";
+                  type = "weather-forecast";
+                  entity = "weather.forecast_home";
+                  show_current = true;
+                  show_forecast = true;
+                  forecast_type = "daily";
                 }
                 {
-                  type = "tile";
-                  entity = "person.kat";
-                }
-              ];
-            }
-            {
-              type = "tile";
-              entity = "alarm_control_panel.abode_alarm";
-              features = [
-                {
-                  type = "alarm-modes";
-                  modes = [
-                    "armed_home"
-                    "armed_away"
-                    "disarmed"
+                  type = "vertical-stack";
+                  cards = [
+                    {
+                      type = "custom:mushroom-chips-card";
+                      chips = [
+                        {
+                          type = "alarm-control-panel";
+                          entity = "alarm_control_panel.abode_alarm";
+                          name = "Security";
+                        }
+                        {
+                          type = "template";
+                          icon = "mdi:door";
+                          icon_color = "{{ 'red' if is_state('binary_sensor.doors', 'on') else 'green' }}";
+                          content = "{{ 'Open' if is_state('binary_sensor.doors', 'on') else 'Secure' }}";
+                          tap_action = {
+                            action = "more-info";
+                            entity = "binary_sensor.doors";
+                          };
+                        }
+                        {
+                          type = "template";
+                          icon = "mdi:window-open-variant";
+                          icon_color = "{{ 'red' if is_state('binary_sensor.windows', 'on') else 'green' }}";
+                          content = "{{ 'Open' if is_state('binary_sensor.windows', 'on') else 'Closed' }}";
+                          tap_action = {
+                            action = "more-info";
+                            entity = "binary_sensor.windows";
+                          };
+                        }
+                        {
+                          type = "template";
+                          icon = "mdi:airplane";
+                          icon_color = "{{ 'blue' if is_state('input_boolean.vacation_mode', 'on') else 'grey' }}";
+                          content = "{{ 'Active' if is_state('input_boolean.vacation_mode', 'on') else 'Home' }}";
+                          tap_action = {
+                            action = "toggle";
+                            entity = "input_boolean.vacation_mode";
+                          };
+                        }
+                      ];
+                    }
+                    {
+                      type = "custom:mushroom-entity-card";
+                      entity = "sensor.seattle_garbage_collection";
+                      name = "Garbage Collection";
+                      icon = "mdi:trash-can";
+                    }
                   ];
                 }
               ];
             }
+
+            # People Section
             {
-              type = "tile";
-              entity = "cover.garage_door";
-              features = [ { type = "cover-open-close"; } ];
+              type = "custom:mushroom-title-card";
+              title = "Family";
             }
             {
               type = "horizontal-stack";
               cards = [
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
+                  type = "custom:mushroom-person-card";
+                  entity = "person.jamie";
+                  use_entity_picture = true;
+                  layout = "vertical";
+                }
+                {
+                  type = "custom:mushroom-person-card";
+                  entity = "person.kat";
+                  use_entity_picture = true;
+                  layout = "vertical";
+                }
+              ];
+            }
+
+            # Navigation Section
+            {
+              type = "custom:mushroom-title-card";
+              title = "Areas";
+            }
+            {
+              type = "grid";
+              columns = 3;
+              square = false;
+              cards = [
+                {
+                  type = "custom:mushroom-template-card";
+                  primary = "Garage";
+                  secondary = "{{ states('cover.garage_door') | title }}";
+                  icon = "mdi:garage";
+                  icon_color = "{{ 'orange' if is_state('cover.garage_door', 'open') else 'blue' }}";
+                  badge_icon = "{{ 'mdi:arrow-up' if is_state('cover.garage_door', 'open') else 'mdi:arrow-down' }}";
+                  badge_color = "{{ 'orange' if is_state('cover.garage_door', 'open') else 'green' }}";
                   tap_action = {
                     action = "navigate";
                     navigation_path = "/lovelace/garage";
                   };
-                  name = "Garage";
-                  icon = "mdi:garage";
-                  icon_height = "64px";
                   hold_action = {
-                    action = "none";
+                    action = "toggle";
+                    entity = "cover.garage_door";
                   };
                 }
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
+                  type = "custom:mushroom-template-card";
+                  primary = "Downstairs";
+                  secondary = "{{ states('climate.esphome_web_6c37b0_downstairs_mini_split', 'temperature') }}°";
+                  icon = "mdi:home-floor-1";
+                  icon_color = "blue";
+                  badge_icon = "{{ 'mdi:lock' if is_state('lock.front_door', 'locked') else 'mdi:lock-open' }}";
+                  badge_color = "{{ 'green' if is_state('lock.front_door', 'locked') else 'red' }}";
                   tap_action = {
                     action = "navigate";
                     navigation_path = "/lovelace/downstairs";
                   };
-                  name = "Downstairs";
-                  icon = "mdi:alpha-d-box";
-                  show_state = false;
-                  icon_height = "64px";
-                  hold_action = {
-                    action = "none";
-                  };
                 }
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
+                  type = "custom:mushroom-template-card";
+                  primary = "Upstairs";
+                  secondary = "{{ states('climate.esphome_web_6c4990_bedroom_mini_split', 'temperature') }}°";
+                  icon = "mdi:home-floor-2";
+                  icon_color = "blue";
+                  badge_icon = "{{ 'mdi:robot-vacuum' if is_state('vacuum.s7_max_ultra', 'cleaning') else '' }}";
+                  badge_color = "green";
                   tap_action = {
                     action = "navigate";
                     navigation_path = "/lovelace/upstairs";
                   };
-                  name = "Upstairs";
-                  icon_height = "64px";
-                  hold_action = {
-                    action = "none";
-                  };
-                  icon = "mdi:alpha-u-box";
                 }
               ];
+            }
+
+            # Quick Controls Section
+            {
+              type = "custom:mushroom-title-card";
+              title = "Quick Controls";
             }
             {
               type = "horizontal-stack";
               cards = [
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
-                  entity = "binary_sensor.doors";
-                  icon = "mdi:door";
-                  show_state = false;
-                  icon_height = "64px";
+                  type = "custom:mushroom-cover-card";
+                  entity = "cover.garage_door";
+                  name = "Garage Door";
+                  layout = "vertical";
+                  fill_container = false;
+                  show_buttons_control = true;
                 }
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
-                  entity = "binary_sensor.windows";
-                  icon = "mdi:window-closed";
-                  icon_height = "64px";
+                  type = "custom:mushroom-lock-card";
+                  entity = "lock.front_door";
+                  name = "Front Door";
+                  layout = "vertical";
+                  fill_container = false;
                 }
               ];
             }
+
+            # Appliance Monitoring
             {
-              type = "entities";
-              entities = [ "sensor.seattle_garbage_collection" ];
+              type = "custom:mushroom-title-card";
+              title = "Appliances";
+            }
+            {
+              type = "horizontal-stack";
+              cards = [
+                {
+                  type = "custom:mushroom-template-card";
+                  primary = "Washing Machine";
+                  secondary = "{{ states('sensor.washing_machine') }}";
+                  icon = "mdi:washing-machine";
+                  icon_color = "{{ 'green' if is_state('sensor.washing_machine', 'idle') else 'blue' }}";
+                  tap_action = {
+                    action = "more-info";
+                    entity = "sensor.washing_machine";
+                  };
+                }
+                {
+                  type = "custom:mushroom-template-card";
+                  primary = "Tumble Dryer";
+                  secondary = "{{ states('sensor.tumble_dryer') }}";
+                  icon = "mdi:tumble-dryer";
+                  icon_color = "{{ 'green' if is_state('sensor.tumble_dryer', 'idle') else 'orange' }}";
+                  tap_action = {
+                    action = "more-info";
+                    entity = "sensor.tumble_dryer";
+                  };
+                }
+              ];
+            }
+
+            # Security Cameras
+            {
+              type = "custom:mushroom-title-card";
+              title = "Security";
             }
             {
               type = "grid";
-              square = false;
               columns = 1;
+              square = false;
               cards = [
                 {
                   type = "picture-entity";
                   entity = "camera.g4_doorbell_pro_high";
+                  name = "Front Door Camera";
+                  show_name = true;
+                  show_state = true;
+                  camera_view = "live";
                 }
                 {
                   type = "picture-entity";
                   entity = "camera.g4_doorbell_pro_package_camera";
+                  name = "Package Camera";
+                  show_name = true;
+                  show_state = true;
+                  camera_view = "live";
                 }
               ];
-            }
-            {
-              type = "entities";
-              entities = [ "input_boolean.vacation_mode" ];
             }
           ];
         }
@@ -159,37 +262,109 @@
           badges = [ ];
           cards = [
             {
-              type = "entities";
-              entities = [
-                { entity = "light.homelab_group_garage_indoors_lights"; }
-                { entity = "light.homelab_zone_garage_bathroom_switch_light"; }
-                { entity = "light.jamie_ring_light"; }
-                { entity = "light.shapes_acf4"; }
+              type = "custom:mushroom-title-card";
+              title = "Garage";
+              subtitle = "Controls and monitoring";
+            }
+
+            # Main Garage Control
+            {
+              type = "custom:mushroom-cover-card";
+              entity = "cover.garage_door";
+              name = "Garage Door";
+              show_buttons_control = true;
+              show_position_control = false;
+              layout = "horizontal";
+            }
+
+            # Status Indicators
+            {
+              type = "custom:mushroom-chips-card";
+              chips = [
+                {
+                  type = "entity";
+                  entity = "binary_sensor.garage_door";
+                  name = "Door Sensor";
+                  icon_color = "{{ 'red' if is_state('binary_sensor.garage_door', 'on') else 'green' }}";
+                }
+                {
+                  type = "entity";
+                  entity = "water_heater.heat_pump_water_heater";
+                  name = "Water Heater";
+                }
               ];
             }
+
+            # Climate Control
             {
-              type = "tile";
-              entity = "cover.garage_door";
-              features = [ { type = "cover-open-close"; } ];
+              type = "custom:mushroom-title-card";
+              title = "Climate";
             }
             {
-              type = "tile";
-              entity = "water_heater.heat_pump_water_heater";
+              type = "horizontal-stack";
+              cards = [
+                {
+                  type = "custom:mushroom-climate-card";
+                  entity = "climate.mysa_2bbd00_thermostat";
+                  name = "Garage";
+                  show_temperature_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-climate-card";
+                  entity = "climate.mysa_89501c_thermostat";
+                  name = "Downstairs";
+                  show_temperature_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+              ];
+            }
+
+            # Lighting
+            {
+              type = "custom:mushroom-title-card";
+              title = "Lighting";
             }
             {
-              type = "tile";
-              entity = "binary_sensor.garage_door";
-            }
-            {
-              type = "thermostat";
-              entity = "climate.mysa_2bbd00_thermostat";
-              name = "Garage";
-              show_current_as_primary = false;
-            }
-            {
-              type = "thermostat";
-              entity = "climate.mysa_89501c_thermostat";
-              name = "Downstairs";
+              type = "grid";
+              columns = 2;
+              square = false;
+              cards = [
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_garage_indoors_lights";
+                  name = "Indoor Lights";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_zone_garage_bathroom_switch_light";
+                  name = "Bathroom";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.jamie_ring_light";
+                  name = "Ring Light";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.shapes_acf4";
+                  name = "Shapes";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+              ];
             }
           ];
         }
@@ -197,44 +372,98 @@
           subview = false;
           title = "Downstairs";
           path = "downstairs";
-          icon = "mdi:alpha-d-box";
+          icon = "mdi:home-floor-1";
           badges = [ ];
           cards = [
             {
-              type = "tile";
-              entity = "lock.front_door";
-              show_entity_picture = false;
-              vertical = false;
+              type = "custom:mushroom-title-card";
+              title = "Downstairs";
+              subtitle = "Living areas and entry";
             }
+
+            # Security & Access
             {
-              type = "tile";
-              entity = "climate.esphome_web_6c37b0_downstairs_mini_split";
+              type = "custom:mushroom-title-card";
+              title = "Security & Access";
             }
             {
               type = "horizontal-stack";
-              title = "Blinds";
               cards = [
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
-                  entity = "scene.downstairs_blinds_daytime";
-                  hold_action = {
-                    action = "none";
-                  };
-                  tap_action = {
-                    action = "toggle";
-                  };
-                  name = "Daytime";
+                  type = "custom:mushroom-lock-card";
+                  entity = "lock.front_door";
+                  name = "Front Door";
+                  layout = "vertical";
+                  fill_container = false;
                 }
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
-                  hold_action = {
-                    action = "none";
+                  type = "custom:mushroom-chips-card";
+                  chips = [
+                    {
+                      type = "entity";
+                      entity = "binary_sensor.front_door";
+                      name = "Front Door";
+                      icon_color = "{{ 'red' if is_state('binary_sensor.front_door', 'on') else 'green' }}";
+                    }
+                    {
+                      type = "entity";
+                      entity = "binary_sensor.balcony_door";
+                      name = "Balcony";
+                      icon_color = "{{ 'red' if is_state('binary_sensor.balcony_door', 'on') else 'green' }}";
+                    }
+                    {
+                      type = "entity";
+                      entity = "binary_sensor.front_window";
+                      name = "Window";
+                      icon_color = "{{ 'red' if is_state('binary_sensor.front_window', 'on') else 'green' }}";
+                    }
+                  ];
+                }
+              ];
+            }
+
+            # Climate Control
+            {
+              type = "custom:mushroom-title-card";
+              title = "Climate";
+            }
+            {
+              type = "custom:mushroom-climate-card";
+              entity = "climate.esphome_web_6c37b0_downstairs_mini_split";
+              name = "Mini Split";
+              show_temperature_control = true;
+              hvac_modes = [ "heat_cool" "heat" "cool" "fan_only" "off" ];
+              layout = "horizontal";
+            }
+
+            # Blinds Control
+            {
+              type = "custom:mushroom-title-card";
+              title = "Blinds";
+            }
+            {
+              type = "horizontal-stack";
+              cards = [
+                {
+                  type = "custom:mushroom-template-card";
+                  primary = "Daytime Scene";
+                  secondary = "Open blinds for day";
+                  icon = "mdi:blinds-open";
+                  icon_color = "orange";
+                  tap_action = {
+                    action = "call-service";
+                    service = "scene.turn_on";
+                    target = {
+                      entity_id = "scene.downstairs_blinds_daytime";
+                    };
                   };
-                  name = "Close";
+                }
+                {
+                  type = "custom:mushroom-template-card";
+                  primary = "Close All";
+                  secondary = "Close all blinds";
+                  icon = "mdi:blinds";
+                  icon_color = "blue";
                   tap_action = {
                     action = "call-service";
                     service = "cover.close_cover";
@@ -242,50 +471,63 @@
                       entity_id = "cover.downstairs_blinds";
                     };
                   };
-                  icon = "mdi:roller-shade-closed";
                 }
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
+                  type = "custom:mushroom-template-card";
+                  primary = "Individual";
+                  secondary = "Control each blind";
+                  icon = "mdi:tune";
+                  icon_color = "green";
                   tap_action = {
                     action = "navigate";
                     navigation_path = "/lovelace/downstairs-blinds";
                   };
-                  name = "Individual";
-                  icon = "mdi:format-list-numbered";
                 }
               ];
             }
+
+            # Lighting
             {
-              type = "horizontal-stack";
+              type = "custom:mushroom-title-card";
+              title = "Lighting";
+            }
+            {
+              type = "grid";
+              columns = 2;
+              square = false;
               cards = [
                 {
-                  type = "tile";
-                  entity = "binary_sensor.front_door";
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_kitchen_garage_stairs";
+                  name = "Kitchen Stairs";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
                 }
                 {
-                  type = "tile";
-                  entity = "binary_sensor.balcony_door";
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_kitchen_lights";
+                  name = "Kitchen";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
                 }
-              ];
-            }
-            {
-              type = "horizontal-stack";
-              cards = [
                 {
-                  type = "tile";
-                  entity = "binary_sensor.front_window";
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_living_room_lights";
+                  name = "Living Room";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
                 }
-              ];
-            }
-            {
-              type = "entities";
-              entities = [
-                { entity = "light.homelab_group_kitchen_garage_stairs"; }
-                { entity = "light.homelab_group_kitchen_lights"; }
-                { entity = "light.homelab_group_living_room_lights"; }
-                { entity = "light.homelab_group_living_room_stairs"; }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_living_room_stairs";
+                  name = "Living Stairs";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
               ];
             }
           ];
@@ -298,25 +540,82 @@
           badges = [ ];
           cards = [
             {
-              type = "vertical-stack";
+              type = "custom:mushroom-title-card";
+              title = "Downstairs Blinds";
+              subtitle = "Individual blind controls";
+            }
+
+            {
+              type = "grid";
+              columns = 1;
+              square = false;
               cards = [
                 {
-                  features = [ { type = "cover-open-close"; } ];
-                  type = "tile";
+                  type = "custom:mushroom-cover-card";
                   entity = "cover.homelab_zone_living_room_big_shade";
-                  name = "Front window";
+                  name = "Front Window (Large)";
+                  show_buttons_control = true;
+                  show_position_control = true;
+                  layout = "horizontal";
                 }
                 {
-                  features = [ { type = "cover-open-close"; } ];
-                  type = "tile";
+                  type = "custom:mushroom-cover-card";
                   entity = "cover.homelab_zone_living_room_small_shade";
-                  name = "Side window";
+                  name = "Side Window (Small)";
+                  show_buttons_control = true;
+                  show_position_control = true;
+                  layout = "horizontal";
                 }
                 {
-                  features = [ { type = "cover-open-close"; } ];
-                  type = "tile";
+                  type = "custom:mushroom-cover-card";
                   entity = "cover.homelab_zone_kitchen_shade";
-                  name = "Kitchen window";
+                  name = "Kitchen Window";
+                  show_buttons_control = true;
+                  show_position_control = true;
+                  layout = "horizontal";
+                }
+              ];
+            }
+
+            # Quick Actions
+            {
+              type = "custom:mushroom-chips-card";
+              chips = [
+                {
+                  type = "template";
+                  content = "Open All";
+                  icon = "mdi:blinds-open";
+                  tap_action = {
+                    action = "call-service";
+                    service = "cover.open_cover";
+                    target = {
+                      entity_id = "cover.downstairs_blinds";
+                    };
+                  };
+                }
+                {
+                  type = "template";
+                  content = "Close All";
+                  icon = "mdi:blinds";
+                  tap_action = {
+                    action = "call-service";
+                    service = "cover.close_cover";
+                    target = {
+                      entity_id = "cover.downstairs_blinds";
+                    };
+                  };
+                }
+                {
+                  type = "template";
+                  content = "Daytime";
+                  icon = "mdi:weather-sunny";
+                  tap_action = {
+                    action = "call-service";
+                    service = "scene.turn_on";
+                    target = {
+                      entity_id = "scene.downstairs_blinds_daytime";
+                    };
+                  };
                 }
               ];
             }
@@ -325,32 +624,73 @@
         {
           title = "Upstairs";
           path = "upstairs";
-          icon = "mdi:alpha-u-box";
+          icon = "mdi:home-floor-2";
           subview = false;
           badges = [ ];
           cards = [
             {
-              type = "tile";
-              entity = "light.kat_ring_light";
-              features = [ { type = "light-brightness"; } ];
+              type = "custom:mushroom-title-card";
+              title = "Upstairs";
+              subtitle = "Bedrooms, office and bathroom";
+            }
+
+            # Climate Control
+            {
+              type = "custom:mushroom-title-card";
+              title = "Climate";
             }
             {
               type = "horizontal-stack";
               cards = [
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
-                  tap_action = {
-                    action = "toggle";
-                  };
-                  entity = "scene.upstairs_blinds_daytime";
-                  name = "Daytime ";
+                  type = "custom:mushroom-climate-card";
+                  entity = "climate.esphome_web_6c4990_bedroom_mini_split";
+                  name = "Bedroom";
+                  show_temperature_control = true;
+                  hvac_modes = [ "heat_cool" "heat" "cool" "fan_only" "off" ];
+                  layout = "vertical";
+                  fill_container = false;
                 }
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
+                  type = "custom:mushroom-climate-card";
+                  entity = "climate.esphome_web_6ab408_office_mini_split";
+                  name = "Office";
+                  show_temperature_control = true;
+                  hvac_modes = [ "heat_cool" "heat" "cool" "fan_only" "off" ];
+                  layout = "vertical";
+                  fill_container = false;
+                }
+              ];
+            }
+
+            # Blinds Control
+            {
+              type = "custom:mushroom-title-card";
+              title = "Blinds";
+            }
+            {
+              type = "horizontal-stack";
+              cards = [
+                {
+                  type = "custom:mushroom-template-card";
+                  primary = "Daytime Scene";
+                  secondary = "Open blinds for day";
+                  icon = "mdi:blinds-open";
+                  icon_color = "orange";
+                  tap_action = {
+                    action = "call-service";
+                    service = "scene.turn_on";
+                    target = {
+                      entity_id = "scene.upstairs_blinds_daytime";
+                    };
+                  };
+                }
+                {
+                  type = "custom:mushroom-template-card";
+                  primary = "Close All";
+                  secondary = "Close all blinds";
+                  icon = "mdi:blinds";
+                  icon_color = "blue";
                   tap_action = {
                     action = "call-service";
                     service = "cover.close_cover";
@@ -358,61 +698,147 @@
                       entity_id = "cover.upstairs_blinds";
                     };
                   };
-                  name = "Close";
-                  icon = "mdi:roller-shade-closed";
                 }
                 {
-                  show_name = true;
-                  show_icon = true;
-                  type = "button";
+                  type = "custom:mushroom-template-card";
+                  primary = "Individual";
+                  secondary = "Control each blind";
+                  icon = "mdi:tune";
+                  icon_color = "green";
                   tap_action = {
                     action = "navigate";
                     navigation_path = "/lovelace/upstairs-blinds";
                   };
-                  name = "Individual ";
-                  icon = "mdi:format-list-numbered";
                 }
               ];
             }
+
+            # Vacuum Control
             {
-              type = "vertical-stack";
+              type = "custom:mushroom-title-card";
+              title = "Cleaning";
+            }
+            {
+              type = "custom:mushroom-vacuum-card";
+              entity = "vacuum.s7_max_ultra";
+              name = "Robot Vacuum";
+              commands = [
+                "start_pause"
+                "stop"
+                "locate"
+                "return_home"
+              ];
+              fill_container = false;
+            }
+            {
+              type = "horizontal-stack";
               cards = [
                 {
-                  type = "tile";
-                  entity = "climate.esphome_web_6c4990_bedroom_mini_split";
+                  type = "custom:mushroom-select-card";
+                  entity = "select.s7_max_ultra_mop_intensity";
+                  name = "Mop Intensity";
+                  layout = "vertical";
+                  fill_container = false;
                 }
                 {
-                  type = "tile";
-                  entity = "climate.esphome_web_6ab408_office_mini_split";
+                  type = "custom:mushroom-select-card";
+                  entity = "select.s7_max_ultra_mop_mode";
+                  name = "Mop Mode";
+                  layout = "vertical";
+                  fill_container = false;
                 }
               ];
             }
+
+            # Lighting
             {
-              type = "entities";
-              entities = [ "vacuum.s7_max_ultra" ];
+              type = "custom:mushroom-title-card";
+              title = "Lighting";
             }
             {
-              type = "entities";
-              entities = [
-                "select.s7_max_ultra_mop_intensity"
-                "select.s7_max_ultra_mop_mode"
+              type = "grid";
+              columns = 2;
+              square = false;
+              cards = [
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.kat_ring_light";
+                  name = "Kat's Ring Light";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_living_room_stairs";
+                  name = "Stairs";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_upstairs_hallway";
+                  name = "Hallway";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_office";
+                  name = "Office";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_bedroom";
+                  name = "Bedroom";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_bedroom_closet";
+                  name = "Closet";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_bathroom_overhead";
+                  name = "Bathroom";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.homelab_group_bathroom_vanity";
+                  name = "Vanity";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = false;
+                }
               ];
             }
+
+            # Fans
             {
-              type = "entities";
-              entities = [
-                { entity = "light.homelab_group_living_room_stairs"; }
-                { entity = "light.homelab_group_upstairs_hallway"; }
-                { entity = "light.homelab_group_office"; }
-                { entity = "light.homelab_group_bedroom"; }
-                { entity = "light.homelab_group_bedroom_closet"; }
-                { entity = "light.homelab_group_bathroom_overhead"; }
-                { entity = "light.homelab_group_bathroom_vanity"; }
-              ];
+              type = "custom:mushroom-title-card";
+              title = "Ventilation";
             }
             {
-              type = "entities";
-              entities = [ "fan.0x048727fffe1b2e4d" ];
+              type = "custom:mushroom-fan-card";
+              entity = "fan.0x048727fffe1b2e4d";
+              name = "Bathroom Fan";
+              show_percentage_control = true;
+              show_oscillate_control = false;
+              layout = "horizontal";
             }
           ];
         }
@@ -424,43 +850,106 @@
           badges = [ ];
           cards = [
             {
-              type = "vertical-stack";
+              type = "custom:mushroom-title-card";
+              title = "Upstairs Blinds";
+              subtitle = "Individual blind controls";
+            }
+
+            {
+              type = "grid";
+              columns = 1;
+              square = false;
               cards = [
                 {
-                  features = [ { type = "cover-open-close"; } ];
-                  type = "tile";
+                  type = "custom:mushroom-cover-card";
                   entity = "cover.homelab_zone_bathroom_big_shade";
-                  name = "Bathroom big blind";
+                  name = "Bathroom (Large)";
+                  show_buttons_control = true;
+                  show_position_control = true;
+                  layout = "horizontal";
                 }
                 {
-                  type = "tile";
+                  type = "custom:mushroom-cover-card";
                   entity = "cover.homelab_zone_bathroom_small_shade";
-                  name = "Bathroom small blind";
-                  features = [ { type = "cover-open-close"; } ];
+                  name = "Bathroom (Small)";
+                  show_buttons_control = true;
+                  show_position_control = true;
+                  layout = "horizontal";
                 }
                 {
-                  features = [ { type = "cover-open-close"; } ];
-                  type = "tile";
+                  type = "custom:mushroom-cover-card";
                   entity = "cover.homelab_zone_bedroom_small_shade";
-                  name = "Bedroom small shade";
+                  name = "Bedroom (Small)";
+                  show_buttons_control = true;
+                  show_position_control = true;
+                  layout = "horizontal";
                 }
                 {
-                  features = [ { type = "cover-open-close"; } ];
-                  type = "tile";
+                  type = "custom:mushroom-cover-card";
                   entity = "cover.homelab_zone_bedroom_big_shade";
-                  name = "Bedroom big shade";
+                  name = "Bedroom (Large)";
+                  show_buttons_control = true;
+                  show_position_control = true;
+                  layout = "horizontal";
                 }
                 {
-                  type = "tile";
+                  type = "custom:mushroom-cover-card";
                   entity = "cover.homelab_zone_office_shade";
                   name = "Office";
-                  features = [ { type = "cover-open-close"; } ];
+                  show_buttons_control = true;
+                  show_position_control = true;
+                  layout = "horizontal";
                 }
                 {
-                  type = "tile";
+                  type = "custom:mushroom-cover-card";
                   entity = "cover.homelab_zone_upstairs_hallway_shade";
                   name = "Hallway";
-                  features = [ { type = "cover-open-close"; } ];
+                  show_buttons_control = true;
+                  show_position_control = true;
+                  layout = "horizontal";
+                }
+              ];
+            }
+
+            # Quick Actions
+            {
+              type = "custom:mushroom-chips-card";
+              chips = [
+                {
+                  type = "template";
+                  content = "Open All";
+                  icon = "mdi:blinds-open";
+                  tap_action = {
+                    action = "call-service";
+                    service = "cover.open_cover";
+                    target = {
+                      entity_id = "cover.upstairs_blinds";
+                    };
+                  };
+                }
+                {
+                  type = "template";
+                  content = "Close All";
+                  icon = "mdi:blinds";
+                  tap_action = {
+                    action = "call-service";
+                    service = "cover.close_cover";
+                    target = {
+                      entity_id = "cover.upstairs_blinds";
+                    };
+                  };
+                }
+                {
+                  type = "template";
+                  content = "Daytime";
+                  icon = "mdi:weather-sunny";
+                  tap_action = {
+                    action = "call-service";
+                    service = "scene.turn_on";
+                    target = {
+                      entity_id = "scene.upstairs_blinds_daytime";
+                    };
+                  };
                 }
               ];
             }
