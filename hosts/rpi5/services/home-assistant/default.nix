@@ -9,6 +9,7 @@
     ./hvac.nix
     ./leak.nix
     ./lights.nix
+    ./lovelace.nix
     ./miele.nix
     ./mqtt.nix
     ./notify.nix
@@ -67,9 +68,6 @@
       garmin_connect
       spook
       waste_collection_schedule
-    ];
-    customLovelaceModules = with pkgs.home-assistant-custom-lovelace-modules; [
-      bubble-card
     ];
     config = {
       http = {
