@@ -24,11 +24,6 @@
 
   services.home-assistant = {
     enable = true;
-    package = pkgs.home-assistant.override {
-      packageOverrides = self: super: {
-        python-roborock = pkgs.python3Packages.python-roborock;
-      };
-    };
     extraComponents = [
       "adguard"
       "aladdin_connect"
