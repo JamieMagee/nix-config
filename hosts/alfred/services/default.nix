@@ -2,6 +2,7 @@
 {
   imports = [
     ./caddy.nix
+    ./deluge.nix
     ./hd-idle.nix
     ./plex.nix
     ./prowlarr.nix
@@ -9,7 +10,7 @@
     ./recyclarr.nix
     ./sabnzbd.nix
     ./sonarr.nix
-    ./deluge.nix
+    ./tautulli.nix
   ];
 
   users.groups.services.members = with config.services; [
