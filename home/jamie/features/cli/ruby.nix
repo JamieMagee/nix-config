@@ -1,4 +1,4 @@
-_: {
+{
   # pkgs.ruby doesn't play well with psych
   # Install ruby with mise instead
   programs = {
