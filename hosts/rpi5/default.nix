@@ -12,6 +12,10 @@
     ./services
   ];
 
+  # ZFS configuration
+  boot.supportedFilesystems = [ "zfs" ];
+  networking.hostId = "8425e349"; # Required for ZFS - unique 8-character hex ID
+
   networking = {
     hostName = "rpi5";
     defaultGateway = {
