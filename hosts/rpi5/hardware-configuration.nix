@@ -6,7 +6,7 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
+      device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
     };
     "/boot/firmware" = {
