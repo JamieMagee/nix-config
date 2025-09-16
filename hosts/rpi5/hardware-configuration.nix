@@ -1,39 +1,17 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.raspberry-pi-nix.nixosModules.raspberry-pi
+    inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.base
+    inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.bluetooth
+    inputs.disko.nixosModules.disko
+    ./disko.nix
   ];
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-    };
-    "/boot/firmware" = {
-      device = "/dev/disk/by-label/FIRMWARE";
-      fsType = "vfat";
+  # PCIe configuration for better NVMe performance
+  hardware.raspberry-pi.config.all.base-dt-params = {
+    pciex1_gen = {
+      value = 3;
+      enable = true;
     };
   };
-
-  hardware = {
-    raspberry-pi = {
-      config = {
-        all = {
-          base-dt-params = {
-            usb_max_current_enable = {
-              enable = true;
-              value = 1;
-            };
-            pciex1_gen = {
-              value = 3;
-              enable = true;
-            };
-          };
-        };
-      };
-    };
-  };
-
-  raspberry-pi-nix.board = "bcm2712";
-  nixpkgs.hostPlatform.system = "aarch64-linux";
 }

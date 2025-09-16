@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix/v0.4.1";
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     deploy-rs = {
       url = "github:serokell/deploy-rs";
@@ -40,6 +40,7 @@
       nixpkgs,
       home-manager,
       deploy-rs,
+      nixos-raspberrypi,
       ...
     }@inputs:
     let
@@ -87,7 +88,14 @@
         alfred = mkSystem "alfred" "x86_64-linux" [ ];
         jamie-desktop = mkSystem "jamie-desktop" "x86_64-linux" [ ];
         oci-vm = mkSystem "oci-vm" "aarch64-linux" [ ];
-        rpi5 = mkSystem "rpi5" "aarch64-linux" [ ];
+        rpi5 = nixos-raspberrypi.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { 
+            inherit inputs outputs; 
+            nixos-raspberrypi = nixos-raspberrypi;
+          };
+          modules = [ ./hosts/rpi5 ];
+        };
       };
 
       homeConfigurations = {

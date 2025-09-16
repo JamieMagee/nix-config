@@ -59,7 +59,7 @@
       better_thermostat
       climate_group
       emporia_vue
-      fellow
+      # fellow  # temporarily commented out - undefined variable
       garmin_connect
       spook
       waste_collection_schedule
