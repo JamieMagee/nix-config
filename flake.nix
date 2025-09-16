@@ -90,8 +90,8 @@
         oci-vm = mkSystem "oci-vm" "aarch64-linux" [ ];
         rpi5 = nixos-raspberrypi.lib.nixosSystem {
           system = "aarch64-linux";
-          specialArgs = { 
-            inherit inputs outputs; 
+          specialArgs = {
+            inherit inputs outputs;
             nixos-raspberrypi = nixos-raspberrypi;
           };
           modules = [ ./hosts/rpi5 ];

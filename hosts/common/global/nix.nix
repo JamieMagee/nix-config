@@ -37,16 +37,6 @@
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-
-    # Add each flake input as a registry
-    # To make nix3 commands consistent with the flake
-    registry = lib.mkDefault (lib.mapAttrs (_: value: { flake = value; }) inputs);
-
-    # Map registries to channels
-    # Very useful when using legacy commands
-    nixPath = lib.mkDefault (
-      lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry
-    );
   };
 
   system.activationScripts.system-report-changes = ''
