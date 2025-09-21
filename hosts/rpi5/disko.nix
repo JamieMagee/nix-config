@@ -3,7 +3,7 @@
     disk = {
       nvme = {
         type = "disk";
-        device = "/dev/nvme0n1"; # Typical NVMe device path on RPi5
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
@@ -18,7 +18,7 @@
               };
             };
             root = {
-              label = "nixos";
+              label = "NIXOS_SD";
               size = "100%";
               content = {
                 type = "filesystem";

@@ -2,11 +2,14 @@
 {
   imports = [
     inputs.raspberry-pi-nix.nixosModules.raspberry-pi
+
+    # inputs.disko.nixosModules.disko
+    # ./disko.nix
   ];
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-label/nixos";
+      device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
     };
     "/boot/firmware" = {
