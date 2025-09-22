@@ -1,0 +1,96 @@
+name: Build Raspberry Pi SD Card Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "hosts/rpi5/**"
+      - "home/jamie/rpi5.nix"
+      - "flake.*"
+      - ".github/workflows/build-rpi-image.yml"
+  pull_request:
+    paths:
+      - "hosts/rpi5/**"
+      - "home/jamie/rpi5.nix"
+      - "flake.*"
+      - ".github/workflows/build-rpi-image.yml"
+  workflow_dispatch:
+    inputs:
+      upload_artifacts:
+        description: "Upload SD card image as artifact"
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  build-rpi-image:
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history for proper flake evaluation
+          fetch-depth: 0
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: |
+            # System features for native ARM64 builds
+            system-features = nixos-test benchmark big-parallel kvm
+            # Allow unfree packages for firmware
+            allow-unfree = true
+            # Enable experimental features
+            experimental-features = nix-command flakes
+            # Binary caches for faster builds
+            substituters = https://cache.nixos.org https://nix-community.cachix.org
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+
+      - name: Build SD card image
+        run: |
+          echo "Building Raspberry Pi 5 SD card image on native ARM64..."
+
+          # Build the SD image natively on ARM64
+          nix build \
+            --print-build-logs \
+            '.#nixosConfigurations.rpi5.config.system.build.sdImage'
+
+          # Create a more descriptive filename
+          COMMIT_SHA="${GITHUB_SHA:0:8}"
+          TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+          IMAGE_NAME="nixos-rpi5-${TIMESTAMP}-${COMMIT_SHA}"
+
+          # Find the built image
+          IMAGE_PATH=$(readlink -f result)
+          if [ -d "$IMAGE_PATH/sd-image" ]; then
+            IMAGE_FILE=$(find "$IMAGE_PATH/sd-image" -name "*.img*" | head -1)
+          else
+            IMAGE_FILE=$(find "$IMAGE_PATH" -name "*.img*" | head -1)
+          fi
+
+          if [ -z "$IMAGE_FILE" ]; then
+            echo "Error: Could not find built image file"
+            find "$IMAGE_PATH" -type f -name "*img*" || true
+            exit 1
+          fi
+
+          echo "Found image: $IMAGE_FILE"
+
+          # Copy and rename the image
+          cp "$IMAGE_FILE" "${IMAGE_NAME}.img.zst"
+
+          # Store image info for later steps
+          echo "IMAGE_NAME=${IMAGE_NAME}" >> $GITHUB_ENV
+          echo "IMAGE_FILE=${IMAGE_NAME}.img.zst" >> $GITHUB_ENV
+          echo "IMAGE_SIZE=$(stat -c%s "${IMAGE_NAME}.img.zst" | numfmt --to=iec)" >> $GITHUB_ENV
+
+      - name: Upload SD card image
+        if: github.event.inputs.upload_artifacts != 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.IMAGE_NAME }}
+          path: ${{ env.IMAGE_FILE }}
+          retention-days: 30
+          compression-level: 0
