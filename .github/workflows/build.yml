@@ -44,4 +44,4 @@ jobs:
       #   run: nix flake check
 
       - name: Build ${{ matrix.name }}
-        run: nix build ".#${{ matrix.path }}"
+        run: nix build --accept-flake-config ".#${{ matrix.path }}"

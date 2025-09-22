@@ -3,6 +3,10 @@
 
   nixConfig = {
     extra-experimental-features = "nix-command flakes";
+    extra-substituters = [ "https://jamiemagee.cachix.org" ];
+    extra-trusted-public-keys = [
+      "jamiemagee.cachix.org-1:IzalYx3F8h0uP7EdifGZxqGkTwaQIKXj0i67PuNNYM8="
+    ];
   };
 
   inputs = {
