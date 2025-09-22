@@ -14,10 +14,12 @@
       ];
       accept-flake-config = true;
       auto-optimise-store = lib.mkDefault true;
+      download-buffer-size = 2 * 1024 * 1024 * 1024; # 2 GiB
       experimental-features = [
         "nix-command"
         "flakes"
       ];
+      http-connections = 512;
       warn-dirty = false;
       substituters = [
         "https://cache.nixos.org"
