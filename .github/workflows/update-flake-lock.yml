@@ -19,9 +19,6 @@ jobs:
 
       - name: Install nix
         uses: DeterminateSystems/nix-installer-action@786fff0690178f1234e4e1fe9b536e94f5433196 # v20
-        with:
-          extra-conf: |
-            extra-platforms = aarch64-linux i686-linux
 
       - name: Update flake.lock
         id: update

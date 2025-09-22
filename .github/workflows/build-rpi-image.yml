@@ -1,27 +1,10 @@
-name: Build Raspberry Pi SD Card Image
+name: build-rpi-image
 
 on:
   push:
     branches:
       - main
-    paths:
-      - "hosts/rpi5/**"
-      - "home/jamie/rpi5.nix"
-      - "flake.*"
-      - ".github/workflows/build-rpi-image.yml"
-  pull_request:
-    paths:
-      - "hosts/rpi5/**"
-      - "home/jamie/rpi5.nix"
-      - "flake.*"
-      - ".github/workflows/build-rpi-image.yml"
   workflow_dispatch:
-    inputs:
-      upload_artifacts:
-        description: "Upload SD card image as artifact"
-        required: false
-        default: true
-        type: boolean
 
 jobs:
   build-rpi-image:
@@ -29,33 +12,19 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          # Fetch full history for proper flake evaluation
-          fetch-depth: 0
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+      - name: Install nix
+        uses: DeterminateSystems/nix-installer-action@786fff0690178f1234e4e1fe9b536e94f5433196 # v20
+
+      - uses: cachix/cachix-action@0fc020193b5a1fa3ac4575aa3a7d3aa6a35435ad # v16
         with:
-          extra-conf: |
-            # System features for native ARM64 builds
-            system-features = nixos-test benchmark big-parallel kvm
-            # Allow unfree packages for firmware
-            allow-unfree = true
-            # Enable experimental features
-            experimental-features = nix-command flakes
-            # Binary caches for faster builds
-            substituters = https://cache.nixos.org https://nix-community.cachix.org
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+          name: jamiemagee
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Build SD card image
         run: |
-          echo "Building Raspberry Pi 5 SD card image on native ARM64..."
-
-          # Build the SD image natively on ARM64
-          nix build \
-            --print-build-logs \
-            '.#nixosConfigurations.rpi5.config.system.build.sdImage'
+          nix build '.#nixosConfigurations.rpi5.config.system.build.sdImage'
 
           # Create a more descriptive filename
           COMMIT_SHA="${GITHUB_SHA:0:8}"
@@ -84,13 +53,9 @@ jobs:
           # Store image info for later steps
           echo "IMAGE_NAME=${IMAGE_NAME}" >> $GITHUB_ENV
           echo "IMAGE_FILE=${IMAGE_NAME}.img.zst" >> $GITHUB_ENV
-          echo "IMAGE_SIZE=$(stat -c%s "${IMAGE_NAME}.img.zst" | numfmt --to=iec)" >> $GITHUB_ENV
 
       - name: Upload SD card image
-        if: github.event.inputs.upload_artifacts != 'false'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ${{ env.IMAGE_NAME }}
           path: ${{ env.IMAGE_FILE }}
-          retention-days: 30
-          compression-level: 0
