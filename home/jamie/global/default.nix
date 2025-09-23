@@ -35,17 +35,6 @@ in
 
   systemd.user.startServices = "sd-switch";
 
-  nix = {
-    package = pkgs.nix;
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      warn-dirty = false;
-    };
-  };
-
   home = {
     username = lib.mkDefault "jamie";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
