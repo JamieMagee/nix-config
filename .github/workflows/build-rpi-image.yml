@@ -1,9 +1,6 @@
 name: build-rpi-image
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
