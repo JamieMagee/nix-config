@@ -7,7 +7,7 @@
       globalConfig = {
         tools = {
           ruby = [
-            "3.4.5"
+            "3.4.6"
             "3.5.0-preview1"
           ];
         };
