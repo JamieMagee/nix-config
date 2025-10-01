@@ -301,322 +301,322 @@
         groups = {
           "1" = {
             friendly_name = "homelab/group/kitchen-garage-stairs";
-            devices = [
-              "0x001788010de59fb4/11"
-              "0x001788010de59f87/11"
-              "0xb43a31fffe38d5b8/1"
-              "0xb43a31fffe396ae0/1"
-            ];
+            # devices = [
+            #   "0x001788010de59fb4/11"
+            #   "0x001788010de59f87/11"
+            #   "0xb43a31fffe38d5b8/1"
+            #   "0xb43a31fffe396ae0/1"
+            # ];
           };
           "2" = {
             friendly_name = "homelab/group/living-room-lights";
-            devices = [
-              "0xb43a31fffe307d4a/1"
-              "0xb43a31fffe308aa9/1"
-              "0x001788010de59294/11"
-              "0x001788010de58f44/11"
-              "0x001788010de58f50/11"
-              "0x001788010de59d73/11"
-            ];
+            # devices = [
+            #   "0xb43a31fffe307d4a/1"
+            #   "0xb43a31fffe308aa9/1"
+            #   "0x001788010de59294/11"
+            #   "0x001788010de58f44/11"
+            #   "0x001788010de58f50/11"
+            #   "0x001788010de59d73/11"
+            # ];
           };
           "3" = {
             friendly_name = "homelab/group/kitchen-lights";
-            devices = [
-              "0xb43a31fffe30b619/1"
-              "0xb43a31fffe270352/1"
-              "0x001788010de588ef/11"
-              "0x001788010de58f56/11"
-              "0x001788010de59fff/11"
-              "0x001788010de59fdc/11"
-            ];
+            # devices = [
+            #   "0xb43a31fffe30b619/1"
+            #   "0xb43a31fffe270352/1"
+            #   "0x001788010de588ef/11"
+            #   "0x001788010de58f56/11"
+            #   "0x001788010de59fff/11"
+            #   "0x001788010de59fdc/11"
+            # ];
           };
           "4" = {
             friendly_name = "homelab/group/living-room-stairs";
-            devices = [
-              "0xb43a31fffe34dcd3/1"
-              "0xb43a31fffe3babd1/1"
-              "0x001788010de59ed5/11"
-              "0x001788010de5c725/11"
-            ];
+            # devices = [
+            #   "0xb43a31fffe34dcd3/1"
+            #   "0xb43a31fffe3babd1/1"
+            #   "0x001788010de59ed5/11"
+            #   "0x001788010de5c725/11"
+            # ];
           };
           "5" = {
             friendly_name = "homelab/group/front-porch-lights";
-            devices = [
-              "0xb43a31fffe38377e/1"
-              "0x001788010dabd66b/11"
-            ];
+            # devices = [
+            #   "0xb43a31fffe38377e/1"
+            #   "0x001788010dabd66b/11"
+            # ];
           };
           "6" = {
             friendly_name = "homelab/group/garage-indoors";
-            devices = [
-              "0xb43a31fffe30b639/1"
-              "0x001788010db5e5e0/11"
-              "0x001788010d6cef1e/11"
-              "0x001788010db5e90e/11"
-              "0x001788010d6cc048/11"
-              "0x001788010cfc498d/11"
-              "0x001788010bc2476c/11"
-            ];
+            # devices = [
+            #   "0xb43a31fffe30b639/1"
+            #   "0x001788010db5e5e0/11"
+            #   "0x001788010d6cef1e/11"
+            #   "0x001788010db5e90e/11"
+            #   "0x001788010d6cc048/11"
+            #   "0x001788010cfc498d/11"
+            #   "0x001788010bc2476c/11"
+            # ];
           };
           "7" = {
             friendly_name = "homelab/group/garage-outdoor-lights";
-            devices = [
-              "0xb43a31fffe34b129/1"
-              "0x001788010daba6e8/11"
-              "0x001788010db42d9c/11"
-              "0x001788010db3bab6/11"
-              "0x001788010dabc8e4/11"
-            ];
+            # devices = [
+            #   "0xb43a31fffe34b129/1"
+            #   "0x001788010daba6e8/11"
+            #   "0x001788010db42d9c/11"
+            #   "0x001788010db3bab6/11"
+            #   "0x001788010dabc8e4/11"
+            # ];
           };
           "8" = {
             friendly_name = "homelab/group/balcony-lights";
-            devices = [
-              "0xe0798dfffeb367b4/1"
-              "0x001788010daba3ee/11"
-              "0x001788010ce618a9/11"
-            ];
+            # devices = [
+            #   "0xe0798dfffeb367b4/1"
+            #   "0x001788010daba3ee/11"
+            #   "0x001788010ce618a9/11"
+            # ];
           };
           "9" = {
             friendly_name = "homelab/group/rooftop-lights";
-            devices = [
-              "0xe0798dfffeaa77e9/1"
-              "0x001788010db42ff9/11"
-              "0x001788010ce32dd5/11"
-            ];
+            # devices = [
+            #   "0xe0798dfffeaa77e9/1"
+            #   "0x001788010db42ff9/11"
+            #   "0x001788010ce32dd5/11"
+            # ];
           };
           "10" = {
             friendly_name = "homelab/group/office";
-            devices = [
-              "0xe0798dfffeb3662c/1"
-              "0x001788010de5c649/11"
-            ];
+            # devices = [
+            #   "0xe0798dfffeb3662c/1"
+            #   "0x001788010de5c649/11"
+            # ];
           };
           "11" = {
             friendly_name = "homelab/group/upstairs-hallway";
-            devices = [
-              "0xe0798dfffeaa77b1/1"
-              "0xb43a31fffe34c1cf/1"
-              "0x001788010de5c6e8/11"
-              "0x001788010de5c44d/11"
-              # TODO: add 3rd light
-            ];
+            # devices = [
+            #   "0xe0798dfffeaa77b1/1"
+            #   "0xb43a31fffe34c1cf/1"
+            #   "0x001788010de5c6e8/11"
+            #   "0x001788010de5c44d/11"
+            #   # TODO: add 3rd light
+            # ];
           };
           "12" = {
             friendly_name = "homelab/group/bedroom";
-            devices = [
-              "0xe0798dfffeb36d7a/1"
-              "0x001788010de5c72d/11"
-              "0x001788010de5c4a6/11"
-              "0x001788010de5c49a/11"
-              "0x001788010de5cfd3/11"
-            ];
+            # devices = [
+            #   "0xe0798dfffeb36d7a/1"
+            #   "0x001788010de5c72d/11"
+            #   "0x001788010de5c4a6/11"
+            #   "0x001788010de5c49a/11"
+            #   "0x001788010de5cfd3/11"
+            # ];
           };
           "13" = {
             friendly_name = "homelab/group/bedroom-closet";
-            devices = [
-              "0xe0798dfffeaa78c9/1"
-              "0x001788010de5c71f/11"
-            ];
+            # devices = [
+            #   "0xe0798dfffeaa78c9/1"
+            #   "0x001788010de5c71f/11"
+            # ];
           };
           "14" = {
             friendly_name = "homelab/group/bathroom-overhead";
-            devices = [
-              "0x70ac08fffe6c8e2c/1"
-              "0xe0798dfffeb368c0/1"
-              "0x001788010de5c4a4/11"
-            ];
+            # devices = [
+            #   "0x70ac08fffe6c8e2c/1"
+            #   "0xe0798dfffeb368c0/1"
+            #   "0x001788010de5c4a4/11"
+            # ];
           };
           "15" = {
             friendly_name = "homelab/group/bathroom-vanity";
-            devices = [
-              "0xe0798dfffeaa7745/1"
-              "0x9035eafffec6e806/1"
-            ];
+            # devices = [
+            #   "0xe0798dfffeaa7745/1"
+            #   "0x9035eafffec6e806/1"
+            # ];
           };
           "16" = {
             friendly_name = "homelab/group/indoor-lights";
-            devices = [
-              "0x001788010db5e5e0/11"
-              "0x001788010d6cef1e/11"
-              "0x001788010db5e90e/11"
-              "0x001788010d6cc048/11"
-              "0x001788010cfc498d/11"
-              "0x001788010bc2476c/11"
-              "0x001788010de59fb4/11"
-              "0x001788010de59f87/11"
-              "0x001788010de588ef/11"
-              "0x001788010de58f56/11"
-              "0x001788010de59fff/11"
-              "0x001788010de59fdc/11"
-              "0x001788010de59294/11"
-              "0x001788010de58f44/11"
-              "0x001788010de58f50/11"
-              "0x001788010de59d73/11"
-              "0x001788010de59ed5/11"
-              "0x001788010de5c725/11"
-              "0x001788010de5c649/11"
-              "0x001788010de5c6e8/11"
-              "0x001788010de5c44d/11"
-              # TODO: upstairs hallway light 3
-              "0x001788010de5c72d/11"
-              "0x001788010de5c4a6/11"
-              "0x001788010de5c49a/11"
-              "0x001788010de5cfd3/11"
-              "0x001788010de5c71f/11"
-              "0x001788010de5c4a4/11"
-            ];
+            # devices = [
+            #   "0x001788010db5e5e0/11"
+            #   "0x001788010d6cef1e/11"
+            #   "0x001788010db5e90e/11"
+            #   "0x001788010d6cc048/11"
+            #   "0x001788010cfc498d/11"
+            #   "0x001788010bc2476c/11"
+            #   "0x001788010de59fb4/11"
+            #   "0x001788010de59f87/11"
+            #   "0x001788010de588ef/11"
+            #   "0x001788010de58f56/11"
+            #   "0x001788010de59fff/11"
+            #   "0x001788010de59fdc/11"
+            #   "0x001788010de59294/11"
+            #   "0x001788010de58f44/11"
+            #   "0x001788010de58f50/11"
+            #   "0x001788010de59d73/11"
+            #   "0x001788010de59ed5/11"
+            #   "0x001788010de5c725/11"
+            #   "0x001788010de5c649/11"
+            #   "0x001788010de5c6e8/11"
+            #   "0x001788010de5c44d/11"
+            #   # TODO: upstairs hallway light 3
+            #   "0x001788010de5c72d/11"
+            #   "0x001788010de5c4a6/11"
+            #   "0x001788010de5c49a/11"
+            #   "0x001788010de5cfd3/11"
+            #   "0x001788010de5c71f/11"
+            #   "0x001788010de5c4a4/11"
+            # ];
           };
           "17" = {
             friendly_name = "homelab/group/upstairs-lights";
-            devices = [
-              "0x001788010de59fb4/11"
-              "0x001788010de59f87/11"
-              "0x001788010de588ef/11"
-              "0x001788010de58f56/11"
-              "0x001788010de59fff/11"
-              "0x001788010de59fdc/11"
-              "0x001788010de59294/11"
-              "0x001788010de58f44/11"
-              "0x001788010de58f50/11"
-              "0x001788010de59d73/11"
-              "0x001788010de59ed5/11"
-              "0x001788010de5c725/11"
-              "0x001788010de5c649/11"
-              "0x001788010de5c6e8/11"
-              "0x001788010de5c44d/11"
-              # TODO: upstairs hallway light 3
-              "0x001788010de5c72d/11"
-              "0x001788010de5c4a6/11"
-              "0x001788010de5c49a/11"
-              "0x001788010de5cfd3/11"
-              "0x001788010de5c71f/11"
-              "0x001788010de5c4a4/11"
-            ];
+            # devices = [
+            #   "0x001788010de59fb4/11"
+            #   "0x001788010de59f87/11"
+            #   "0x001788010de588ef/11"
+            #   "0x001788010de58f56/11"
+            #   "0x001788010de59fff/11"
+            #   "0x001788010de59fdc/11"
+            #   "0x001788010de59294/11"
+            #   "0x001788010de58f44/11"
+            #   "0x001788010de58f50/11"
+            #   "0x001788010de59d73/11"
+            #   "0x001788010de59ed5/11"
+            #   "0x001788010de5c725/11"
+            #   "0x001788010de5c649/11"
+            #   "0x001788010de5c6e8/11"
+            #   "0x001788010de5c44d/11"
+            #   # TODO: upstairs hallway light 3
+            #   "0x001788010de5c72d/11"
+            #   "0x001788010de5c4a6/11"
+            #   "0x001788010de5c49a/11"
+            #   "0x001788010de5cfd3/11"
+            #   "0x001788010de5c71f/11"
+            #   "0x001788010de5c4a4/11"
+            # ];
           };
           "18" = {
             friendly_name = "homelab/group/garage-indoors-lights";
-            devices = [
-              "0x001788010db5e5e0/11"
-              "0x001788010d6cef1e/11"
-              "0x001788010db5e90e/11"
-              "0x001788010d6cc048/11"
-              "0x001788010cfc498d/11"
-              "0x001788010bc2476c/11"
-            ];
+            # devices = [
+            #   "0x001788010db5e5e0/11"
+            #   "0x001788010d6cef1e/11"
+            #   "0x001788010db5e90e/11"
+            #   "0x001788010d6cc048/11"
+            #   "0x001788010cfc498d/11"
+            #   "0x001788010bc2476c/11"
+            # ];
           };
           "19" = {
             friendly_name = "homelab/group/garage-stairs";
-            devices = [
-              "0x001788010de59fb4/11"
-              "0x001788010de59f87/11"
-            ];
+            # devices = [
+            #   "0x001788010de59fb4/11"
+            #   "0x001788010de59f87/11"
+            # ];
           };
           "20" = {
             friendly_name = "homelab/group/kitchen";
-            devices = [
-              "0x001788010de588ef/11"
-              "0x001788010de58f56/11"
-              "0x001788010de59fff/11"
-              "0x001788010de59fdc/11"
-            ];
+            # devices = [
+            #   "0x001788010de588ef/11"
+            #   "0x001788010de58f56/11"
+            #   "0x001788010de59fff/11"
+            #   "0x001788010de59fdc/11"
+            # ];
           };
           "21" = {
             friendly_name = "homelab/group/living-room";
-            devices = [
-              "0x001788010de59294/11"
-              "0x001788010de58f44/11"
-              "0x001788010de58f50/11"
-              "0x001788010de59d73/11"
-            ];
+            # devices = [
+            #   "0x001788010de59294/11"
+            #   "0x001788010de58f44/11"
+            #   "0x001788010de58f50/11"
+            #   "0x001788010de59d73/11"
+            # ];
           };
           "22" = {
             friendly_name = "homelab/group/living-room-stairs-lights";
-            devices = [
-              "0x001788010de59ed5/11"
-              "0x001788010de5c725/11"
-            ];
+            # devices = [
+            #   "0x001788010de59ed5/11"
+            #   "0x001788010de5c725/11"
+            # ];
           };
           "23" = {
             friendly_name = "homelab/group/front-porch";
-            devices = [
-              "0x001788010dabd66b/11"
-            ];
+            # devices = [
+            #   "0x001788010dabd66b/11"
+            # ];
           };
           "24" = {
             friendly_name = "homelab/group/balcony";
-            devices = [
-              "0x001788010daba3ee/11"
-              "0x001788010ce618a9/11"
-            ];
+            # devices = [
+            #   "0x001788010daba3ee/11"
+            #   "0x001788010ce618a9/11"
+            # ];
           };
           "25" = {
             friendly_name = "homelab/group/rooftop";
-            devices = [
-              "0x001788010db42ff9/11"
-              "0x001788010ce32dd5/11"
-            ];
+            # devices = [
+            #   "0x001788010db42ff9/11"
+            #   "0x001788010ce32dd5/11"
+            # ];
           };
           "26" = {
             friendly_name = "homelab/group/office-lights";
-            devices = [
-              "0x001788010de5c649/11"
-            ];
+            # devices = [
+            #   "0x001788010de5c649/11"
+            # ];
           };
           "27" = {
             friendly_name = "homelab/group/upstairs-hallway-lights";
-            devices = [
-              "0x001788010de5c6e8/11"
-              "0x001788010de5c44d/11"
-              # TODO: add 3rd light
-            ];
+            # devices = [
+            #   "0x001788010de5c6e8/11"
+            #   "0x001788010de5c44d/11"
+            #   # TODO: add 3rd light
+            # ];
           };
           "28" = {
             friendly_name = "homelab/group/bedroom-lights";
-            devices = [
-              "0x001788010de5c72d/11"
-              "0x001788010de5c4a6/11"
-              "0x001788010de5c49a/11"
-              "0x001788010de5cfd3/11"
-            ];
+            # devices = [
+            #   "0x001788010de5c72d/11"
+            #   "0x001788010de5c4a6/11"
+            #   "0x001788010de5c49a/11"
+            #   "0x001788010de5cfd3/11"
+            # ];
           };
           "29" = {
             friendly_name = "homelab/group/bathroom-overhead-lights";
-            devices = [
-              "0x001788010de5c4a4/11"
-            ];
+            # devices = [
+            #   "0x001788010de5c4a4/11"
+            # ];
           };
           "30" = {
             friendly_name = "homelab/group/garage-outdoor";
-            devices = [
-              "0x001788010daba6e8/11"
-              "0x001788010db42d9c/11"
-              "0x001788010db3bab6/11"
-              "0x001788010dabc8e4/11"
-            ];
+            # devices = [
+            #   "0x001788010daba6e8/11"
+            #   "0x001788010db42d9c/11"
+            #   "0x001788010db3bab6/11"
+            #   "0x001788010dabc8e4/11"
+            # ];
           };
           "31" = {
             friendly_name = "homelab/group/indoor-light-switches";
-            devices = [
-              "0xb43a31fffe380054/1"
-              "0xb43a31fffe38d5b8/1"
-              "0xb43a31fffe396ae0/1"
-              "0xb43a31fffe270352/1"
-              "0xb43a31fffe308aa9/1"
-              "0xb43a31fffe307d4a/1"
-              "0xb43a31fffe30b619/1"
-              "0xb43a31fffe34dcd3/1"
-              "0xb43a31fffe30b639/1"
-              "0xe0798dfffeaa77b1/1"
-              "0xb43a31fffe3babd1/1"
-              "0xe0798dfffeaa78c9/1"
-              "0xe0798dfffeb36d7a/1"
-              "0xe0798dfffeb3662c/1"
-              "0xb43a31fffe34c1cf/1"
-              "0x70ac08fffe6c8e2c/1"
-              "0x9035eafffec6e806/1"
-              "0xe0798dfffeb368c0/1"
-              "0xe0798dfffeaa7745/1"
-            ];
+            # devices = [
+            #   "0xb43a31fffe380054/1"
+            #   "0xb43a31fffe38d5b8/1"
+            #   "0xb43a31fffe396ae0/1"
+            #   "0xb43a31fffe270352/1"
+            #   "0xb43a31fffe308aa9/1"
+            #   "0xb43a31fffe307d4a/1"
+            #   "0xb43a31fffe30b619/1"
+            #   "0xb43a31fffe34dcd3/1"
+            #   "0xb43a31fffe30b639/1"
+            #   "0xe0798dfffeaa77b1/1"
+            #   "0xb43a31fffe3babd1/1"
+            #   "0xe0798dfffeaa78c9/1"
+            #   "0xe0798dfffeb36d7a/1"
+            #   "0xe0798dfffeb3662c/1"
+            #   "0xb43a31fffe34c1cf/1"
+            #   "0x70ac08fffe6c8e2c/1"
+            #   "0x9035eafffec6e806/1"
+            #   "0xe0798dfffeb368c0/1"
+            #   "0xe0798dfffeaa7745/1"
+            # ];
           };
         };
       };
