@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p mosquitto
 # Script to create Zigbee2MQTT groups via MQTT messages
 # Based on the configuration in mqtt.nix
 
