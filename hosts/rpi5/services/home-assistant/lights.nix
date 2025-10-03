@@ -25,7 +25,7 @@
             input = {
               motion_entity = "binary_sensor.garage_motion_occupancy";
               light_target = {
-                entity_id = "light.garage_indoors_lights";
+                entity_id = "light.garage_indoor_lights";
               };
               no_motion_wait = 1800;
             };
@@ -105,7 +105,7 @@
         {
           name = "Garage lights";
           lights = [
-            "light.garage_indoors_lights"
+            "light.garage_indoor_lights"
           ];
           min_brightness = 100;
           detect_non_ha_changes = true;
