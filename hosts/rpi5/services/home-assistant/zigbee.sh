@@ -434,13 +434,6 @@ echo ""
 # mosquitto_pub -h $MQTT_HOST -p $MQTT_PORT -t 'zigbee2mqtt/bridge/request/group/members/add' -m '{"group": "garage-indoors-lights", "device": "0x001788010cfc498d", "endpoint": 11}'
 # mosquitto_pub -h $MQTT_HOST -p $MQTT_PORT -t 'zigbee2mqtt/bridge/request/group/members/add' -m '{"group": "garage-indoors-lights", "device": "0x001788010bc2476c", "endpoint": 11}'
 
-# # Group 19: garage-stairs
-# echo "Creating group 19: garage-stairs"
-# mosquitto_pub -h $MQTT_HOST -p $MQTT_PORT -t 'zigbee2mqtt/bridge/request/group/add' -m '{"friendly_name": "garage-stairs", "id": 19}'
-# sleep 0.5
-# mosquitto_pub -h $MQTT_HOST -p $MQTT_PORT -t 'zigbee2mqtt/bridge/request/group/members/add' -m '{"group": "garage-stairs", "device": "0x001788010de59fb4", "endpoint": 11}'
-# mosquitto_pub -h $MQTT_HOST -p $MQTT_PORT -t 'zigbee2mqtt/bridge/request/group/members/add' -m '{"group": "garage-stairs", "device": "0x001788010de59f87", "endpoint": 11}'
-
 # # Group 20: kitchen
 # echo "Creating group 20: kitchen"
 # mosquitto_pub -h $MQTT_HOST -p $MQTT_PORT -t 'zigbee2mqtt/bridge/request/group/add' -m '{"friendly_name": "kitchen", "id": 20}'
