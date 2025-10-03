@@ -6,52 +6,52 @@
         platform = "group";
         name = "All blinds";
         entities = [
-          "cover.homelab_zone_living_room_big_shade"
-          "cover.homelab_zone_living_room_small_shade"
-          "cover.homelab_zone_kitchen_shade"
-          "cover.homelab_zone_bedroom_big_shade"
-          "cover.homelab_zone_bedroom_small_shade"
-          "cover.homelab_zone_office_shade"
-          "cover.homelab_zone_bathroom_big_shade"
-          "cover.homelab_zone_bathroom_small_shade"
-          "cover.homelab_zone_upstairs_hallway_shade"
+          "cover.living_room_big_shade"
+          "cover.living_room_small_shade"
+          "cover.kitchen_shade"
+          "cover.bedroom_big_shade"
+          "cover.bedroom_small_shade"
+          "cover.office_shade"
+          "cover.bathroom_big_shade"
+          "cover.bathroom_small_shade"
+          "cover.upstairs_hallway_shade"
         ];
       }
       {
         platform = "group";
         name = "Downstairs blinds";
         entities = [
-          "cover.homelab_zone_living_room_big_shade"
-          "cover.homelab_zone_living_room_small_shade"
-          "cover.homelab_zone_kitchen_shade"
+          "cover.living_room_big_shade"
+          "cover.living_room_small_shade"
+          "cover.kitchen_shade"
         ];
       }
       {
         platform = "group";
         name = "Upstairs blinds";
         entities = [
-          "cover.homelab_zone_bedroom_big_shade"
-          "cover.homelab_zone_bedroom_small_shade"
-          "cover.homelab_zone_office_shade"
-          "cover.homelab_zone_bathroom_big_shade"
-          "cover.homelab_zone_bathroom_small_shade"
-          "cover.homelab_zone_upstairs_hallway_shade"
+          "cover.bedroom_big_shade"
+          "cover.bedroom_small_shade"
+          "cover.office_shade"
+          "cover.bathroom_big_shade"
+          "cover.bathroom_small_shade"
+          "cover.upstairs_hallway_shade"
         ];
       }
       {
         platform = "group";
         name = "Bedroom blinds";
         entities = [
-          "cover.homelab_zone_bedroom_big_shade"
-          "cover.homelab_zone_bedroom_small_shade"
+          "cover.bedroom_big_shade"
+          "cover.bedroom_small_shade"
         ];
       }
       {
         platform = "group";
         name = "Bathroom blinds";
         entities = [
-          "cover.homelab_zone_bathroom_big_shade"
-          "cover.homelab_zone_bathroom_small_shade"
+          "cover.bathroom_big_shade"
+          "cover.bathroom_small_shade"
         ];
       }
     ];
@@ -61,15 +61,15 @@
         name = "Downstairs blinds daytime";
         icon = "mdi:blinds";
         entities = {
-          "cover.homelab_zone_living_room_big_shade" = {
+          "cover.living_room_big_shade" = {
             current_position = 2;
             state = "open";
           };
-          "cover.homelab_zone_living_room_small_shade" = {
+          "cover.living_room_small_shade" = {
             current_position = 2;
             state = "open";
           };
-          "cover.homelab_zone_kitchen_shade" = {
+          "cover.kitchen_shade" = {
             current_position = 100;
             state = "open";
           };
@@ -81,10 +81,10 @@
         entities =
           lib.genAttrs
             [
-              "cover.homelab_zone_office_shade"
-              "cover.homelab_zone_bathroom_big_shade"
-              "cover.homelab_zone_bathroom_small_shade"
-              "cover.homelab_zone_upstairs_hallway_shade"
+              "cover.office_shade"
+              "cover.bathroom_big_shade"
+              "cover.bathroom_small_shade"
+              "cover.upstairs_hallway_shade"
             ]
             (_: {
               current_position = 100;
@@ -97,9 +97,9 @@
         entities =
           lib.genAttrs
             [
-              "cover.homelab_zone_bathroom_big_shade"
-              "cover.homelab_zone_bathroom_small_shade"
-              "cover.homelab_zone_upstairs_hallway_shade"
+              "cover.bathroom_big_shade"
+              "cover.bathroom_small_shade"
+              "cover.upstairs_hallway_shade"
             ]
             (_: {
               current_position = 100;

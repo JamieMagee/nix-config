@@ -342,7 +342,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_zone_garage_bathroom_switch_light";
+                  entity = "light.garage_bathroom_switch_light";
                   name = "Bathroom";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -432,7 +432,13 @@
               entity = "climate.esphome_web_6c37b0_downstairs_mini_split";
               name = "Mini Split";
               show_temperature_control = true;
-              hvac_modes = [ "heat_cool" "heat" "cool" "fan_only" "off" ];
+              hvac_modes = [
+                "heat_cool"
+                "heat"
+                "cool"
+                "fan_only"
+                "off"
+              ];
               layout = "horizontal";
             }
 
@@ -552,7 +558,7 @@
               cards = [
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.homelab_zone_living_room_big_shade";
+                  entity = "cover.living_room_big_shade";
                   name = "Front Window (Large)";
                   show_buttons_control = true;
                   show_position_control = true;
@@ -560,7 +566,7 @@
                 }
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.homelab_zone_living_room_small_shade";
+                  entity = "cover.living_room_small_shade";
                   name = "Side Window (Small)";
                   show_buttons_control = true;
                   show_position_control = true;
@@ -568,7 +574,7 @@
                 }
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.homelab_zone_kitchen_shade";
+                  entity = "cover.kitchen_shade";
                   name = "Kitchen Window";
                   show_buttons_control = true;
                   show_position_control = true;
@@ -647,7 +653,13 @@
                   entity = "climate.esphome_web_6c4990_bedroom_mini_split";
                   name = "Bedroom";
                   show_temperature_control = true;
-                  hvac_modes = [ "heat_cool" "heat" "cool" "fan_only" "off" ];
+                  hvac_modes = [
+                    "heat_cool"
+                    "heat"
+                    "cool"
+                    "fan_only"
+                    "off"
+                  ];
                   layout = "vertical";
                   fill_container = false;
                 }
@@ -656,7 +668,13 @@
                   entity = "climate.esphome_web_6ab408_office_mini_split";
                   name = "Office";
                   show_temperature_control = true;
-                  hvac_modes = [ "heat_cool" "heat" "cool" "fan_only" "off" ];
+                  hvac_modes = [
+                    "heat_cool"
+                    "heat"
+                    "cool"
+                    "fan_only"
+                    "off"
+                  ];
                   layout = "vertical";
                   fill_container = false;
                 }
@@ -862,7 +880,7 @@
               cards = [
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.homelab_zone_bathroom_big_shade";
+                  entity = "cover.bathroom_big_shade";
                   name = "Bathroom (Large)";
                   show_buttons_control = true;
                   show_position_control = true;
@@ -870,7 +888,7 @@
                 }
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.homelab_zone_bathroom_small_shade";
+                  entity = "cover.bathroom_small_shade";
                   name = "Bathroom (Small)";
                   show_buttons_control = true;
                   show_position_control = true;
@@ -878,7 +896,7 @@
                 }
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.homelab_zone_bedroom_small_shade";
+                  entity = "cover.bedroom_small_shade";
                   name = "Bedroom (Small)";
                   show_buttons_control = true;
                   show_position_control = true;
@@ -886,7 +904,7 @@
                 }
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.homelab_zone_bedroom_big_shade";
+                  entity = "cover.bedroom_big_shade";
                   name = "Bedroom (Large)";
                   show_buttons_control = true;
                   show_position_control = true;
@@ -894,7 +912,7 @@
                 }
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.homelab_zone_office_shade";
+                  entity = "cover.office_shade";
                   name = "Office";
                   show_buttons_control = true;
                   show_position_control = true;
@@ -902,7 +920,7 @@
                 }
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.homelab_zone_upstairs_hallway_shade";
+                  entity = "cover.upstairs_hallway_shade";
                   name = "Hallway";
                   show_buttons_control = true;
                   show_position_control = true;

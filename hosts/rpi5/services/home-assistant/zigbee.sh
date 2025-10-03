@@ -16,59 +16,59 @@ echo "Configuring switch options..."
 
 # Default switch configuration
 SWITCH_DEVICES=(
-  "0xb43a31fffe34b129"  # homelab/zone/garage/switch-outdoors
-  "0xb43a31fffe30b639"  # homelab/zone/garage/switch-indoors
-  "0xb43a31fffe38d5b8"  # homelab/zone/garage-hallway/switch-stairs
-  "0xb43a31fffe396ae0"  # homelab/zone/kitchen/switch-stairs-light
-  "0xb43a31fffe270352"  # homelab/zone/kitchen/switch-kitchen-light
-  "0xb43a31fffe308aa9"  # homelab/zone/kitchen/switch-living-room-light
-  "0xb43a31fffe307d4a"  # homelab/zone/living-room/switch-living-room-light
-  "0xb43a31fffe30b619"  # homelab/zone/living-room/switch-kitchen-light
-  "0xb43a31fffe34dcd3"  # homelab/zone/living-room/switch-stairs-light
-  "0xb43a31fffe38377e"  # homelab/zone/living-room/switch-front-porch
-  "0xe0798dfffeaa77e9"  # homelab/zone/upstairs/switch-rooftop
-  "0xb43a31fffe3babd1"  # homelab/zone/upstairs/switch-stairs-light
-  "0xe0798dfffeaa78c9"  # homelab/zone/bedroom/switch-closet
-  "0xe0798dfffeb36d7a"  # homelab/zone/bedroom/switch
-  "0xe0798dfffeb3662c"  # homelab/zone/office/switch
-  "0xb43a31fffe34c1cf"  # homelab/zone/upstairs/switch-hallway-light-1
-  "0x70ac08fffe6c8e2c"  # homelab/zone/bathroom/switch-overhead-1
-  "0xe0798dfffeb368c0"  # homelab/zone/bathroom/switch-overhead-2
-  "0xe0798dfffeb367b4"  # homelab/zone/kitchen/switch-balcony
+  "0xb43a31fffe34b129"  # garage/switch-outdoors
+  "0xb43a31fffe30b639"  # garage/switch-indoors
+  "0xb43a31fffe38d5b8"  # garage-hallway/switch-stairs
+  "0xb43a31fffe396ae0"  # kitchen/switch-stairs-light
+  "0xb43a31fffe270352"  # kitchen/switch-kitchen-light
+  "0xb43a31fffe308aa9"  # kitchen/switch-living-room-light
+  "0xb43a31fffe307d4a"  # living-room/switch-living-room-light
+  "0xb43a31fffe30b619"  # living-room/switch-kitchen-light
+  "0xb43a31fffe34dcd3"  # living-room/switch-stairs-light
+  "0xb43a31fffe38377e"  # living-room/switch-front-porch
+  "0xe0798dfffeaa77e9"  # upstairs/switch-rooftop
+  "0xb43a31fffe3babd1"  # upstairs/switch-stairs-light
+  "0xe0798dfffeaa78c9"  # bedroom/switch-closet
+  "0xe0798dfffeb36d7a"  # bedroom/switch
+  "0xe0798dfffeb3662c"  # office/switch
+  "0xb43a31fffe34c1cf"  # upstairs/switch-hallway-light-1
+  "0x70ac08fffe6c8e2c"  # bathroom/switch-overhead-1
+  "0xe0798dfffeb368c0"  # bathroom/switch-overhead-2
+  "0xe0798dfffeb367b4"  # kitchen/switch-balcony
 )
 
 # Switches with Smart Bulb Mode disabled
 SMART_BULB_DISABLED=(
-  "0xb43a31fffe380054"  # homelab/zone/garage-bathroom/switch-light
-  "0xe0798dfffeaa7745"  # homelab/zone/bathroom/switch-vanity-1
-  "0x9035eafffec6e806"  # homelab/zone/bathroom/switch-vanity-2
-  "0xe0798dfffeaa77b1"  # homelab/zone/upstairs/switch-hallway-light-2
+  "0xb43a31fffe380054"  # garage-bathroom/switch-light
+  "0xe0798dfffeaa7745"  # bathroom/switch-vanity-1
+  "0x9035eafffec6e806"  # bathroom/switch-vanity-2
+  "0xe0798dfffeaa77b1"  # upstairs/switch-hallway-light-2
 )
 
 # Fan switches with auto-off timer
 FAN_SWITCHES=(
-  "0x048727fffe19208b"  # homelab/zone/garage-bathroom/switch-fan
-  "0x048727fffe1b2e4d"  # homelab/zone/bathroom/fan
-  "0xd44867fffe8bb773"  # homelab/zone/utility-closet/fan
+  "0x048727fffe19208b"  # garage-bathroom/switch-fan
+  "0x048727fffe1b2e4d"  # bathroom/fan
+  "0xd44867fffe8bb773"  # utility-closet/fan
 )
 
 # 3-way switches (multiple switches control same lights)
 # These need to be configured with switchType "3-Way Aux Switch"
 THREE_WAY_SWITCHES=(
-  "0xb43a31fffe38d5b8"  # homelab/zone/garage-hallway/switch-stairs (group 1)
-  "0xb43a31fffe396ae0"  # homelab/zone/kitchen/switch-stairs-light (group 1)
-  "0xb43a31fffe307d4a"  # homelab/zone/living-room/switch-living-room-light (group 2)
-  "0xb43a31fffe308aa9"  # homelab/zone/kitchen/switch-living-room-light (group 2)
-  "0xb43a31fffe30b619"  # homelab/zone/living-room/switch-kitchen-light (group 3)
-  "0xb43a31fffe270352"  # homelab/zone/kitchen/switch-kitchen-light (group 3)
-  "0xb43a31fffe34dcd3"  # homelab/zone/living-room/switch-stairs-light (group 4)
-  "0xb43a31fffe3babd1"  # homelab/zone/upstairs/switch-stairs-light (group 4)
-  "0xe0798dfffeaa77b1"  # homelab/zone/upstairs/switch-hallway-light-2 (group 11)
-  "0xb43a31fffe34c1cf"  # homelab/zone/upstairs/switch-hallway-light-1 (group 11)
-  "0x70ac08fffe6c8e2c"  # homelab/zone/bathroom/switch-overhead-1 (group 14)
-  "0xe0798dfffeb368c0"  # homelab/zone/bathroom/switch-overhead-2 (group 14)
-  "0xe0798dfffeaa7745"  # homelab/zone/bathroom/switch-vanity-1 (group 15)
-  "0x9035eafffec6e806"  # homelab/zone/bathroom/switch-vanity-2 (group 15)
+  "0xb43a31fffe38d5b8"  # garage-hallway/switch-stairs (group 1)
+  "0xb43a31fffe396ae0"  # kitchen/switch-stairs-light (group 1)
+  "0xb43a31fffe307d4a"  # living-room/switch-living-room-light (group 2)
+  "0xb43a31fffe308aa9"  # kitchen/switch-living-room-light (group 2)
+  "0xb43a31fffe30b619"  # living-room/switch-kitchen-light (group 3)
+  "0xb43a31fffe270352"  # kitchen/switch-kitchen-light (group 3)
+  "0xb43a31fffe34dcd3"  # living-room/switch-stairs-light (group 4)
+  "0xb43a31fffe3babd1"  # upstairs/switch-stairs-light (group 4)
+  "0xe0798dfffeaa77b1"  # upstairs/switch-hallway-light-2 (group 11)
+  "0xb43a31fffe34c1cf"  # upstairs/switch-hallway-light-1 (group 11)
+  "0x70ac08fffe6c8e2c"  # bathroom/switch-overhead-1 (group 14)
+  "0xe0798dfffeb368c0"  # bathroom/switch-overhead-2 (group 14)
+  "0xe0798dfffeaa7745"  # bathroom/switch-vanity-1 (group 15)
+  "0x9035eafffec6e806"  # bathroom/switch-vanity-2 (group 15)
 )
 
 # Configure standard switches with Smart Bulb Mode enabled

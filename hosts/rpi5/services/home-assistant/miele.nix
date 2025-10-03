@@ -54,7 +54,7 @@
           actions = [
             {
               action = "fan.turn_on";
-              entity_id = "fan.homelab_zone_utility_closet_fan";
+              entity_id = "fan.utility_closet_fan";
             }
           ];
         }
@@ -70,7 +70,7 @@
           actions = [
             {
               action = "fan.turn_off";
-              entity_id = "fan.homelab_zone_utility_closet_fan";
+              entity_id = "fan.utility_closet_fan";
             }
           ];
         }
