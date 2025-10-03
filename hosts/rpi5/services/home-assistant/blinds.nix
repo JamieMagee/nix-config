@@ -130,26 +130,6 @@
         ];
       }
       {
-        alias = "Close blinds when no-one home";
-        id = "close_blinds_no_one_home";
-        triggers = [
-          {
-            trigger = "state";
-            entity_id = "zone.home";
-            to = "0";
-            for = {
-              minutes = 1;
-            };
-          }
-        ];
-        actions = [
-          {
-            action = "cover.close_cover";
-            entity_id = "cover.all_blinds";
-          }
-        ];
-      }
-      {
         alias = "Open blinds in the morning";
         id = "open_blinds_morning";
         triggers = [
