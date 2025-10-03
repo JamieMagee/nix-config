@@ -852,7 +852,7 @@
             }
             {
               type = "custom:mushroom-fan-card";
-              entity = "fan.0x048727fffe1b2e4d";
+              entity = "fan.bathroom_fan";
               name = "Bathroom Fan";
               show_percentage_control = true;
               show_oscillate_control = false;

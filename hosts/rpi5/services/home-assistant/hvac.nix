@@ -136,7 +136,7 @@
           {
             action = "fan.turn_on";
             target = {
-              entity_id = "fan.0x048727fffe1b2e4d";
+              entity_id = "fan.bathroom_fan";
             };
           }
         ];
@@ -155,7 +155,7 @@
           {
             action = "fan.turn_off";
             target = {
-              entity_id = "fan.0x048727fffe1b2e4d";
+              entity_id = "fan.bathroom_fan";
             };
           }
         ];
