@@ -9,7 +9,9 @@
     zigbee2mqtt = {
       enable = true;
       settings = {
-        availability = true;
+        availability = {
+          enabled = true;
+        };
         frontend = {
           port = 8080;
           package = "zigbee2mqtt-windfront";
