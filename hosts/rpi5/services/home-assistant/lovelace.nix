@@ -334,7 +334,7 @@
               cards = [
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_garage_indoors_lights";
+                  entity = "light.garage_indoors_lights";
                   name = "Indoor Lights";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -504,7 +504,7 @@
               cards = [
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_kitchen_garage_stairs";
+                  entity = "light.kitchen_garage_stairs";
                   name = "Kitchen Stairs";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -512,7 +512,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_kitchen_lights";
+                  entity = "light.kitchen_lights";
                   name = "Kitchen";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -520,7 +520,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_living_room_lights";
+                  entity = "light.living_room_lights";
                   name = "Living Room";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -528,7 +528,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_living_room_stairs";
+                  entity = "light.living_room_stairs";
                   name = "Living Stairs";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -788,7 +788,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_living_room_stairs";
+                  entity = "light.living_room_stairs";
                   name = "Stairs";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -796,7 +796,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_upstairs_hallway";
+                  entity = "light.upstairs_hallway";
                   name = "Hallway";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -804,7 +804,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_office";
+                  entity = "light.office";
                   name = "Office";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -812,7 +812,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_bedroom";
+                  entity = "light.bedroom";
                   name = "Bedroom";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -820,7 +820,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_bedroom_closet";
+                  entity = "light.bedroom_closet";
                   name = "Closet";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -828,7 +828,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_bathroom_overhead";
+                  entity = "light.bathroom_overhead";
                   name = "Bathroom";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -836,7 +836,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.homelab_group_bathroom_vanity";
+                  entity = "light.bathroom_vanity";
                   name = "Vanity";
                   show_brightness_control = true;
                   layout = "vertical";

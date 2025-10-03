@@ -25,7 +25,7 @@
             input = {
               motion_entity = "binary_sensor.garage_motion_occupancy";
               light_target = {
-                entity_id = "light.homelab_group_garage_indoors_lights";
+                entity_id = "light.garage_indoors_lights";
               };
               no_motion_wait = 1800;
             };
@@ -45,9 +45,9 @@
               action = "light.turn_on";
               target = {
                 entity_id = [
-                  "light.homelab_group_garage_outdoor_lights"
-                  "light.homelab_group_front_porch_lights"
-                  "light.homelab_group_balcony_lights"
+                  "light.garage_outdoor_lights"
+                  "light.front_porch_lights"
+                  "light.balcony_lights"
                 ];
               };
             }
@@ -67,9 +67,9 @@
               action = "light.turn_off";
               target = {
                 entity_id = [
-                  "light.homelab_group_garage_outdoor_lights"
-                  "light.homelab_group_front_porch_lights"
-                  "light.homelab_group_balcony_lights"
+                  "light.garage_outdoor_lights"
+                  "light.front_porch_lights"
+                  "light.balcony_lights"
                 ];
               };
             }
@@ -93,7 +93,7 @@
               action = "light.turn_off";
               target = {
                 entity_id = [
-                  "light.homelab_group_indoor_light_switches"
+                  "light.indoor_light_switches"
                 ];
               };
             }
@@ -105,7 +105,7 @@
         {
           name = "Garage lights";
           lights = [
-            "light.homelab_group_garage_indoors_lights"
+            "light.garage_indoors_lights"
           ];
           min_brightness = 100;
           detect_non_ha_changes = true;
@@ -121,14 +121,14 @@
         {
           name = "Indoor lights";
           lights = [
-            "light.homelab_group_garage_stairs"
-            "light.homelab_group_kitchen"
-            "light.homelab_group_living_room"
-            "light.homelab_group_living_room_stairs_lights"
-            "light.homelab_group_office_lights"
-            "light.homelab_group_upstairs_hallway_lights"
-            "light.homelab_group_bedroom_lights"
-            "light.homelab_group_bathroom_overhead_lights"
+            "light.garage_stairs"
+            "light.kitchen"
+            "light.living_room"
+            "light.living_room_stairs_lights"
+            "light.office_lights"
+            "light.upstairs_hallway_lights"
+            "light.bedroom_lights"
+            "light.bathroom_overhead_lights"
           ];
           min_brightness = 50;
           min_color_temp = 3000;
@@ -137,10 +137,10 @@
         {
           name = "Outside lights";
           lights = [
-            "light.homelab_group_balcony"
-            "light.homelab_group_rooftop"
-            "light.homelab_group_front_porch"
-            "light.homelab_group_garage_outdoor"
+            "light.balcony"
+            "light.rooftop"
+            "light.front_porch"
+            "light.garage_outdoor"
           ];
           min_brightness = 100;
           detect_non_ha_changes = true;
