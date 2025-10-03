@@ -12,6 +12,7 @@
         availability = true;
         frontend = {
           port = 8080;
+          package = "zigbee2mqtt-windfront";
         };
         serial = {
           port = "/dev/ttyUSB0";
