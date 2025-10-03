@@ -14,6 +14,7 @@
     ./mqtt.nix
     ./notify.nix
     ./people.nix
+    ./power.nix
     ./recorder.nix
     ./sonos.nix
     ./unifi.nix
@@ -41,7 +42,6 @@
       "met"
       "mqtt"
       "notify"
-      "opower"
       "otp"
       "plex"
       "radarr"
