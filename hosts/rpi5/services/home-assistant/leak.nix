@@ -7,12 +7,12 @@
         triggers = {
           trigger = "state";
           entity_id = [
-            "binary_sensor.homelab_zone_bathroom_sink_left_leak_water_leak"
-            "binary_sensor.homelab_zone_bathroom_sink_right_leak_water_leak"
-            "binary_sensor.homelab_zone_bathroom_toilet_leak_water_leak"
-            "binary_sensor.homelab_zone_garage_bathroom_sink_leak_water_leak"
-            "binary_sensor.homelab_zone_garage_bathroom_toilet_leak_water_leak"
-            "binary_sensor.homelab_zone_kitchen_sink_leak_water_leak"
+            "binary_sensor.bathroom_sink_left_leak_water_leak"
+            "binary_sensor.bathroom_sink_right_leak_water_leak"
+            "binary_sensor.bathroom_toilet_leak_water_leak"
+            "binary_sensor.garage_bathroom_sink_leak_water_leak"
+            "binary_sensor.garage_bathroom_toilet_leak_water_leak"
+            "binary_sensor.kitchen_sink_leak_water_leak"
           ];
           to = "on";
         };

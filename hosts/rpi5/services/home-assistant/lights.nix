@@ -23,7 +23,7 @@
           use_blueprint = {
             path = "homeassistant/motion_light.yaml";
             input = {
-              motion_entity = "binary_sensor.homelab_zone_garage_motion_occupancy";
+              motion_entity = "binary_sensor.garage_motion_occupancy";
               light_target = {
                 entity_id = "light.homelab_group_garage_indoors_lights";
               };
