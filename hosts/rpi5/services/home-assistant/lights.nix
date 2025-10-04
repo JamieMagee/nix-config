@@ -122,9 +122,9 @@
         {
           name = "Indoor lights";
           lights = [
-            "light.garage_stairs"
-            "light.kitchen"
-            "light.living_room"
+            "light.garage_stairs_lights"
+            "light.kitchen_lights"
+            "light.living_room_lights"
             "light.living_room_stairs_lights"
             "light.office_lights"
             "light.upstairs_hallway_lights"
