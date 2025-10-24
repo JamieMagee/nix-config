@@ -42,7 +42,7 @@
       attachExistingSession = lib.mkForce false;
       exitShellOnExit = lib.mkForce false;
     };
-    git.extraConfig = {
+    git.settings = {
       credential = {
         "https://dev.azure.com" = {
           helper = "/mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe";
