@@ -2,7 +2,6 @@
 {
   programs.git = {
     enable = true;
-    package = pkgs.gitAndTools.gitFull;
     signing = {
       format = "ssh";
       key = "key::sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEfboykpOQU4syTfATJPL+CICYyZdVXOROU2O4iLmmA9AAAABHNzaDo= ";
