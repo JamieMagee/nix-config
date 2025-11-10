@@ -28,6 +28,7 @@
       nodejs_24
       nodePackages_latest.pnpm
       nodePackages_latest.yarn
+      biome
 
       # Go
       go_1_24
