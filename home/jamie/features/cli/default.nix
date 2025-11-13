@@ -58,9 +58,6 @@
     };
     zellij = {
       enable = true;
-      enableFishIntegration = false;
-      attachExistingSession = true;
-      exitShellOnExit = true;
       settings = {
         theme = "dracula";
         themes = {
