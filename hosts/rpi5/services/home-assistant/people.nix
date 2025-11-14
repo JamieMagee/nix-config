@@ -27,7 +27,7 @@
             };
           }
           {
-            action = "notify.mobile_app_pixel_8a";
+            action = "notify.mobile_app_kat_pixel_8a";
             data = {
               message = "{{ person + ' ' + event + ' ' + zone }}";
             };
