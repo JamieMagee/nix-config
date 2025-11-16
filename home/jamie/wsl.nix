@@ -33,8 +33,7 @@
       # Go
       go_1_24
 
-      # System tools
-      wslu
+      github-copilot-cli
     ];
   };
 
