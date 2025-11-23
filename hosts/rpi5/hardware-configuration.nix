@@ -11,6 +11,9 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
+      options = [
+        "data=journal" # Improve reliability
+      ];
     };
     "/boot/firmware" = {
       device = "/dev/disk/by-label/FIRMWARE";
