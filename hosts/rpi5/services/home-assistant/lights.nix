@@ -94,7 +94,6 @@
               target = {
                 entity_id = [
                   "light.indoor_light_switches"
-                  "light.indoor_lights"
                 ];
               };
             }

@@ -504,7 +504,7 @@
               cards = [
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.kitchen_garage_stairs";
+                  entity = "light.switch_stairs_light";
                   name = "Kitchen Stairs";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -512,7 +512,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.kitchen_lights";
+                  entity = "light.kitchen_switch_kitchen_light";
                   name = "Kitchen";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -520,7 +520,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.living_room_lights";
+                  entity = "light.living_room_switch_living_room_light";
                   name = "Living Room";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -528,7 +528,7 @@
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.living_room_stairs";
+                  entity = "light.living_room_switch_stairs_light";
                   name = "Living Stairs";
                   show_brightness_control = true;
                   layout = "vertical";
