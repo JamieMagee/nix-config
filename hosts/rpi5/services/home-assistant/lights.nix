@@ -110,6 +110,7 @@
           ];
           min_brightness = 100;
           detect_non_ha_changes = true;
+          skip_redundant_commands = true;
         }
         {
           name = "Garage desk lights";
@@ -118,6 +119,7 @@
             "light.jamie_ring_light"
           ];
           detect_non_ha_changes = true;
+          skip_redundant_commands = true;
         }
         {
           name = "Indoor lights";
@@ -134,6 +136,7 @@
           min_brightness = 50;
           min_color_temp = 3000;
           detect_non_ha_changes = true;
+          skip_redundant_commands = true;
         }
         {
           name = "Outside lights";
@@ -145,6 +148,7 @@
           ];
           min_brightness = 100;
           detect_non_ha_changes = true;
+          skip_redundant_commands = true;
         }
       ];
     };
