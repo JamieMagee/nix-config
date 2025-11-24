@@ -334,7 +334,7 @@
               cards = [
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.garage_indoors_lights";
+                  entity = "light.garage_switch_indoors";
                   name = "Indoor Lights";
                   show_brightness_control = true;
                   layout = "vertical";
