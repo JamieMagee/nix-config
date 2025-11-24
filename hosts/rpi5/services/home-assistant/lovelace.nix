@@ -504,7 +504,7 @@
               cards = [
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.switch_stairs_light";
+                  entity = "light.kitchen_switch_stairs_light";
                   name = "Kitchen Stairs";
                   show_brightness_control = true;
                   layout = "vertical";
