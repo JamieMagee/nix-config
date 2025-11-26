@@ -7,6 +7,9 @@
     # ./disko.nix
   ];
 
+  # Override the firmware partition ID to match the actual disk
+  sdImage.firmwarePartitionID = "0x2175794e";
+
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
