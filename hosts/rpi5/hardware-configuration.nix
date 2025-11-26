@@ -40,6 +40,8 @@
     };
   };
 
+  boot.kernelParams = [ "rootflags=data=journal" ];
+
   raspberry-pi-nix.board = "bcm2712";
   nixpkgs.hostPlatform.system = "aarch64-linux";
 }
