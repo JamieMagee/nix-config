@@ -9,6 +9,7 @@
     ../common/global
     ../common/users/jamie.nix
 
+    ../common/optional/smartd.nix
     ../common/optional/systemd-boot.nix
     ../common/optional/vscode-server.nix
     ../common/optional/vpn.nix
