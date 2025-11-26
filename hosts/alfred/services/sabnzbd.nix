@@ -8,4 +8,10 @@
       reverse_proxy /sabnzbd* http://[::1]:8080
     '';
   };
+
+  services.caddy.virtualHosts."http://alfred.localdomain" = {
+    extraConfig = ''
+      reverse_proxy /sabnzbd* http://[::1]:8080
+    '';
+  };
 }
