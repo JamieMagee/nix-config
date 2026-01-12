@@ -85,7 +85,7 @@
         default = nixpkgs.legacyPackages.${system}.callPackage ./shell.nix { };
       });
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
       nixosConfigurations = {
         alfred = mkSystem "alfred" "x86_64-linux" [ ];
