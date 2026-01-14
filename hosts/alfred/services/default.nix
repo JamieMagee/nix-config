@@ -2,7 +2,6 @@
 {
   imports = [
     ./caddy.nix
-    ./deluge.nix
     ./hd-idle.nix
     ./plex.nix
     ./prowlarr.nix
@@ -18,14 +17,13 @@
     radarr.user
     sabnzbd.user
     sonarr.user
-    deluge.user
   ];
 
   systemd.tmpfiles.rules = [
-    "d /mnt/downloads/incomplete 0770 ${config.users.users.jamie.name} ${config.users.groups.services.name}"
-    "d /mnt/downloads/complete 0770 ${config.users.users.jamie.name} ${config.users.groups.services.name}"
+    "d /mnt/downloads/incomplete 2770 ${config.users.users.jamie.name} ${config.users.groups.services.name}"
+    "d /mnt/downloads/complete 2770 ${config.users.users.jamie.name} ${config.users.groups.services.name}"
 
-    "d /mnt/data/tv 0770 ${config.users.users.jamie.name} ${config.users.groups.services.name}"
-    "d /mnt/data/movies 0770 ${config.users.users.jamie.name} ${config.users.groups.services.name}"
+    "d /mnt/data/tv 2770 ${config.users.users.jamie.name} ${config.users.groups.services.name}"
+    "d /mnt/data/movies 2770 ${config.users.users.jamie.name} ${config.users.groups.services.name}"
   ];
 }
