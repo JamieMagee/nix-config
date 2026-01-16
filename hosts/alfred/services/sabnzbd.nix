@@ -1,12 +1,12 @@
 {
   services.sabnzbd = {
     enable = true;
-    allowConfigWrite = true;
     secretFiles = [ "/var/lib/sabnzbd/secrets.ini" ];
     settings = {
       misc = {
         complete_dir = "/mnt/downloads/complete";
-        incomplete_dir = "/mnt/downloads/incomplete";
+        download_dir = "/mnt/downloads/incomplete";
+        permissions = "0770";
       };
       servers."news.eweka.nl" = {
         displayname = "Eweka";
