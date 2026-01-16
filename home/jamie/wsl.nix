@@ -8,6 +8,7 @@
     ./global
 
     ./features/cli
+    ./features/cli/opencode.nix
     ./features/cli/podman.nix
     ./features/cli/ruby.nix
   ];
