@@ -1,4 +1,12 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+let
+  mcp-servers-pkgs = inputs.mcp-servers-nix.packages.${pkgs.system};
+in
 {
   programs.opencode = {
     enable = true;
@@ -11,7 +19,21 @@
             (lib.getExe pkgs.github-mcp-server)
             "stdio"
           ];
-          enabled = false;
+          enabled = true;
+        };
+        "nixos" = {
+          type = "local";
+          command = [
+            (lib.getExe pkgs.mcp-nixos)
+          ];
+          enabled = true;
+        };
+        "context7" = {
+          type = "local";
+          command = [
+            (lib.getExe mcp-servers-pkgs.context7-mcp)
+          ];
+          enabled = true;
         };
       };
     };
