@@ -7,6 +7,8 @@
         complete_dir = "/mnt/downloads/complete";
         download_dir = "/mnt/downloads/incomplete";
         permissions = "0770";
+        url_base = "/sabnzbd";
+        host_whitelist = "alfred.tailnet-0b15.ts.net";
       };
       servers."news.eweka.nl" = {
         displayname = "Eweka";
