@@ -7,6 +7,8 @@
         complete_dir = "/mnt/downloads/complete";
         download_dir = "/mnt/downloads/incomplete";
         permissions = "0770";
+        host = "::1";
+        port = 8080;
         url_base = "/sabnzbd";
         host_whitelist = "alfred.tailnet-0b15.ts.net";
       };
@@ -24,7 +26,7 @@
 
   services.caddy.virtualHosts."alfred.tailnet-0b15.ts.net" = {
     extraConfig = ''
-      reverse_proxy /sabnzbd* http://127.0.0.1:8080
+      reverse_proxy /sabnzbd* http://[::1]:8080
     '';
   };
 }
