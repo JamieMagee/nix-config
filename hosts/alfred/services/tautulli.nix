@@ -8,10 +8,4 @@
       reverse_proxy /tautulli* http://127.0.0.1:8181
     '';
   };
-
-  services.caddy.virtualHosts."http://alfred.localdomain" = {
-    extraConfig = ''
-      reverse_proxy /tautulli* http://127.0.0.1:8181
-    '';
-  };
 }

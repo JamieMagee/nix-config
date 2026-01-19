@@ -12,9 +12,6 @@ in
 
     # Tailscale (HTTPS with automatic certs)
     virtualHosts."alfred.tailnet-0b15.ts.net".extraConfig = commonHeaders;
-
-    # Local network (HTTP only)
-    virtualHosts."http://alfred.localdomain".extraConfig = commonHeaders;
   };
 
   # Tailscale interface
@@ -28,9 +25,6 @@ in
       443
     ];
   };
-
-  # Local network - HTTP only
-  networking.firewall.allowedTCPPorts = [ 80 ];
 
   services.tailscale.permitCertUid = config.services.caddy.user;
 }

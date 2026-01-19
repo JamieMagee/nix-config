@@ -8,10 +8,4 @@
       reverse_proxy /radarr* http://[::1]:7878
     '';
   };
-
-  services.caddy.virtualHosts."http://alfred.localdomain" = {
-    extraConfig = ''
-      reverse_proxy /radarr* http://[::1]:7878
-    '';
-  };
 }

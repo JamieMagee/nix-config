@@ -8,10 +8,4 @@
       reverse_proxy /sonarr* http://[::1]:8989
     '';
   };
-
-  services.caddy.virtualHosts."http://alfred.localdomain" = {
-    extraConfig = ''
-      reverse_proxy /sonarr* http://[::1]:8989
-    '';
-  };
 }
