@@ -1,6 +1,7 @@
 {
   services.sabnzbd = {
     enable = true;
+    group = "services";
     secretFiles = [ "/var/lib/sabnzbd/secrets.ini" ];
     settings = {
       misc = {
