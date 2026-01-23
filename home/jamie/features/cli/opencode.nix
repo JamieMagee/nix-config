@@ -35,6 +35,15 @@ in
           ];
           enabled = true;
         };
+        "azure" = {
+          type = "local";
+          command = [
+            (lib.getExe pkgs.azure-mcp-server)
+            "server"
+            "start"
+          ];
+          enabled = true;
+        };
       };
     };
   };
