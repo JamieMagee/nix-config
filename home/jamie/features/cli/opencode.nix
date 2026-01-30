@@ -10,6 +10,9 @@ in
 {
   programs.opencode = {
     enable = true;
+    web = {
+      enable = true;
+    };
     settings = {
       model = "github-copilot/claude-opus-4.5";
       mcp = {
