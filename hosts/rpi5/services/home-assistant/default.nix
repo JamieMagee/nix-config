@@ -6,6 +6,7 @@
     ./cloud.nix
     ./default-config.nix
     ./esphome.nix
+    ./fellow.nix
     ./hvac.nix
     ./leak.nix
     ./lights.nix
@@ -59,7 +60,6 @@
       better_thermostat
       climate_group
       emporia_vue
-      fellow
       garmin_connect
       spook
       waste_collection_schedule
