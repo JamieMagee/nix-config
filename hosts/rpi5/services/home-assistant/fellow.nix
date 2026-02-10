@@ -8,16 +8,19 @@
       automation = [
         {
           alias = "Notify when coffee brewing is complete";
-          description = "Send a notification to with the number of cups brewed";
+          description = "Send a notification when the brew end time changes, indicating a brew just finished";
           trigger = [
             {
               platform = "state";
-              entity_id = "binary_sensor.aiden_brewing";
-              from = "on";
-              to = "off";
+              entity_id = "sensor.last_brew_end_time";
             }
           ];
-          condition = [ ];
+          condition = [
+            {
+              condition = "template";
+              value_template = "{{ trigger.from_state.state not in ['unknown', 'unavailable'] and trigger.to_state.state not in ['unknown', 'unavailable'] and trigger.from_state.state != trigger.to_state.state }}";
+            }
+          ];
           action = [
             {
               service = "notify.everyone";
