@@ -32,7 +32,7 @@
       biome
 
       # Go
-      go_1_25
+      go_1_26
 
       github-copilot-cli
     ];
