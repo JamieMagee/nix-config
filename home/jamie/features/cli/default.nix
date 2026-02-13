@@ -16,6 +16,7 @@
       bicep
       # bitwarden-cli
       deploy-rs
+      devenv
       fastfetch
       fd
       lazygit
