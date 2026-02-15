@@ -97,6 +97,31 @@
               '';
             }
             {
+              name = "SCL Estimated Daily Cost (TOU)";
+              unique_id = "scl_estimated_daily_cost_tou";
+              unit_of_measurement = "USD";
+              device_class = "monetary";
+              state_class = "total";
+              icon = "mdi:cash-clock";
+              # Estimates TOU cost from Opower usage data and current TOU rate
+              state = ''
+                {% set base = 0.4103 %}
+                {% set usage_kwh = states('sensor.current_bill_electric_usage_to_date') | float(0) %}
+                {% set tou_rate = states('sensor.scl_tou_price') | float(0.1465) %}
+                {% set start = states('sensor.current_bill_electric_start_date') %}
+                {% if start not in ['unknown', 'unavailable'] and usage_kwh > 0 %}
+                  {% set days = ((as_timestamp(now()) - as_timestamp(start)) / 86400) | round(0, 'ceil') %}
+                  {% if days > 0 %}
+                    {{ (((usage_kwh / days) * tou_rate) + base) | round(2) }}
+                  {% else %}
+                    {{ base }}
+                  {% endif %}
+                {% else %}
+                  {{ base }}
+                {% endif %}
+              '';
+            }
+            {
               name = "Total Lights Power";
               unique_id = "total_lights_power";
               unit_of_measurement = "W";
