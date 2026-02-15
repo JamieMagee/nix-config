@@ -39,7 +39,6 @@
       "homekit_controller"
       "isal"
       "kegtron" # To avoid "Component not found: kegtron"
-      "mcp_server"
       "met"
       "mqtt"
       "notify"
@@ -61,6 +60,7 @@
       climate_group
       emporia_vue
       garmin_connect
+      ha_mcp_tools
       spook
       waste_collection_schedule
     ];
