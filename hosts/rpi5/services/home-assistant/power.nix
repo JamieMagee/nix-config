@@ -77,7 +77,7 @@
               unique_id = "scl_estimated_daily_cost_flat";
               unit_of_measurement = "USD";
               device_class = "monetary";
-              state_class = "measurement";
+              state_class = "total";
               icon = "mdi:cash";
               # Base service charge + usage-to-date cost from Opower
               state = ''
