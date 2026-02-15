@@ -1,0 +1,69 @@
+substitutions:
+  name: esphome-web-6ab408
+  friendly_name: Office mini split
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+
+logger:
+  level: INFO
+  logs:
+    CN105Climate: WARN
+    CN105: INFO
+    climate: WARN
+    sensor: WARN
+
+uart:
+  id: HP_UART
+  baud_rate: 2400
+  tx_pin: GPIO21
+  rx_pin: GPIO20
+
+external_components:
+  - source: github://echavet/MitsubishiCN105ESPHome
+
+climate:
+  - platform: cn105
+    id: hp
+    name: "${friendly_name}"
+    icon: mdi:heat-pump
+    visual:
+      min_temperature: 16
+      max_temperature: 26
+      temperature_step:
+        target_temperature: 0.5
+        current_temperature: 0.5
+    update_interval: 4s
+    supports:
+      mode: [AUTO, COOL, HEAT, DRY, FAN_ONLY]
+      fan_mode: [AUTO, QUIET, LOW, MEDIUM, HIGH]
+      swing_mode: ["OFF", VERTICAL]
+
+sensor:
+  - platform: uptime
+    name: "Uptime"
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: false
+
+bluetooth_proxy:
+  active: true
+  connection_slots: 2
