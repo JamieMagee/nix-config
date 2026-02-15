@@ -106,24 +106,37 @@
           name = "Garage lights";
           lights = [
             "light.garage_indoors_lights"
+            "light.garage_stairs_lights"
           ];
           min_brightness = 100;
+          intercept = true;
+          take_over_control = true;
           detect_non_ha_changes = true;
           skip_redundant_commands = true;
         }
         {
-          name = "Garage desk lights";
+          name = "Jamie ring light";
           lights = [
-            "light.shapes_acf4"
             "light.jamie_ring_light"
           ];
+          intercept = true;
+          take_over_control = true;
+          detect_non_ha_changes = true;
+          skip_redundant_commands = true;
+        }
+        {
+          name = "Garage Nanoleaf";
+          lights = [
+            "light.shapes_acf4"
+          ];
+          intercept = true;
+          take_over_control = true;
           detect_non_ha_changes = true;
           skip_redundant_commands = true;
         }
         {
           name = "Indoor lights";
           lights = [
-            "light.garage_stairs_lights"
             "light.kitchen_lights"
             "light.living_room_lights"
             "light.living_room_stairs_lights"
@@ -134,6 +147,8 @@
           ];
           min_brightness = 50;
           min_color_temp = 3000;
+          intercept = true;
+          take_over_control = true;
           detect_non_ha_changes = true;
           skip_redundant_commands = true;
         }
@@ -146,7 +161,8 @@
             "light.garage_outdoor_lights"
           ];
           min_brightness = 100;
-          detect_non_ha_changes = true;
+          intercept = true;
+          take_over_control = true;
           skip_redundant_commands = true;
         }
       ];
