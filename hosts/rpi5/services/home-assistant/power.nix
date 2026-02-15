@@ -21,6 +21,81 @@
       template = [
         {
           sensor = [
+            # Seattle City Light electricity price sensors
+            # Rates from: https://www.seattle.gov/city-light/residential-services/billing-information/rates
+            {
+              name = "SCL Flat Rate Price";
+              unique_id = "scl_flat_rate_price";
+              unit_of_measurement = "USD/kWh";
+              icon = "mdi:currency-usd";
+              state = "0.1392";
+            }
+            {
+              name = "SCL TOU Price";
+              unique_id = "scl_tou_price";
+              unit_of_measurement = "USD/kWh";
+              icon = "mdi:currency-usd";
+              # Peak:     5pm-9pm Mon-Sat (not holidays) = $0.1674
+              # Mid-Peak: 6am-5pm & 9pm-midnight Mon-Sat; 6am-midnight Sun/holidays = $0.1465
+              # Off-Peak: midnight-6am every day = $0.0837
+              state = ''
+                {% set h = now().hour %}
+                {% set wd = now().weekday() %}
+                {% set is_sunday = (wd == 6) %}
+                {% if h >= 0 and h < 6 %}
+                  0.0837
+                {% elif is_sunday %}
+                  0.1465
+                {% elif h >= 17 and h < 21 %}
+                  0.1674
+                {% else %}
+                  0.1465
+                {% endif %}
+              '';
+            }
+            {
+              name = "SCL TOU Period";
+              unique_id = "scl_tou_period";
+              icon = "mdi:clock-outline";
+              state = ''
+                {% set h = now().hour %}
+                {% set wd = now().weekday() %}
+                {% set is_sunday = (wd == 6) %}
+                {% if h >= 0 and h < 6 %}
+                  Off-Peak
+                {% elif is_sunday %}
+                  Mid-Peak
+                {% elif h >= 17 and h < 21 %}
+                  Peak
+                {% else %}
+                  Mid-Peak
+                {% endif %}
+              '';
+            }
+            {
+              name = "SCL Estimated Daily Cost (Flat)";
+              unique_id = "scl_estimated_daily_cost_flat";
+              unit_of_measurement = "USD";
+              device_class = "monetary";
+              state_class = "measurement";
+              icon = "mdi:cash";
+              # Base service charge + usage-to-date cost from Opower
+              state = ''
+                {% set base = 0.4103 %}
+                {% set usage = states('sensor.current_bill_electric_cost_to_date') | float(0) %}
+                {% set start = states('sensor.current_bill_electric_start_date') %}
+                {% if start not in ['unknown', 'unavailable'] %}
+                  {% set days = ((as_timestamp(now()) - as_timestamp(start)) / 86400) | round(0, 'ceil') %}
+                  {% if days > 0 %}
+                    {{ ((usage / days) + base) | round(2) }}
+                  {% else %}
+                    {{ base }}
+                  {% endif %}
+                {% else %}
+                  {{ base }}
+                {% endif %}
+              '';
+            }
             {
               name = "Total Lights Power";
               unique_id = "total_lights_power";
