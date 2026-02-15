@@ -314,7 +314,7 @@
                 {
                   type = "custom:mushroom-climate-card";
                   entity = "climate.mysa_89501c_thermostat";
-                  name = "Downstairs";
+                  name = "Garage Hallway";
                   show_temperature_control = true;
                   layout = "vertical";
                   fill_container = false;
