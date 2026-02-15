@@ -6,6 +6,7 @@
       automation = [
         {
           alias = "Notify when tumble dryer finished";
+          id = "notify_tumble_dryer_finished";
           triggers = [
             {
               trigger = "state";
@@ -25,6 +26,7 @@
         }
         {
           alias = "Notify when washing machine finished";
+          id = "notify_washing_machine_finished";
           triggers = [
             {
               trigger = "state";
@@ -44,6 +46,7 @@
         }
         {
           alias = "Turn on fan when tumble dryer is running";
+          id = "fan_on_tumble_dryer_running";
           triggers = [
             {
               trigger = "state";
@@ -60,6 +63,7 @@
         }
         {
           alias = "Turn off fan when tumble dryer is not running";
+          id = "fan_off_tumble_dryer_done";
           triggers = [
             {
               trigger = "state";

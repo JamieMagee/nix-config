@@ -3,6 +3,7 @@
     automation = [
       {
         alias = "Turn off HVAC when no one is home";
+        id = "hvac_off_no_one_home";
         triggers = [
           {
             trigger = "state";
@@ -46,6 +47,7 @@
       }
       {
         alias = "Turn on HVAC when someone is home";
+        id = "hvac_on_someone_home";
         triggers = [
           {
             trigger = "state";
