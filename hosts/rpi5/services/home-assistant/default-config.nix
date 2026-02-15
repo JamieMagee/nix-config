@@ -3,7 +3,7 @@
     # https://www.home-assistant.io/integrations/default_config/
     assist_pipeline = { };
     backup = { };
-    # bluetooth = { };
+    bluetooth = { };
     config = { };
     conversation = { };
     dhcp = { };
