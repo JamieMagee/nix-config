@@ -1,14 +1,22 @@
-# ESPHome mini split configs
+# ESPHome configs
+
+## Mini Splits
 
 Three ESP32-C3 boards wired to Mitsubishi mini splits via CN105. They use the [echavet/MitsubishiCN105ESPHome](https://github.com/echavet/MitsubishiCN105ESPHome) external component and double as Bluetooth proxies.
-
-## Devices
 
 | Config | Hostname | Area |
 | --- | --- | --- |
 | bedroom-mini-split.yaml | esphome-web-6c4990.local | Bedroom |
 | office-mini-split.yaml | esphome-web-6ab408.local | Office |
 | downstairs-mini-split.yaml | esphome-web-6c37b0.local | Living Room |
+
+## Water Heater (EcoNet)
+
+M5Stack ATOMS3 Lite (ESP32-S3) + ATOMIC RS485 Base wired to a Rheem Heat Pump Water Heater via the RJ11 diagnostics port. Uses [esphome-econet/esphome-econet](https://github.com/esphome-econet/esphome-econet).
+
+| Config | Hostname |
+| --- | --- |
+| econet-water-heater.yaml | econet-water-heater.local |
 
 ## Flashing
 
@@ -18,6 +26,7 @@ Compile and push OTA from your local machine (no need to build on the rpi5):
 uvx esphome run bedroom-mini-split.yaml --device esphome-web-6c4990.local
 uvx esphome run office-mini-split.yaml --device esphome-web-6ab408.local
 uvx esphome run downstairs-mini-split.yaml --device esphome-web-6c37b0.local
+uvx esphome run econet-water-heater.yaml --device econet-water-heater.local
 ```
 
 This uses `uvx` to run ESPHome in a temporary venv. It compiles the firmware locally, then pushes it to the device over WiFi OTA. Takes about a minute per device.
