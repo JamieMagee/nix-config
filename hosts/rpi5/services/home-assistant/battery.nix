@@ -67,6 +67,45 @@
           }
         ];
       }
+      {
+        alias = "Notify on bike battery full";
+        id = "notify_bike_battery_full";
+        triggers = [
+          {
+            trigger = "template";
+            value_template = ''
+              {% for state in states.sensor %}
+                {% if state.attributes.device_class is defined
+                   and state.attributes.device_class == 'battery'
+                   and state.entity_id.startswith('sensor.specialized_turbo')
+                   and state.state not in ['unknown', 'unavailable']
+                   and state.state | float(0) >= 99 %}
+                  true
+                {% endif %}
+              {% endfor %}
+            '';
+          }
+        ];
+        actions = [
+          {
+            action = "notify.everyone";
+            data = {
+              title = "Bike battery full";
+              message = ''
+                {% for state in states.sensor %}
+                  {% if state.attributes.device_class is defined
+                     and state.attributes.device_class == 'battery'
+                     and state.entity_id.startswith('sensor.specialized_turbo')
+                     and state.state not in ['unknown', 'unavailable']
+                     and state.state | float(0) >= 99 %}
+                    {{ state.name }} is fully charged.
+                  {% endif %}
+                {% endfor %}
+              '';
+            };
+          }
+        ];
+      }
     ];
   };
 }
