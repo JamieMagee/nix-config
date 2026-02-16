@@ -1,3 +1,2 @@
-- [Home Manager on Windows Subsystem for Linux (WSL)][wsl]
-
-[wsl]: WSL.md
+- [Home Manager on WSL](WSL.md)
+- [Hyper-V VM setup](HYPERV.md)
