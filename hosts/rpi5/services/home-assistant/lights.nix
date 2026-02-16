@@ -106,7 +106,7 @@
           name = "Garage lights";
           lights = [
             "light.garage_indoors_lights"
-            "light.garage_stairs_lights"
+            # "light.garage_stairs_lights"
           ];
           min_brightness = 100;
           intercept = true;
