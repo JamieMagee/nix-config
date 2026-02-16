@@ -13,8 +13,8 @@ buildHomeAssistantComponent rec {
   src = fetchFromGitHub {
     owner = "JamieMagee";
     repo = "ha-specialized-turbo";
-    rev = "9f2cbed9152b99fadd835022699f19c42ee148bc";
-    hash = "sha256-2aSmzRmNm8uGOO+gFVFzo/PuUx/QMU+GEaFy7UQwR/4=";
+    tag = "v${version}";
+    hash = "sha256-Ng32MVaABQV0irhWF83ke6e8N3wQcSEyD8/QR5Hycyo=";
   };
 
   dependencies = [
