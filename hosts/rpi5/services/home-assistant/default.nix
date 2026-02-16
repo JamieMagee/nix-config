@@ -62,6 +62,7 @@
       emporia_vue
       garmin_connect
       ha_mcp_tools
+      pkgs.ha-specialized-turbo
       spook
       waste_collection_schedule
     ];
