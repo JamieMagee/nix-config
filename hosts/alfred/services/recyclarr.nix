@@ -13,6 +13,15 @@
               template = "sonarr-quality-definition-anime";
             }
             {
+              template = "sonarr-quality-definition-series";
+            }
+            {
+              template = "sonarr-v4-quality-profile-web-1080p";
+            }
+            {
+              template = "sonarr-v4-custom-formats-web-1080p";
+            }
+            {
               template = "sonarr-v4-quality-profile-web-2160p-alternative";
             }
             {
@@ -76,7 +85,7 @@
           custom_formats = [
             {
               trash_ids = [
-                "6d0d8de7b57e35518ac0308b0ddf404e" # DV
+                "9b27ab6498ec0f31a3353992e19434ca" # DV (w/o HDR fallback)
               ];
               assign_scores_to = [
                 {
@@ -98,15 +107,23 @@
                   name = "Remux-1080p - Anime";
                   score = 100;
                 }
+                {
+                  name = "Remux-2160p - Anime";
+                  score = 100;
+                }
               ];
             }
             {
               trash_ids = [
-                "418f50b10f1907201b6cfdf881f467b7" # Anume Dual Audio
+                "418f50b10f1907201b6cfdf881f467b7" # Anime Dual Audio
               ];
               assign_scores_to = [
                 {
                   name = "Remux-1080p - Anime";
+                  score = 10;
+                }
+                {
+                  name = "Remux-2160p - Anime";
                   score = 10;
                 }
               ];
@@ -155,7 +172,8 @@
                 "9965a052eb87b0d10313b1cea89eb451" # Remux Tier 01
                 "8a1d0c3d7497e741736761a1da866a2e" # Remux Tier 02
 
-                # Main Guide WEB Tier Scoring"e6258996055b9fbab7e9cb2f75819294" #  WEB Tier 01
+                # Main Guide WEB Tier Scoring
+                "e6258996055b9fbab7e9cb2f75819294" # WEB Tier 01
                 "58790d4e2fdcd9733aa7ae68ba2bb503" # WEB Tier 02
                 "d84935abd3f8556dcd51d4f27e22d0a6" # WEB Tier 03
               ];
@@ -188,8 +206,8 @@
           custom_formats = [
             {
               trash_ids = [
-                "b17886cb4158d9fea189859409975758" # HDR10 + Boost
-                "55a5b50cb416dea5a50c4955896217ab" # DV HDR10+ Boost
+                "caa37d0df9c348912df1fb1d88f9273a" # HDR10+ Boost
+                "b337d6812e06c200ec9a2d3cfa9d20a7" # DV Boost
               ];
               assign_scores_to = [
                 {
