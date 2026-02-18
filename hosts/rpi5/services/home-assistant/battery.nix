@@ -86,6 +86,12 @@
             '';
           }
         ];
+        conditions = [
+          {
+            condition = "template";
+            value_template = "{{ trigger.from_state.state not in ['unknown', 'unavailable'] }}";
+          }
+        ];
         actions = [
           {
             action = "notify.everyone";
