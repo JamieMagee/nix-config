@@ -89,7 +89,10 @@
         conditions = [
           {
             condition = "template";
-            value_template = "{{ trigger.from_state.state not in ['unknown', 'unavailable'] }}";
+            value_template = ''
+              {{ trigger.entity_id.startswith('sensor.specialized_turbo')
+                 and trigger.from_state.state not in ['unknown', 'unavailable'] }}
+            '';
           }
         ];
         actions = [
