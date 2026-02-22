@@ -9,7 +9,7 @@
           {
             trigger = "numeric_state";
             entity_id = [
-              "weather.forecast_home"
+              "weather.pirateweather"
             ];
             attribute = "uv_index";
             above = 5;

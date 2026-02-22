@@ -21,7 +21,7 @@
               chips = [
                 {
                   type = "weather";
-                  entity = "weather.forecast_home";
+                  entity = "weather.pirateweather";
                   show_conditions = true;
                   show_temperature = true;
                 }
@@ -84,7 +84,7 @@
             # Weather
             {
               type = "weather-forecast";
-              entity = "weather.forecast_home";
+              entity = "weather.pirateweather";
               show_current = true;
               show_forecast = true;
               forecast_type = "daily";

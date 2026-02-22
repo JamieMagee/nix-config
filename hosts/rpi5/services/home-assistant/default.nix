@@ -40,7 +40,6 @@
       "homekit_controller"
       "isal"
       "kegtron" # To avoid "Component not found: kegtron"
-      "met"
       "mqtt"
       "notify"
       "otp"
@@ -62,6 +61,7 @@
       emporia_vue
       garmin_connect
       ha_mcp_tools
+      pirate-weather
       pkgs.ha-specialized-turbo
       spook
       waste_collection_schedule
