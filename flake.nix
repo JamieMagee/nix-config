@@ -3,9 +3,13 @@
 
   nixConfig = {
     extra-experimental-features = "nix-command flakes";
-    extra-substituters = [ "https://jamiemagee.cachix.org" ];
+    extra-substituters = [
+      "https://jamiemagee.cachix.org"
+      "https://nixos-raspberrypi.cachix.org"
+    ];
     extra-trusted-public-keys = [
       "jamiemagee.cachix.org-1:IzalYx3F8h0uP7EdifGZxqGkTwaQIKXj0i67PuNNYM8="
+      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
     ];
   };
 
@@ -18,7 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix/v0.4.1";
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     deploy-rs = {
       url = "github:serokell/deploy-rs";
@@ -97,7 +101,13 @@
         jamie-desktop = mkSystem "jamie-desktop" "x86_64-linux" [ ];
         jamie-hyperv = mkSystem "jamie-hyperv" "x86_64-linux" [ ];
         oci-vm = mkSystem "oci-vm" "aarch64-linux" [ ];
-        rpi5 = mkSystem "rpi5" "aarch64-linux" [ ];
+        rpi5 = inputs.nixos-raspberrypi.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+            nixos-raspberrypi = inputs.nixos-raspberrypi;
+          };
+          modules = [ ./hosts/rpi5 ];
+        };
       };
 
       homeConfigurations = {

@@ -30,7 +30,5 @@
     # };
   };
 
-  raspberry-pi-nix.libcamera-overlay.enable = false;
-
   system.stateVersion = "24.05";
 }

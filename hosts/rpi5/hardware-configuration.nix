@@ -1,7 +1,9 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.raspberry-pi-nix.nixosModules.raspberry-pi
+    inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.base
+    inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.page-size-16k
+    inputs.nixos-raspberrypi.nixosModules.sd-image
 
     # inputs.disko.nixosModules.disko
     # ./disko.nix
@@ -34,8 +36,8 @@
               value = 1;
             };
             pciex1_gen = {
-              value = 3;
               enable = true;
+              value = 3;
             };
           };
         };
@@ -44,7 +46,4 @@
   };
 
   boot.kernelParams = [ "rootflags=data=journal" ];
-
-  raspberry-pi-nix.board = "bcm2712";
-  nixpkgs.hostPlatform.system = "aarch64-linux";
 }
