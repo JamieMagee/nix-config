@@ -19,7 +19,10 @@ buildDotnetModule rec {
   projectFile = "servers/Azure.Mcp.Server/src/Azure.Mcp.Server.csproj";
   nugetDeps = ./deps.json;
 
-  dotnet-sdk = dotnetCorePackages.sdk_10_0;
+  dotnet-sdk = dotnetCorePackages.combinePackages [
+    dotnetCorePackages.sdk_10_0
+    dotnetCorePackages.sdk_9_0
+  ];
   dotnet-runtime = dotnetCorePackages.aspnetcore_9_0;
 
   executables = [ "azmcp" ];
