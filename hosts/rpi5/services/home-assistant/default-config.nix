@@ -8,7 +8,7 @@
     conversation = { };
     dhcp = { };
     energy = { };
-    go2rtc = { };
+    # go2rtc = { };
     history = { };
     homeassistant_alerts = { };
     image_upload = { };
