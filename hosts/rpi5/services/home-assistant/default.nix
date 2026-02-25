@@ -34,6 +34,7 @@
       "august"
       "cast"
       "econet"
+      "go2rtc"
       "google_translate"
       "homeassistant_hardware"
       "homeassistant_sky_connect"
