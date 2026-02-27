@@ -40,7 +40,4 @@ in
   };
 
   services.home-manager.autoExpire.enable = true;
-
-  # https://github.com/nix-community/home-manager/issues/5552
-  xdg.configFile."systemd/user/.hm-keep".text = "";
 }
