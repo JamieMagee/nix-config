@@ -33,12 +33,10 @@ in
     git.enable = true;
   };
 
-  systemd.user.startServices = "sd-switch";
-
   home = {
     username = lib.mkDefault "jamie";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    stateVersion = lib.mkDefault "24.05";
+    stateVersion = lib.mkDefault "26.05";
   };
 
   services.home-manager.autoExpire.enable = true;
