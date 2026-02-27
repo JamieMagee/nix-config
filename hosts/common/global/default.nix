@@ -9,9 +9,10 @@
     ./fwupd.nix
     ./locale.nix
     ./nix.nix
+    ./ntp.nix
     ./openssh.nix
-    ./tailscale.nix
     ./sudo.nix
+    ./tailscale.nix
     # ./work.nix
     ./yubikey.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
