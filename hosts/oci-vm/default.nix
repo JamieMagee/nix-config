@@ -10,6 +10,8 @@
     ../common/optional/systemd-boot.nix
   ];
 
+  boot.binfmt.emulatedSystems = [ "riscv64-linux" ];
+
   networking = {
     hostName = "oci-vm";
   };
