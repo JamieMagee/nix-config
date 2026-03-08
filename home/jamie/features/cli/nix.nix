@@ -35,6 +35,7 @@
   };
   home.packages = with pkgs; [
     deadnix
+    hydra-cli
     nh
     nil
     nix-prefetch-github
