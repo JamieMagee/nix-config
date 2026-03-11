@@ -20,6 +20,50 @@
               data = {
                 title = "Tumble dryer";
                 message = "The tumble dryer is done";
+                data = {
+                  tag = "tumble_dryer_cycle";
+                };
+              };
+            }
+          ];
+        }
+        {
+          alias = "Tumble dryer live notification";
+          id = "tumble_dryer_live_notification";
+          triggers = [
+            {
+              trigger = "state";
+              entity_id = "sensor.tumble_dryer";
+              to = "running";
+            }
+            {
+              trigger = "state";
+              entity_id = "sensor.tumble_dryer_remaining_time";
+            }
+          ];
+          conditions = [
+            {
+              condition = "state";
+              entity_id = "sensor.tumble_dryer";
+              state = "running";
+            }
+          ];
+          actions = [
+            {
+              action = "notify.everyone";
+              data = {
+                title = "Tumble dryer";
+                message = "Remaining: {{ states('sensor.tumble_dryer_remaining_time') }}";
+                data = {
+                  tag = "tumble_dryer_cycle";
+                  live_update = true;
+                  alert_once = true;
+                  notification_icon = "mdi:tumble-dryer";
+                  critical_text = "{{ states('sensor.tumble_dryer_remaining_time') }}";
+                  chronometer = true;
+                  when = "{{ states('sensor.tumble_dryer_remaining_time') | int(0) * 60 }}";
+                  when_relative = true;
+                };
               };
             }
           ];
@@ -40,6 +84,50 @@
               data = {
                 title = "Washing machine";
                 message = "The washing machine is done";
+                data = {
+                  tag = "washing_machine_cycle";
+                };
+              };
+            }
+          ];
+        }
+        {
+          alias = "Washing machine live notification";
+          id = "washing_machine_live_notification";
+          triggers = [
+            {
+              trigger = "state";
+              entity_id = "sensor.washing_machine";
+              to = "running";
+            }
+            {
+              trigger = "state";
+              entity_id = "sensor.washing_machine_remaining_time";
+            }
+          ];
+          conditions = [
+            {
+              condition = "state";
+              entity_id = "sensor.washing_machine";
+              state = "running";
+            }
+          ];
+          actions = [
+            {
+              action = "notify.everyone";
+              data = {
+                title = "Washing machine";
+                message = "Remaining: {{ states('sensor.washing_machine_remaining_time') }}";
+                data = {
+                  tag = "washing_machine_cycle";
+                  live_update = true;
+                  alert_once = true;
+                  notification_icon = "mdi:washing-machine";
+                  critical_text = "{{ states('sensor.washing_machine_remaining_time') }}";
+                  chronometer = true;
+                  when = "{{ states('sensor.washing_machine_remaining_time') | int(0) * 60 }}";
+                  when_relative = true;
+                };
               };
             }
           ];
