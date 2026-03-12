@@ -34,7 +34,7 @@
             {
               trigger = "state";
               entity_id = "sensor.tumble_dryer";
-              to = "running";
+              to = "in_use";
             }
             {
               trigger = "state";
@@ -45,7 +45,7 @@
             {
               condition = "state";
               entity_id = "sensor.tumble_dryer";
-              state = "running";
+              state = "in_use";
             }
           ];
           actions = [
@@ -98,7 +98,7 @@
             {
               trigger = "state";
               entity_id = "sensor.washing_machine";
-              to = "running";
+              to = "in_use";
             }
             {
               trigger = "state";
@@ -109,7 +109,7 @@
             {
               condition = "state";
               entity_id = "sensor.washing_machine";
-              state = "running";
+              state = "in_use";
             }
           ];
           actions = [
@@ -139,7 +139,7 @@
             {
               trigger = "state";
               entity_id = "sensor.tumble_dryer";
-              to = "running";
+              to = "in_use";
             }
           ];
           actions = [
