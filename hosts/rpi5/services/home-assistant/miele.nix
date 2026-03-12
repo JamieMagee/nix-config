@@ -53,13 +53,13 @@
               action = "notify.everyone";
               data = {
                 title = "Tumble dryer";
-                message = "Remaining: {{ states('sensor.tumble_dryer_remaining_time') }}";
+                message = "{% set m = states('sensor.tumble_dryer_remaining_time') | int(0) %}Remaining: {% if m >= 60 %}{{ m // 60 }}h {{ m % 60 }}m{% else %}{{ m }}m{% endif %}";
                 data = {
                   tag = "tumble_dryer_cycle";
                   live_update = true;
                   alert_once = true;
                   notification_icon = "mdi:tumble-dryer";
-                  critical_text = "{{ states('sensor.tumble_dryer_remaining_time') }}";
+                  critical_text = "{% set m = states('sensor.tumble_dryer_remaining_time') | int(0) %}{% if m >= 60 %}{{ m // 60 }}h {{ m % 60 }}m{% else %}{{ m }}m{% endif %}";
                   chronometer = true;
                   when = "{{ states('sensor.tumble_dryer_remaining_time') | int(0) * 60 }}";
                   when_relative = true;
@@ -117,13 +117,13 @@
               action = "notify.everyone";
               data = {
                 title = "Washing machine";
-                message = "Remaining: {{ states('sensor.washing_machine_remaining_time') }}";
+                message = "{% set m = states('sensor.washing_machine_remaining_time') | int(0) %}Remaining: {% if m >= 60 %}{{ m // 60 }}h {{ m % 60 }}m{% else %}{{ m }}m{% endif %}";
                 data = {
                   tag = "washing_machine_cycle";
                   live_update = true;
                   alert_once = true;
                   notification_icon = "mdi:washing-machine";
-                  critical_text = "{{ states('sensor.washing_machine_remaining_time') }}";
+                  critical_text = "{% set m = states('sensor.washing_machine_remaining_time') | int(0) %}{% if m >= 60 %}{{ m // 60 }}h {{ m % 60 }}m{% else %}{{ m }}m{% endif %}";
                   chronometer = true;
                   when = "{{ states('sensor.washing_machine_remaining_time') | int(0) * 60 }}";
                   when_relative = true;
