@@ -30,6 +30,8 @@
     # };
   };
 
+  hardware.bluetooth.enable = true;
+
   raspberry-pi-nix.libcamera-overlay.enable = false;
 
   system.stateVersion = "26.05";
