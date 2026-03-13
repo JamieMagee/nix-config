@@ -38,8 +38,10 @@
       "homeassistant_hardware"
       "homeassistant_sky_connect"
       "homekit_controller"
+      "hue_ble" # Dependency for auto-discovery via ESPHome BLE advertisements
+      "ibeacon" # Dependency for auto-discovery via ESPHome BLE advertisements
       "isal"
-      "kegtron" # To avoid "Component not found: kegtron"
+      "kegtron" # Dependency for auto-discovery via ESPHome BLE advertisements
       "met"
       "mqtt"
       "notify"
@@ -52,6 +54,7 @@
       "sabnzbd"
       "sonarr"
       "spotify"
+      "switchbot" # Dependency for auto-discovery via ESPHome BLE advertisements
       "yalexs_ble"
       "zeroconf"
     ];
