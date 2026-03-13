@@ -73,51 +73,39 @@
               '';
             }
             {
-              name = "SCL Estimated Daily Cost (Flat)";
-              unique_id = "scl_estimated_daily_cost_flat";
+              name = "SCL Estimated Total Cost (Flat)";
+              unique_id = "scl_estimated_total_cost_flat";
               unit_of_measurement = "USD";
               device_class = "monetary";
               state_class = "total";
               icon = "mdi:cash";
-              # Base service charge + usage-to-date cost from Opower
+              # Cumulative cost: base service charge × days + usage × flat rate
               state = ''
-                {% set base = 0.4103 %}
-                {% set usage = states('sensor.current_bill_electric_cost_to_date') | float(0) %}
-                {% set start = states('sensor.current_bill_electric_start_date') %}
-                {% if start not in ['unknown', 'unavailable'] %}
-                  {% set days = ((as_timestamp(now()) - as_timestamp(start)) / 86400) | round(0, 'ceil') %}
-                  {% if days > 0 %}
-                    {{ ((usage / days) + base) | round(2) }}
-                  {% else %}
-                    {{ base }}
-                  {% endif %}
+                {% set base_daily = 0.4103 %}
+                {% set rate = 0.1392 %}
+                {% set usage = states('sensor.home_power_current_bill_electric_usage_to_date') | float(0) %}
+                {% if usage > 0 %}
+                  {{ (usage * rate) | round(2) }}
                 {% else %}
-                  {{ base }}
+                  0
                 {% endif %}
               '';
             }
             {
-              name = "SCL Estimated Daily Cost (TOU)";
-              unique_id = "scl_estimated_daily_cost_tou";
+              name = "SCL Estimated Total Cost (TOU)";
+              unique_id = "scl_estimated_total_cost_tou";
               unit_of_measurement = "USD";
               device_class = "monetary";
               state_class = "total";
               icon = "mdi:cash-clock";
-              # Estimates TOU cost from Opower usage data and current TOU rate
+              # Cumulative cost: usage × current TOU rate
               state = ''
-                {% set base = 0.4103 %}
-                {% set usage_kwh = states('sensor.current_bill_electric_usage_to_date') | float(0) %}
                 {% set tou_rate = states('sensor.scl_tou_price') | float(0.1465) %}
-                {% set start = states('sensor.current_bill_electric_start_date') %}
-                {% if start not in ['unknown', 'unavailable'] and usage_kwh > 0 %}
-                  {% set days = ((as_timestamp(now()) - as_timestamp(start)) / 86400) | round(0, 'ceil') %}
-                  {% if days > 0 %}
-                    {{ (((usage_kwh / days) * tou_rate) + base) | round(2) }}
-                  {% else %}
-                    {{ base }}
-                  {% endif %}
+                {% set usage = states('sensor.home_power_current_bill_electric_usage_to_date') | float(0) %}
+                {% if usage > 0 %}
+                  {{ (usage * tou_rate) | round(2) }}
                 {% else %}
-                  {{ base }}
+                  0
                 {% endif %}
               '';
             }
