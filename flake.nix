@@ -41,6 +41,8 @@
       url = "github:natsukium/mcp-servers-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
   };
 
   outputs =
@@ -67,7 +69,10 @@
           specialArgs = {
             inherit inputs outputs;
           };
-          modules = modules ++ [ ./hosts/${hostname} ];
+          modules = modules ++ [
+            inputs.determinate.nixosModules.default
+            ./hosts/${hostname}
+          ];
         };
 
       mkHome =
@@ -77,7 +82,10 @@
           extraSpecialArgs = {
             inherit inputs outputs;
           };
-          modules = [ ./home/${username}/${hostname}.nix ] ++ extraModules;
+          modules = [
+            ./home/${username}/${hostname}.nix
+          ]
+          ++ extraModules;
         };
     in
     {

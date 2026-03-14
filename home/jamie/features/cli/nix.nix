@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   nix = {
     settings = {
@@ -31,7 +36,7 @@
         "jamiemagee.cachix.org-1:IzalYx3F8h0uP7EdifGZxqGkTwaQIKXj0i67PuNNYM8="
       ];
     };
-    package = pkgs.nixVersions.latest;
+    package = inputs.determinate.inputs.nix.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
   home.packages = with pkgs; [
     deadnix

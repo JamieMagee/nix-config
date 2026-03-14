@@ -37,13 +37,6 @@
         "jamiemagee.cachix.org-1:IzalYx3F8h0uP7EdifGZxqGkTwaQIKXj0i67PuNNYM8="
       ];
     };
-    package = pkgs.nixVersions.latest;
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-
     # Add each flake input as a registry
     # To make nix3 commands consistent with the flake
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
@@ -57,7 +50,7 @@
     PATH=$PATH:${
       lib.makeBinPath [
         pkgs.nvd
-        pkgs.nix
+        config.nix.package
       ]
     }
     # Disable nvd if there are lesser than 2 profiles in the system.
