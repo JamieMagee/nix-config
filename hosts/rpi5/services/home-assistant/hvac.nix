@@ -130,7 +130,7 @@
         triggers = [
           {
             trigger = "numeric_state";
-            entity_id = "sensor.0x00158d008b7ca529_humidity";
+            entity_id = "sensor.bathroom_humidity_sensor_humidity";
             above = 60;
           }
         ];
@@ -149,7 +149,7 @@
         triggers = [
           {
             trigger = "numeric_state";
-            entity_id = "sensor.0x00158d008b7ca529_humidity";
+            entity_id = "sensor.bathroom_humidity_sensor_humidity";
             below = 55;
           }
         ];
