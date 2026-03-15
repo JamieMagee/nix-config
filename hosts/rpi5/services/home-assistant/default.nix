@@ -21,6 +21,7 @@
     ./sonos.nix
     ./unifi.nix
     ./vacation.nix
+    ./voice.nix
     ./waste-collection.nix
     ./weather.nix
   ];
