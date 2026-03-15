@@ -135,7 +135,7 @@
         triggers = [
           {
             trigger = "time";
-            at = "sensor.kat_s_pixel_next_alarm";
+            at = "sensor.kat_pixel_8a_next_alarm";
           }
           {
             trigger = "time";
