@@ -22,6 +22,7 @@
                 message = "The tumble dryer is done";
                 data = {
                   tag = "tumble_dryer_cycle";
+                  notification_icon = "mdi:tumble-dryer";
                 };
               };
             }
@@ -86,6 +87,7 @@
                 message = "The washing machine is done";
                 data = {
                   tag = "washing_machine_cycle";
+                  notification_icon = "mdi:washing-machine";
                 };
               };
             }

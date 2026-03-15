@@ -30,6 +30,9 @@
             action = "notify.mobile_app_kat_pixel_8a";
             data = {
               message = "{{ person + ' ' + event + ' ' + zone }}";
+              data = {
+                notification_icon = "mdi:map-marker";
+              };
             };
           }
         ];
@@ -63,6 +66,9 @@
             action = "notify.mobile_app_jamie_pixel_8a";
             data = {
               message = "{{ person + ' ' + event + ' ' + zone }}";
+              data = {
+                notification_icon = "mdi:map-marker";
+              };
             };
           }
         ];

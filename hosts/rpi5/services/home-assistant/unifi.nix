@@ -24,6 +24,9 @@
                 message = "There's someone at the door";
                 data = {
                   image = "/api/camera_proxy/camera.g4_doorbell_pro_high";
+                  tag = "doorbell";
+                  notification_icon = "mdi:doorbell-video";
+                  clickAction = "/lovelace/0";
                 };
               };
             }

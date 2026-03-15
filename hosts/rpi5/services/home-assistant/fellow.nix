@@ -28,6 +28,10 @@
               data = {
                 title = "Coffee Ready ☕";
                 message = "Your coffee is ready! Brewed {{ (states('sensor.aiden_last_brew_volume') | float / 300) | round(0) }} cups.";
+                data = {
+                  tag = "coffee_ready";
+                  notification_icon = "mdi:coffee";
+                };
               };
             }
           ];

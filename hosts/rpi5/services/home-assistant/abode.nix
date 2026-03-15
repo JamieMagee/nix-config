@@ -59,6 +59,10 @@
                     The alarm is armed home.
                   {%- endif %}
                 '';
+                data = {
+                  tag = "alarm_state";
+                  notification_icon = "mdi:shield-home";
+                };
               };
             }
           ];
@@ -122,6 +126,10 @@
               data = {
                 title = "Alarm";
                 message = "Don't forget to re-arm the alarm!";
+                data = {
+                  tag = "alarm_disarmed_overnight";
+                  notification_icon = "mdi:shield-alert";
+                };
               };
             }
           ];

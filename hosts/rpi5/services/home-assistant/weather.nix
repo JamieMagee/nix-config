@@ -21,6 +21,10 @@
             data = {
               title = "High UV index";
               message = "The UV index is {{ trigger.to_state.attributes.uv_index }}";
+              data = {
+                tag = "uv_index";
+                notification_icon = "mdi:weather-sunny-alert";
+              };
             };
           }
         ];

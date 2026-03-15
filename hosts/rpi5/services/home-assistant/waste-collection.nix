@@ -36,6 +36,10 @@
             data = {
               title = "Garbage collection";
               message = "{{ states(\"sensor.seattle_garbage_collection\") }}";
+              data = {
+                tag = "garbage_collection";
+                notification_icon = "mdi:trash-can";
+              };
             };
           }
         ];

@@ -63,6 +63,10 @@
             data = {
               title = "Low battery";
               message = "{{ state_attr('sensor.low_battery_devices', 'devices') }}";
+              data = {
+                tag = "low_battery";
+                notification_icon = "mdi:battery-alert";
+              };
             };
           }
         ];
@@ -113,6 +117,7 @@
               '';
               data = {
                 tag = "bike_charging";
+                notification_icon = "mdi:battery-check";
               };
             };
           }

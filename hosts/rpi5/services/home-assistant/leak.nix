@@ -22,6 +22,15 @@
             data = {
               title = "Leak detected!";
               message = "A leak has been detected in the {{ trigger.to_state.attributes.friendly_name | lower }}";
+              data = {
+                tag = "leak_detected";
+                persistent = true;
+                sticky = "true";
+                importance = "high";
+                color = "red";
+                notification_icon = "mdi:water-alert";
+                clickAction = "entityId:{{ trigger.entity_id }}";
+              };
             };
           }
         ];
