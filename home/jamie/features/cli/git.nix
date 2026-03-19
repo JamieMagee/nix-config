@@ -12,6 +12,12 @@
         name = "Jamie Magee";
         email = "jamie.magee@gmail.com";
       };
+      sendemail = {
+        smtpserver = "smtp.gmail.com";
+        smtpserverport = 587;
+        smtpencryption = "tls";
+        smtpuser = "jamie.magee@gmail.com";
+      };
       alias = {
         co = "checkout";
         cob = "checkout -b";
