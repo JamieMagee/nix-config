@@ -5,5 +5,13 @@
     mcp-nixos = prev.mcp-nixos.overridePythonAttrs {
       doCheck = false;
     };
+
+    pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+      (python-final: python-prev: {
+        yalexs = python-prev.yalexs.overridePythonAttrs {
+          doCheck = false;
+        };
+      })
+    ];
   };
 }
