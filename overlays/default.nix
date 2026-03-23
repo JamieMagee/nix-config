@@ -11,6 +11,9 @@
         yalexs = python-prev.yalexs.overridePythonAttrs {
           doCheck = false;
         };
+        radios = python-prev.radios.overridePythonAttrs {
+          pythonRelaxDeps = [ "pycountry" ];
+        };
       })
     ];
   };
