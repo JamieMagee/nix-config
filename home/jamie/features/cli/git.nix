@@ -124,8 +124,9 @@
       hosts = [
         "https://github.com"
         "https://gist.github.com"
-        "https://xesme.ghe.com"
         "https://microsoft.ghe.com"
+        "https://msft.ghe.com"
+        "https://xesme.ghe.com"
       ];
     };
   };
