@@ -12,6 +12,7 @@
     history = { };
     homeassistant_alerts = { };
     image_upload = { };
+    infrared = { };
     logbook = { };
     media_source = { };
     mobile_app = { };
