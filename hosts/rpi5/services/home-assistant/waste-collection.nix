@@ -9,14 +9,12 @@
           };
         }
       ];
+      sensors = [
+        {
+          name = "Seattle garbage collection";
+        }
+      ];
     };
-
-    sensor = [
-      {
-        platform = "waste_collection_schedule";
-        name = "Seattle garbage collection";
-      }
-    ];
 
     automation = [
       {
