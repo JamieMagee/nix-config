@@ -96,6 +96,15 @@
       log = {
         date = "iso-local";
       };
+      credential = {
+        "https://chromium.googlesource.com" = {
+          helper = [
+            ""
+            "luci"
+          ];
+          useHttpPath = true;
+        };
+      };
     };
     lfs = {
       enable = true;
