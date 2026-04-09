@@ -43,8 +43,13 @@
         safecrlf = false;
         untrackedCache = true;
       };
+      commitGraph = {
+        changedPaths = true;
+      };
       fetch = {
         prune = true;
+        showForcedUpdates = false;
+        unpackLimit = 1;
         writeCommitGraph = true;
       };
       feature = {
@@ -56,6 +61,11 @@
       };
       help = {
         autocorrect = 10;
+      };
+      index = {
+        skipHash = true;
+        threads = true;
+        version = 4;
       };
       init = {
         defaultBranch = "main";
@@ -71,6 +81,9 @@
       };
       merge = {
         conflictStyle = "zdiff3";
+      };
+      pack = {
+        usePathWalk = true;
       };
       rebase = {
         autosquash = true;
