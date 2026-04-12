@@ -6,14 +6,14 @@
 
 home-assistant.python.pkgs.buildPythonPackage rec {
   pname = "specialized-turbo";
-  version = "0.1.1";
+  version = "0.3.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "JamieMagee";
     repo = "specialized-turbo";
     tag = "v${version}";
-    hash = "sha256-MIFEJvVmLBku+8nfmuyr+fh7hEgf9SH5NOwuvt72oyw=";
+    hash = "sha256-/h87J+8dJetz6aXDIyMqix+J4NspNIz74OfL/nEQWgg=";
   };
 
   build-system = with home-assistant.python.pkgs; [
@@ -22,6 +22,7 @@ home-assistant.python.pkgs.buildPythonPackage rec {
 
   dependencies = with home-assistant.python.pkgs; [
     bleak
+    cryptography
   ];
 
   pythonImportsCheck = [ "specialized_turbo" ];
