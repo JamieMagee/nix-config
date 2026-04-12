@@ -27,8 +27,7 @@
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  # https://github.com/NixOS/nixpkgs/issues/258515
-  environment.enableAllTerminfo = !pkgs.stdenv.targetPlatform.isAarch64;
+  environment.enableAllTerminfo = true;
 
   documentation.nixos.enable = false;
 }
