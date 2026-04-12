@@ -2,8 +2,7 @@
   services.home-assistant = {
     extraComponents = [
       "ffmpeg"
-      # https://github.com/NixOS/nixpkgs/pull/506893
-      # "media_extractor"
+      "media_extractor"
     ];
     config = {
       input_boolean = {
