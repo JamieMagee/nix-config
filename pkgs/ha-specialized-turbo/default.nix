@@ -8,13 +8,13 @@
 buildHomeAssistantComponent rec {
   owner = "JamieMagee";
   domain = "specialized_turbo";
-  version = "0.3.1";
+  version = "0.3.2";
 
   src = fetchFromGitHub {
     owner = "JamieMagee";
     repo = "ha-specialized-turbo";
     tag = "v${version}";
-    hash = "sha256-Tbwtj/o3AbksD74S2LKzEq7JFP/AMxPraniIT19KTt0=";
+    hash = "sha256-uwf4g9lQBYVtuDmC+8MLCCFgl8g5U5oCxO2XfOgTySs=";
   };
 
   dependencies = [
