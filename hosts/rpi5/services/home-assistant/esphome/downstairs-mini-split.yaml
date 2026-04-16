@@ -25,8 +25,7 @@ ota:
 logger:
   level: INFO
   logs:
-    CN105Climate: WARN
-    CN105: INFO
+    mitsubishi_cn105: WARN
     climate: WARN
     sensor: WARN
 
@@ -35,15 +34,15 @@ uart:
   baud_rate: 2400
   tx_pin: GPIO21
   rx_pin: GPIO20
-
-external_components:
-  - source: github://echavet/MitsubishiCN105ESPHome
+  parity: EVEN
+  stop_bits: 1
 
 climate:
-  - platform: cn105
+  - platform: mitsubishi_cn105
     id: hp
     name: "${friendly_name}"
     icon: mdi:heat-pump
+    uart_id: HP_UART
     visual:
       min_temperature: 16
       max_temperature: 26
@@ -51,10 +50,6 @@ climate:
         target_temperature: 0.5
         current_temperature: 0.5
     update_interval: 4s
-    supports:
-      mode: [AUTO, COOL, HEAT, DRY, FAN_ONLY]
-      fan_mode: [AUTO, QUIET, LOW, MEDIUM, HIGH]
-      swing_mode: ["OFF", VERTICAL]
 
 sensor:
   - platform: uptime

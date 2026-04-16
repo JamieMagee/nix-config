@@ -2,7 +2,7 @@
 
 ## Mini Splits
 
-Three ESP32-C3 boards wired to Mitsubishi mini splits via CN105. They use the [echavet/MitsubishiCN105ESPHome](https://github.com/echavet/MitsubishiCN105ESPHome) external component and double as Bluetooth proxies.
+Three ESP32-C3 boards wired to Mitsubishi mini splits via CN105. They use the native [mitsubishi_cn105](https://esphome.io/components/climate/mitsubishi_cn105/) component and double as Bluetooth proxies.
 
 | Config | Hostname | Area |
 | --- | --- | --- |
