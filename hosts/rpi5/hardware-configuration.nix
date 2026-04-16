@@ -44,6 +44,9 @@
   };
 
   boot.kernelParams = [ "rootflags=data=journal" ];
+  # https://github.com/NixOS/nixpkgs/issues/344963
+  # https://github.com/NixOS/nixos-hardware/issues/858
+  boot.initrd.systemd.tpm2.enable = false;
 
   raspberry-pi-nix.board = "bcm2712";
   nixpkgs.hostPlatform.system = "aarch64-linux";
