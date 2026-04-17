@@ -23,6 +23,7 @@
     ./vacation.nix
     ./voice.nix
     ./waste-collection.nix
+    ./water-heater.nix
     ./weather.nix
   ];
 
@@ -34,7 +35,6 @@
       "androidtv_remote"
       "august"
       "cast"
-      "econet"
       "google_translate"
       "homeassistant_hardware"
       "homeassistant_sky_connect"
