@@ -51,6 +51,10 @@
           helper = "/mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe";
           useHttpPath = true;
         };
+        "https://*.visualstudio.com" = {
+          helper = "/mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe";
+          useHttpPath = true;
+        };
       };
     };
   };
