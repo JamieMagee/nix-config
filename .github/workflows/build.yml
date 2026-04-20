@@ -27,6 +27,9 @@ jobs:
           - name: 'jamie@rpi5'
             path: 'homeConfigurations."jamie@rpi5".activationPackage'
             os: ubuntu-24.04-arm
+          - name: 'jamie@jamagee-desktop'
+            path: 'homeConfigurations."jamie@jamagee-desktop".activationPackage'
+            os: ubuntu-24.04
 
     steps:
       - name: Checkout repository
