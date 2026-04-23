@@ -40,9 +40,12 @@
           ];
           actions = [
             {
-              action = "water_heater.turn_off";
+              action = "water_heater.set_operation_mode";
               target = {
                 entity_id = "water_heater.heat_pump_water_heater";
+              };
+              data = {
+                operation_mode = "off";
               };
             }
           ];
