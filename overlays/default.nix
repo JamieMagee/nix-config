@@ -3,7 +3,7 @@
 
   modifications = final: prev: {
     github-copilot-cli = prev.github-copilot-cli.overrideAttrs (old: rec {
-      version = "1.0.34";
+      version = "1.0.35";
       src = final.fetchurl {
         url = "https://github.com/github/copilot-cli/releases/download/v${version}/${
           {
@@ -15,8 +15,8 @@
         }.tar.gz";
         hash =
           {
-            x86_64-linux = "sha256-JnDAqpKynjqkBGtBQXsHS5iI++ypBlkBpDXTdNrMcIQ=";
-            aarch64-linux = "sha256-OZz3dA3QhHicMQZuGshynjUxIGuuervgCb9jS/jQ3Jc=";
+            x86_64-linux = "sha256-H6fM9Ie8f69PvdgP3h3oknF1kNZg0Y1YTQuHgDgCZ4Y=";
+            aarch64-linux = "sha256-wT9Q4EHbck0A/+krCniha+CvY523LYPtmmLr8dK3ZrM=";
           }
           .${final.stdenv.hostPlatform.system}
             or (throw "Unsupported system: ${final.stdenv.hostPlatform.system}");
