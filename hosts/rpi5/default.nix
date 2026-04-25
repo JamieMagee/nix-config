@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -29,6 +29,9 @@
     #   ];
     # };
   };
+
+  # RPi5 kernel doesn't support the nixpkgs default for mmap ASLR entropy
+  boot.kernel.sysctl."vm.mmap_rnd_bits" = lib.mkForce null;
 
   hardware.bluetooth.enable = true;
 
