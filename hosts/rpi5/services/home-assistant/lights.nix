@@ -99,6 +99,80 @@
             }
           ];
         }
+        {
+          alias = "Turn off front door outlet at night";
+          id = "turn_off_front_door_outlet_night";
+          triggers = [
+            {
+              trigger = "time";
+              at = "22:00:00";
+            }
+          ];
+          actions = [
+            {
+              action = "switch.turn_off";
+              target = {
+                entity_id = "switch.living_room_front_door_outlet";
+              };
+            }
+          ];
+        }
+        {
+          alias = "Turn on front door outlet in the morning";
+          id = "turn_on_front_door_outlet_morning";
+          triggers = [
+            {
+              trigger = "time";
+              at = "06:00:00";
+            }
+          ];
+          actions = [
+            {
+              action = "switch.turn_on";
+              target = {
+                entity_id = "switch.living_room_front_door_outlet";
+              };
+            }
+          ];
+        }
+        {
+          alias = "Turn off front door outlet when living room lights off";
+          id = "turn_off_front_door_outlet_lights_off";
+          triggers = [
+            {
+              trigger = "state";
+              entity_id = "light.living_room_lights";
+              to = "off";
+            }
+          ];
+          actions = [
+            {
+              action = "switch.turn_off";
+              target = {
+                entity_id = "switch.living_room_front_door_outlet";
+              };
+            }
+          ];
+        }
+        {
+          alias = "Turn on front door outlet when living room lights on";
+          id = "turn_on_front_door_outlet_lights_on";
+          triggers = [
+            {
+              trigger = "state";
+              entity_id = "light.living_room_lights";
+              to = "on";
+            }
+          ];
+          actions = [
+            {
+              action = "switch.turn_on";
+              target = {
+                entity_id = "switch.living_room_front_door_outlet";
+              };
+            }
+          ];
+        }
       ];
 
       adaptive_lighting = [
