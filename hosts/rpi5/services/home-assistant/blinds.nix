@@ -136,20 +136,47 @@
           {
             trigger = "time";
             at = "sensor.kat_pixel_8a_next_alarm";
+            id = "kat";
           }
           {
             trigger = "time";
             at = "sensor.jamie_pixel_8a_next_alarm";
+            id = "jamie";
           }
         ];
         conditions = [
           {
-            condition = "zone";
-            entity_id = [
-              "person.jamie"
-              "person.kat"
+            condition = "or";
+            conditions = [
+              {
+                condition = "and";
+                conditions = [
+                  {
+                    condition = "trigger";
+                    id = "jamie";
+                  }
+                  {
+                    condition = "zone";
+                    entity_id = "person.jamie";
+                    zone = "zone.home";
+                  }
+                ];
+              }
+              {
+                condition = "and";
+                conditions = [
+                  {
+                    condition = "trigger";
+                    id = "kat";
+                  }
+                  {
+                    condition = "zone";
+                    entity_id = "person.kat";
+                    zone = "zone.home";
+                  }
+                ];
+              }
             ];
-            zone = "zone.home";
           }
         ];
         actions = [
