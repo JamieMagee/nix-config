@@ -37,6 +37,8 @@
       go_1_26
 
       github-copilot-cli
+
+      yt-dlp
     ];
   };
 
