@@ -19,6 +19,7 @@
       devenv
       fastfetch
       fd
+      glow
       lazygit
       p7zip
       ripgrep
