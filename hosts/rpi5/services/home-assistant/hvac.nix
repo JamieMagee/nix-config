@@ -163,6 +163,50 @@
         ];
       }
       {
+        alias = "Mini split - enforce single outdoor mode";
+        id = "mini_split_enforce_mode";
+        mode = "queued";
+        triggers = [
+          {
+            trigger = "state";
+            entity_id = [
+              "climate.esphome_web_6c4990_bedroom_mini_split"
+              "climate.esphome_web_6ab408_office_mini_split"
+              "climate.esphome_web_6c37b0_downstairs_mini_split"
+            ];
+          }
+        ];
+        conditions = [
+          {
+            condition = "template";
+            value_template = "{{ trigger.to_state.state in ['heat', 'cool'] }}";
+          }
+        ];
+        variables = {
+          all_units = [
+            "climate.esphome_web_6c4990_bedroom_mini_split"
+            "climate.esphome_web_6ab408_office_mini_split"
+            "climate.esphome_web_6c37b0_downstairs_mini_split"
+          ];
+        };
+        actions = [
+          {
+            action = "climate.set_hvac_mode";
+            data = {
+              hvac_mode = "off";
+            };
+            target = {
+              entity_id = ''
+                {{ all_units
+                   | reject('eq', trigger.entity_id)
+                   | select('is_state', 'heat' if trigger.to_state.state == 'cool' else 'cool')
+                   | list }}
+              '';
+            };
+          }
+        ];
+      }
+      {
         alias = "Mini Split - Turn Off At Night";
         id = "mini_split_night_off";
         triggers = [
