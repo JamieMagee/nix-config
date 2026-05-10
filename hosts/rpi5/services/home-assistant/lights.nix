@@ -25,7 +25,7 @@
             input = {
               motion_entity = "binary_sensor.garage_motion_occupancy";
               light_target = {
-                entity_id = "light.garage_indoors";
+                entity_id = "light.garage_indoors_lights";
               };
               no_motion_wait = 1800;
             };
@@ -45,9 +45,9 @@
               action = "light.turn_on";
               target = {
                 entity_id = [
-                  "light.garage_outdoor"
-                  "light.front_porch"
-                  "light.balcony"
+                  "light.garage_outdoor_lights"
+                  "light.front_porch_lights"
+                  "light.balcony_lights"
                 ];
               };
             }
@@ -67,9 +67,9 @@
               action = "light.turn_off";
               target = {
                 entity_id = [
-                  "light.garage_outdoor"
-                  "light.front_porch"
-                  "light.balcony"
+                  "light.garage_outdoor_lights"
+                  "light.front_porch_lights"
+                  "light.balcony_lights"
                 ];
               };
             }
@@ -93,6 +93,7 @@
               action = "light.turn_off";
               target = {
                 entity_id = [
+                  "light.indoor_lights"
                   "light.indoor_light_switches"
                 ];
               };
@@ -180,7 +181,7 @@
           name = "Garage lights";
           lights = [
             "light.garage_indoors_lights"
-            # "light.garage_stairs_lights"
+            "light.garage_stairs_lights"
           ];
           min_brightness = 100;
           intercept = true;

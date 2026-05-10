@@ -237,7 +237,7 @@
             "0x001788010de5c49a" = defaultLight // {
               friendly_name = "bedroom/light-3";
             };
-            "0x001788010de5cfd3" = {
+            "0x001788010de5cfd3" = defaultLight // {
               friendly_name = "bedroom/light-4";
             };
             "0x70ac08fffe6c8e2c" = defaultSwitch // {
@@ -285,7 +285,7 @@
               friendly_name = "outdoors/garage-light-1";
             };
             "0x001788010db42d9c" = defaultLight // {
-              friendly_name = "outdoors/garage-light-";
+              friendly_name = "outdoors/garage-light-2";
             };
             "0x001788010db3bab6" = defaultLight // {
               friendly_name = "outdoors/garage-light-3";
