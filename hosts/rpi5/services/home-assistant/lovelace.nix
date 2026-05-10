@@ -269,7 +269,7 @@
               cards = [
                 {
                   type = "picture-entity";
-                  entity = "camera.g4_doorbell_pro_high";
+                  entity = "camera.g4_doorbell_pro_high_resolution_channel";
                   name = "Front Door";
                   show_name = true;
                   show_state = false;
