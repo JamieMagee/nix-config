@@ -161,20 +161,18 @@
             {
               trigger = "time";
               at = "sensor.kat_pixel_8a_next_alarm";
+              id = "kat";
             }
             {
               trigger = "time";
               at = "sensor.jamie_pixel_8a_next_alarm";
+              id = "jamie";
             }
           ];
           conditions = [
             {
-              condition = "zone";
-              entity_id = [
-                "person.jamie"
-                "person.kat"
-              ];
-              zone = "zone.home";
+              condition = "template";
+              value_template = ''{{ is_state('person.' ~ trigger.id, 'home') }}'';
             }
           ];
           actions = [
