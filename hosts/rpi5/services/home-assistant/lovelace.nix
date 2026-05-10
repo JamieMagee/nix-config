@@ -273,7 +273,6 @@
                   name = "Front Door";
                   show_name = true;
                   show_state = false;
-                  camera_view = "live";
                 }
                 {
                   type = "picture-entity";
@@ -281,7 +280,6 @@
                   name = "Package";
                   show_name = true;
                   show_state = false;
-                  camera_view = "live";
                 }
               ];
             }
