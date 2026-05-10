@@ -128,24 +128,20 @@
         id = "bike_battery_charging_live";
         triggers = [
           {
-            trigger = "time_pattern";
-            minutes = "/5";
+            trigger = "state";
+            entity_id = [
+              "sensor.specialized_turbo_jamie_battery"
+              "sensor.specialized_turbo_kat_battery"
+            ];
           }
         ];
         conditions = [
           {
             condition = "template";
             value_template = ''
-              {% for state in states.sensor %}
-                {% if state.attributes.device_class is defined
-                   and state.attributes.device_class == 'battery'
-                   and state.entity_id.startswith('sensor.specialized_turbo')
-                   and state.state not in ['unknown', 'unavailable']
-                   and state.state | float(0) >= 1
-                   and state.state | float(0) < 99 %}
-                  true
-                {% endif %}
-              {% endfor %}
+              {{ trigger.to_state.state not in ['unknown', 'unavailable']
+                 and trigger.to_state.state | float(0) >= 1
+                 and trigger.to_state.state | float(0) < 99 }}
             '';
           }
         ];
@@ -206,27 +202,17 @@
         id = "bike_battery_charging_clear";
         triggers = [
           {
-            trigger = "time_pattern";
-            minutes = "/5";
-          }
-        ];
-        conditions = [
-          {
-            condition = "template";
+            trigger = "template";
             value_template = ''
-              {% set ns = namespace(charging=false) %}
-              {% for state in states.sensor %}
-                {% if state.attributes.device_class is defined
-                   and state.attributes.device_class == 'battery'
-                   and state.entity_id.startswith('sensor.specialized_turbo')
-                   and state.state not in ['unknown', 'unavailable']
-                   and state.state | float(0) >= 1
-                   and state.state | float(0) < 99 %}
-                  {% set ns.charging = true %}
-                {% endif %}
-              {% endfor %}
-              {{ not ns.charging }}
+              {% set sensors = [
+                states('sensor.specialized_turbo_jamie_battery'),
+                states('sensor.specialized_turbo_kat_battery')
+              ] %}
+              {{ sensors | map('float', 0) | select('ge', 1) | select('lt', 99) | list | count == 0 }}
             '';
+            for = {
+              minutes = 1;
+            };
           }
         ];
         actions = [
