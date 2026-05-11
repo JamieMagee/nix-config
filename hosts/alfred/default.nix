@@ -14,6 +14,7 @@
     ../common/optional/vscode-server.nix
     ../common/optional/zfs.nix
 
+    ./impermanence.nix
     ./services
   ];
 
