@@ -18,6 +18,9 @@
         smtpencryption = "tls";
         smtpuser = "jamie.magee@gmail.com";
       };
+      advice = {
+        fetchShowForcedUpdates = false;
+      };
       alias = {
         co = "checkout";
         cob = "checkout -b";
