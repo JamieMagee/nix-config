@@ -1,6 +1,6 @@
 final: prev: {
   github-copilot-cli = prev.github-copilot-cli.overrideAttrs (_old: rec {
-    version = "1.0.42";
+    version = "1.0.44";
     src = final.fetchurl {
       url = "https://github.com/github/copilot-cli/releases/download/v${version}/${
         {
@@ -12,8 +12,8 @@ final: prev: {
       }.tar.gz";
       hash =
         {
-          x86_64-linux = "sha256-zIvugPjOppP/W50sDf2FkokHyKxLeeLqw+SKrNJnIds=";
-          aarch64-linux = "sha256-+GqLPAhlVklHipC2CPEv/iy/s8x6kVgbvIBtavBexJs=";
+          x86_64-linux = "sha256-/wdMa5iYdRGiLukIuGzUmXIXaa+lmxaI79M5gHCS0Dw=";
+          aarch64-linux = "sha256-Lq9Fu4OGNMpBPrOXm4MSiWarArG8XNamH0WYFqfVXps=";
         }
         .${final.stdenv.hostPlatform.system}
           or (throw "Unsupported system: ${final.stdenv.hostPlatform.system}");
