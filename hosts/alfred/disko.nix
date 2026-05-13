@@ -73,6 +73,10 @@ in
             type = "zfs_fs";
             mountpoint = "/home";
           };
+          persist = {
+            type = "zfs_fs";
+            mountpoint = "/persist";
+          };
         };
       };
 
