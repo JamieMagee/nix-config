@@ -120,7 +120,7 @@
                   badge_color = "orange";
                   tap_action = {
                     action = "navigate";
-                    navigation_path = "/lovelace/garage";
+                    navigation_path = "/nixos-lovelace/garage";
                   };
                 }
                 {
@@ -133,7 +133,7 @@
                   badge_color = "{{ 'green' if is_state('lock.front_door', 'locked') else 'red' }}";
                   tap_action = {
                     action = "navigate";
-                    navigation_path = "/lovelace/downstairs";
+                    navigation_path = "/nixos-lovelace/downstairs";
                   };
                 }
                 {
@@ -146,7 +146,7 @@
                   badge_color = "green";
                   tap_action = {
                     action = "navigate";
-                    navigation_path = "/lovelace/upstairs";
+                    navigation_path = "/nixos-lovelace/upstairs";
                   };
                 }
               ];
@@ -520,7 +520,7 @@
                   content = "Each";
                   tap_action = {
                     action = "navigate";
-                    navigation_path = "/lovelace/downstairs-blinds";
+                    navigation_path = "/nixos-lovelace/downstairs-blinds";
                   };
                 }
               ];
@@ -756,7 +756,7 @@
                   content = "Each";
                   tap_action = {
                     action = "navigate";
-                    navigation_path = "/lovelace/upstairs-blinds";
+                    navigation_path = "/nixos-lovelace/upstairs-blinds";
                   };
                 }
               ];
