@@ -81,7 +81,7 @@
               {% for state in states.sensor %}
                 {% if state.attributes.device_class is defined
                    and state.attributes.device_class == 'battery'
-                   and state.entity_id.startswith('sensor.specialized_turbo')
+                   and state.object_id.startswith('specialized_turbo')
                    and state.state not in ['unknown', 'unavailable']
                    and state.state | float(0) >= 99 %}
                   true
@@ -94,7 +94,7 @@
           {
             condition = "template";
             value_template = ''
-              {{ trigger.entity_id.startswith('sensor.specialized_turbo')
+              {{ trigger.to_state.object_id.startswith('specialized_turbo')
                  and trigger.from_state.state not in ['unknown', 'unavailable'] }}
             '';
           }
@@ -108,7 +108,7 @@
                 {% for state in states.sensor %}
                   {% if state.attributes.device_class is defined
                      and state.attributes.device_class == 'battery'
-                     and state.entity_id.startswith('sensor.specialized_turbo')
+                     and state.object_id.startswith('specialized_turbo')
                      and state.state not in ['unknown', 'unavailable']
                      and state.state | float(0) >= 99 %}
                     {{ state.name }} is fully charged.
@@ -154,7 +154,7 @@
                 {% for state in states.sensor %}
                   {% if state.attributes.device_class is defined
                      and state.attributes.device_class == 'battery'
-                     and state.entity_id.startswith('sensor.specialized_turbo')
+                     and state.object_id.startswith('specialized_turbo')
                      and state.state not in ['unknown', 'unavailable']
                      and state.state | float(0) >= 1
                      and state.state | float(0) < 99 %}
@@ -171,7 +171,7 @@
                   {% for state in states.sensor %}
                     {% if state.attributes.device_class is defined
                        and state.attributes.device_class == 'battery'
-                       and state.entity_id.startswith('sensor.specialized_turbo')
+                       and state.object_id.startswith('specialized_turbo')
                        and state.state not in ['unknown', 'unavailable']
                        and state.state | float(0) >= 1
                        and state.state | float(0) < 99 %}
@@ -183,7 +183,7 @@
                   {% for state in states.sensor %}
                     {% if state.attributes.device_class is defined
                        and state.attributes.device_class == 'battery'
-                       and state.entity_id.startswith('sensor.specialized_turbo')
+                       and state.object_id.startswith('specialized_turbo')
                        and state.state not in ['unknown', 'unavailable']
                        and state.state | float(0) >= 1
                        and state.state | float(0) < 99 %}
