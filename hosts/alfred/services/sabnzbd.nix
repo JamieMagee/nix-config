@@ -12,6 +12,7 @@
         port = 8080;
         url_base = "/sabnzbd";
         host_whitelist = "alfred.tailnet-0b15.ts.net";
+        local_ranges = "100.64.0.0/10,192.168.0.0/16";
       };
       servers."news.eweka.nl" = {
         displayname = "Eweka";
