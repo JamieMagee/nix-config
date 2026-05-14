@@ -3,6 +3,7 @@
     enable = true;
     group = "services";
     secretFiles = [ "/var/lib/sabnzbd/secrets.ini" ];
+    allowConfigWrite = true;
     settings = {
       misc = {
         complete_dir = "/mnt/downloads/complete";
