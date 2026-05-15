@@ -45,6 +45,7 @@
     nil
     nix-prefetch-github
     nix-update
+    nixd
     nixfmt
     nixpkgs-hammering
     nixpkgs-review
