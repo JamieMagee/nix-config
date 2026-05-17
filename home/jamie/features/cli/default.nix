@@ -17,7 +17,7 @@
       # bitwarden-cli
       deploy-rs
       devenv
-      fastfetch
+      fastfetchMinimal
       fd
       glow
       lazygit
