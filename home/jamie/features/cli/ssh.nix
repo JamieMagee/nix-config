@@ -2,22 +2,22 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "*-tailnet" = {
-        host = "*.tailnet-0b15.ts.net";
-        user = "jamie";
-        port = 2222;
-        forwardAgent = true;
-        identitiesOnly = true;
+        Host = "*.tailnet-0b15.ts.net";
+        User = "jamie";
+        Port = 2222;
+        ForwardAgent = true;
+        IdentitiesOnly = true;
       };
       "rpi5" = {
-        host = "rpi5.tailnet-0b15.ts.net";
+        Host = "rpi5.tailnet-0b15.ts.net";
       };
       "alfred" = {
-        host = "alfred.tailnet-0b15.ts.net";
+        Host = "alfred.tailnet-0b15.ts.net";
       };
       "jamie-desktop" = {
-        host = "jamie-desktop.tailnet-0b15.ts.net";
+        Host = "jamie-desktop.tailnet-0b15.ts.net";
       };
     };
   };
