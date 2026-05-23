@@ -1,22 +1,49 @@
 final: prev: {
-  github-copilot-cli = prev.github-copilot-cli.overrideAttrs (_old: rec {
+  github-copilot-cli = prev.github-copilot-cli.overrideAttrs (old: rec {
     version = "1.0.51";
+
+    # Use the universal package; the SEA binary has hard-coded paths that
+    # don't work reliably under Nix.
     src = final.fetchurl {
-      url = "https://github.com/github/copilot-cli/releases/download/v${version}/${
-        {
-          x86_64-linux = "copilot-linux-x64";
-          aarch64-linux = "copilot-linux-arm64";
-        }
-        .${final.stdenv.hostPlatform.system}
-          or (throw "Unsupported system: ${final.stdenv.hostPlatform.system}")
-      }.tar.gz";
-      hash =
-        {
-          x86_64-linux = "sha256-m+gjYbV0CYQvEYij482LhdouDJMLf+a2CnDXn11dOLQ=";
-          aarch64-linux = "sha256-Oz/cK48sLLgwNtrUggwXgcmKvtmwNwnA2eVXHe5WeaU=";
-        }
-        .${final.stdenv.hostPlatform.system}
-          or (throw "Unsupported system: ${final.stdenv.hostPlatform.system}");
+      url = "https://github.com/github/copilot-cli/releases/download/v${version}/github-copilot-${version}.tgz";
+      hash = "sha256-ruVYZtQvUUkc3wNuA0HnkuQFoHX4863dObKhusHQ40g=";
     };
+
+    sourceRoot = "package";
+
+    buildInputs =
+      (old.buildInputs or [ ])
+      ++ final.lib.optionals final.stdenv.hostPlatform.isLinux [
+        final.glib
+        final.libsecret
+      ];
+
+    # computer.node requires GUI/media libs that aren't relevant for CLI use.
+    autoPatchelfIgnoreMissingDeps = [
+      "libX11.so.6"
+      "libXtst.so.6"
+      "libjpeg.so.8"
+      "libpng16.so.16"
+      "libpipewire-0.3.so.0"
+      "libei.so.1"
+      "libc.musl-x86_64.so.1"
+      "libc.musl-aarch64.so.1"
+    ];
+
+    installPhase = ''
+      runHook preInstall
+      mkdir -p "$out"/lib/github-copilot-cli
+      cp -r * "$out"/lib/github-copilot-cli
+      runHook postInstall
+    '';
+
+    postInstall = ''
+      makeWrapper ${final.nodejs}/bin/node "$out"/bin/copilot \
+        --add-flag "$out"/lib/github-copilot-cli/index.js \
+        --add-flag --no-auto-update \
+        --set-default NODE_NO_WARNINGS 1 \
+        --set-default SSL_CERT_DIR ${final.cacert}/etc/ssl/certs \
+        --prefix PATH : "${final.lib.makeBinPath [ final.bash ]}"
+    '';
   });
 }
