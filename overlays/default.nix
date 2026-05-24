@@ -4,4 +4,5 @@
   uboot-rpi-arm64 = import ./uboot-rpi-arm64.nix;
   github-copilot-cli = import ./github-copilot-cli.nix;
   python-packages = import ./python-packages.nix;
+  termite-vte-fix = import ./termite-vte-fix.nix;
 }
