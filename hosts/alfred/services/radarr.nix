@@ -9,4 +9,8 @@
       reverse_proxy /radarr* http://[::1]:7878
     '';
   };
+
+  environment.persistence."/persist".directories = [
+    "/var/lib/radarr"
+  ];
 }

@@ -9,4 +9,8 @@
       reverse_proxy /sonarr* http://[::1]:8989
     '';
   };
+
+  environment.persistence."/persist".directories = [
+    "/var/lib/sonarr"
+  ];
 }

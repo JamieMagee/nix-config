@@ -32,4 +32,17 @@
       reverse_proxy /sabnzbd* http://[::1]:8080
     '';
   };
+
+  environment.persistence."/persist".directories = [
+    "/var/lib/sabnzbd"
+
+    # SABnzbd download staging.
+    # NOTE: /mnt/downloads currently lives on the root (zroot/root)
+    # dataset, not on `tank`. With rollback armed, anything here
+    # would be wiped on reboot, so it must be persisted. Long-term,
+    # consider relocating downloads to the tank pool (e.g. add a
+    # tank/downloads dataset and point SABnzbd at it) and dropping
+    # this entry.
+    "/mnt/downloads"
+  ];
 }

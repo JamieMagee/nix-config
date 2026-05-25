@@ -22,6 +22,9 @@
   environment.persistence."/persist" = {
     hideMounts = true;
 
+    # Service-specific persistence (plex, sonarr, radarr, sabnzbd, prowlarr,
+    # tautulli, caddy, recyclarr, /mnt/downloads) is declared alongside each
+    # service module under ./services/. Only host-wide system state lives here.
     directories = [
       # Core system state
       "/var/log"
@@ -33,30 +36,6 @@
       "/var/lib/NetworkManager"
       "/etc/NetworkManager/system-connections"
       "/var/lib/tailscale"
-
-      # Media services
-      "/var/lib/plex"
-      "/var/lib/sonarr"
-      "/var/lib/radarr"
-      "/var/lib/sabnzbd"
-      # Prowlarr runs with systemd DynamicUser-style state: real state
-      # lives under /var/lib/private/<service> and /var/lib/prowlarr is
-      # a symlink into it.
-      "/var/lib/private/prowlarr"
-      # Tautulli's NixOS module on this host uses /var/lib/plexpy
-      # (PlexPy is the upstream project name).
-      "/var/lib/plexpy"
-      "/var/lib/caddy"
-      "/var/lib/recyclarr"
-
-      # SABnzbd download staging.
-      # NOTE: /mnt/downloads currently lives on the root (zroot/root)
-      # dataset, not on `tank`. With rollback armed, anything here
-      # would be wiped on reboot, so it must be persisted. Long-term,
-      # consider relocating downloads to the tank pool (e.g. add a
-      # tank/downloads dataset and point SABnzbd at it) and dropping
-      # this entry.
-      "/mnt/downloads"
 
       # root user home — /root is on the root dataset and would be
       # wiped on rollback. Persist shell history, SSH known_hosts, etc.

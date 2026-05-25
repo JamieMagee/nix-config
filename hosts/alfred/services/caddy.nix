@@ -27,4 +27,8 @@ in
   };
 
   services.tailscale.permitCertUid = config.services.caddy.user;
+
+  environment.persistence."/persist".directories = [
+    "/var/lib/caddy"
+  ];
 }
