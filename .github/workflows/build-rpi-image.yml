@@ -62,3 +62,4 @@ jobs:
         with:
           name: ${{ env.IMAGE_NAME }}
           path: ${{ env.IMAGE_FILE }}
+          retention-days: 7
