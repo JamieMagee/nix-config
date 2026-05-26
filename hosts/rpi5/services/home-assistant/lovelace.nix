@@ -785,6 +785,8 @@
               additional_presets = [
                 {
                   preset_name = "Upstairs";
+                  entity = "vacuum.s7_max_ultra";
+                  vacuum_platform = "Roborock";
                   map_source = {
                     camera = "image.wee_man_upstairs_custom";
                   };
