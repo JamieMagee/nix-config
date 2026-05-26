@@ -16,6 +16,7 @@
     ./mqtt.nix
     ./notify.nix
     ./people.nix
+    ./plants.nix
     ./power.nix
     ./recorder.nix
     ./sonos.nix
