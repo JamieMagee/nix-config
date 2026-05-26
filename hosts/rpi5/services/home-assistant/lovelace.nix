@@ -771,16 +771,32 @@
               icon = "mdi:robot-vacuum";
             }
             {
-              type = "custom:mushroom-vacuum-card";
+              type = "custom:xiaomi-vacuum-map-card";
+              vacuum_platform = "Roborock";
               entity = "vacuum.s7_max_ultra";
-              name = "Robot Vacuum";
-              commands = [
-                "start_pause"
-                "stop"
-                "locate"
-                "return_home"
+              preset_name = "Downstairs";
+              map_source = {
+                camera = "image.wee_man_downstairs_custom";
+              };
+              calibration_source = {
+                camera = true;
+              };
+              additional_presets = [
+                {
+                  preset_name = "Upstairs";
+                  map_source = {
+                    camera = "image.wee_man_upstairs_custom";
+                  };
+                  calibration_source = {
+                    camera = true;
+                  };
+                }
               ];
-              layout = "horizontal";
+              map_modes = [
+                { template = "vacuum_clean_segment"; }
+                { template = "vacuum_clean_zone"; }
+                { template = "vacuum_goto"; }
+              ];
             }
             {
               type = "horizontal-stack";
