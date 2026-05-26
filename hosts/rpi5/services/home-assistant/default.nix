@@ -68,6 +68,7 @@
       ha_mcp_tools
       pirate-weather
       pkgs.ha-specialized-turbo
+      roborock_custom_map
       spook
       waste_collection_schedule
     ];

@@ -7,6 +7,7 @@
       mini-graph-card
       card-mod
       button-card
+      xiaomi-vacuum-map-card
     ];
     lovelaceConfig = {
       title = "Home";
