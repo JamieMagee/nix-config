@@ -856,25 +856,6 @@
                 { template = "vacuum_goto"; }
               ];
             }
-            {
-              type = "horizontal-stack";
-              cards = [
-                {
-                  type = "custom:mushroom-select-card";
-                  entity = "select.s7_max_ultra_mop_intensity";
-                  name = "Mop";
-                  layout = "horizontal";
-                  fill_container = true;
-                }
-                {
-                  type = "custom:mushroom-select-card";
-                  entity = "select.s7_max_ultra_mop_mode";
-                  name = "Mode";
-                  layout = "horizontal";
-                  fill_container = true;
-                }
-              ];
-            }
 
             # Lighting
             {
