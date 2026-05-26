@@ -800,31 +800,31 @@
                         {
                           id = "16";
                           icon = { name = "mdi:broom"; x = 20575; y = 27375; };
-                          label = { text = "Room 16"; x = 20575; y = 27375; offset_y = 35; };
+                          label = { text = "Closet"; x = 20575; y = 27375; offset_y = 35; };
                           outline = [ [ 19650 26500 ] [ 21500 26500 ] [ 21500 28250 ] [ 19650 28250 ] ];
                         }
                         {
                           id = "17";
                           icon = { name = "mdi:broom"; x = 26175; y = 26050; };
-                          label = { text = "Room 17"; x = 26175; y = 26050; offset_y = 35; };
+                          label = { text = "Office"; x = 26175; y = 26050; offset_y = 35; };
                           outline = [ [ 24500 24950 ] [ 27850 24950 ] [ 27850 27150 ] [ 24500 27150 ] ];
                         }
                         {
                           id = "18";
                           icon = { name = "mdi:broom"; x = 23150; y = 28025; };
-                          label = { text = "Room 18"; x = 23150; y = 28025; offset_y = 35; };
+                          label = { text = "Bedroom"; x = 23150; y = 28025; offset_y = 35; };
                           outline = [ [ 21400 26550 ] [ 24900 26550 ] [ 24900 29500 ] [ 21400 29500 ] ];
                         }
                         {
                           id = "19";
                           icon = { name = "mdi:broom"; x = 26425; y = 28325; };
-                          label = { text = "Room 19"; x = 26425; y = 28325; offset_y = 35; };
+                          label = { text = "Bathroom"; x = 26425; y = 28325; offset_y = 35; };
                           outline = [ [ 24950 27150 ] [ 27900 27150 ] [ 27900 29500 ] [ 24950 29500 ] ];
                         }
                         {
                           id = "20";
                           icon = { name = "mdi:broom"; x = 22550; y = 25475; };
-                          label = { text = "Room 20"; x = 22550; y = 25475; offset_y = 35; };
+                          label = { text = "Hallway"; x = 22550; y = 25475; offset_y = 35; };
                           outline = [ [ 20150 24450 ] [ 24950 24450 ] [ 24950 26500 ] [ 20150 26500 ] ];
                         }
                       ];
@@ -841,13 +841,13 @@
                     {
                       id = "16";
                       icon = { name = "mdi:broom"; x = 28125; y = 25375; };
-                      label = { text = "Unknown"; x = 28125; y = 25375; offset_y = 35; };
+                      label = { text = "Living Room"; x = 28125; y = 25375; offset_y = 35; };
                       outline = [ [ 26100 24000 ] [ 30150 24000 ] [ 30150 26750 ] [ 26100 26750 ] ];
                     }
                     {
                       id = "17";
                       icon = { name = "mdi:broom"; x = 25650; y = 26200; };
-                      label = { text = "Unknown"; x = 25650; y = 26200; offset_y = 35; };
+                      label = { text = "Kitchen"; x = 25650; y = 26200; offset_y = 35; };
                       outline = [ [ 22400 24600 ] [ 28900 24600 ] [ 28900 27800 ] [ 22400 27800 ] ];
                     }
                   ];
