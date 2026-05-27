@@ -1,6 +1,42 @@
 { pkgs, ... }:
 let
   cardMod = pkgs.home-assistant-custom-lovelace-modules.card-mod;
+
+  # xiaomi-vacuum-map-card auto-generates `water_box_mode` and `mop_mode` dropdowns
+  # mirroring every option the Roborock integration exposes. For the S7 family that
+  # includes options the Roborock app hides during normal vacuum ops (off / custom,
+  # plus deep / deep_plus mop modes), and tapping them via the card put the vacuum
+  # in a weird state. Drop both auto menus and surface only the three mop-intensity
+  # levels that are safe to flip from a tap. mop_mode is left without a replacement
+  # because the only S7-safe value is `standard`, which would be a useless 1-item
+  # dropdown; change it from the Roborock app when actually mopping.
+  s7VacuumIcons =
+    let
+      mopIntensity = "select.s7_max_ultra_mop_intensity";
+      mkIntensity = { value, label, icon }: {
+        icon_id = "wbm_${value}";
+        menu_id = "water_box_mode";
+        entity = mopIntensity;
+        inherit icon label;
+        conditions = [
+          { entity = mopIntensity; inherit value; }
+        ];
+        tap_action = {
+          action = "call-service";
+          service = "select.select_option";
+          service_data = {
+            entity_id = mopIntensity;
+            option = value;
+          };
+        };
+      };
+    in [
+      { icon_id = "water_box_mode"; replace_config = true; remove = true; }
+      { icon_id = "mop_mode"; replace_config = true; remove = true; }
+      (mkIntensity { value = "mild"; label = "Mild"; icon = "mdi:water-minus"; })
+      (mkIntensity { value = "moderate"; label = "Standard"; icon = "mdi:water"; })
+      (mkIntensity { value = "intense"; label = "Intense"; icon = "mdi:water-plus"; })
+    ];
 in
 {
   services.home-assistant = {
@@ -793,6 +829,8 @@ in
               calibration_source = {
                 camera = true;
               };
+              icons = s7VacuumIcons;
+              append_icons = true;
               additional_presets = [
                 {
                   preset_name = "Upstairs";
@@ -804,6 +842,8 @@ in
                   calibration_source = {
                     camera = true;
                   };
+                  icons = s7VacuumIcons;
+                  append_icons = true;
                   map_modes = [
                     {
                       template = "vacuum_clean_segment";
