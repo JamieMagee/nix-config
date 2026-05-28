@@ -14,7 +14,7 @@
     )
 
     # Node.js and package managers
-    nodejs_24
+    nodejs_26
     pnpm
     yarn
 
