@@ -1,12 +1,12 @@
 final: prev: {
   github-copilot-cli = prev.github-copilot-cli.overrideAttrs (old: rec {
-    version = "1.0.54";
+    version = "1.0.55";
 
     # Use the universal package; the SEA binary has hard-coded paths that
     # don't work reliably under Nix.
     src = final.fetchurl {
       url = "https://github.com/github/copilot-cli/releases/download/v${version}/github-copilot-${version}.tgz";
-      hash = "sha256-WkJtCfapWdmZPPDEtfZhDJzgPgcI2NpTgukCyhBfzcY=";
+      hash = "sha256-ENzY5ZG4ZEx5KbuIpJ44NAgtcVDi70wHnlYeO0wshBQ=";
     };
 
     sourceRoot = "package";
