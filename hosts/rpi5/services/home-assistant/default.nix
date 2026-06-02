@@ -70,6 +70,7 @@
       pirate-weather
       pkgs.ha-specialized-turbo
       roborock_custom_map
+      smarthq
       spook
       waste_collection_schedule
     ];
