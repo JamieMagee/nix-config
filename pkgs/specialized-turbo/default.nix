@@ -4,7 +4,7 @@
   fetchFromGitHub,
 }:
 
-home-assistant.python.pkgs.buildPythonPackage rec {
+home-assistant.python3Packages.buildPythonPackage rec {
   pname = "specialized-turbo";
   version = "0.3.0";
   pyproject = true;
@@ -16,11 +16,11 @@ home-assistant.python.pkgs.buildPythonPackage rec {
     hash = "sha256-/h87J+8dJetz6aXDIyMqix+J4NspNIz74OfL/nEQWgg=";
   };
 
-  build-system = with home-assistant.python.pkgs; [
+  build-system = with home-assistant.python3Packages; [
     hatchling
   ];
 
-  dependencies = with home-assistant.python.pkgs; [
+  dependencies = with home-assistant.python3Packages; [
     bleak
     cryptography
   ];
