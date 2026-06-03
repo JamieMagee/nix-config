@@ -58,6 +58,23 @@
     jq = {
       enable = true;
     };
+    npm.settings = {
+      # Disable all scripts, including lifecycle scripts and package scripts.
+      ignore-scripts = true;
+      # Don't install any packages newer than 3 days old.
+      min-release-age = 3;
+      # Always save exact versions, never use semver ranges.
+      save-exact = true;
+      # Only allow these operations to be performed on the root project, not by transitive dependencies.
+      allow-directory = "root";
+      allow-file = "root";
+      allow-git = "root";
+      allow-remote = "root";
+      # Noise
+      fund = false;
+      update-notifier = false;
+
+    };
     zellij = {
       enable = true;
       settings = {
