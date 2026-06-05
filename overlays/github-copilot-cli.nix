@@ -1,10 +1,10 @@
 final: prev: {
   github-copilot-cli = prev.github-copilot-cli.overrideAttrs (old: rec {
-    version = "1.0.59";
+    version = "1.0.60";
 
     src = final.fetchurl {
       url = "https://github.com/github/copilot-cli/releases/download/v${version}/github-copilot-${version}.tgz";
-      hash = "sha256-ekMkKJSBVwd7EsaB1L5xxI322r4HMB4A3ehm4cE5dTE=";
+      hash = "sha256-wUEBstKx8Yb9m6ynIi137ZXR7dO39uepnv/yGFVE/qQ=";
     };
 
     # musl libc deps that upstream's ignore list doesn't cover.
