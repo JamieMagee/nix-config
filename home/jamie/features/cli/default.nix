@@ -19,6 +19,7 @@
       devenv
       fastfetchMinimal
       fd
+      github-copilot-cli
       glow
       lazygit
       p7zip
