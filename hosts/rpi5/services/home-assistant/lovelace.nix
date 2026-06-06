@@ -1113,34 +1113,12 @@ in
           badges = [ ];
           cards = [
             {
-              type = "markdown";
-              content = ''
-                ## 🌱 Plant Monitor
-
-                No plants are configured yet. To add a plant:
-
-                1. Pair a Zigbee soil sensor (e.g. Tuya **TS0601_soil**) via
-                   the [Zigbee2MQTT frontend](http://192.168.1.3:8080).
-                2. Settings → Devices & Services → Add Integration →
-                   **Plant Monitor** → follow the 4-step config flow
-                   (browse OpenPlantbook → assign sensors → confirm
-                   thresholds).
-                3. Edit `hosts/rpi5/services/home-assistant/lovelace.nix`
-                   and replace this card with one `custom:flower-card`
-                   block per plant, then `nixos-rebuild switch`. Example:
-
-                ```yaml
-                type: custom:flower-card
-                entity: plant.my_plant
-                show_bars:
-                  - moisture
-                  - temperature
-                  - illuminance
-                  - conductivity
-                ```
-
-                Post-deploy notes and gotchas live in `plants.nix`.
-              '';
+              type = "custom:flower-card";
+              entity = "plant.calathea";
+              show_bars = [
+                "moisture"
+                "temperature"
+              ];
             }
           ];
         }

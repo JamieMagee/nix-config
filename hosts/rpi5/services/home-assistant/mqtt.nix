@@ -156,6 +156,9 @@
             "0x00158d000af41336" = {
               friendly_name = "kitchen/sink-leak";
             };
+            "0xa4c138033f7c4a84" = {
+              friendly_name = "kitchen/calathea";
+            };
             "0xa085e3fffec798cc" = {
               friendly_name = "living-room/front-door-outlet";
             };
