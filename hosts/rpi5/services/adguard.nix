@@ -2,16 +2,19 @@
 {
   services.adguardhome = {
     enable = true;
+    host = "[::1]";
+    port = 3000;
     settings = {
-      http = {
-        address = "0.0.0.0:3000";
-      };
       dns = {
         bind_hosts = [
           "0.0.0.0"
+          "::"
         ];
         port = 53;
         ratelimit = 0;
+        enable_dnssec = true;
+        use_http3_upstreams = true;
+        cache_optimistic = true;
         upstream_dns = [
           "h3://security.cloudflare-dns.com/dns-query"
           "https://dns11.quad9.net/dns-query"
