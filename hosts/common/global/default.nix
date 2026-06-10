@@ -1,4 +1,5 @@
 {
+  inputs,
   outputs,
   pkgs,
   ...
@@ -15,10 +16,13 @@
     ./tailscale.nix
     # ./work.nix
     ./yubikey.nix
-  ] ++ (builtins.attrValues outputs.nixosModules);
+  ]
+  ++ (builtins.attrValues outputs.nixosModules);
 
   nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
+    overlays = (builtins.attrValues outputs.overlays) ++ [
+      inputs.llm-agents.overlays.default
+    ];
     config.allowUnfree = true;
   };
 

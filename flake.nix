@@ -3,9 +3,13 @@
 
   nixConfig = {
     extra-experimental-features = "nix-command flakes";
-    extra-substituters = [ "https://jamiemagee.cachix.org" ];
+    extra-substituters = [
+      "https://jamiemagee.cachix.org"
+      "https://cache.numtide.com"
+    ];
     extra-trusted-public-keys = [
       "jamiemagee.cachix.org-1:IzalYx3F8h0uP7EdifGZxqGkTwaQIKXj0i67PuNNYM8="
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
     ];
   };
 
@@ -46,6 +50,10 @@
       url = "github:natsukium/mcp-servers-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Intentionally not following nixpkgs so we get binary cache hits from
+    # https://cache.numtide.com (see nixConfig above).
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
   };

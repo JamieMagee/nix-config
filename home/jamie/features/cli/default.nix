@@ -19,7 +19,7 @@
       devenv
       fastfetchMinimal
       fd
-      github-copilot-cli
+      llm-agents.copilot-cli
       glow
       lazygit
       p7zip

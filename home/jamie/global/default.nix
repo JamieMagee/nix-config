@@ -17,7 +17,9 @@ in
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
   nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
+    overlays = (builtins.attrValues outputs.overlays) ++ [
+      inputs.llm-agents.overlays.default
+    ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
