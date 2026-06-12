@@ -9,17 +9,13 @@
         {
           alias = "Notify when coffee brewing is complete";
           id = "notify_coffee_brewing_complete";
-          description = "Send a notification when the brew end time changes, indicating a brew just finished";
+          description = "Send a notification when a brew finishes, i.e. the brewing binary sensor transitions from on to off";
           triggers = [
             {
               trigger = "state";
-              entity_id = "sensor.last_brew_end_time";
-            }
-          ];
-          conditions = [
-            {
-              condition = "template";
-              value_template = "{{ trigger.from_state.state not in ['unknown', 'unavailable'] and trigger.to_state.state not in ['unknown', 'unavailable'] and trigger.from_state.state != trigger.to_state.state }}";
+              entity_id = "binary_sensor.aiden_brewing";
+              from = "on";
+              to = "off";
             }
           ];
           actions = [
