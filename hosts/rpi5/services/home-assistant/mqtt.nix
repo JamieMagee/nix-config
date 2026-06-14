@@ -279,6 +279,9 @@
             "0x001788010ce32dd5" = defaultLight // {
               friendly_name = "rooftop/light-2";
             };
+            "0xa085e3fffec7ddc4" = {
+              friendly_name = "rooftop/socket";
+            };
 
             # Outdoors
             "0x001788010dabd66b" = defaultLight // {
