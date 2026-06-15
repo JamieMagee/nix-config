@@ -1,5 +1,10 @@
 {
   services.home-assistant.config = {
+    input_boolean = {
+      garage_heaters_resume = {
+        name = "Garage Heaters Resume Pending";
+      };
+    };
     automation = [
       {
         alias = "Turn off HVAC when no one is home";
@@ -120,6 +125,119 @@
             action = "scene.turn_on";
             target = {
               entity_id = "scene.garage_climate_before";
+            };
+          }
+        ];
+      }
+      {
+        alias = "Turn off garage heaters when door open or Jamie away";
+        id = "garage_heaters_off_door_or_away";
+        triggers = [
+          {
+            trigger = "state";
+            entity_id = "binary_sensor.garage_door";
+            to = "on";
+          }
+          {
+            trigger = "zone";
+            entity_id = "person.jamie";
+            zone = "zone.home";
+            event = "leave";
+          }
+        ];
+        conditions = [
+          {
+            condition = "or";
+            conditions = [
+              {
+                condition = "state";
+                entity_id = "climate.mysa_89501c_thermostat";
+                state = "heat";
+              }
+              {
+                condition = "state";
+                entity_id = "climate.mysa_2bbd00_thermostat";
+                state = "heat";
+              }
+            ];
+          }
+        ];
+        actions = [
+          {
+            action = "input_boolean.turn_on";
+            target = {
+              entity_id = "input_boolean.garage_heaters_resume";
+            };
+          }
+          {
+            action = "climate.set_hvac_mode";
+            target = {
+              entity_id = [
+                "climate.mysa_89501c_thermostat"
+                "climate.mysa_2bbd00_thermostat"
+              ];
+            };
+            data = {
+              hvac_mode = "off";
+            };
+          }
+        ];
+      }
+      {
+        alias = "Turn on garage heaters when door closes or Jamie home";
+        id = "garage_heaters_on_door_or_home";
+        triggers = [
+          {
+            trigger = "state";
+            entity_id = "binary_sensor.garage_door";
+            to = "off";
+          }
+          {
+            trigger = "zone";
+            entity_id = "person.jamie";
+            zone = "zone.home";
+            event = "enter";
+          }
+        ];
+        conditions = [
+          {
+            condition = "state";
+            entity_id = "binary_sensor.garage_door";
+            state = "off";
+          }
+          {
+            condition = "state";
+            entity_id = "person.jamie";
+            state = "home";
+          }
+          {
+            condition = "time";
+            after = "06:00:00";
+            before = "22:00:00";
+          }
+          {
+            condition = "state";
+            entity_id = "input_boolean.garage_heaters_resume";
+            state = "on";
+          }
+        ];
+        actions = [
+          {
+            action = "climate.set_hvac_mode";
+            target = {
+              entity_id = [
+                "climate.mysa_89501c_thermostat"
+                "climate.mysa_2bbd00_thermostat"
+              ];
+            };
+            data = {
+              hvac_mode = "heat";
+            };
+          }
+          {
+            action = "input_boolean.turn_off";
+            target = {
+              entity_id = "input_boolean.garage_heaters_resume";
             };
           }
         ];
