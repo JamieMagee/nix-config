@@ -87,6 +87,10 @@ in
         rootFsOptions = {
           atime = "off";
           compression = "zstd";
+          # Large recordsize suits the large media files stored here:
+          # fewer, bigger records mean better throughput and compression
+          # ratios and less metadata overhead on the raidz1 vdev.
+          recordsize = "1M";
         };
         datasets = {
           root = {
