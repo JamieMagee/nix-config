@@ -37,5 +37,11 @@
 
   raspberry-pi-nix.libcamera-overlay.enable = false;
 
+  # raspberry-pi-nix v0.4.1 pins the kernel to its own old nixpkgs (2024-10),
+  # whose kernel derivation lacks the `buildDTBs`/`target` passthru attributes
+  # that current nixpkgs NixOS modules (device-tree.nix, top-level.nix) require.
+  # Building the kernel against this host's nixpkgs restores those attributes.
+  raspberry-pi-nix.pin-inputs.enable = false;
+
   system.stateVersion = "26.05";
 }
