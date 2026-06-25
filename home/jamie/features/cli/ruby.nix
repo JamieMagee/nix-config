@@ -7,8 +7,7 @@
       globalConfig = {
         tools = {
           ruby = [
-            "3.4.8"
-            "4.0.0"
+            "4.0.5"
           ];
         };
         settings = {
