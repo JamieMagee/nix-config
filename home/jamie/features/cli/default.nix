@@ -55,6 +55,7 @@
     };
     fzf = {
       enable = true;
+      historyWidget.command = "";
     };
     jq = {
       enable = true;
