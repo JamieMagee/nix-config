@@ -19,6 +19,15 @@
       "jamie-desktop" = {
         Host = "jamie-desktop.tailnet-0b15.ts.net";
       };
+      "build05.ynh.ovh build06.ynh.ovh build07.ynh.ovh build08.ynh.ovh" = {
+        User = "jamie";
+        Port = 22;
+        IdentityFile = "~/.ssh/id_ed25519_sk";
+        IdentitiesOnly = true;
+        ControlMaster = "auto";
+        ControlPath = "~/.ssh/cm-%C";
+        ControlPersist = "60m";
+      };
     };
   };
 }
