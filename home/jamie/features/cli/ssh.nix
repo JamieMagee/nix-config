@@ -28,6 +28,15 @@
         ControlPath = "~/.ssh/cm-%C";
         ControlPersist = "60m";
       };
+      "nix-build-arm" = {
+        HostName = "aarch64-build-box.nix-community.org";
+        User = "jamiemagee";
+        IdentityFile = "~/.ssh/id_ed25519_sk";
+        IdentitiesOnly = true;
+        ControlMaster = "auto";
+        ControlPath = "~/.ssh/cm-%C";
+        ControlPersist = "60m";
+      };
     };
   };
 }
