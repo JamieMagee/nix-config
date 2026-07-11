@@ -16,6 +16,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     hardware.url = "github:NixOS/nixos-hardware";
+    systems.url = "github:nix-systems/default-linux";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -44,6 +45,7 @@
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.inputs.systems.follows = "systems";
     };
 
     mcp-servers-nix = {
