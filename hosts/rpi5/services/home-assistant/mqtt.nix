@@ -2,7 +2,6 @@
 {
   systemd.services.zigbee2mqtt.serviceConfig = {
     Restart = lib.mkForce "always";
-    RestartSec = "30";
   };
 
   services = {
