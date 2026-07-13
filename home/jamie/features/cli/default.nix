@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ./fish.nix
@@ -19,7 +19,7 @@
       devenv
       fastfetchMinimal
       fd
-      llm-agents.copilot-cli
+      inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.copilot-cli
       glow
       lazygit
       p7zip
