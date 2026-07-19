@@ -27,7 +27,7 @@ jobs:
 
       - name: Build SD card image
         run: |
-          nix build '.#nixosConfigurations.rpi5.config.system.build.sdImage'
+          nix build '.#nixosConfigurations.rpi5-image.config.system.build.sdImage'
 
           # Create a more descriptive filename
           COMMIT_SHA="${GITHUB_SHA:0:8}"
