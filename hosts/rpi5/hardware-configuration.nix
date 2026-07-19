@@ -1,14 +1,10 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   imports = [
-    inputs.raspberry-pi-nix.nixosModules.raspberry-pi
-
+    inputs.hardware.nixosModules.raspberry-pi-5
     # inputs.disko.nixosModules.disko
     # ./disko.nix
   ];
-
-  # Override the firmware partition ID to match the actual disk
-  sdImage.firmwarePartitionID = "0x2175794e";
 
   fileSystems = {
     "/" = {
@@ -24,30 +20,24 @@
     };
   };
 
-  hardware = {
-    raspberry-pi = {
-      config = {
-        all = {
-          base-dt-params = {
-            usb_max_current_enable = {
-              enable = true;
-              value = 1;
-            };
-            pciex1_gen = {
-              value = 3;
-              enable = true;
-            };
-          };
-        };
+  hardware.raspberry-pi = {
+    configtxt.settings.all.dtparam = lib.mkAfter [
+      "usb_max_current_enable=1"
+      "pciex1_gen=3"
+    ];
+    firmware = {
+      enable = true;
+      uboot = {
+        enable = true;
       };
     };
   };
 
-  boot.kernelParams = [ "rootflags=data=journal" ];
-  # raspberry-pi-nix uses boot.loader.initScript, not systemd stage 1
-  # https://github.com/NixOS/nixpkgs/pull/435781
-  boot.initrd.systemd.enable = false;
+  boot = {
+    kernelParams = [ "rootflags=data=journal" ];
+    # The Pi has no TPM, and linux-rpi omits these generic initrd modules.
+    initrd.systemd.tpm2.enable = false;
+  };
 
-  raspberry-pi-nix.board = "bcm2712";
   nixpkgs.hostPlatform.system = "aarch64-linux";
 }

@@ -30,18 +30,10 @@
     # };
   };
 
-  # RPi5 kernel doesn't support the nixpkgs default for mmap ASLR entropy
+  # The linux-rpi bcm2712 defconfig caps mmap ASLR entropy at 30 bits.
   boot.kernel.sysctl."vm.mmap_rnd_bits" = lib.mkForce null;
 
   hardware.bluetooth.enable = true;
-
-  raspberry-pi-nix.libcamera-overlay.enable = false;
-
-  # raspberry-pi-nix v0.4.1 pins the kernel to its own old nixpkgs (2024-10),
-  # whose kernel derivation lacks the `buildDTBs`/`target` passthru attributes
-  # that current nixpkgs NixOS modules (device-tree.nix, top-level.nix) require.
-  # Building the kernel against this host's nixpkgs restores those attributes.
-  raspberry-pi-nix.pin-inputs.enable = false;
 
   system.stateVersion = "26.05";
 }
