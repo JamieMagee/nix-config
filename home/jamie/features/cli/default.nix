@@ -17,7 +17,7 @@
       # bitwarden-cli
       deploy-rs
       devenv
-      fastfetchMinimal
+      fastfetch-unwrapped
       fd
       inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.copilot-cli
       glow
