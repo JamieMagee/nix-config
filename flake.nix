@@ -15,7 +15,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    hardware.url = "github:NixOS/nixos-hardware";
+    hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -25,6 +28,7 @@
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.inputs.systems.follows = "systems";
     };
 
     disko = {
@@ -34,12 +38,19 @@
 
     impermanence = {
       url = "github:nix-community/impermanence";
+      inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors = {
+      url = "github:misterio77/nix-colors";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
 
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+      inputs.flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
 
     mcp-servers-nix = {
       url = "github:natsukium/mcp-servers-nix";
@@ -48,7 +59,12 @@
 
     # Intentionally not following nixpkgs so we get binary cache hits from
     # https://cache.numtide.com (see nixConfig above).
-    llm-agents.url = "github:numtide/llm-agents.nix";
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.systems.follows = "systems";
+    };
+
+    systems.url = "github:nix-systems/default";
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
   };
