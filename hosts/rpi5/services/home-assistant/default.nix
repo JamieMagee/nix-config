@@ -107,8 +107,8 @@
   };
 
   systemd.tmpfiles.rules = [
-    "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
-    "f ${config.services.home-assistant.configDir}/scenes.yaml 0755 hass hass"
-    "f ${config.services.home-assistant.configDir}/secrets.yaml 0755 hass hass"
+    "f ${config.services.home-assistant.configDir}/automations.yaml 0640 hass hass"
+    "f ${config.services.home-assistant.configDir}/scenes.yaml 0640 hass hass"
+    "f ${config.services.home-assistant.configDir}/secrets.yaml 0600 hass hass"
   ];
 }
