@@ -35,5 +35,7 @@
 
   hardware.bluetooth.enable = true;
 
+  services.chrony.extraFlags = [ "-s" ];
+
   system.stateVersion = "26.05";
 }
