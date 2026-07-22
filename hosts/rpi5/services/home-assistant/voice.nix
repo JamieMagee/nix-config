@@ -55,6 +55,7 @@ in
   };
 
   systemd.tmpfiles.rules = [
+    "d ${config.services.home-assistant.configDir}/custom_sentences 0755 hass hass"
     "d ${config.services.home-assistant.configDir}/custom_sentences/en 0755 hass hass"
     "L+ ${config.services.home-assistant.configDir}/custom_sentences/en/voice.yaml - - - - ${customSentences}"
   ];
