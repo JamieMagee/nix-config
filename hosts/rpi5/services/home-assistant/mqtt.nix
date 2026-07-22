@@ -314,6 +314,7 @@
       enable = true;
       listeners = [
         {
+          address = "::1";
           settings = {
             allow_anonymous = true;
           };
