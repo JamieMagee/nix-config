@@ -13,10 +13,10 @@
         port = 53;
         ratelimit = 0;
         enable_dnssec = true;
-        use_http3_upstreams = true;
+        use_http3_upstreams = false;
         cache_optimistic = true;
         upstream_dns = [
-          "h3://security.cloudflare-dns.com/dns-query"
+          "https://security.cloudflare-dns.com/dns-query"
           "https://dns11.quad9.net/dns-query"
         ];
         bootstrap_dns = [
@@ -30,7 +30,7 @@
           "2606:4700:4700::1002"
         ];
         local_ptr_upstreams = [
-          "192.168.1.1"
+          "10.10.10.1"
           "100.100.100.100"
         ];
       };
