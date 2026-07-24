@@ -67,7 +67,7 @@
             "0xb43a31fffe34b129" = defaultSwitch // {
               friendly_name = "garage/switch-outdoors";
             };
-            "0xb43a31fffe30b639" = defaultSwitch // {
+            "0x0c2a6ffffef70c00" = defaultSwitch // {
               friendly_name = "garage/switch-indoors";
             };
             "0x001788010de59fb4" = defaultLight // {
@@ -277,6 +277,9 @@
             };
             "0x001788010ce32dd5" = defaultLight // {
               friendly_name = "rooftop/light-2";
+            };
+            "0x001788010fd3cdb2" = defaultLight // {
+              friendly_name = "rooftop/string-lights";
             };
             "0xa085e3fffec7ddc4" = {
               friendly_name = "rooftop/socket";

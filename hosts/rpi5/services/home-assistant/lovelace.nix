@@ -198,6 +198,19 @@ in
                     navigation_path = "/nixos-lovelace/upstairs";
                   };
                 }
+                {
+                  type = "custom:mushroom-template-card";
+                  primary = "Roof";
+                  secondary = "{{ 'On' if is_state('light.rooftop_lights', 'on') or is_state('light.0x001788010fd3cdb2', 'on') else 'Off' }}";
+                  icon = "mdi:home-roof";
+                  icon_color = "{{ 'amber' if is_state('light.rooftop_lights', 'on') or is_state('light.0x001788010fd3cdb2', 'on') else 'grey' }}";
+                  badge_icon = "{{ 'mdi:power-plug' if is_state('switch.0xa085e3fffec7ddc4', 'on') else '' }}";
+                  badge_color = "green";
+                  tap_action = {
+                    action = "navigate";
+                    navigation_path = "/nixos-lovelace/rooftop";
+                  };
+                }
               ];
             }
 
@@ -1101,6 +1114,88 @@ in
                   };
                 }
               ];
+            }
+          ];
+        }
+
+        # ── Rooftop ──────────────────────────────────────
+        {
+          title = "Rooftop";
+          path = "rooftop";
+          icon = "mdi:home-roof";
+          badges = [ ];
+          cards = [
+            # Status
+            {
+              type = "custom:mushroom-chips-card";
+              chips = [
+                {
+                  type = "weather";
+                  entity = "weather.pirateweather";
+                  show_conditions = true;
+                  show_temperature = true;
+                }
+                {
+                  type = "entity";
+                  entity = "sensor.0xa085e3fffec7ddc4_power";
+                  name = "Outlet";
+                  icon = "mdi:flash";
+                }
+              ];
+            }
+
+            # Lighting
+            {
+              type = "custom:bubble-card";
+              card_type = "separator";
+              name = "Lighting";
+              icon = "mdi:lightbulb-group";
+            }
+            {
+              type = "grid";
+              columns = 2;
+              square = false;
+              cards = [
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.rooftop_lights";
+                  name = "Main Lights";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = true;
+                }
+                {
+                  type = "custom:mushroom-light-card";
+                  entity = "light.0x001788010fd3cdb2";
+                  name = "String Lights";
+                  show_brightness_control = true;
+                  layout = "vertical";
+                  fill_container = true;
+                }
+              ];
+            }
+            {
+              type = "custom:mushroom-select-card";
+              entity = "select.0x001788010fd3cdb2_gradient_scene";
+              name = "String Light Scene";
+              icon = "mdi:palette";
+            }
+
+            # Power
+            {
+              type = "custom:bubble-card";
+              card_type = "separator";
+              name = "Power";
+              icon = "mdi:power-plug";
+            }
+            {
+              type = "custom:mushroom-entity-card";
+              entity = "switch.0xa085e3fffec7ddc4";
+              name = "Outlet";
+              icon = "mdi:power-socket-us";
+              tap_action = {
+                action = "toggle";
+              };
             }
           ];
         }
