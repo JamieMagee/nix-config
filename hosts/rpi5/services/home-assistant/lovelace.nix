@@ -632,9 +632,9 @@ in
               cards = [
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.kitchen_switch_stairs_light";
+                  entity = "light.garage_kitchen_stairs_lights";
                   name = "Kit. Stairs";
-                  show_brightness_control = true;
+                  show_brightness_control = false;
                   layout = "vertical";
                   fill_container = true;
                 }
