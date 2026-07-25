@@ -172,7 +172,7 @@
           conditions = [
             {
               condition = "template";
-              value_template = ''{{ is_state('person.' ~ trigger.id, 'home') }}'';
+              value_template = "{{ is_state('person.' ~ trigger.id, 'home') }}";
             }
           ];
           actions = [

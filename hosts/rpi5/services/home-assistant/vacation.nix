@@ -222,8 +222,7 @@
             }
             {
               variables = {
-                video_id = ''
-                  {{ ['zomZywCAPTA', 'jfKfPfyJRdk'] | random }}'';
+                video_id = "{{ ['zomZywCAPTA', 'jfKfPfyJRdk'] | random }}";
               };
             }
             {
