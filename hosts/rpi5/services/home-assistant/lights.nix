@@ -211,9 +211,20 @@
           name = "Garage lights";
           lights = [
             "light.garage_indoors_lights"
-            # "light.garage_stairs_lights"
           ];
           min_brightness = 100;
+          intercept = true;
+          take_over_control = true;
+          detect_non_ha_changes = true;
+          skip_redundant_commands = true;
+        }
+        {
+          name = "Stair lights";
+          lights = [
+            "light.garage_kitchen_stairs_lights"
+          ];
+          min_brightness = 100;
+          transition = 1;
           intercept = true;
           take_over_control = true;
           detect_non_ha_changes = true;
