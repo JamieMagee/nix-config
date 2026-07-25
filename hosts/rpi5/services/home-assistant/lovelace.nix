@@ -13,29 +13,59 @@ let
   s7VacuumIcons =
     let
       mopIntensity = "select.s7_max_ultra_mop_intensity";
-      mkIntensity = { value, label, icon }: {
-        icon_id = "wbm_${value}";
-        menu_id = "water_box_mode";
-        entity = mopIntensity;
-        inherit icon label;
-        conditions = [
-          { entity = mopIntensity; inherit value; }
-        ];
-        tap_action = {
-          action = "call-service";
-          service = "select.select_option";
-          service_data = {
-            entity_id = mopIntensity;
-            option = value;
+      mkIntensity =
+        {
+          value,
+          label,
+          icon,
+        }:
+        {
+          icon_id = "wbm_${value}";
+          menu_id = "water_box_mode";
+          entity = mopIntensity;
+          inherit icon label;
+          conditions = [
+            {
+              entity = mopIntensity;
+              inherit value;
+            }
+          ];
+          tap_action = {
+            action = "call-service";
+            service = "select.select_option";
+            service_data = {
+              entity_id = mopIntensity;
+              option = value;
+            };
           };
         };
-      };
-    in [
-      { icon_id = "water_box_mode"; replace_config = true; remove = true; }
-      { icon_id = "mop_mode"; replace_config = true; remove = true; }
-      (mkIntensity { value = "mild"; label = "Mild"; icon = "mdi:water-minus"; })
-      (mkIntensity { value = "moderate"; label = "Standard"; icon = "mdi:water"; })
-      (mkIntensity { value = "intense"; label = "Intense"; icon = "mdi:water-plus"; })
+    in
+    [
+      {
+        icon_id = "water_box_mode";
+        replace_config = true;
+        remove = true;
+      }
+      {
+        icon_id = "mop_mode";
+        replace_config = true;
+        remove = true;
+      }
+      (mkIntensity {
+        value = "mild";
+        label = "Mild";
+        icon = "mdi:water-minus";
+      })
+      (mkIntensity {
+        value = "moderate";
+        label = "Standard";
+        icon = "mdi:water";
+      })
+      (mkIntensity {
+        value = "intense";
+        label = "Intense";
+        icon = "mdi:water-plus";
+      })
     ];
 in
 {
@@ -201,9 +231,9 @@ in
                 {
                   type = "custom:mushroom-template-card";
                   primary = "Roof";
-                  secondary = "{{ 'On' if is_state('light.rooftop_lights', 'on') or is_state('light.0x001788010fd3cdb2', 'on') else 'Off' }}";
+                  secondary = "{{ 'On' if is_state('light.rooftop_lights', 'on') or is_state('light.rooftop_string_lights', 'on') else 'Off' }}";
                   icon = "mdi:home-roof";
-                  icon_color = "{{ 'amber' if is_state('light.rooftop_lights', 'on') or is_state('light.0x001788010fd3cdb2', 'on') else 'grey' }}";
+                  icon_color = "{{ 'amber' if is_state('light.rooftop_lights', 'on') or is_state('light.rooftop_string_lights', 'on') else 'grey' }}";
                   badge_icon = "{{ 'mdi:power-plug' if is_state('switch.0xa085e3fffec7ddc4', 'on') else '' }}";
                   badge_color = "green";
                   tap_action = {
@@ -863,33 +893,163 @@ in
                       predefined_selections = [
                         {
                           id = "16";
-                          icon = { name = "mdi:broom"; x = 20575; y = 27375; };
-                          label = { text = "Closet"; x = 20575; y = 27375; offset_y = 35; };
-                          outline = [ [ 19650 26500 ] [ 21500 26500 ] [ 21500 28250 ] [ 19650 28250 ] ];
+                          icon = {
+                            name = "mdi:broom";
+                            x = 20575;
+                            y = 27375;
+                          };
+                          label = {
+                            text = "Closet";
+                            x = 20575;
+                            y = 27375;
+                            offset_y = 35;
+                          };
+                          outline = [
+                            [
+                              19650
+                              26500
+                            ]
+                            [
+                              21500
+                              26500
+                            ]
+                            [
+                              21500
+                              28250
+                            ]
+                            [
+                              19650
+                              28250
+                            ]
+                          ];
                         }
                         {
                           id = "17";
-                          icon = { name = "mdi:broom"; x = 26175; y = 26050; };
-                          label = { text = "Office"; x = 26175; y = 26050; offset_y = 35; };
-                          outline = [ [ 24500 24950 ] [ 27850 24950 ] [ 27850 27150 ] [ 24500 27150 ] ];
+                          icon = {
+                            name = "mdi:broom";
+                            x = 26175;
+                            y = 26050;
+                          };
+                          label = {
+                            text = "Office";
+                            x = 26175;
+                            y = 26050;
+                            offset_y = 35;
+                          };
+                          outline = [
+                            [
+                              24500
+                              24950
+                            ]
+                            [
+                              27850
+                              24950
+                            ]
+                            [
+                              27850
+                              27150
+                            ]
+                            [
+                              24500
+                              27150
+                            ]
+                          ];
                         }
                         {
                           id = "18";
-                          icon = { name = "mdi:broom"; x = 23150; y = 28025; };
-                          label = { text = "Bedroom"; x = 23150; y = 28025; offset_y = 35; };
-                          outline = [ [ 21400 26550 ] [ 24900 26550 ] [ 24900 29500 ] [ 21400 29500 ] ];
+                          icon = {
+                            name = "mdi:broom";
+                            x = 23150;
+                            y = 28025;
+                          };
+                          label = {
+                            text = "Bedroom";
+                            x = 23150;
+                            y = 28025;
+                            offset_y = 35;
+                          };
+                          outline = [
+                            [
+                              21400
+                              26550
+                            ]
+                            [
+                              24900
+                              26550
+                            ]
+                            [
+                              24900
+                              29500
+                            ]
+                            [
+                              21400
+                              29500
+                            ]
+                          ];
                         }
                         {
                           id = "19";
-                          icon = { name = "mdi:broom"; x = 26425; y = 28325; };
-                          label = { text = "Bathroom"; x = 26425; y = 28325; offset_y = 35; };
-                          outline = [ [ 24950 27150 ] [ 27900 27150 ] [ 27900 29500 ] [ 24950 29500 ] ];
+                          icon = {
+                            name = "mdi:broom";
+                            x = 26425;
+                            y = 28325;
+                          };
+                          label = {
+                            text = "Bathroom";
+                            x = 26425;
+                            y = 28325;
+                            offset_y = 35;
+                          };
+                          outline = [
+                            [
+                              24950
+                              27150
+                            ]
+                            [
+                              27900
+                              27150
+                            ]
+                            [
+                              27900
+                              29500
+                            ]
+                            [
+                              24950
+                              29500
+                            ]
+                          ];
                         }
                         {
                           id = "20";
-                          icon = { name = "mdi:broom"; x = 22550; y = 25475; };
-                          label = { text = "Hallway"; x = 22550; y = 25475; offset_y = 35; };
-                          outline = [ [ 20150 24450 ] [ 24950 24450 ] [ 24950 26500 ] [ 20150 26500 ] ];
+                          icon = {
+                            name = "mdi:broom";
+                            x = 22550;
+                            y = 25475;
+                          };
+                          label = {
+                            text = "Hallway";
+                            x = 22550;
+                            y = 25475;
+                            offset_y = 35;
+                          };
+                          outline = [
+                            [
+                              20150
+                              24450
+                            ]
+                            [
+                              24950
+                              24450
+                            ]
+                            [
+                              24950
+                              26500
+                            ]
+                            [
+                              20150
+                              26500
+                            ]
+                          ];
                         }
                       ];
                     }
@@ -904,15 +1064,67 @@ in
                   predefined_selections = [
                     {
                       id = "16";
-                      icon = { name = "mdi:broom"; x = 28125; y = 25375; };
-                      label = { text = "Living Room"; x = 28125; y = 25375; offset_y = 35; };
-                      outline = [ [ 26100 24000 ] [ 30150 24000 ] [ 30150 26750 ] [ 26100 26750 ] ];
+                      icon = {
+                        name = "mdi:broom";
+                        x = 28125;
+                        y = 25375;
+                      };
+                      label = {
+                        text = "Living Room";
+                        x = 28125;
+                        y = 25375;
+                        offset_y = 35;
+                      };
+                      outline = [
+                        [
+                          26100
+                          24000
+                        ]
+                        [
+                          30150
+                          24000
+                        ]
+                        [
+                          30150
+                          26750
+                        ]
+                        [
+                          26100
+                          26750
+                        ]
+                      ];
                     }
                     {
                       id = "17";
-                      icon = { name = "mdi:broom"; x = 25650; y = 26200; };
-                      label = { text = "Kitchen"; x = 25650; y = 26200; offset_y = 35; };
-                      outline = [ [ 22400 24600 ] [ 28900 24600 ] [ 28900 27800 ] [ 22400 27800 ] ];
+                      icon = {
+                        name = "mdi:broom";
+                        x = 25650;
+                        y = 26200;
+                      };
+                      label = {
+                        text = "Kitchen";
+                        x = 25650;
+                        y = 26200;
+                        offset_y = 35;
+                      };
+                      outline = [
+                        [
+                          22400
+                          24600
+                        ]
+                        [
+                          28900
+                          24600
+                        ]
+                        [
+                          28900
+                          27800
+                        ]
+                        [
+                          22400
+                          27800
+                        ]
+                      ];
                     }
                   ];
                 }
@@ -1166,7 +1378,7 @@ in
                 }
                 {
                   type = "custom:mushroom-light-card";
-                  entity = "light.0x001788010fd3cdb2";
+                  entity = "light.rooftop_string_lights";
                   name = "String Lights";
                   show_brightness_control = true;
                   layout = "vertical";
@@ -1176,7 +1388,7 @@ in
             }
             {
               type = "custom:mushroom-select-card";
-              entity = "select.0x001788010fd3cdb2_gradient_scene";
+              entity = "select.rooftop_string_lights_gradient_scene";
               name = "String Light Scene";
               icon = "mdi:palette";
             }

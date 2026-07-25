@@ -48,6 +48,7 @@
                   "light.garage_outdoor_lights"
                   "light.front_porch_lights"
                   "light.balcony_lights"
+                  "light.rooftop_string_lights"
                 ];
               };
             }
@@ -70,7 +71,36 @@
                   "light.garage_outdoor_lights"
                   "light.front_porch_lights"
                   "light.balcony_lights"
+                  "light.rooftop_string_lights"
                 ];
+              };
+            }
+          ];
+        }
+        {
+          alias = "Turn off rooftop string lights after dusk";
+          id = "turn_off_rooftop_string_lights_after_dusk";
+          description = "Turn off the Festavia one hour after civil dusk, with an 11 PM fallback.";
+          triggers = [
+            {
+              trigger = "numeric_state";
+              entity_id = "sun.sun";
+              attribute = "elevation";
+              below = -6;
+              for = {
+                hours = 1;
+              };
+            }
+            {
+              trigger = "time";
+              at = "23:00:00";
+            }
+          ];
+          actions = [
+            {
+              action = "light.turn_off";
+              target = {
+                entity_id = "light.rooftop_string_lights";
               };
             }
           ];
