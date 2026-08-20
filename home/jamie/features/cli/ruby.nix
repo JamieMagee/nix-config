@@ -1,6 +1,8 @@
 {
   # pkgs.ruby doesn't play well with psych
   # Install ruby with mise instead
+  home.sessionVariables.MISE_RUBY_COMPILE = "false";
+
   programs = {
     mise = {
       enable = true;
