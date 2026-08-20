@@ -9,9 +9,8 @@
           {
             trigger = "numeric_state";
             entity_id = [
-              "weather.pirateweather"
+              "sensor.pirateweather_uv_index"
             ];
-            attribute = "uv_index";
             above = 5;
           }
         ];
@@ -20,7 +19,7 @@
             action = "notify.everyone";
             data = {
               title = "High UV index";
-              message = "The UV index is {{ trigger.to_state.attributes.uv_index }}";
+              message = "The UV index is {{ trigger.to_state.state }}";
               data = {
                 tag = "uv_index";
                 notification_icon = "mdi:weather-sunny-alert";
