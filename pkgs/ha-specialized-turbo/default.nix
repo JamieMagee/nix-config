@@ -8,18 +8,19 @@
 buildHomeAssistantComponent rec {
   owner = "JamieMagee";
   domain = "specialized_turbo";
-  version = "0.3.3";
+  version = "0.5.8";
 
   src = fetchFromGitHub {
     owner = "JamieMagee";
     repo = "ha-specialized-turbo";
     tag = "v${version}";
-    hash = "sha256-65puw8bUpnGZ4qpq9AwR8uEhGD7ktJQp/KSQidoZajA=";
+    hash = "sha256-iGV6jrVsdNoV259nqQ18N9Yp2487O+0ZF/5Uul7q8U8=";
   };
 
   dependencies = [
     specialized-turbo
-  ];
+  ]
+  ++ specialized-turbo.optional-dependencies.cloud;
 
   ignoreVersionRequirement = [
     "specialized-turbo"

@@ -6,14 +6,14 @@
 
 home-assistant.python3Packages.buildPythonPackage rec {
   pname = "specialized-turbo";
-  version = "0.3.0";
+  version = "0.7.7";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "JamieMagee";
     repo = "specialized-turbo";
     tag = "v${version}";
-    hash = "sha256-/h87J+8dJetz6aXDIyMqix+J4NspNIz74OfL/nEQWgg=";
+    hash = "sha256-DAMgTj5SQdI9/CU/lG8SFeVK4QyJxJVWN44cI3WQGvE=";
   };
 
   build-system = with home-assistant.python3Packages; [
@@ -24,6 +24,10 @@ home-assistant.python3Packages.buildPythonPackage rec {
     bleak
     cryptography
   ];
+
+  optional-dependencies = with home-assistant.python3Packages; {
+    cloud = [ httpx ];
+  };
 
   pythonImportsCheck = [ "specialized_turbo" ];
 
