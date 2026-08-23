@@ -6,14 +6,14 @@
 
 home-assistant.python3Packages.buildPythonPackage rec {
   pname = "specialized-turbo";
-  version = "0.7.7";
+  version = "0.7.8";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "JamieMagee";
     repo = "specialized-turbo";
     tag = "v${version}";
-    hash = "sha256-DAMgTj5SQdI9/CU/lG8SFeVK4QyJxJVWN44cI3WQGvE=";
+    hash = "sha256-kc4o4pj/JcyFXYyRXlCW4XAyFmZJEnqitndpSlVpUpY=";
   };
 
   build-system = with home-assistant.python3Packages; [
