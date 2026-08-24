@@ -4,7 +4,7 @@
     enable = true;
     monospace = {
       family = "Cascadia Code";
-      package = pkgs.nerdfonts.override { fonts = [ "CascadiaCode" ]; };
+      package = pkgs.nerd-fonts.caskaydia-cove;
     };
     regular = {
       family = "Fira Sans";
