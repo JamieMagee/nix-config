@@ -11,7 +11,7 @@
   ];
 
   home.packages = with pkgs; [
-    bitwarden
+    bitwarden-desktop
     libreoffice-fresh
     masterpdfeditor4
     signal-desktop
