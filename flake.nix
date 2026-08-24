@@ -172,7 +172,6 @@
         };
       };
 
-      # Add basic checks
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      checks = forAllSystems (system: deploy-rs.lib.${system}.deployChecks self.deploy);
     };
 }
