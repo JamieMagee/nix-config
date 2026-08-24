@@ -3,38 +3,40 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode-fhs;
-    extensions = with pkgs.vscode-extensions; [
-      arcticicestudio.nord-visual-studio-code
-      pkief.material-icon-theme
-      eamodio.gitlens
-    ];
-    userSettings = {
-      "editor.fontFamily" = "'CaskaydiaCove NF Mono'";
-      "editor.fontLigatures" = true;
-      "editor.formatOnPaste" = true;
-      "editor.formatOnSave" = true;
-      "editor.formatOnType" = true;
-      "editor.renderIndentGuides" = true;
-      "editor.renderWhitespace" = "all";
-      "editor.suggestSelection" = "first";
-      "editor.tabSize" = 2;
-      "editor.wordWrap" = "on";
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [
+        arcticicestudio.nord-visual-studio-code
+        pkief.material-icon-theme
+        eamodio.gitlens
+      ];
+      userSettings = {
+        "editor.fontFamily" = "'CaskaydiaCove NF Mono'";
+        "editor.fontLigatures" = true;
+        "editor.formatOnPaste" = true;
+        "editor.formatOnSave" = true;
+        "editor.formatOnType" = true;
+        "editor.renderIndentGuides" = true;
+        "editor.renderWhitespace" = "all";
+        "editor.suggestSelection" = "first";
+        "editor.tabSize" = 2;
+        "editor.wordWrap" = "on";
 
-      "explorer.confirmDelete" = false;
-      "explorer.confirmDragAndDrop" = false;
+        "explorer.confirmDelete" = false;
+        "explorer.confirmDragAndDrop" = false;
 
-      "workbench.colorTheme" = "Nord";
-      "workbench.startupEditor" = "none";
+        "workbench.colorTheme" = "Nord";
+        "workbench.startupEditor" = "none";
 
-      "window.titleBarStyle" = "custom";
+        "window.titleBarStyle" = "custom";
 
-      "files.autoSave" = "afterDelay";
+        "files.autoSave" = "afterDelay";
 
-      "breadcrumbs.enabled" = true;
+        "breadcrumbs.enabled" = true;
 
-      "github.copilot.enable" = {
-        "*" = true;
-        "markdown" = true;
+        "github.copilot.enable" = {
+          "*" = true;
+          "markdown" = true;
+        };
       };
     };
   };
