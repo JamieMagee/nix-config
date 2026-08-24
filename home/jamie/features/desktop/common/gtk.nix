@@ -1,12 +1,8 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }:
-let
-  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
-in
 rec {
   gtk = {
     enable = true;
@@ -15,8 +11,8 @@ rec {
       size = 12;
     };
     theme = {
-      name = "${config.colorscheme.slug}";
-      package = gtkThemeFromScheme { scheme = config.colorscheme; };
+      name = "Nordic";
+      package = pkgs.nordic;
     };
     iconTheme = {
       name = "Papirus";

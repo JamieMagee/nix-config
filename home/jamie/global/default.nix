@@ -1,21 +1,11 @@
 {
-  inputs,
   lib,
   config,
-  pkgs,
   outputs,
   ...
 }:
-let
-  inherit (inputs.nix-colors) colorSchemes;
-in
 {
-  imports =
-    with inputs;
-    [
-      nix-colors.homeManagerModule
-    ]
-    ++ (builtins.attrValues outputs.homeManagerModules);
+  imports = builtins.attrValues outputs.homeManagerModules;
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
@@ -23,10 +13,6 @@ in
       allowUnfreePredicate = _: true;
     };
   };
-
-  colorscheme = lib.mkDefault colorSchemes.nord;
-
-  home.file.".colorscheme".text = config.colorscheme.slug;
 
   programs = {
     home-manager.enable = true;

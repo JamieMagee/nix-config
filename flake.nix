@@ -42,11 +42,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors = {
-      url = "github:misterio77/nix-colors";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
       inputs.flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
