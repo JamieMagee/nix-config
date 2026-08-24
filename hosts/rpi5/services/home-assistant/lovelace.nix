@@ -2,6 +2,23 @@
 let
   cardMod = pkgs.home-assistant-custom-lovelace-modules.card-mod;
 
+  # The Roborock integration already reports maintenance durations in hours, but
+  # xiaomi-vacuum-map-card treats them as seconds. Keep the generated tiles and
+  # disable their seconds-to-hours conversion.
+  s7VacuumTiles =
+    map
+      (tile_id: {
+        inherit tile_id;
+        replace_config = true;
+        multiplier = 1;
+      })
+      [
+        "main_brush_left"
+        "sensor_dirty_left"
+        "filter_left"
+        "side_brush_left"
+      ];
+
   # xiaomi-vacuum-map-card auto-generates `water_box_mode` and `mop_mode` dropdowns
   # mirroring every option the Roborock integration exposes. For the S7 family that
   # includes options the Roborock app hides during normal vacuum ops (off / custom,
@@ -874,6 +891,8 @@ in
               };
               icons = s7VacuumIcons;
               append_icons = true;
+              tiles = s7VacuumTiles;
+              append_tiles = true;
               additional_presets = [
                 {
                   preset_name = "Upstairs";
@@ -887,6 +906,8 @@ in
                   };
                   icons = s7VacuumIcons;
                   append_icons = true;
+                  tiles = s7VacuumTiles;
+                  append_tiles = true;
                   map_modes = [
                     {
                       template = "vacuum_clean_segment";
