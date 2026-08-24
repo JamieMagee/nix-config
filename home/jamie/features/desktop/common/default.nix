@@ -12,7 +12,7 @@
 
   home.packages = with pkgs; [
     bitwarden-desktop
-    libreoffice-fresh
+    libreoffice-stable
     masterpdfeditor4
     signal-desktop
     slack
