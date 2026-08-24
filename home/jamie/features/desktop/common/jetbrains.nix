@@ -6,7 +6,7 @@
     [
       # IDE
       gateway
-      idea-ultimate
+      idea
       rider
       webstorm
 
