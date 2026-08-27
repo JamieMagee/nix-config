@@ -1,10 +1,11 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./fish.nix
     ./git.nix
     ./jujutsu.nix
     ./micro.nix
+    ./mcp.nix
     ./nix.nix
     ./ssh.nix
     ./starship.nix
@@ -19,7 +20,6 @@
       devenv
       fastfetch-unwrapped
       fd
-      inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.copilot-cli
       glow
       lazygit
       p7zip
