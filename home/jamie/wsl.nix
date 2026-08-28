@@ -6,6 +6,7 @@
 {
   imports = [
     ./global
+    ./wsl/tailscale.nix
 
     ./features/cli
     # ./features/cli/opencode.nix
@@ -34,7 +35,6 @@
 
       # Go
       go_1_26
-
       yt-dlp
     ];
   };
