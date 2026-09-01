@@ -210,7 +210,7 @@
         {
           name = "Garage lights";
           lights = [
-            "light.garage_indoors_lights"
+            "light.garage_indoors"
           ];
           min_brightness = 100;
           intercept = true;
