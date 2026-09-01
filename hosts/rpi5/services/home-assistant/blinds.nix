@@ -162,20 +162,68 @@
       {
         alias = "Close blinds at sunset";
         id = "close_blinds_sunset";
+        description = "Close most blinds at 6 PM on late-sunset days, then close every blind at sunset.";
         triggers = [
           {
             trigger = "sun";
             event = "sunset";
+            id = "sunset";
           }
           {
             trigger = "time";
             at = "18:00:00";
+            id = "six_pm";
           }
         ];
         actions = [
           {
-            action = "cover.close_cover";
-            entity_id = "cover.all_blinds";
+            choose = [
+              {
+                conditions = [
+                  {
+                    condition = "trigger";
+                    id = "sunset";
+                  }
+                ];
+                sequence = [
+                  {
+                    action = "cover.close_cover";
+                    target = {
+                      entity_id = "cover.all_blinds";
+                    };
+                  }
+                ];
+              }
+              {
+                conditions = [
+                  {
+                    condition = "trigger";
+                    id = "six_pm";
+                  }
+                  {
+                    condition = "state";
+                    entity_id = "sun.sun";
+                    state = "above_horizon";
+                  }
+                ];
+                sequence = [
+                  {
+                    action = "cover.close_cover";
+                    target = {
+                      entity_id = [
+                        "cover.living_room_big_shade"
+                        "cover.living_room_small_shade"
+                        "cover.bedroom_big_shade"
+                        "cover.bedroom_small_shade"
+                        "cover.office_shade"
+                        "cover.bathroom_big_shade"
+                        "cover.bathroom_small_shade"
+                      ];
+                    };
+                  }
+                ];
+              }
+            ];
           }
         ];
       }
