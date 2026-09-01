@@ -110,6 +110,56 @@
 
     automation = [
       {
+        alias = "Set daytime blinds when no-one is home";
+        id = "set_daytime_blinds_no_one_home";
+        description = "Apply the daytime blind scenes while the house is empty and the sun is up, before 6 PM.";
+        triggers = [
+          {
+            trigger = "state";
+            entity_id = "zone.home";
+            to = "0";
+            for = {
+              minutes = 1;
+            };
+          }
+          {
+            trigger = "sun";
+            event = "sunrise";
+          }
+          {
+            trigger = "homeassistant";
+            event = "start";
+          }
+        ];
+        conditions = [
+          {
+            condition = "state";
+            entity_id = "zone.home";
+            state = "0";
+          }
+          {
+            condition = "state";
+            entity_id = "sun.sun";
+            state = "above_horizon";
+          }
+          {
+            condition = "time";
+            before = "18:00:00";
+          }
+        ];
+        actions = [
+          {
+            action = "scene.turn_on";
+            target = {
+              entity_id = [
+                "scene.downstairs_blinds_daytime"
+                "scene.upstairs_blinds_daytime"
+              ];
+            };
+          }
+        ];
+      }
+      {
         alias = "Close blinds at sunset";
         id = "close_blinds_sunset";
         triggers = [
