@@ -104,6 +104,102 @@ in
     config.frontend.extra_module_url = [
       "/local/nixos-lovelace-modules/${cardMod.entrypoint or "card-mod.js"}?${cardMod.version}"
     ];
+    config.input_select.location_history_range = {
+      name = "History window";
+      # Restore the last selection; the first option is the default on first use.
+      options = [
+        "Last 24 hours"
+        "Last hour"
+        "Last 7 days"
+      ];
+    };
+    config.lovelace.dashboards.nixos-locations = {
+      mode = "yaml";
+      title = "Locations";
+      icon = "mdi:map-marker-path";
+      show_in_sidebar = true;
+      filename = toString (
+        (pkgs.formats.yaml { }).generate "ui-locations.yaml" {
+          title = "Locations";
+          views = [
+            {
+              title = "Locations";
+              path = "locations";
+              icon = "mdi:map-marker-path";
+              type = "panel";
+              cards = [
+                {
+                  type = "vertical-stack";
+                  cards = [
+                    {
+                      type = "entities";
+                      entities = [ "input_select.location_history_range" ];
+                    }
+                    {
+                      type = "conditional";
+                      conditions = [
+                        {
+                          condition = "state";
+                          entity = "input_select.location_history_range";
+                          state = "Last hour";
+                        }
+                      ];
+                      card = {
+                        type = "map";
+                        title = "Last hour";
+                        entities = [
+                          "person.jamie"
+                          "person.kat"
+                        ];
+                        hours_to_show = 1;
+                      };
+                    }
+                    {
+                      type = "conditional";
+                      conditions = [
+                        {
+                          condition = "state";
+                          entity = "input_select.location_history_range";
+                          state = "Last 24 hours";
+                        }
+                      ];
+                      card = {
+                        type = "map";
+                        title = "Last 24 hours";
+                        entities = [
+                          "person.jamie"
+                          "person.kat"
+                        ];
+                        hours_to_show = 24;
+                      };
+                    }
+                    {
+                      type = "conditional";
+                      conditions = [
+                        {
+                          condition = "state";
+                          entity = "input_select.location_history_range";
+                          state = "Last 7 days";
+                        }
+                      ];
+                      card = {
+                        type = "map";
+                        title = "Last 7 days";
+                        entities = [
+                          "person.jamie"
+                          "person.kat"
+                        ];
+                        hours_to_show = 168;
+                      };
+                    }
+                  ];
+                }
+              ];
+            }
+          ];
+        }
+      );
+    };
     lovelaceConfig = {
       title = "Home";
       views = [
