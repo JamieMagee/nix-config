@@ -131,7 +131,6 @@
             trigger = "state";
             entity_id = [
               "sensor.specialized_turbo_jamie_battery"
-              "sensor.specialized_turbo_kat_battery"
             ];
           }
         ];
@@ -205,8 +204,7 @@
             trigger = "template";
             value_template = ''
               {% set sensors = [
-                states('sensor.specialized_turbo_jamie_battery'),
-                states('sensor.specialized_turbo_kat_battery')
+                states('sensor.specialized_turbo_jamie_battery')
               ] %}
               {{ sensors | map('float', 0) | select('ge', 1) | select('lt', 99) | list | count == 0 }}
             '';
