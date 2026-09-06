@@ -68,7 +68,6 @@
       garmin_connect
       ha_mcp_tools
       pirate-weather
-      pkgs.ha-specialized-turbo
       roborock_custom_map
       smarthq
       spook
