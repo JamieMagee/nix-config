@@ -37,19 +37,23 @@ uart:
   parity: EVEN
   stop_bits: 1
 
+mitsubishi_cn105:
+  id: hp_hub
+  uart_id: HP_UART
+  update_interval: 4s
+
 climate:
   - platform: mitsubishi_cn105
+    mitsubishi_cn105_id: hp_hub
     id: hp
     name: "${friendly_name}"
     icon: mdi:heat-pump
-    uart_id: HP_UART
     visual:
       min_temperature: 16
       max_temperature: 26
       temperature_step:
         target_temperature: 0.5
         current_temperature: 0.5
-    update_interval: 4s
 
 sensor:
   - platform: uptime
