@@ -27,7 +27,7 @@
         "home-assistant" = {
           command = lib.getExe pkgs.ha-mcp;
           env = {
-            HOMEASSISTANT_URL = "http://192.168.1.3:8123";
+            HOMEASSISTANT_URL = "http://10.10.10.2:8123";
             HOMEASSISTANT_TOKEN = "$HOMEASSISTANT_TOKEN";
           };
         };
