@@ -55,6 +55,7 @@
       "roomba"
       "sabnzbd"
       "sonarr"
+      "specialized_turbo"
       "spotify"
       "switchbot" # Dependency for auto-discovery via ESPHome BLE advertisements
       "yalexs_ble"
