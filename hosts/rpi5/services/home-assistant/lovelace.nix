@@ -305,10 +305,10 @@ in
                 {
                   type = "custom:mushroom-template-card";
                   primary = "Garage";
-                  secondary = "{{ states('cover.garage_door') | title }}";
+                  secondary = "{{ states('cover.garage_garage_door') | title }}";
                   icon = "mdi:garage";
-                  icon_color = "{{ 'orange' if is_state('cover.garage_door', 'open') else 'blue' }}";
-                  badge_icon = "{{ 'mdi:arrow-up' if is_state('cover.garage_door', 'open') else '' }}";
+                  icon_color = "{{ 'orange' if is_state('cover.garage_garage_door', 'open') else 'blue' }}";
+                  badge_icon = "{{ 'mdi:arrow-up' if is_state('cover.garage_garage_door', 'open') else '' }}";
                   badge_color = "orange";
                   tap_action = {
                     action = "navigate";
@@ -371,7 +371,7 @@ in
               cards = [
                 {
                   type = "custom:mushroom-cover-card";
-                  entity = "cover.garage_door";
+                  entity = "cover.garage_garage_door";
                   name = "Garage";
                   layout = "vertical";
                   fill_container = true;
@@ -501,7 +501,7 @@ in
             # Door control
             {
               type = "custom:mushroom-cover-card";
-              entity = "cover.garage_door";
+              entity = "cover.garage_garage_door";
               name = "Garage Door";
               show_buttons_control = true;
               show_position_control = false;
