@@ -67,7 +67,15 @@
       emporia_vue
       garmin_connect
       ha_mcp_tools
-      pirate-weather
+      (pirate-weather.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [
+          (pkgs.fetchpatch {
+            url = "https://github.com/Pirate-Weather/pirate-weather-ha/commit/ca414f3ef53952aacf85ffde6312bfc91cd546e4.patch";
+            includes = [ "tests/*" ];
+            hash = "sha256-Jm7aU37bB+gxXtQ4zy7JOYV4fmtAL+VQS7bCGRk2c34=";
+          })
+        ];
+      }))
       roborock_custom_map
       smarthq
       spook
