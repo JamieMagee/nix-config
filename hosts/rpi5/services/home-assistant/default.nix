@@ -37,6 +37,7 @@
       "august"
       "cast"
       "google_translate"
+      "govee_ble" # Dependency for auto-discovery via ESPHome BLE advertisements
       "homeassistant_hardware"
       "homeassistant_sky_connect"
       "homekit_controller"
@@ -47,6 +48,7 @@
       "met"
       "mqtt"
       "notify"
+      "oralb" # Dependency for auto-discovery via ESPHome BLE advertisements
       "otp"
       "plex"
       "radarr"
