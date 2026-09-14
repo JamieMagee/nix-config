@@ -14,6 +14,17 @@
     mcp = {
       enable = true;
       servers = {
+        "azure" = {
+          command = "npx";
+          args = [
+            "-y"
+            "@azure/mcp"
+            "server"
+            "start"
+          ];
+          enabled = false;
+          tools = [ "*" ];
+        };
         "azure-devops" = {
           command = "npx";
           args = [
