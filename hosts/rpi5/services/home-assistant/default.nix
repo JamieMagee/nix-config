@@ -14,6 +14,7 @@
     ./lovelace.nix
     ./miele.nix
     ./mqtt.nix
+    ./music-assistant.nix
     ./notify.nix
     ./people.nix
     ./plants.nix
