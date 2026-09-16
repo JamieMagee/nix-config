@@ -5,6 +5,9 @@
   ...
 }:
 {
+  # The bundled ripgrep's jemalloc does not support 16 KiB page kernels.
+  home.sessionVariables.USE_BUILTIN_RIPGREP = "false";
+
   programs = {
     github-copilot-cli = {
       enable = true;
