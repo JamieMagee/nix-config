@@ -32,9 +32,11 @@
               ledIntensityWhenOff = 0;
               outputMode = "On/Off";
               smartBulbMode = "Smart Bulb Mode";
+              stateAfterPowerRestored = 255;
             };
             defaultLight = {
               color_temp_startup = 65535;
+              power_on_behavior = "previous";
             };
             defaultFan = defaultSwitch // {
               outputMode = "Exhaust Fan (On/Off)";
@@ -73,7 +75,7 @@
             "0x001788010de59fb4" = defaultLight // {
               friendly_name = "garage/light-stairs";
             };
-            "0xb43a31fffe380054" = defaultSwitch // {
+            "0x0c2a6ffffef3ea5d" = defaultSwitch // {
               friendly_name = "garage-bathroom/switch-light";
               smartBulbMode = "Disabled";
             };
@@ -81,8 +83,9 @@
               friendly_name = "garage-bathroom/switch-fan";
               autoTimerOff = 3600;
             };
-            "0xb43a31fffe38d5b8" = defaultSwitch // {
+            "0x0c2a6ffffef380e6" = defaultSwitch // {
               friendly_name = "garage-hallway/switch-stairs";
+              switchType = "Single Pole";
             };
             "0x00158d000af0cf12" = {
               friendly_name = "garage-bathroom/sink-leak";
@@ -118,6 +121,7 @@
             };
             "0xb43a31fffe396ae0" = defaultSwitch // {
               friendly_name = "kitchen/switch-stairs-light";
+              switchType = "Single Pole";
             };
             "0xb43a31fffe270352" = defaultSwitch // {
               friendly_name = "kitchen/switch-kitchen-light";
