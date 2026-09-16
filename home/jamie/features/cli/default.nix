@@ -23,6 +23,7 @@
       glow
       lazygit
       p7zip
+      powershell
       ripgrep
       skopeo
       statix
