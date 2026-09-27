@@ -392,6 +392,7 @@ in
           ];
           intercept = true;
           take_over_control = true;
+          take_over_control_mode = "pause_changed";
           detect_non_ha_changes = true;
           skip_redundant_commands = true;
         }
@@ -434,6 +435,7 @@ in
           min_brightness = 100;
           intercept = true;
           take_over_control = true;
+          detect_non_ha_changes = true;
           skip_redundant_commands = true;
         }
       ];
