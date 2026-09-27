@@ -1,3 +1,158 @@
+{ lib, ... }:
+let
+  # Sources must contain only bulbs, not the switches' optimistic group states.
+  switchSyncTargets = {
+    balcony = {
+      bulbEntity = "light.balcony_lights";
+      switches = [ "light.kitchen_switch_balcony" ];
+    };
+    bathroom_overhead = {
+      bulbEntity = "light.bathroom_overhead_lights";
+      switches = [
+        "light.bathroom_switch_overhead_1"
+        "light.bathroom_switch_overhead_2"
+      ];
+    };
+    bedroom = {
+      bulbEntity = "light.bedroom_lights";
+      switches = [ "light.bedroom_switch" ];
+    };
+    bedroom_closet = {
+      bulbEntity = "light.bedroom_light_closet";
+      switches = [ "light.bedroom_switch_closet" ];
+    };
+    front_porch = {
+      bulbEntity = "light.front_porch_lights";
+      switches = [ "light.living_room_switch_front_porch" ];
+    };
+    garage_indoors = {
+      bulbEntity = "light.garage_indoors_lights";
+      switches = [ "light.garage_switch_indoors" ];
+    };
+    garage_outdoor = {
+      bulbEntity = "light.garage_outdoor_lights";
+      switches = [ "light.garage_switch_outdoors" ];
+    };
+    kitchen = {
+      bulbEntity = "light.kitchen_lights";
+      switches = [
+        "light.kitchen_switch_kitchen_light"
+        "light.living_room_switch_kitchen_light"
+      ];
+    };
+    living_room = {
+      bulbEntity = "light.living_room_lights";
+      switches = [
+        "light.living_room_switch_living_room_light"
+        "light.kitchen_switch_living_room_light"
+      ];
+    };
+    living_room_stairs = {
+      bulbEntity = "light.living_room_stairs_lights";
+      switches = [
+        "light.upstairs_switch_stairs_light"
+        "light.living_room_switch_stairs_light"
+      ];
+    };
+    office = {
+      bulbEntity = "light.office_lights";
+      switches = [ "light.office_switch" ];
+    };
+    rooftop = {
+      bulbEntity = "light.rooftop_lights";
+      switches = [ "light.upstairs_switch_rooftop" ];
+    };
+    # Preserve the original stair automation's identity.
+    stair = {
+      bulbEntity = "light.garage_kitchen_stairs_lights";
+      switches = [
+        "light.garage_hallway_switch_stairs"
+        "light.kitchen_switch_stairs_light"
+      ];
+    };
+  };
+
+  mkSwitchSync =
+    name:
+    { bulbEntity, switches }:
+    {
+      alias = "Synchronize ${builtins.replaceStrings [ "_" ] [ " " ] name} switches with lights";
+      id = "sync_${name}_switches_with_lights";
+      description = "Mirror the bulbs when other controls bypass the shared Zigbee group.";
+      mode = "restart";
+      triggers = [
+        {
+          trigger = "state";
+          entity_id = bulbEntity;
+          to = "on";
+        }
+        {
+          trigger = "state";
+          entity_id = bulbEntity;
+          to = "off";
+        }
+        {
+          trigger = "homeassistant";
+          event = "start";
+        }
+      ]
+      ++
+        map
+          (to: {
+            trigger = "state";
+            entity_id = switches;
+            inherit to;
+            # Let direct bindings and switch ramps settle before correcting drift.
+            for = {
+              seconds = 3;
+            };
+          })
+          [
+            "on"
+            "off"
+          ];
+      actions = map (entity_id: {
+        choose =
+          map
+            (state: {
+              conditions = [
+                {
+                  condition = "state";
+                  entity_id = bulbEntity;
+                  inherit state;
+                }
+                {
+                  # Group updates are optimistic; explicitly confirm available switches.
+                  condition = "or";
+                  conditions =
+                    map
+                      (switchState: {
+                        condition = "state";
+                        inherit entity_id;
+                        state = switchState;
+                      })
+                      [
+                        "on"
+                        "off"
+                      ];
+                }
+              ];
+              sequence = [
+                {
+                  action = "light.turn_${state}";
+                  target = {
+                    inherit entity_id;
+                  };
+                }
+              ];
+            })
+            [
+              "on"
+              "off"
+            ];
+      }) switches;
+    };
+in
 {
   services.home-assistant = {
     extraComponents = [
@@ -16,7 +171,7 @@
           ];
         }
       ];
-      automation = [
+      automation = lib.mapAttrsToList mkSwitchSync switchSyncTargets ++ [
         {
           alias = "Garage motion-activated lights";
           id = "garage_motion_lights";
@@ -31,92 +186,6 @@
             };
           };
         }
-        (
-          let
-            bulbGroup = "light.garage_kitchen_stairs_lights";
-            stairSwitches = [
-              "light.garage_hallway_switch_stairs"
-              "light.kitchen_switch_stairs_light"
-            ];
-          in
-          {
-            alias = "Synchronize stair switches with lights";
-            id = "sync_stair_switches_with_lights";
-            description = "Mirror the bulb-only stair group when other controls bypass the shared Zigbee group.";
-            mode = "restart";
-            triggers = [
-              {
-                trigger = "state";
-                entity_id = bulbGroup;
-                to = "on";
-              }
-              {
-                trigger = "state";
-                entity_id = bulbGroup;
-                to = "off";
-              }
-              {
-                trigger = "homeassistant";
-                event = "start";
-              }
-            ]
-            ++
-              map
-                (to: {
-                  trigger = "state";
-                  entity_id = stairSwitches;
-                  inherit to;
-                  # Let direct bindings and switch ramps settle before correcting drift.
-                  for = {
-                    seconds = 3;
-                  };
-                })
-                [
-                  "on"
-                  "off"
-                ];
-            actions = map (entity_id: {
-              choose =
-                map
-                  (state: {
-                    conditions = [
-                      {
-                        condition = "state";
-                        entity_id = bulbGroup;
-                        inherit state;
-                      }
-                      {
-                        # Group updates are optimistic; explicitly confirm available switches.
-                        condition = "or";
-                        conditions =
-                          map
-                            (switchState: {
-                              condition = "state";
-                              inherit entity_id;
-                              state = switchState;
-                            })
-                            [
-                              "on"
-                              "off"
-                            ];
-                      }
-                    ];
-                    sequence = [
-                      {
-                        action = "light.turn_${state}";
-                        target = {
-                          inherit entity_id;
-                        };
-                      }
-                    ];
-                  })
-                  [
-                    "on"
-                    "off"
-                  ];
-            }) stairSwitches;
-          }
-        )
         {
           alias = "Turn on outside lights at sunset";
           id = "turn_on_outside_lights";
