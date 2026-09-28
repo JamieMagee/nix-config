@@ -747,7 +747,7 @@ in
                   type = "custom:mushroom-light-card";
                   entity = "light.garage_kitchen_stairs";
                   name = "Kit. Stairs";
-                  show_brightness_control = false;
+                  show_brightness_control = true;
                   layout = "vertical";
                   fill_container = true;
                 }
