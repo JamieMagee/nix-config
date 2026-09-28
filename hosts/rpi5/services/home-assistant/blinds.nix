@@ -216,8 +216,6 @@
                         "cover.bedroom_big_shade"
                         "cover.bedroom_small_shade"
                         "cover.office_shade"
-                        "cover.bathroom_big_shade"
-                        "cover.bathroom_small_shade"
                       ];
                     };
                   }
