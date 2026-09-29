@@ -33,6 +33,7 @@
               outputMode = "On/Off";
               smartBulbMode = "Smart Bulb Mode";
               stateAfterPowerRestored = 255;
+              switchType = "Single Pole";
             };
             defaultLight = {
               color_temp_startup = 65535;
@@ -85,7 +86,6 @@
             };
             "0x0c2a6ffffef380e6" = defaultSwitch // {
               friendly_name = "garage-hallway/switch-stairs";
-              switchType = "Single Pole";
             };
             "0x00158d000af0cf12" = {
               friendly_name = "garage-bathroom/sink-leak";
@@ -121,13 +121,13 @@
             };
             "0xb43a31fffe396ae0" = defaultSwitch // {
               friendly_name = "kitchen/switch-stairs-light";
-              switchType = "Single Pole";
             };
             "0xb43a31fffe270352" = defaultSwitch // {
               friendly_name = "kitchen/switch-kitchen-light";
             };
-            "0xb43a31fffe308aa9" = defaultSwitch // {
+            "0x0c2a6ffffef41417" = defaultSwitch // {
               friendly_name = "kitchen/switch-living-room-light";
+              mmwaveControlWiredDevice = "Disabled";
             };
             "0x001788010de59294" = defaultLight // {
               friendly_name = "living-room/light-1";
@@ -144,8 +144,9 @@
             "0x001788010de59ed5" = defaultLight // {
               friendly_name = "living-room/light-stairs";
             };
-            "0xb43a31fffe307d4a" = defaultSwitch // {
+            "0x0c2a6ffffef41764" = defaultSwitch // {
               friendly_name = "living-room/switch-living-room-light";
+              mmwaveControlWiredDevice = "Disabled";
             };
             "0xb43a31fffe30b619" = defaultSwitch // {
               friendly_name = "living-room/switch-kitchen-light";
