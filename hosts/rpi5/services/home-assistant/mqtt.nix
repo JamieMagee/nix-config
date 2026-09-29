@@ -35,6 +35,9 @@
               stateAfterPowerRestored = 255;
               switchType = "Single Pole";
             };
+            defaultMmWaveSwitch = defaultSwitch // {
+              mmWaveHoldTime = 1800;
+            };
             defaultLight = {
               color_temp_startup = 65535;
               power_on_behavior = "previous";
@@ -70,13 +73,13 @@
             "0xb43a31fffe34b129" = defaultSwitch // {
               friendly_name = "garage/switch-outdoors";
             };
-            "0x0c2a6ffffef70c00" = defaultSwitch // {
+            "0x0c2a6ffffef70c00" = defaultMmWaveSwitch // {
               friendly_name = "garage/switch-indoors";
             };
             "0x001788010de59fb4" = defaultLight // {
               friendly_name = "garage/light-stairs";
             };
-            "0x0c2a6ffffef3ea5d" = defaultSwitch // {
+            "0x0c2a6ffffef3ea5d" = defaultMmWaveSwitch // {
               friendly_name = "garage-bathroom/switch-light";
               smartBulbMode = "Disabled";
             };
@@ -84,7 +87,7 @@
               friendly_name = "garage-bathroom/switch-fan";
               autoTimerOff = 3600;
             };
-            "0x0c2a6ffffef380e6" = defaultSwitch // {
+            "0x0c2a6ffffef380e6" = defaultMmWaveSwitch // {
               friendly_name = "garage-hallway/switch-stairs";
             };
             "0x00158d000af0cf12" = {
@@ -125,7 +128,7 @@
             "0xb43a31fffe270352" = defaultSwitch // {
               friendly_name = "kitchen/switch-kitchen-light";
             };
-            "0x0c2a6ffffef41417" = defaultSwitch // {
+            "0x0c2a6ffffef41417" = defaultMmWaveSwitch // {
               friendly_name = "kitchen/switch-living-room-light";
               mmwaveControlWiredDevice = "Disabled";
             };
@@ -144,7 +147,7 @@
             "0x001788010de59ed5" = defaultLight // {
               friendly_name = "living-room/light-stairs";
             };
-            "0x0c2a6ffffef41764" = defaultSwitch // {
+            "0x0c2a6ffffef41764" = defaultMmWaveSwitch // {
               friendly_name = "living-room/switch-living-room-light";
               mmwaveControlWiredDevice = "Disabled";
             };
