@@ -125,7 +125,7 @@
             "0xb43a31fffe396ae0" = defaultSwitch // {
               friendly_name = "kitchen/switch-stairs-light";
             };
-            "0xb43a31fffe270352" = defaultSwitch // {
+            "0xb43a31fffe380054" = defaultSwitch // {
               friendly_name = "kitchen/switch-kitchen-light";
             };
             "0x0c2a6ffffef41417" = defaultMmWaveSwitch // {
@@ -151,7 +151,7 @@
               friendly_name = "living-room/switch-living-room-light";
               mmwaveControlWiredDevice = "Disabled";
             };
-            "0xb43a31fffe30b619" = defaultSwitch // {
+            "0xb43a31fffe308aa9" = defaultSwitch // {
               friendly_name = "living-room/switch-kitchen-light";
             };
             "0xb43a31fffe34dcd3" = defaultSwitch // {
