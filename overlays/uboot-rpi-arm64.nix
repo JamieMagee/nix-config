@@ -1,4 +1,4 @@
-# Patch nixpkgs' U-Boot 2026.07 with Torsten Duwe's
+# Apply the remaining NVMe boot patches from Torsten Duwe's
 # "Fix NVMe, not only on Raspberry Pi 5" v2 series.
 #
 # Series cover letter:
@@ -7,8 +7,8 @@
 # Patches are pulled from lore.kernel.org. lore rejects the default
 # curl User-Agent, so we set one explicitly via curlOptsList.
 #
-# Patch 2/4 is a test-only change with a known unreliable flat-tree case,
-# so only the three target changes are applied.
+# Only patches 1/4 and 4/4 are applied. Patch 2/4 is test-only with a known
+# unreliable flat-tree case; patch 3/4 is upstream in U-Boot 2026.10.
 final: prev: {
   ubootRaspberryPiAarch64 =
     let
@@ -31,11 +31,6 @@ final: prev: {
           name = "0001-core-skip-parent-nodes-without-dt.patch";
           msgId = "20260706172147.C934268B05";
           hash = "sha256-Yp/3vVmrVNa4Y5Z4/W4KEu6c7+clIKNiAf92BTsanVA=";
-        })
-        (fetchLorePatch {
-          name = "0003-nvme-translate-pcie-inbound-addresses.patch";
-          msgId = "20260706172152.5257168BFE";
-          hash = "sha256-QcnJ9/LYM3+IiYk3v1vI3eIulyVaCEouwYJzUE5PrCQ=";
         })
         (fetchLorePatch {
           name = "0004-rpi-enable-nvme.patch";
