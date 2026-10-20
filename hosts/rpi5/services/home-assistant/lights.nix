@@ -82,16 +82,6 @@ let
       mode = "restart";
       triggers = [
         {
-          trigger = "state";
-          entity_id = bulbEntity;
-          to = "on";
-        }
-        {
-          trigger = "state";
-          entity_id = bulbEntity;
-          to = "off";
-        }
-        {
           trigger = "homeassistant";
           event = "start";
         }
@@ -100,18 +90,22 @@ let
         map
           (to: {
             trigger = "state";
-            entity_id = switches;
+            entity_id = [ bulbEntity ] ++ switches;
             inherit to;
-            # Let direct bindings and switch ramps settle before correcting drift.
-            for = {
-              seconds = 3;
-            };
           })
           [
             "on"
             "off"
           ];
-      actions = map (entity_id: {
+      actions = [
+        {
+          # Restart the settling period whenever bulbs or switches change state.
+          delay = {
+            seconds = 3;
+          };
+        }
+      ]
+      ++ map (entity_id: {
         choose =
           map
             (state: {
@@ -122,19 +116,9 @@ let
                   inherit state;
                 }
                 {
-                  # Group updates are optimistic; explicitly confirm available switches.
-                  condition = "or";
-                  conditions =
-                    map
-                      (switchState: {
-                        condition = "state";
-                        inherit entity_id;
-                        state = switchState;
-                      })
-                      [
-                        "on"
-                        "off"
-                      ];
+                  condition = "state";
+                  inherit entity_id;
+                  state = if state == "on" then "off" else "on";
                 }
               ];
               sequence = [
