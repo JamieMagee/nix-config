@@ -14,7 +14,8 @@
 
   home = {
     packages = with pkgs; [
-      bicep
+      # https://github.com/NixOS/patchelf/pull/672
+      # bicep
       # bitwarden-cli
       deploy-rs
       devenv
