@@ -72,6 +72,7 @@
       garmin_connect
       ha_mcp_tools
       pirate-weather
+      planta
       roborock_custom_map
       smarthq
       spook
