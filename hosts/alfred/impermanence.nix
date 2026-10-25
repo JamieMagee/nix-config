@@ -51,11 +51,6 @@
     ];
   };
 
-  # The rollback unit only makes sense in a systemd initrd. Force it
-  # on rather than relying on the nixpkgs default; if a future change
-  # disables it, the rebuild should fail loudly.
-  boot.initrd.systemd.enable = lib.mkForce true;
-
   boot.initrd.systemd.services.rollback-root = {
     description = "Rollback ZFS root dataset to blank snapshot";
     wantedBy = [ "initrd.target" ];
