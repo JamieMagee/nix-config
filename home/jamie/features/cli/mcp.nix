@@ -38,13 +38,14 @@
           enabled = false;
           tools = [ "*" ];
         };
-        "home-assistant" = {
-          command = lib.getExe pkgs.ha-mcp;
-          env = {
-            HOMEASSISTANT_URL = "http://10.10.10.2:8123";
-            HOMEASSISTANT_TOKEN = "$HOMEASSISTANT_TOKEN";
-          };
-        };
+        # https://github.com/NixOS/nixpkgs/pull/578535
+        # "home-assistant" = {
+        #   command = lib.getExe pkgs.ha-mcp;
+        #   env = {
+        #     HOMEASSISTANT_URL = "http://10.10.10.2:8123";
+        #     HOMEASSISTANT_TOKEN = "$HOMEASSISTANT_TOKEN";
+        #   };
+        # };
         sentry = {
           url = "https://mcp.sentry.dev/mcp";
           tools = [ "*" ];
