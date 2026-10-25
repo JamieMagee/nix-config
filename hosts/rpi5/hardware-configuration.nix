@@ -11,7 +11,7 @@
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
       options = [
-        "data=journal" # Improve reliability
+        "data=ordered"
       ];
     };
     "/boot/firmware" = {
@@ -36,7 +36,7 @@
   boot = {
     kernelParams = [
       "8250.nr_uarts=1"
-      "rootflags=data=journal"
+      "rootflags=data=ordered"
     ];
     # The Pi has no TPM, and linux-rpi omits these generic initrd modules.
     initrd.systemd.tpm2.enable = false;
