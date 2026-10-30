@@ -50,6 +50,10 @@
           url = "https://mcp.sentry.dev/mcp";
           tools = [ "*" ];
         };
+        datadog = {
+          type = "http";
+          url = "https://mcp.datadoghq.com/v1/mcp";
+        };
       };
     };
   };
