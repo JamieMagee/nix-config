@@ -93,7 +93,6 @@ in
       mushroom
       mini-graph-card
       button-card
-      flower-card
       xiaomi-vacuum-map-card
     ];
     config.input_select.location_history_range = {
