@@ -11,9 +11,13 @@
           id = "doorbell";
           triggers = [
             {
-              trigger = "state";
-              entity_id = "binary_sensor.g4_doorbell_pro_doorbell";
-              to = "on";
+              trigger = "event.received";
+              target = {
+                entity_id = "event.g4_doorbell_pro_doorbell";
+              };
+              options = {
+                event_type = [ "ring" ];
+              };
             }
           ];
           actions = [
