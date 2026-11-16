@@ -47,11 +47,11 @@
     git.settings = {
       credential = {
         "https://dev.azure.com" = {
-          helper = "/mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe";
+          helper = "/mnt/c/Program\\ Files/Git\\ Credential\\ Manager/git-credential-manager.exe";
           useHttpPath = true;
         };
         "https://*.visualstudio.com" = {
-          helper = "/mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe";
+          helper = "/mnt/c/Program\\ Files/Git\\ Credential\\ Manager/git-credential-manager.exe";
           useHttpPath = true;
         };
       };
